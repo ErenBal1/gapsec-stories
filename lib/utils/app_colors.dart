@@ -5,4 +5,5 @@ class CustomColors {
   static const red = Colors.red;
   static const scaffoldColor = Colors.black12;
   static const black = Colors.black;
+  static const transparent = Colors.transparent;
 }
