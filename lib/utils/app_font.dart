@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/utils/app_colors.dart';
 
 class AppFonts {
-  static const playTitle = TextStyle(fontSize: 24, color: CustomColors.white);
-  static const norm = TextStyle(
-      fontSize: 40, fontFamily: "HorrorFont", color: CustomColors.red);
+  static var mainMenuButton = const TextStyle(
+    fontSize: 20.0,
+    fontWeight: FontWeight.w900,
+    fontFamily: "HorrorFont",
+    color: Color.fromARGB(150, 31, 25, 26),
+  );
+  static var norm = const TextStyle(
+    fontSize: 55,
+    fontFamily: "HorrorFont",
+    fontWeight: FontWeight.w800,
+    color: Colors.black,
+  );
 }
