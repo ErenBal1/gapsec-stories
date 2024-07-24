@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gapsec/utils/app_font.dart';
+import 'package:gapsec/widgets/main_menu_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -7,9 +7,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text("Hoşgeldin Oyuncu", style: AppFonts.norm),
-      ),
+      body: MainMenuWidget(),
     );
   }
 }

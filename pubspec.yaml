@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   #SPLASH SCREEN
   animated_splash_screen: ^1.3.0
   #Page Trans
@@ -26,6 +27,7 @@ flutter:
   assets:
     - assets/
     - assets/fonts/
+    - assets/images/
   fonts:
     - family: HorrorFont
       fonts:
