@@ -8,7 +8,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("selam Eren", style: AppFonts.norm),
+        child: Text("Hoşgeldin Oyuncu", style: AppFonts.norm),
       ),
     );
   }
