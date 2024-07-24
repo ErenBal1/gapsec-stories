@@ -20,6 +20,7 @@ flutter:
   assets:
     - assets/
     - assets/fonts/
+    - assets/images/
   fonts:
     - family: HorrorFont
       fonts:
