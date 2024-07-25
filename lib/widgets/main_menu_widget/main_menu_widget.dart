@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/utils/constants.dart';
-import 'package:gapsec/widgets/animated_title.dart';
-import 'package:gapsec/widgets/main_menu_buttons.dart';
-import 'package:gapsec/widgets/settings_button.dart';
+import 'package:gapsec/widgets/main_menu_widget/animated_title.dart';
+import 'package:gapsec/widgets/main_menu_widget/main_menu_buttons.dart';
+import 'package:gapsec/widgets/main_menu_widget/settings_button.dart';
 
 class MainMenuWidget extends StatelessWidget {
-  final HomeState vm;
-  const MainMenuWidget({super.key, required this.vm});
+  const MainMenuWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +13,8 @@ class MainMenuWidget extends StatelessWidget {
       children: [
         _buildBackground(),
         _buildTitle(context),
-        _buildMenuButtons(context: context, vm: vm),
-        SettingsButton(vm: vm),
+        _buildMenuButtons(context),
+        const SettingsButton(),
       ],
     );
   }
@@ -41,12 +39,11 @@ class MainMenuWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuButtons(
-      {required BuildContext context, required HomeState vm}) {
+  Widget _buildMenuButtons(BuildContext context) {
     return Positioned(
       top: MediaQuery.of(context).size.height * 0.43,
       left: MediaQuery.of(context).size.width * 0.44,
-      child: MenuButtons(vm: vm),
+      child: const MenuButtons(),
     );
   }
 }
