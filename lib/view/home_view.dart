@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
-import 'package:gapsec/widgets/main_menu_widget.dart';
+import 'package:gapsec/widgets/main_menu_widget/main_menu_widget.dart';
 
 class HomeView extends StatelessWidget {
   final HomeState vm = HomeState();

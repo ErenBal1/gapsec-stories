@@ -14,6 +14,13 @@ class SplashView extends StatelessWidget {
       Colors.white,
       Colors.red,
     ];
+    const whiteList = [
+      //Colors.purple,
+      //Colors.blue,
+      Colors.grey,
+      Colors.cyan,
+      Colors.grey,
+    ];
 
     const colorizeTextStyle = TextStyle(
       fontSize: 50.0,
@@ -28,19 +35,28 @@ class SplashView extends StatelessWidget {
           child: AnimatedTextKit(
             animatedTexts: [
               ColorizeAnimatedText(
+                speed: const Duration(milliseconds: 150),
                 'GAPSEC',
                 textStyle: colorizeTextStyle,
                 colors: colorizeColors,
               ),
               ColorizeAnimatedText(
+                speed: const Duration(milliseconds: 150),
                 'Your Choices',
                 textStyle: colorizeTextStyle,
                 colors: colorizeColors,
               ),
               ColorizeAnimatedText(
-                'DEVAST',
+                speed: const Duration(milliseconds: 150),
+                'Your Stories',
                 textStyle: colorizeTextStyle,
                 colors: colorizeColors,
+              ),
+              ColorizeAnimatedText(
+                speed: const Duration(milliseconds: 150),
+                'DEVAST',
+                textStyle: colorizeTextStyle,
+                colors: whiteList,
               ),
             ],
             isRepeatingAnimation: false,
