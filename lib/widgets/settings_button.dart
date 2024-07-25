@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
 
 class SettingsButton extends StatelessWidget {
-  const SettingsButton({super.key});
+  final HomeState vm;
+  const SettingsButton({super.key, required this.vm});
 
   @override
   Widget build(BuildContext context) {
