@@ -8,10 +8,16 @@ class AppFonts {
     fontFamily: "HorrorFont",
     color: Color.fromARGB(150, 31, 25, 26),
   );
-  static var norm = const TextStyle(
+  static var normDark = const TextStyle(
     fontSize: 55,
     fontFamily: "HorrorFont",
     fontWeight: FontWeight.w800,
     color: Colors.black,
+  );
+  static var normRed = const TextStyle(
+    fontSize: 55,
+    fontFamily: "HorrorFont",
+    fontWeight: FontWeight.w800,
+    color: Color.fromARGB(114, 244, 67, 54),
   );
 }
