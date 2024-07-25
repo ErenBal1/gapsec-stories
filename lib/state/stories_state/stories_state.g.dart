@@ -13,19 +13,15 @@ mixin _$StoriesState on _StoriesStateBase, Store {
       Atom(name: '_StoriesStateBase.controller', context: context);
 
   @override
-  VideoPlayerController get controller {
+  VideoPlayerController? get controller {
     _$controllerAtom.reportRead();
     return super.controller;
   }
 
-  bool _controllerIsInitialized = false;
-
   @override
-  set controller(VideoPlayerController value) {
-    _$controllerAtom.reportWrite(
-        value, _controllerIsInitialized ? super.controller : null, () {
+  set controller(VideoPlayerController? value) {
+    _$controllerAtom.reportWrite(value, super.controller, () {
       super.controller = value;
-      _controllerIsInitialized = true;
     });
   }
 
@@ -37,8 +33,27 @@ mixin _$StoriesState on _StoriesStateBase, Store {
     return _$initializeVideoAsyncAction.run(() => super.initializeVideo());
   }
 
+  late final _$closeVideoAsyncAction =
+      AsyncAction('_StoriesStateBase.closeVideo', context: context);
+
+  @override
+  Future<void> closeVideo() {
+    return _$closeVideoAsyncAction.run(() => super.closeVideo());
+  }
+
   late final _$_StoriesStateBaseActionController =
       ActionController(name: '_StoriesStateBase', context: context);
+
+  @override
+  void goBack({required BuildContext context}) {
+    final _$actionInfo = _$_StoriesStateBaseActionController.startAction(
+        name: '_StoriesStateBase.goBack');
+    try {
+      return super.goBack(context: context);
+    } finally {
+      _$_StoriesStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void dispose() {
