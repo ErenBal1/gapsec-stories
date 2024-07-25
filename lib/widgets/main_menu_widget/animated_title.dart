@@ -7,6 +7,7 @@ class AnimatedTitle extends StatelessWidget {
 
   const AnimatedTitle({super.key, required this.text});
 
+  // late AudioPlayer _audioPlayer;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -17,7 +18,7 @@ class AnimatedTitle extends StatelessWidget {
           TypewriterAnimatedText(
             text,
             textStyle: AppFonts.norm
-                .copyWith(fontSize: 50.0, fontWeight: FontWeight.bold),
+                .copyWith(fontSize: 57.0, fontWeight: FontWeight.bold),
             speed: const Duration(milliseconds: 100),
           ),
         ],
@@ -25,6 +26,8 @@ class AnimatedTitle extends StatelessWidget {
         pause: const Duration(milliseconds: 1000),
         displayFullTextOnTap: true,
         stopPauseOnTap: true,
+        isRepeatingAnimation: false,
+        // onNext: (_, __) => _playTypingSound(),
       ),
     );
   }

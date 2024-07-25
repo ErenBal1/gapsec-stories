@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gapsec/utils/constants.dart';
-import 'package:gapsec/widgets/animated_title.dart';
-import 'package:gapsec/widgets/main_menu_buttons.dart';
-import 'package:gapsec/widgets/settings_button.dart';
+import 'package:gapsec/widgets/main_menu_widget/animated_title.dart';
+import 'package:gapsec/widgets/main_menu_widget/main_menu_buttons.dart';
+import 'package:gapsec/widgets/main_menu_widget/settings_button.dart';
 
 class MainMenuWidget extends StatelessWidget {
   const MainMenuWidget({super.key});

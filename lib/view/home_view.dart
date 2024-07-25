@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gapsec/widgets/main_menu_widget.dart';
+import 'package:gapsec/widgets/main_menu_widget/main_menu_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
