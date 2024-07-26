@@ -25,6 +25,8 @@ dependencies:
   audioplayers: ^6.0.0
   #Animated Tabs
   tab_container: ^3.5.3
+  #Carousel Slider
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

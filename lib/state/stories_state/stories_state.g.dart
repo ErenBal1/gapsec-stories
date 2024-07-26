@@ -18,10 +18,30 @@ mixin _$StoriesState on _StoriesStateBase, Store {
     return super.controller;
   }
 
+  bool _controllerIsInitialized = false;
+
   @override
   set controller(VideoPlayerController? value) {
-    _$controllerAtom.reportWrite(value, super.controller, () {
+    _$controllerAtom.reportWrite(
+        value, _controllerIsInitialized ? super.controller : null, () {
       super.controller = value;
+      _controllerIsInitialized = true;
+    });
+  }
+
+  late final _$isVideoInitializedAtom =
+      Atom(name: '_StoriesStateBase.isVideoInitialized', context: context);
+
+  @override
+  bool get isVideoInitialized {
+    _$isVideoInitializedAtom.reportRead();
+    return super.isVideoInitialized;
+  }
+
+  @override
+  set isVideoInitialized(bool value) {
+    _$isVideoInitializedAtom.reportWrite(value, super.isVideoInitialized, () {
+      super.isVideoInitialized = value;
     });
   }
 
@@ -69,7 +89,8 @@ mixin _$StoriesState on _StoriesStateBase, Store {
   @override
   String toString() {
     return '''
-controller: ${controller}
+controller: ${controller},
+isVideoInitialized: ${isVideoInitialized}
     ''';
   }
 }

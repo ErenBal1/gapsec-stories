@@ -23,7 +23,7 @@ abstract class _StoriesStateBase with Store {
       isVideoInitialized = true;
       controller?.play();
     } catch (e) {
-      print('Video initialization failed: $e');
+      debugPrint('Video initialization failed: $e');
     }
   }
 
