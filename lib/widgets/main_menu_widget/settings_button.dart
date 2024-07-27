@@ -1,5 +1,9 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gapsec/main.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/constants.dart';
 
 class SettingsButton extends StatefulWidget {
   const SettingsButton({super.key});
@@ -12,6 +16,30 @@ class _SettingsButtonState extends State<SettingsButton> {
   bool _isSettingsExpanded = false;
   bool _isLanguageExpanded = false;
   bool _isSoundOn = true;
+  late AudioPlayer _audioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
+  void _toggleSound() {
+    setState(() {
+      _isSoundOn = !_isSoundOn;
+      if (_isSoundOn) {
+        _audioPlayer.setVolume(1.0);
+      } else {
+        _audioPlayer.setVolume(0.0);
+      }
+    });
+  }
 
   void _toggleSettingsMenu() {
     setState(() {
@@ -24,12 +52,6 @@ class _SettingsButtonState extends State<SettingsButton> {
     setState(() {
       _isLanguageExpanded = !_isLanguageExpanded;
       if (_isLanguageExpanded) _isSettingsExpanded = false;
-    });
-  }
-
-  void _toggleSound() {
-    setState(() {
-      _isSoundOn = !_isSoundOn;
     });
   }
 
@@ -92,7 +114,14 @@ class _SettingsButtonState extends State<SettingsButton> {
       margin: const EdgeInsets.all(3),
       child: ElevatedButton(
         onPressed: () {
-          // Dil seçimi
+          if (flag == '🇹🇷' && context.locale != LanguageConstants.trLocale) {
+            context.setLocale(LanguageConstants.trLocale);
+            restartApp();
+          } else if (flag == '🇬🇧' &&
+              context.locale != LanguageConstants.enLocale) {
+            context.setLocale(LanguageConstants.enLocale);
+            restartApp();
+          }
         },
         style: ElevatedButton.styleFrom(
           shape: const CircleBorder(),
@@ -105,6 +134,14 @@ class _SettingsButtonState extends State<SettingsButton> {
           style: const TextStyle(fontSize: 25),
         ),
       ),
+    );
+  }
+
+  void restartApp() {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const MainApp()),
+      (route) => false,
     );
   }
 

@@ -23,6 +23,8 @@ dependencies:
   video_player: ^2.9.1
   #Audio Player
   audioplayers: ^6.0.0
+  #localization
+  easy_localization: ^3.0.7
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +43,7 @@ flutter:
     - assets/images/
     - assets/videos/
     - assets/audios/
+    - assets/translations/
   fonts:
     - family: HorrorFont
       fonts:

@@ -5,6 +5,12 @@ class Constants {
       "assets/images/main_menu_background_blue.png";
 }
 
+class LanguageConstants {
+  static const trLocale = Locale('tr', 'TR');
+  static const enLocale = Locale('en', 'US');
+  static const langPath = "assets/translations";
+}
+
 class Config {
   static MediaQueryData? mediaQueryData;
   static double? screenWidth;

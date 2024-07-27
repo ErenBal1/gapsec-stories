@@ -1,35 +1,56 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gapsec/theme/app_theme.dart';
-import 'package:gapsec/utils/app_colors.dart';
-import 'package:gapsec/view/home_view.dart';
-import 'package:gapsec/view/splash_view.dart';
-import 'package:gapsec/view/stories_view.dart';
+import 'theme/app_theme.dart';
+import 'utils/app_colors.dart';
+import 'utils/constants.dart';
+import 'view/home_view.dart';
+import 'view/splash_view.dart';
+import 'view/stories_view.dart';
 import 'package:page_transition/page_transition.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MainApp());
+
+  runApp(EasyLocalization(
+    supportedLocales: const [
+      LanguageConstants.enLocale,
+      LanguageConstants.trLocale,
+    ],
+    fallbackLocale: LanguageConstants.enLocale,
+    path: LanguageConstants.langPath,
+    child: const MainApp(),
+  ));
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
   @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       debugShowCheckedModeBanner: false,
       theme: appTheme,
       title: "Gapsec",
       home: AnimatedSplashScreen(
-          splash: const SplashView(),
-          duration: 8000,
-          backgroundColor: CustomColors.black,
-          splashTransition: SplashTransition.fadeTransition,
-          pageTransitionType: PageTransitionType.fade,
-          nextScreen: HomeView()),
+        splash: const SplashView(),
+        duration: 8000,
+        backgroundColor: CustomColors.black,
+        splashTransition: SplashTransition.fadeTransition,
+        pageTransitionType: PageTransitionType.fade,
+        nextScreen: HomeView(),
+      ),
     );
   }
 }
