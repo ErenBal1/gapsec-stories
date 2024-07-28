@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/web.dart';
 import 'package:mobx/mobx.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:video_player/video_player.dart';
@@ -13,6 +14,11 @@ abstract class _StoriesStateBase with Store {
 
   @observable
   bool isVideoInitialized = false;
+
+  @action
+  void printIndexs(int pageIndex, int tabIndex) {
+    print("page index : $pageIndex, tab index: $tabIndex");
+  }
 
   @action
   Future<void> initializeVideo() async {
@@ -31,13 +37,12 @@ abstract class _StoriesStateBase with Store {
   Future<void> closeVideo() async {
     controller?.pause();
     controller?.dispose();
-    controller =
-        null; // controller'ı null yaparak artık kullanılmaz hale getiriyoruz
+    controller = null;
     isVideoInitialized = false;
   }
 
   @action
-  void goBack({required BuildContext context}) {
+  void goBack({required BuildContext context, required String historyName}) {
     Navigator.pop(
         context,
         PageTransition(

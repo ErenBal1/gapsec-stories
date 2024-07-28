@@ -26,4 +26,10 @@ class AppFonts {
     fontWeight: FontWeight.w800,
     color: Color.fromARGB(114, 244, 67, 54),
   );
+  static var storyTitle = const TextStyle(
+    fontSize: 40,
+    fontFamily: "HorrorFont",
+    fontWeight: FontWeight.w800,
+    color: Color.fromARGB(146, 244, 67, 54),
+  );
 }

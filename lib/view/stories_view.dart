@@ -1,17 +1,16 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
-import 'package:gapsec/stories/stories.dart';
-import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/stories/pages/pages.dart';
+import 'package:gapsec/stories/tabs/tabs.dart';
 import 'package:gapsec/utils/app_font.dart';
-import 'package:gapsec/utils/constants.dart';
-import 'package:gapsec/widgets/stories_widget/card_one_page.dart';
-import 'package:gapsec/widgets/stories_widget/card_widget.dart';
 import 'package:tab_container/tab_container.dart';
 import 'package:video_player/video_player.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/constants.dart';
 
 class StoriesView extends StatefulWidget {
   const StoriesView({super.key});
@@ -21,20 +20,16 @@ class StoriesView extends StatefulWidget {
 }
 
 class _StoriesViewState extends State<StoriesView>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   final StoriesState vm = StoriesState();
   late VideoPlayerController controller;
-  late final TabController _tabcontroller;
+  late TabController tab1Controller;
+  late TabController tab2Controller;
   late CarouselController carouselController;
   late TextTheme textTheme;
-  final List<String> imgList = [
-    'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-    'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-    'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-    'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
-  ];
+  int iconSelectedIndex = 0;
+  String selectedTitle = "Murder";
+  String selectedDescription = "Discipline is the best tool";
 
   @override
   void initState() {
@@ -49,7 +44,15 @@ class _StoriesViewState extends State<StoriesView>
         },
       );
     carouselController = CarouselController();
-    _tabcontroller = TabController(vsync: this, length: 3);
+  }
+
+  void updateIndex(int index, String title, String description) {
+    setState(() {
+      iconSelectedIndex = index;
+      selectedTitle = title;
+      selectedDescription = description;
+    });
+    print(iconSelectedIndex);
   }
 
   @override
@@ -60,7 +63,6 @@ class _StoriesViewState extends State<StoriesView>
 
   @override
   void dispose() {
-    _tabcontroller.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -94,51 +96,196 @@ class _StoriesViewState extends State<StoriesView>
               right: 0,
               child: SingleChildScrollView(
                 child: SizedBox(
-                  width: 300,
+                  width: Config.screenWidth! * 0.7,
                   height: Config.screenHeight,
                   child: Column(
                     children: [
                       Builder(
                         builder: (context) {
                           return CarouselSlider.builder(
-                            itemCount: stories(context: context).length,
+                            itemCount:
+                                pagesClass().pages(context: context).length,
                             carouselController: carouselController,
                             itemBuilder: (context, index, realIndex) {
-                              return MyCard.cardOne(context: context, i: index);
+                              return SizedBox(
+                                width: Config.screenWidth! * 0.7,
+                                height: 400,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: Container(
+                                    color: CustomColors.transparent,
+                                    width: Config.screenWidth! * 0.7,
+                                    height: 400,
+                                    child: Column(
+                                      children: [
+                                        Expanded(
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                flex: 4,
+                                                child: Container(
+                                                  height: 400,
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                10)),
+                                                    color: CustomColors
+                                                        .storyCardColor,
+                                                  ),
+                                                  //width: double.infinity,
+
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(selectedTitle,
+                                                            style: AppFonts
+                                                                .storyTitle),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  top: 8.0),
+                                                          child:
+                                                              DefaultTextStyle(
+                                                            style:
+                                                                const TextStyle(
+                                                              fontSize: 24.0,
+                                                              fontFamily:
+                                                                  'HorrorFont',
+                                                            ),
+                                                            child:
+                                                                AnimatedTextKit(
+                                                              key: ValueKey(
+                                                                  selectedDescription),
+                                                              isRepeatingAnimation:
+                                                                  false,
+                                                              animatedTexts: [
+                                                                TyperAnimatedText(
+                                                                    selectedDescription,
+                                                                    speed: const Duration(
+                                                                        milliseconds:
+                                                                            50)),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 1,
+                                                child: Container(
+                                                  // width: double.infinity,
+                                                  height: 400,
+                                                  color: CustomColors
+                                                      .scaffoldColor,
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          updateIndex(
+                                                              0,
+                                                              murder.name,
+                                                              murder
+                                                                  .description);
+                                                        },
+                                                        icon: const Icon(
+                                                            Icons.star),
+                                                        color:
+                                                            iconSelectedIndex == 0
+                                                                ? CustomColors
+                                                                    .red
+                                                                : CustomColors
+                                                                    .white,
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          updateIndex(
+                                                              1,
+                                                              dontLookBack.name,
+                                                              dontLookBack
+                                                                  .description);
+                                                        },
+                                                        icon: const Icon(
+                                                            Icons.star),
+                                                        color:
+                                                            iconSelectedIndex == 1
+                                                                ? CustomColors
+                                                                    .red
+                                                                : CustomColors
+                                                                    .white,
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          updateIndex(
+                                                              2,
+                                                              lostLucy.name,
+                                                              lostLucy
+                                                                  .description);
+                                                        },
+                                                        icon: const Icon(
+                                                            Icons.star),
+                                                        color:
+                                                            iconSelectedIndex == 2
+                                                                ? CustomColors
+                                                                    .red
+                                                                : CustomColors
+                                                                    .white,
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          updateIndex(
+                                                              3,
+                                                              runKaity.name,
+                                                              runKaity
+                                                                  .description);
+                                                        },
+                                                        icon: const Icon(
+                                                            Icons.star),
+                                                        color:
+                                                            iconSelectedIndex == 3
+                                                                ? CustomColors
+                                                                    .red
+                                                                : CustomColors
+                                                                    .white,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
                             },
                             options: CarouselOptions(
                               height: (Config.screenHeight! * 0.4),
                               autoPlay: false,
                               viewportFraction: 1,
                             ),
-                            /* imgList
-                                .map((item) => Container(
-                                      child: Center(
-                                          child: Image.network(
-                                        item,
-                                        fit: BoxFit.cover,
-                                        width: 300,
-                                        height: 300,
-                                      )),
-                                    ))
-                                .toList(), */
                           );
                         },
                       )
-                      /* SizedBox(
-                        width: Config.screenWidth! * 0.7,
-                        height: 400,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: TabContainer(
-                            color: CustomColors.red.withOpacity(0.3),
-                            tabEdge: TabEdge.right,
-                            childPadding: const EdgeInsets.all(20.0),
-                            tabs: _getTabs3(context),
-                            children: _getChildren3(context),
-                          ),
-                        ),
-                      ), */
                     ],
                   ),
                 ),
@@ -150,7 +297,7 @@ class _StoriesViewState extends State<StoriesView>
               child: Observer(builder: (_) {
                 return IconButton(
                   onPressed: () async {
-                    vm.goBack(context: context);
+                    vm.goBack(context: context, historyName: "backButton");
                   },
                   icon: const Icon(
                     Icons.arrow_back_ios_new_outlined,
@@ -164,98 +311,4 @@ class _StoriesViewState extends State<StoriesView>
       ),
     );
   }
-
-  List<Widget> _getChildren3(BuildContext context) => <Widget>[
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'MURDER',
-              style: AppFonts.storyCard,
-            ),
-            const Spacer(),
-            DefaultTextStyle(
-              style: const TextStyle(
-                fontSize: 30.0,
-                fontFamily: 'HorrorFont',
-              ),
-              child: AnimatedTextKit(
-                isRepeatingAnimation: false,
-                animatedTexts: [
-                  TyperAnimatedText('Discipline is the best tool',
-                      speed: const Duration(milliseconds: 100)),
-                ],
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Don't Look Back", style: AppFonts.storyCard),
-            const Spacer(),
-            DefaultTextStyle(
-              style: const TextStyle(
-                fontSize: 30.0,
-                fontFamily: 'HorrorFont',
-              ),
-              child: AnimatedTextKit(
-                isRepeatingAnimation: false,
-                animatedTexts: [
-                  TyperAnimatedText('Discipline is the best tool',
-                      speed: const Duration(milliseconds: 100)),
-                ],
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Lost Lucy', style: AppFonts.storyCard),
-            const Spacer(),
-            DefaultTextStyle(
-              style: const TextStyle(
-                fontSize: 30.0,
-                fontFamily: 'HorrorFont',
-              ),
-              child: AnimatedTextKit(
-                isRepeatingAnimation: false,
-                animatedTexts: [
-                  TyperAnimatedText('Discipline is the best tool',
-                      speed: const Duration(milliseconds: 100)),
-                ],
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Night Game', style: AppFonts.storyCard),
-            const Spacer(),
-            DefaultTextStyle(
-              style: const TextStyle(
-                fontSize: 30.0,
-                fontFamily: 'HorrorFont',
-              ),
-              child: AnimatedTextKit(
-                isRepeatingAnimation: false,
-                animatedTexts: [
-                  TyperAnimatedText('Discipline is the best tool',
-                      speed: const Duration(milliseconds: 100)),
-                ],
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
-      ];
 }
