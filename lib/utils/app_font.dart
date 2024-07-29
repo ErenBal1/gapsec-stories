@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 class AppFonts {
   static var mainMenuButton = const TextStyle(
-      fontSize: 20.0,
-      fontWeight: FontWeight.w800,
-      fontFamily: "HorrorFont",
-      color: Color.fromARGB(255, 114, 109, 109)
-      // color: Color.fromARGB(150, 31, 25, 26),
-      );
-  static var norm = const TextStyle(
+    fontWeight: FontWeight.w500,
+    fontFamily: "HorrorFont",
+    color: Color.fromARGB(255, 214, 255, 253),
+    fontSize: 14,
+    letterSpacing: 0.2,
+  );
+  static var mainMenuTitle = const TextStyle(
     fontSize: 55,
     fontFamily: "HorrorFont",
-    fontWeight: FontWeight.w800,
-    color: Colors.black,
+    // fontWeight: FontWeight.w800,
+    color: Colors.transparent,
   );
   static var normRed = const TextStyle(
     fontSize: 55,

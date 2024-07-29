@@ -10,16 +10,16 @@ class SplashView extends StatelessWidget {
     const colorizeColors = [
       //Colors.purple,
       //Colors.blue,
-      Colors.red,
+      Colors.cyan,
       Colors.white,
-      Colors.red,
+      Colors.cyan,
     ];
-    const whiteList = [
+    const devastList = [
       //Colors.purple,
       //Colors.blue,
-      Colors.grey,
-      Colors.cyan,
-      Colors.grey,
+      Colors.black,
+      Colors.white,
+      Colors.black,
     ];
 
     const colorizeTextStyle = TextStyle(
@@ -56,7 +56,7 @@ class SplashView extends StatelessWidget {
                 speed: const Duration(milliseconds: 150),
                 'DEVAST',
                 textStyle: colorizeTextStyle,
-                colors: whiteList,
+                colors: devastList,
               ),
             ],
             isRepeatingAnimation: false,

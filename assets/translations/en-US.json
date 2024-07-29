@@ -1,5 +1,6 @@
 {
         "new_game_button" : "New Game",
         "load_game_button" : "Load Game",
-        "stories_button" : "Stories"
+        "stories_button" : "Stories",
+        "murderTitle" : "Murder"
 }
