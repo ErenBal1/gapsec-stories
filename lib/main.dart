@@ -8,6 +8,7 @@ import 'utils/constants.dart';
 import 'view/home_view.dart';
 import 'view/splash_view.dart';
 import 'view/stories_view.dart';
+
 import 'package:page_transition/page_transition.dart';
 
 Future<void> main() async {

@@ -24,17 +24,6 @@ mixin _$HomeState on _HomeStateBase, Store {
   }
 
   @override
-  void printHello() {
-    final _$actionInfo = _$_HomeStateBaseActionController.startAction(
-        name: '_HomeStateBase.printHello');
-    try {
-      return super.printHello();
-    } finally {
-      _$_HomeStateBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 
