@@ -26,3 +26,16 @@ StoryModel behind =
     StoryModel(name: "Behind", description: "Behind best tool", isLock: true);
 StoryModel lucky =
     StoryModel(name: "Lucky", description: "Lucky best tool", isLock: true);
+
+class games {
+  List historiesGames = [
+    murder,
+    dontLookBack,
+    lostLucy,
+    nightGame,
+    runKaity,
+    smile,
+    behind,
+    lucky
+  ];
+}

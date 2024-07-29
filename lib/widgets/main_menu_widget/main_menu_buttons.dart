@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
+import 'package:gapsec/view/new_game_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -22,7 +23,7 @@ class _MenuButtonsState extends State<MenuButtons> {
         Center(
           child: AnimatedTextKit(
             onTap: () =>
-                widget.vm.goToPage(context: context, page: const StoriesView()),
+                widget.vm.goToPage(context: context, page: const NewGameView()),
             animatedTexts: [
               TypewriterAnimatedText(
                 "new_game_button".tr(),
