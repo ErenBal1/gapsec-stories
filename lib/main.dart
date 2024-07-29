@@ -5,7 +5,6 @@ import 'package:gapsec/theme/app_theme.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/splash_view.dart';
-import 'package:gapsec/view/stories_view.dart';
 import 'package:page_transition/page_transition.dart';
 
 Future<void> main() async {

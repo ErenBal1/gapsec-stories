@@ -23,6 +23,16 @@ dependencies:
   video_player: ^2.9.1
   #Audio Player
   audioplayers: ^6.0.0
+  #Animated Tabs
+  tab_container: ^3.5.3
+  #Carousel Slider
+  carousel_slider: ^4.2.1
+  #Smooth Page Indicator
+  smooth_page_indicator: ^1.2.0+3
+  #Logger(print)
+  logger: ^2.4.0
+  #Snack Bar
+  awesome_snackbar_content: ^0.1.3
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +51,7 @@ flutter:
     - assets/images/
     - assets/videos/
     - assets/audios/
+    - assets/sounds/
   fonts:
     - family: HorrorFont
       fonts:

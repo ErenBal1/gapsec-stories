@@ -12,11 +12,13 @@ class MenuButtons extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AnimatedMenuButton(text: 'YENI OYUN', vm: vm, page: StoriesView()),
+        AnimatedMenuButton(
+            text: 'YENI OYUN', vm: vm, page: const StoriesView()),
         const SizedBox(height: 10),
-        AnimatedMenuButton(text: 'DEVAM ET', vm: vm, page: StoriesView()),
+        AnimatedMenuButton(text: 'DEVAM ET', vm: vm, page: const StoriesView()),
         const SizedBox(height: 10),
-        AnimatedMenuButton(text: 'HIKAYELER', vm: vm, page: StoriesView()),
+        AnimatedMenuButton(
+            text: 'HIKAYELER', vm: vm, page: const StoriesView()),
       ],
     );
   }
