@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
+import 'package:gapsec/view/new_game_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:gapsec/widgets/main_menu_widget/animated_main_menu_button.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -14,13 +15,13 @@ class MenuButtons extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AnimatedMenuButton(
-            text: "new_game_button".tr(), vm: vm, page: StoriesView()),
+            text: "new_game_button".tr(), vm: vm, page: const NewGameView()),
         const SizedBox(height: 10),
         AnimatedMenuButton(
-            text: 'load_game_button'.tr(), vm: vm, page: StoriesView()),
+            text: 'load_game_button'.tr(), vm: vm, page: const StoriesView()),
         const SizedBox(height: 10),
         AnimatedMenuButton(
-            text: 'stories_button'.tr(), vm: vm, page: StoriesView()),
+            text: 'stories_button'.tr(), vm: vm, page: const StoriesView()),
       ],
     );
   }
