@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:logger/web.dart';
 import 'package:mobx/mobx.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:video_player/video_player.dart';
@@ -42,7 +41,7 @@ abstract class _StoriesStateBase with Store {
   }
 
   @action
-  void goBack({required BuildContext context, required String historyName}) {
+  void goBack({required BuildContext context}) {
     Navigator.pop(
         context,
         PageTransition(

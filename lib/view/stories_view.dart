@@ -335,7 +335,7 @@ class _StoriesViewState extends State<StoriesView>
               child: Observer(builder: (_) {
                 return IconButton(
                   onPressed: () async {
-                    vm.goBack(context: context, historyName: "backButton");
+                    vm.goBack(context: context);
                   },
                   icon: const Icon(
                     Icons.arrow_back_ios_new_outlined,
@@ -422,10 +422,14 @@ class _StoriesViewState extends State<StoriesView>
                                         0, murder.name, murder.description);
                                     playNewTrack("assets/sounds/murder.mp3");
                                   },
-                                  icon: const Icon(Icons.star),
+                                  icon: murder.isLock == true
+                                      ? const Icon(Icons.lock)
+                                      : const Icon(Icons.star),
                                   color: iconSelectedIndex == 0
                                       ? CustomColors.selectedIconColor
-                                      : CustomColors.white,
+                                      : murder.isLock == true
+                                          ? CustomColors.red
+                                          : CustomColors.white,
                                 ),
                                 IconButton(
                                   onPressed: () {
@@ -434,10 +438,14 @@ class _StoriesViewState extends State<StoriesView>
                                     playNewTrack(
                                         "assets/sounds/dontLookBack.mp3");
                                   },
-                                  icon: const Icon(Icons.star),
+                                  icon: dontLookBack.isLock == true
+                                      ? const Icon(Icons.lock)
+                                      : const Icon(Icons.star),
                                   color: iconSelectedIndex == 1
                                       ? CustomColors.selectedIconColor
-                                      : CustomColors.white,
+                                      : dontLookBack.isLock == true
+                                          ? CustomColors.red
+                                          : CustomColors.white,
                                 ),
                                 IconButton(
                                   onPressed: () {
@@ -445,10 +453,14 @@ class _StoriesViewState extends State<StoriesView>
                                         2, lostLucy.name, lostLucy.description);
                                     playNewTrack("assets/sounds/lostLucy.mp3");
                                   },
-                                  icon: const Icon(Icons.star),
+                                  icon: lostLucy.isLock == true
+                                      ? const Icon(Icons.lock)
+                                      : const Icon(Icons.star),
                                   color: iconSelectedIndex == 2
                                       ? CustomColors.selectedIconColor
-                                      : CustomColors.white,
+                                      : lostLucy.isLock == true
+                                          ? CustomColors.red
+                                          : CustomColors.white,
                                 ),
                                 IconButton(
                                   onPressed: () {
@@ -456,12 +468,14 @@ class _StoriesViewState extends State<StoriesView>
                                         nightGame.description);
                                     playNewTrack("assets/sounds/nightGame.mp3");
                                   },
-                                  icon: const Icon(
-                                    Icons.star,
-                                  ),
+                                  icon: nightGame.isLock == true
+                                      ? const Icon(Icons.lock)
+                                      : const Icon(Icons.star),
                                   color: iconSelectedIndex == 3
                                       ? CustomColors.selectedIconColor
-                                      : CustomColors.white,
+                                      : nightGame.isLock == true
+                                          ? CustomColors.red
+                                          : CustomColors.white,
                                 )
                               ],
                             ),
@@ -544,10 +558,14 @@ class _StoriesViewState extends State<StoriesView>
                                         4, runKaity.name, runKaity.description);
                                     playNewTrack("assets/sounds/runKaity.mp3");
                                   },
-                                  icon: const Icon(Icons.star),
+                                  icon: runKaity.isLock == true
+                                      ? const Icon(Icons.lock)
+                                      : const Icon(Icons.star),
                                   color: iconSelectedIndex == 4
                                       ? CustomColors.selectedIconColor
-                                      : CustomColors.white,
+                                      : runKaity.isLock == true
+                                          ? CustomColors.red
+                                          : CustomColors.white,
                                 ),
                                 IconButton(
                                   onPressed: () {
@@ -555,10 +573,14 @@ class _StoriesViewState extends State<StoriesView>
                                         5, smile.name, smile.description);
                                     playNewTrack("assets/sounds/smile.mp3");
                                   },
-                                  icon: const Icon(Icons.star),
+                                  icon: smile.isLock == true
+                                      ? const Icon(Icons.lock)
+                                      : const Icon(Icons.star),
                                   color: iconSelectedIndex == 5
                                       ? CustomColors.selectedIconColor
-                                      : CustomColors.white,
+                                      : smile.isLock == true
+                                          ? CustomColors.red
+                                          : CustomColors.white,
                                 ),
                                 IconButton(
                                   onPressed: () {
@@ -566,10 +588,14 @@ class _StoriesViewState extends State<StoriesView>
                                         6, behind.name, behind.description);
                                     playNewTrack("assets/sounds/behind.mp3");
                                   },
-                                  icon: const Icon(Icons.star),
+                                  icon: behind.isLock == true
+                                      ? const Icon(Icons.lock)
+                                      : const Icon(Icons.star),
                                   color: iconSelectedIndex == 6
                                       ? CustomColors.selectedIconColor
-                                      : CustomColors.white,
+                                      : behind.isLock == true
+                                          ? CustomColors.red
+                                          : CustomColors.white,
                                 ),
                                 IconButton(
                                   onPressed: () {
@@ -577,12 +603,14 @@ class _StoriesViewState extends State<StoriesView>
                                         7, lucky.name, lucky.description);
                                     playNewTrack("assets/sounds/lucky.mp3");
                                   },
-                                  icon: const Icon(
-                                    Icons.star,
-                                  ),
+                                  icon: lucky.isLock == true
+                                      ? const Icon(Icons.lock)
+                                      : const Icon(Icons.star),
                                   color: iconSelectedIndex == 7
                                       ? CustomColors.selectedIconColor
-                                      : CustomColors.white,
+                                      : behind.isLock == true
+                                          ? CustomColors.red
+                                          : CustomColors.white,
                                 )
                               ],
                             ),

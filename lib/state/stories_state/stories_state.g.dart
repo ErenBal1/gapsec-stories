@@ -65,11 +65,22 @@ mixin _$StoriesState on _StoriesStateBase, Store {
       ActionController(name: '_StoriesStateBase', context: context);
 
   @override
-  void goBack({required BuildContext context, required String historyName}) {
+  void printIndexs(int pageIndex, int tabIndex) {
+    final _$actionInfo = _$_StoriesStateBaseActionController.startAction(
+        name: '_StoriesStateBase.printIndexs');
+    try {
+      return super.printIndexs(pageIndex, tabIndex);
+    } finally {
+      _$_StoriesStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void goBack({required BuildContext context}) {
     final _$actionInfo = _$_StoriesStateBaseActionController.startAction(
         name: '_StoriesStateBase.goBack');
     try {
-      return super.goBack(context: context, historyName: historyName);
+      return super.goBack(context: context);
     } finally {
       _$_StoriesStateBaseActionController.endAction(_$actionInfo);
     }
