@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 class StoryModel {
   final String name;
   final String description;
