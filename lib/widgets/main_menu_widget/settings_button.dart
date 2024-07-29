@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/main.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SettingsButton extends StatefulWidget {
   const SettingsButton({super.key});
@@ -139,10 +140,9 @@ class _SettingsButtonState extends State<SettingsButton> {
 
   void restartApp() {
     Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => const MainApp()),
-      (route) => false,
-    );
+        context,
+        PageTransition(type: PageTransitionType.fade, child: const MainApp()),
+        (route) => false);
   }
 
   Widget _buildSoundButton() {
