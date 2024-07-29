@@ -51,6 +51,7 @@ flutter:
     - assets/images/
     - assets/videos/
     - assets/audios/
+    - assets/sounds/
   fonts:
     - family: HorrorFont
       fonts:

@@ -15,9 +15,6 @@ StoryModel nightGame =
     StoryModel(name: "Night Game", description: "Night Game best tool");
 StoryModel runKaity =
     StoryModel(name: "Run Kaity", description: "Run Kaity best tool");
-StoryModel smile =
-    StoryModel(name: "Smile", description: "Discipline is the best tool");
-StoryModel behind =
-    StoryModel(name: "Behind", description: "Discipline is the best tool");
-StoryModel lucky =
-    StoryModel(name: "Lucky", description: "Discipline is the best tool");
+StoryModel smile = StoryModel(name: "Smile", description: "Smile best tool");
+StoryModel behind = StoryModel(name: "Behind", description: "Behind best tool");
+StoryModel lucky = StoryModel(name: "Lucky", description: "Lucky best tool");
