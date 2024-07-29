@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:gapsec/widgets/main_menu_widget/animated_main_menu_button.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class MenuButtons extends StatelessWidget {
   final HomeState vm;
@@ -13,12 +14,13 @@ class MenuButtons extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AnimatedMenuButton(
-            text: 'YENI OYUN', vm: vm, page: const StoriesView()),
-        const SizedBox(height: 10),
-        AnimatedMenuButton(text: 'DEVAM ET', vm: vm, page: const StoriesView()),
+            text: "new_game_button".tr(), vm: vm, page: StoriesView()),
         const SizedBox(height: 10),
         AnimatedMenuButton(
-            text: 'HIKAYELER', vm: vm, page: const StoriesView()),
+            text: 'load_game_button'.tr(), vm: vm, page: StoriesView()),
+        const SizedBox(height: 10),
+        AnimatedMenuButton(
+            text: 'stories_button'.tr(), vm: vm, page: StoriesView()),
       ],
     );
   }

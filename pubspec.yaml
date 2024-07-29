@@ -23,6 +23,8 @@ dependencies:
   video_player: ^2.9.1
   #Audio Player
   audioplayers: ^6.0.0
+  #localization
+  easy_localization: ^3.0.7
   #Animated Tabs
   tab_container: ^3.5.3
   #Carousel Slider
@@ -51,7 +53,9 @@ flutter:
     - assets/images/
     - assets/videos/
     - assets/audios/
+    - assets/translations/
     - assets/sounds/
+
   fonts:
     - family: HorrorFont
       fonts:

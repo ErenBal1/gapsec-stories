@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
@@ -52,7 +53,7 @@ class _AnimatedMenuButtonState extends State<AnimatedMenuButton> {
                 widget.vm.goToPage(context: context, page: widget.page),
             animatedTexts: [
               TypewriterAnimatedText(
-                widget.text,
+                widget.text.tr(),
                 textStyle: AppFonts.mainMenuButton.copyWith(
                   color: Colors.white,
 
