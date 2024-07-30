@@ -35,6 +35,9 @@ dependencies:
   logger: ^2.4.0
   #Snack Bar
   awesome_snackbar_content: ^0.1.3
+  isar: ^2.1.4
+  isar_flutter_libs: ^2.1.4
+  path_provider: ^2.0.15
  
 
 
@@ -62,5 +65,9 @@ flutter:
     - family: HorrorFont
       fonts:
         - asset: assets/fonts/horrorFont.ttf
+          style: normal
+    - family: PixelFont
+      fonts:
+        - asset: assets/fonts/pixel.ttf
           style: normal
     

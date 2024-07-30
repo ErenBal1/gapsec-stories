@@ -5,7 +5,14 @@ class AppFonts {
     fontWeight: FontWeight.w500,
     fontFamily: "HorrorFont",
     color: Color.fromARGB(255, 214, 255, 253),
-    fontSize: 14,
+    fontSize: 30,
+    letterSpacing: 0.2,
+  );
+  static var freeTitle = const TextStyle(
+    fontWeight: FontWeight.w500,
+    fontFamily: "PixelFont",
+    color: Color.fromARGB(255, 214, 255, 253),
+    fontSize: 20,
     letterSpacing: 0.2,
   );
   static var mainMenuTitle = const TextStyle(
@@ -18,8 +25,9 @@ class AppFonts {
     fontSize: 55,
     fontFamily: "HorrorFont",
     fontWeight: FontWeight.w800,
-    color: Color.fromARGB(114, 244, 67, 54),
+    color: Color.fromARGB(210, 244, 67, 54),
   );
+
   static var storyCard = const TextStyle(
     fontSize: 40,
     fontFamily: "HorrorFont",

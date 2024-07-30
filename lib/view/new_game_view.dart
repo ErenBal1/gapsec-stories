@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
+import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/view/stories_view.dart';
 
 class NewGameView extends StatefulWidget {
   const NewGameView({super.key});
@@ -14,31 +16,149 @@ class NewGameView extends StatefulWidget {
 
 class _NewGameViewState extends State<NewGameView> {
   final StoriesState vm = StoriesState();
+  final HomeState hs = HomeState();
+
   @override
   Widget build(BuildContext context) {
     Config().init(context);
-    return PopScope(
-        canPop: false,
-        child: Scaffold(
-          body: Stack(
-            children: [
-              Positioned(
-                top: Config.screenHeight! * 0.05,
-                left: Config.screenWidth! * 0.02,
-                child: Observer(builder: (_) {
-                  return IconButton(
-                    onPressed: () async {
-                      vm.goBack(context: context);
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: CustomColors.white,
+    final gameList =
+        games().historiesGames.where((game) => !game.isLock).toList();
+
+    return Scaffold(
+      body: Stack(
+        children: [
+          SizedBox(
+            width: double.infinity,
+            height: Config.screenHeight,
+            child: Image.asset(
+              "assets/images/castle.png",
+              fit: BoxFit.cover,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 200.0),
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: gameList.length + 1,
+              itemBuilder: (context, index) {
+                if (index == gameList.length) {
+                  return Padding(
+                    padding:
+                        const EdgeInsets.only(top: 8.0, right: 70, left: 70),
+                    child: ElevatedButton(
+                      onPressed: () => hs.goToPage(
+                          page: const StoriesView(), context: context),
+                      child: const FittedBox(
+                        child: Text(
+                          "UNLOCK MORE...",
+                          style: TextStyle(
+                              fontFamily: "PixelFont", color: CustomColors.red),
+                        ),
+                      ),
                     ),
                   );
-                }),
-              ),
-            ],
+                }
+
+                final game = gameList[index];
+                return FittedBox(child: gameContainer(gameName: game.name));
+              },
+            ),
           ),
-        ));
+          Positioned(
+              left: (Config.screenWidth! * 0.3),
+              top: (Config.screenHeight! * 0.07),
+              child: SizedBox(
+                  width: Config.screenWidth! * 0.4,
+                  height: Config.screenWidth! * 0.4,
+                  child: Image.asset(
+                    "assets/images/keystore.png",
+                    color: CustomColors.white,
+                    fit: BoxFit.cover,
+                  ))),
+          Positioned(
+              right: 20,
+              top: 0,
+              child: SizedBox(
+                  //color: CustomColors.red,
+                  width: 100,
+                  height: 140,
+                  child: Image.asset(
+                    "assets/images/lamb.png",
+                    fit: BoxFit.cover,
+                  ))),
+          Positioned(
+            top: Config.screenHeight! *
+                0.05, // Adjust position according to your design needs
+            left: Config.screenWidth! *
+                0.03, // Adjust position according to your design needs
+            child: Observer(
+              builder: (_) => IconButton(
+                onPressed: () async {
+                  vm.goBack(context: context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios_new_outlined,
+                  color: CustomColors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget gameContainer({required String gameName}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 20.0),
+          child: SizedBox(
+              width: 50,
+              height: 50,
+              child: Image.asset(
+                "assets/images/key.png",
+                fit: BoxFit.cover,
+              )),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 20.0, right: 10, left: 10),
+          child: Container(
+            width: (Config.screenWidth! * 0.8),
+            height: Config.screenHeight! * 0.07,
+            color: CustomColors.cyanBlue.shade500,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: CustomColors.white,
+                    boxShadow: const [
+                      BoxShadow(
+                          color: CustomColors.black,
+                          offset: Offset(5, 5),
+                          blurRadius: 5,
+                          spreadRadius: 1)
+                    ],
+                    border: Border.all(width: 1, color: CustomColors.black)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        gameName,
+                        style: const TextStyle(fontFamily: "PixelFont"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
