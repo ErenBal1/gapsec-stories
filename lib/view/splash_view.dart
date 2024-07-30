@@ -53,7 +53,7 @@ class SplashView extends StatelessWidget {
                 colors: colorizeColors,
               ),
               ColorizeAnimatedText(
-                speed: const Duration(milliseconds: 150),
+                speed: const Duration(milliseconds: 200),
                 'DEVAST',
                 textStyle: colorizeTextStyle,
                 colors: devastList,

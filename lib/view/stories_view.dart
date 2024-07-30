@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_font.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:video_player/video_player.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -26,9 +27,11 @@ class _StoriesViewState extends State<StoriesView>
   late CarouselController carouselController;
   late TextTheme textTheme;
   int iconSelectedIndex = 0;
-  String selectedTitle = "Murder";
-  String selectedDescription = "Discipline is the best tool";
+  bool itsFree = true;
+  String selectedTitle = murder.name;
+  String selectedDescription = murder.description;
   String mp3Path = "assets/sounds/murder.mp3";
+  int activeIndex = 0;
 
   @override
   void initState() {
@@ -52,7 +55,6 @@ class _StoriesViewState extends State<StoriesView>
         },
       );
     carouselController = CarouselController();
-    print(iconSelectedIndex);
   }
 
   void updateIndex(int index, String title, String description) {
@@ -60,8 +62,33 @@ class _StoriesViewState extends State<StoriesView>
       iconSelectedIndex = index;
       selectedTitle = title;
       selectedDescription = description;
+      switch (iconSelectedIndex) {
+        case 0:
+          itsFree = !murder.isLock;
+          break;
+        case 1:
+          itsFree = !dontLookBack.isLock;
+          break;
+        case 2:
+          itsFree = !lostLucy.isLock;
+          break;
+        case 3:
+          itsFree = !nightGame.isLock;
+          break;
+        case 4:
+          itsFree = !runKaity.isLock;
+          break;
+        case 5:
+          itsFree = !smile.isLock;
+          break;
+        case 6:
+          itsFree = !behind.isLock;
+          break;
+        case 7:
+          itsFree = !lucky.isLock;
+        default:
+      }
     });
-    print(iconSelectedIndex);
   }
 
   @override
@@ -133,184 +160,15 @@ class _StoriesViewState extends State<StoriesView>
                             itemCount: 2,
                             carouselController: carouselController,
                             itemBuilder: (context, index, realIndex) {
-                              return pages()[
-                                  index]; /* SizedBox(
-                                width: Config.screenWidth! * 0.7,
-                                height: 400,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
-                                  child: Container(
-                                    color: CustomColors.transparent,
-                                    width: Config.screenWidth! * 0.7,
-                                    height: 400,
-                                    child: Column(
-                                      children: [
-                                        Expanded( 
-                                          child: Row(
-                                            children: [
-                                              Expanded(
-                                                flex: 4,
-                                                child: Container(
-                                                  height: 400,
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    color: CustomColors
-                                                        .storyCardColor,
-                                                  ),
-                                                  //width: double.infinity,
-
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            8.0),
-                                                    child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(selectedTitle,
-                                                            style: AppFonts
-                                                                .storyTitle),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .only(
-                                                                  top: 8.0),
-                                                          child:
-                                                              DefaultTextStyle(
-                                                            style:
-                                                                const TextStyle(
-                                                              fontSize: 24.0,
-                                                              fontFamily:
-                                                                  'HorrorFont',
-                                                            ),
-                                                            child:
-                                                                AnimatedTextKit(
-                                                              key: ValueKey(
-                                                                  selectedDescription),
-                                                              isRepeatingAnimation:
-                                                                  false,
-                                                              animatedTexts: [
-                                                                TyperAnimatedText(
-                                                                    selectedDescription,
-                                                                    speed: const Duration(
-                                                                        milliseconds:
-                                                                            50)),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                flex: 1,
-                                                child: Container(
-                                                  // width: double.infinity,
-                                                  height: 400,
-                                                  color: CustomColors
-                                                      .scaffoldColor,
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      IconButton(
-                                                        onPressed: () {
-                                                          updateIndex(
-                                                              0,
-                                                              murder.name,
-                                                              murder
-                                                                  .description);
-                                                        },
-                                                        icon: const Icon(
-                                                            Icons.star),
-                                                        color: iconSelectedIndex ==
-                                                                0
-                                                            ? CustomColors
-                                                                .selectedIconColor
-                                                            : CustomColors
-                                                                .white,
-                                                      ),
-                                                      IconButton(
-                                                        onPressed: () {
-                                                          updateIndex(
-                                                              1,
-                                                              dontLookBack.name,
-                                                              dontLookBack
-                                                                  .description);
-                                                        },
-                                                        icon: const Icon(
-                                                            Icons.star),
-                                                        color: iconSelectedIndex ==
-                                                                1
-                                                            ? CustomColors
-                                                                .selectedIconColor
-                                                            : CustomColors
-                                                                .white,
-                                                      ),
-                                                      IconButton(
-                                                        onPressed: () {
-                                                          updateIndex(
-                                                              2,
-                                                              lostLucy.name,
-                                                              lostLucy
-                                                                  .description);
-                                                        },
-                                                        icon: const Icon(
-                                                            Icons.star),
-                                                        color: iconSelectedIndex ==
-                                                                2
-                                                            ? CustomColors
-                                                                .selectedIconColor
-                                                            : CustomColors
-                                                                .white,
-                                                      ),
-                                                      IconButton(
-                                                        onPressed: () {
-                                                          updateIndex(
-                                                              3,
-                                                              runKaity.name,
-                                                              runKaity
-                                                                  .description);
-                                                        },
-                                                        icon: const Icon(
-                                                          Icons.star,
-                                                        ),
-                                                        color: iconSelectedIndex ==
-                                                                3
-                                                            ? CustomColors
-                                                                .selectedIconColor
-                                                            : CustomColors
-                                                                .white,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ); */
+                              return pages()[index];
                             },
                             options: CarouselOptions(
+                                enableInfiniteScroll: false,
                                 height: (Config.screenHeight! * 0.4),
                                 autoPlay: false,
                                 viewportFraction: 1,
                                 onPageChanged: (index, reason) {
+                                  setState(() => activeIndex = index);
                                   index == 0
                                       ? updateIndex(
                                           0, "Murder", "Murder Descrption")
@@ -344,6 +202,10 @@ class _StoriesViewState extends State<StoriesView>
                 );
               }),
             ),
+            Positioned(
+                top: Config.screenHeight! * 0.44,
+                right: Config.screenWidth! * 0.38,
+                child: buildIndicator())
           ],
         ),
       ),
@@ -402,6 +264,37 @@ class _StoriesViewState extends State<StoriesView>
                                       ),
                                     ),
                                   ),
+                                  const Spacer(),
+                                  itsFree
+                                      ? Text(
+                                          "FREE",
+                                          style: AppFonts.freeTitle,
+                                        )
+                                      : Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            const Text(
+                                              "20",
+                                              style: TextStyle(
+                                                  color: CustomColors.white,
+                                                  fontFamily: "PixelFont",
+                                                  fontSize: 20),
+                                            ),
+                                            CircleAvatar(
+                                              radius: 25,
+                                              child: Image.asset(
+                                                "assets/images/mystoken.png",
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                  /* Text(
+                                    !itsFree ? "free" : "10dollar",
+                                    style: const TextStyle(
+                                        color: CustomColors.white),
+                                  ) */
                                 ],
                               ),
                             ),
@@ -412,7 +305,7 @@ class _StoriesViewState extends State<StoriesView>
                           child: Container(
                             // width: double.infinity,
                             height: 400,
-                            color: CustomColors.scaffoldColor,
+                            color: CustomColors.transparent,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -538,6 +431,34 @@ class _StoriesViewState extends State<StoriesView>
                                       ),
                                     ),
                                   ),
+                                  const Spacer(),
+                                  itsFree
+                                      ? Text(
+                                          "FREE",
+                                          style: AppFonts.freeTitle,
+                                        )
+                                      : Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            const Text(
+                                              "20",
+                                              style: TextStyle(
+                                                  color: CustomColors.white,
+                                                  fontFamily: "PixelFont",
+                                                  fontSize: 20),
+                                            ),
+                                            CircleAvatar(
+                                              radius: 25,
+                                              child: Image.asset(
+                                                "assets/images/mystoken.png",
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ],
+                                        )
                                 ],
                               ),
                             ),
@@ -548,7 +469,7 @@ class _StoriesViewState extends State<StoriesView>
                           child: Container(
                             // width: double.infinity,
                             height: 400,
-                            color: CustomColors.scaffoldColor,
+                            color: CustomColors.transparent,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -608,7 +529,7 @@ class _StoriesViewState extends State<StoriesView>
                                       : const Icon(Icons.star),
                                   color: iconSelectedIndex == 7
                                       ? CustomColors.selectedIconColor
-                                      : behind.isLock == true
+                                      : lucky.isLock == true
                                           ? CustomColors.red
                                           : CustomColors.white,
                                 )
@@ -625,4 +546,22 @@ class _StoriesViewState extends State<StoriesView>
           ),
         )
       ];
+  Widget buildIndicator() => AnimatedSmoothIndicator(
+        effect: CustomizableEffect(
+          spacing: 3,
+          dotDecoration: DotDecoration(
+            width: 10,
+            dotBorder: const DotBorder(color: Colors.red),
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+          ),
+          activeDotDecoration: DotDecoration(
+            width: 10,
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.red,
+          ),
+        ),
+        activeIndex: activeIndex,
+        count: 2,
+      );
 }
