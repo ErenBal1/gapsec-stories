@@ -5,6 +5,7 @@ import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/view/chat_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 
 class NewGameView extends StatefulWidget {
@@ -143,15 +144,28 @@ class _NewGameViewState extends State<NewGameView> {
                     border: Border.all(width: 1, color: CustomColors.black)),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        gameName,
-                        style: const TextStyle(fontFamily: "PixelFont"),
+                  child: InkWell(
+                    onTap: () =>
+                        hs.goToPage(page: const ChatView(), context: context),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 40,
+                      //color: CustomColors.red,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            gameName,
+                            style: const TextStyle(fontFamily: "PixelFont"),
+                          ),
+                          const Icon(
+                            Icons.play_arrow_rounded,
+                            size: 30,
+                          )
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
