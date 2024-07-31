@@ -1,16 +1,18 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/utils/gradient_text.dart';
+import 'package:gapsec/view/shop_view.dart';
 import 'package:gapsec/widgets/main_menu_widget/main_menu_buttons.dart';
-import 'package:gapsec/widgets/main_menu_widget/settings_button.dart';
+import 'package:gapsec/widgets/main_menu_widget/settings.dart';
+import 'package:gapsec/widgets/main_menu_widget/token_counter.dart';
 
-class MainMenuWidget extends StatelessWidget {
+class MainMenuView extends StatelessWidget {
   final HomeState vm;
-  const MainMenuWidget({super.key, required this.vm});
+
+  const MainMenuView({super.key, required this.vm});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class MainMenuWidget extends StatelessWidget {
             ),
           ),
         ),
+        TokenCounter(),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,15 +36,7 @@ class MainMenuWidget extends StatelessWidget {
               'G A P S E C',
               style: AppFonts.mainMenuTitle,
               gradient: LinearGradient(
-                colors: [
-                  Colors.blue,
-                  Colors.cyan.shade50,
-                  Colors.blue,
-                  Colors.cyan.shade50,
-                  Colors.blue,
-                  Colors.cyan.shade50,
-                  Colors.blue,
-                ],
+                colors: CustomColors.GAPSECtitleColors,
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -52,7 +47,7 @@ class MainMenuWidget extends StatelessWidget {
             MenuButtons(vm: vm),
           ],
         ),
-        const SettingsButton(),
+        const SettingsButtons(),
       ],
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
-import 'package:gapsec/widgets/main_menu_widget/main_menu_widget.dart';
+import 'package:gapsec/view/main_menu_view.dart';
 
 class HomeView extends StatelessWidget {
   final HomeState vm = HomeState();
@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MainMenuWidget(vm: vm),
+      body: MainMenuView(vm: vm),
     );
   }
 }
