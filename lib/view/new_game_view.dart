@@ -225,7 +225,7 @@ class _NewGameViewState extends State<NewGameView> {
                           }
                           break;
                         case "Don't Look Back":
-                          if (_databaseService.dontLookBackRepo.isEmpty) {
+                          if (_databaseService.events.isEmpty) {
                             hs.goToPage(
                                 page: ChatView(story: gameName),
                                 context: context);
