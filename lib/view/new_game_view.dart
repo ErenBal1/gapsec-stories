@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/cache/games_storage/games_storage.dart';
+import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
@@ -18,6 +20,62 @@ class NewGameView extends StatefulWidget {
 class _NewGameViewState extends State<NewGameView> {
   final StoriesState vm = StoriesState();
   final HomeState hs = HomeState();
+  final _databaseService = DatabaseService();
+  int storyMapId = 0;
+
+//Ekranı güncellemek için short fonk.
+  void _updateScreen() {
+    setState(() {});
+  }
+
+  //Chat kısmındaki güncel listeyi önce çeker sonra ekranı günceller
+  Future<void> _getUpdatedList() async {
+    await _databaseService.getUpdatedList();
+    _updateScreen();
+  }
+
+  Future<void> _deleteListElements() async {
+    await _databaseService.deleteListElements();
+    _updateScreen();
+  }
+
+  Future<void> _addToList(String text) async {
+    await _databaseService.addToList(text);
+    _updateScreen();
+  }
+
+  //istediğimiz id ye sahip mapi getirir
+  Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
+    return list.firstWhere((element) => element["id"] == id);
+  }
+
+  //Animated textin tamamlandığı hakkında info
+
+  void updateStoryMapId(int newId) {
+    setState(() {
+      storyMapId = newId;
+    });
+  }
+
+  //answer mapini getiren tek için fonksiyon
+  Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
+    var item = getMapWithId(list, id);
+    if (item != null) {
+      var answers = item['answers'] as List<Map<String, dynamic>>;
+      return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
+    }
+    return null;
+  }
+
+  //Answer mapi sağ için
+  Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
+    var item = getMapWithId(list, id);
+    if (item != null) {
+      var answers = item['answers'] as List<Map<String, dynamic>>;
+      return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -145,8 +203,15 @@ class _NewGameViewState extends State<NewGameView> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: InkWell(
-                    onTap: () => hs.goToPage(
-                        page: ChatView(story: gameName), context: context),
+                    onTap: () {
+                      _databaseService.getUpdatedList();
+                      if (_databaseService.events.isEmpty) {
+                        hs.goToPage(
+                            page: ChatView(story: gameName), context: context);
+                      } else {
+                        print("içi dolu");
+                      }
+                    },
                     child: SizedBox(
                       width: double.infinity,
                       height: 40,

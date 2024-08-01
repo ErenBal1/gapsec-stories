@@ -14,6 +14,16 @@ class DatabaseService {
   //Olay akışı için liste oluştur
   List<NewGame> events = [];
 
+  //Her bir hikayenin depolanması için
+  List<NewGame> murderRepo = [];
+  List<NewGame> dontLookBackRepo = [];
+  List<NewGame> lostLucyRepo = [];
+  List<NewGame> nightGameRepo = [];
+  List<NewGame> runKaityRepo = [];
+  List<NewGame> smileRepo = [];
+  List<NewGame> behindRepo = [];
+  List<NewGame> luckyRepo = [];
+
   //Seçimi listeye ekle
   Future<void> addToList(text) async {
     final newMessage = NewGame()..text = text;
