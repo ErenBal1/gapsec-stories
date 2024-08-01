@@ -57,7 +57,7 @@ class TokenCounter extends StatelessWidget {
                           '0',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                             shadows: [
                               Shadow(
@@ -68,7 +68,7 @@ class TokenCounter extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(width: 4),
+                        const SizedBox(width: 6),
                         GlowingToken(Constants.tokenImagePath, Colors.blue),
                       ],
                     ),
