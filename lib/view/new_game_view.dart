@@ -78,13 +78,6 @@ class _NewGameViewState extends State<NewGameView> {
   }
 
   @override
-  void initState() {
-    _databaseService.getUpdatedList();
-    print("inside => ${_databaseService.events}");
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     Config().init(context);
     final gameList =
@@ -169,6 +162,15 @@ class _NewGameViewState extends State<NewGameView> {
               ),
             ),
           ),
+          Positioned(
+              right: Config.screenWidth! * 0.03,
+              top: Config.screenHeight! * 0.05,
+              child: IconButton(
+                  onPressed: _deleteListElements,
+                  icon: const Icon(
+                    Icons.refresh_outlined,
+                    color: CustomColors.white,
+                  )))
         ],
       ),
     );
@@ -210,10 +212,20 @@ class _NewGameViewState extends State<NewGameView> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: InkWell(
-                    onTap: () {
+                    onTap: () async {
+                      _databaseService.getUpdatedList();
                       switch (gameName) {
                         case "Murder":
                           if (_databaseService.events.isEmpty) {
+                            hs.goToPage(
+                                page: ChatView(story: gameName),
+                                context: context);
+                          } else {
+                            print("içi dolu");
+                          }
+                          break;
+                        case "Don't Look Back":
+                          if (_databaseService.dontLookBackRepo.isEmpty) {
                             hs.goToPage(
                                 page: ChatView(story: gameName),
                                 context: context);

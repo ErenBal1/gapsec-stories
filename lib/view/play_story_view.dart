@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/cache/games_storage/dont_look_back.dart';
 import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:page_transition/page_transition.dart';
@@ -96,10 +97,13 @@ class _ChatViewState extends State<ChatView> {
       _addToList(getMapWithId(selectedList, storyMapId)!["history"]);
       left = assignToOdd(selectedList, storyMapId)!;
       right = assignToEven(selectedList, storyMapId)!;
-    } /* else if (selectedStory == dontLookBack.name) {
+    } else if (selectedStory == dontLookBack.name) {
+      selectedList = DontLookBackList;
       _deleteListElements();
-      _addToList(MurderList[1]["history"]);
-    } */
+      _addToList(getMapWithId(selectedList, storyMapId)!["history"]);
+      left = assignToOdd(selectedList, storyMapId)!;
+      right = assignToEven(selectedList, storyMapId)!;
+    }
     _getUpdatedList();
     super.initState();
   }
