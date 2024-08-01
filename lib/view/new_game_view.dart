@@ -7,7 +7,7 @@ import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
-import 'package:gapsec/view/chat_view.dart';
+import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 
 class NewGameView extends StatefulWidget {
@@ -75,6 +75,13 @@ class _NewGameViewState extends State<NewGameView> {
       return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
     }
     return null;
+  }
+
+  @override
+  void initState() {
+    _databaseService.getUpdatedList();
+    print("inside => ${_databaseService.events}");
+    super.initState();
   }
 
   @override
@@ -204,12 +211,17 @@ class _NewGameViewState extends State<NewGameView> {
                   padding: const EdgeInsets.only(left: 8.0),
                   child: InkWell(
                     onTap: () {
-                      _databaseService.getUpdatedList();
-                      if (_databaseService.events.isEmpty) {
-                        hs.goToPage(
-                            page: ChatView(story: gameName), context: context);
-                      } else {
-                        print("içi dolu");
+                      switch (gameName) {
+                        case "Murder":
+                          if (_databaseService.events.isEmpty) {
+                            hs.goToPage(
+                                page: ChatView(story: gameName),
+                                context: context);
+                          } else {
+                            print("içi dolu");
+                          }
+                          break;
+                        default:
                       }
                     },
                     child: SizedBox(
