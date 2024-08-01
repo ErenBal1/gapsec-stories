@@ -26,7 +26,7 @@ class DatabaseService {
 
   //Seçimi listeye ekle
   Future<void> addToList(text) async {
-    final newMessage = NewGame()..text = text;
+    final newMessage = NewGame()..murderTexts = text;
     await isar.writeTxn(() => isar.newGames.put(newMessage));
     await getUpdatedList();
   }

@@ -23,30 +23,8 @@ class _NewGameViewState extends State<NewGameView> {
   final _databaseService = DatabaseService();
   int storyMapId = 0;
 
-//Ekranı güncellemek için short fonk.
-  void _updateScreen() {
-    setState(() {});
-  }
-
-  //Chat kısmındaki güncel listeyi önce çeker sonra ekranı günceller
-  Future<void> _getUpdatedList() async {
-    await _databaseService.getUpdatedList();
-    _updateScreen();
-  }
-
   Future<void> _deleteListElements() async {
     await _databaseService.deleteListElements();
-    _updateScreen();
-  }
-
-  Future<void> _addToList(String text) async {
-    await _databaseService.addToList(text);
-    _updateScreen();
-  }
-
-  //istediğimiz id ye sahip mapi getirir
-  Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
-    return list.firstWhere((element) => element["id"] == id);
   }
 
   //Animated textin tamamlandığı hakkında info
@@ -55,26 +33,6 @@ class _NewGameViewState extends State<NewGameView> {
     setState(() {
       storyMapId = newId;
     });
-  }
-
-  //answer mapini getiren tek için fonksiyon
-  Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
-    var item = getMapWithId(list, id);
-    if (item != null) {
-      var answers = item['answers'] as List<Map<String, dynamic>>;
-      return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
-    }
-    return null;
-  }
-
-  //Answer mapi sağ için
-  Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
-    var item = getMapWithId(list, id);
-    if (item != null) {
-      var answers = item['answers'] as List<Map<String, dynamic>>;
-      return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
-    }
-    return null;
   }
 
   @override
@@ -213,7 +171,7 @@ class _NewGameViewState extends State<NewGameView> {
                   padding: const EdgeInsets.only(left: 8.0),
                   child: InkWell(
                     onTap: () async {
-                      _databaseService.getUpdatedList();
+                      await _databaseService.getUpdatedList();
                       switch (gameName) {
                         case "Murder":
                           if (_databaseService.events.isEmpty) {

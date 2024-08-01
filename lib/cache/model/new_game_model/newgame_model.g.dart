@@ -17,9 +17,9 @@ const NewGameSchema = CollectionSchema(
   name: r'NewGame',
   id: -9088015340658716945,
   properties: {
-    r'text': PropertySchema(
+    r'murderTexts': PropertySchema(
       id: 0,
-      name: r'text',
+      name: r'murderTexts',
       type: IsarType.string,
     )
   },
@@ -43,7 +43,7 @@ int _newGameEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
-  bytesCount += 3 + object.text.length * 3;
+  bytesCount += 3 + object.murderTexts.length * 3;
   return bytesCount;
 }
 
@@ -53,7 +53,7 @@ void _newGameSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeString(offsets[0], object.text);
+  writer.writeString(offsets[0], object.murderTexts);
 }
 
 NewGame _newGameDeserialize(
@@ -64,7 +64,7 @@ NewGame _newGameDeserialize(
 ) {
   final object = NewGame();
   object.id = id;
-  object.text = reader.readString(offsets[0]);
+  object.murderTexts = reader.readString(offsets[0]);
   return object;
 }
 
@@ -223,20 +223,20 @@ extension NewGameQueryFilter
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textEqualTo(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'text',
+        property: r'murderTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textGreaterThan(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -244,14 +244,14 @@ extension NewGameQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'text',
+        property: r'murderTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textLessThan(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -259,14 +259,14 @@ extension NewGameQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'text',
+        property: r'murderTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textBetween(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -275,7 +275,7 @@ extension NewGameQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'text',
+        property: r'murderTexts',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -285,69 +285,70 @@ extension NewGameQueryFilter
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textStartsWith(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'text',
+        property: r'murderTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textEndsWith(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'text',
+        property: r'murderTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textContains(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsContains(
       String value,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
-        property: r'text',
+        property: r'murderTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textMatches(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsMatches(
       String pattern,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
-        property: r'text',
+        property: r'murderTexts',
         wildcard: pattern,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textIsEmpty() {
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> murderTextsIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'text',
+        property: r'murderTexts',
         value: '',
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> textIsNotEmpty() {
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      murderTextsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'text',
+        property: r'murderTexts',
         value: '',
       ));
     });
@@ -361,15 +362,15 @@ extension NewGameQueryLinks
     on QueryBuilder<NewGame, NewGame, QFilterCondition> {}
 
 extension NewGameQuerySortBy on QueryBuilder<NewGame, NewGame, QSortBy> {
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByText() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByMurderTexts() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'text', Sort.asc);
+      return query.addSortBy(r'murderTexts', Sort.asc);
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByTextDesc() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByMurderTextsDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'text', Sort.desc);
+      return query.addSortBy(r'murderTexts', Sort.desc);
     });
   }
 }
@@ -388,25 +389,25 @@ extension NewGameQuerySortThenBy
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByText() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByMurderTexts() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'text', Sort.asc);
+      return query.addSortBy(r'murderTexts', Sort.asc);
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByTextDesc() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByMurderTextsDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'text', Sort.desc);
+      return query.addSortBy(r'murderTexts', Sort.desc);
     });
   }
 }
 
 extension NewGameQueryWhereDistinct
     on QueryBuilder<NewGame, NewGame, QDistinct> {
-  QueryBuilder<NewGame, NewGame, QDistinct> distinctByText(
+  QueryBuilder<NewGame, NewGame, QDistinct> distinctByMurderTexts(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'text', caseSensitive: caseSensitive);
+      return query.addDistinctBy(r'murderTexts', caseSensitive: caseSensitive);
     });
   }
 }
@@ -419,9 +420,9 @@ extension NewGameQueryProperty
     });
   }
 
-  QueryBuilder<NewGame, String, QQueryOperations> textProperty() {
+  QueryBuilder<NewGame, String, QQueryOperations> murderTextsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'text');
+      return query.addPropertyName(r'murderTexts');
     });
   }
 }

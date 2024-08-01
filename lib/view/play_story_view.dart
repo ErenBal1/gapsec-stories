@@ -162,11 +162,11 @@ class _ChatViewState extends State<ChatView> {
                                     setState(() {});
                                     //tuşlar basılabilir hale gelicek
                                   },
-                                  key: ValueKey(newGame.text),
+                                  key: ValueKey(newGame.murderTexts),
                                   isRepeatingAnimation: false,
                                   totalRepeatCount: 1,
                                   animatedTexts: [
-                                    TyperAnimatedText(newGame.text,
+                                    TyperAnimatedText(newGame.murderTexts,
                                         speed:
                                             const Duration(milliseconds: 150)),
                                   ],
@@ -189,7 +189,7 @@ class _ChatViewState extends State<ChatView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              newGame.text,
+                              newGame.murderTexts,
                               style: const TextStyle(fontSize: 40),
                             ),
                           ],
