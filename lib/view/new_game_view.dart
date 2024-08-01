@@ -145,8 +145,8 @@ class _NewGameViewState extends State<NewGameView> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: InkWell(
-                    onTap: () =>
-                        hs.goToPage(page: const ChatView(), context: context),
+                    onTap: () => hs.goToPage(
+                        page: ChatView(story: gameName), context: context),
                     child: SizedBox(
                       width: double.infinity,
                       height: 40,

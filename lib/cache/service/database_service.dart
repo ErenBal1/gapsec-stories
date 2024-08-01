@@ -17,7 +17,8 @@ class DatabaseService {
   //Seçimi listeye ekle
   Future<void> addToList(text) async {
     final newMessage = NewGame()..text = text;
-    isar.writeTxn(() => isar.newGames.put(newMessage));
+    await isar.writeTxn(() => isar.newGames.put(newMessage));
+    await getUpdatedList();
   }
 
   //Bütün Listeyi getir
@@ -26,8 +27,10 @@ class DatabaseService {
   }
 
   //Bütün listeyi temizle yeni oyunda
-  Future<void> deleteListElements(NewGame games) async {
-    await isar.writeTxn(() => isar.newGames.deleteAll([games.id]));
+  Future<void> deleteListElements() async {
+    final allGames = await isar.newGames.where().findAll();
+    final allIds = allGames.map((game) => game.id).toList();
+    await isar.writeTxn(() => isar.newGames.deleteAll(allIds));
     //Sonra bütün listeyi yeniden temizle getir
     await getUpdatedList();
   }
