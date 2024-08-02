@@ -38,7 +38,8 @@ class _NewGameViewState extends State<NewGameView> {
     _updateScreen();
   }
 
-  void showOkCancelAlert(BuildContext context, TextType type) async {
+  Future<void> showOkCancelAlert(
+      BuildContext context, TextType type, String gameName) async {
     final result = await showOkCancelAlertDialog(
       context: context,
       title: 'Mevcut hikayen var!',
@@ -51,11 +52,25 @@ class _NewGameViewState extends State<NewGameView> {
       switch (type) {
         case TextType.murderType:
           //silincek
-          _selectedHistoryDelete(type: TextType.murderType);
+          await _selectedHistoryDelete(type: TextType.murderType);
+          hs.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.murderRepo,
+                story: gameName,
+                selectedTextType: TextType.murderType,
+              ),
+              context: context);
           print('pressed Murder');
           break;
         case TextType.dontLookBackType:
-          _selectedHistoryDelete(type: TextType.dontLookBackType);
+          await _selectedHistoryDelete(type: TextType.dontLookBackType);
+          hs.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.dontLookBackRepo,
+                story: gameName,
+                selectedTextType: TextType.dontLookBackType,
+              ),
+              context: context);
           print("pressed dont look back");
           break;
         default:
@@ -226,7 +241,8 @@ class _NewGameViewState extends State<NewGameView> {
                                 ),
                                 context: context);
                           } else {
-                            showOkCancelAlert(context, TextType.murderType);
+                            await showOkCancelAlert(
+                                context, TextType.murderType, gameName);
                           }
                           break;
                         case "Don't Look Back":
@@ -242,8 +258,8 @@ class _NewGameViewState extends State<NewGameView> {
                                 ),
                                 context: context);
                           } else {
-                            showOkCancelAlert(
-                                context, TextType.dontLookBackType);
+                            await showOkCancelAlert(
+                                context, TextType.dontLookBackType, gameName);
                           }
                           break;
                         default:

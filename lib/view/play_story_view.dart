@@ -328,7 +328,6 @@ class _ChatViewState extends State<ChatView> {
                                 eklencekText: right["title"],
                                 type: TextType.murderType);
                             updateStoryMapId(right["aId"]);
-                            print("first answerId=> $storyMapId");
                             _changeComplete();
                             left = assignToOdd(selectedList, storyMapId)!;
                             right = assignToEven(selectedList, storyMapId)!;
@@ -347,7 +346,6 @@ class _ChatViewState extends State<ChatView> {
                                 eklencekText: right["title"],
                                 type: TextType.dontLookBackType);
                             updateStoryMapId(right["aId"]);
-                            print("first answerId=> $storyMapId");
                             _changeComplete();
                             left = assignToOdd(selectedList, storyMapId)!;
                             right = assignToEven(selectedList, storyMapId)!;
