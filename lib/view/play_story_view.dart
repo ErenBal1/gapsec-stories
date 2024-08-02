@@ -34,6 +34,17 @@ class _ChatViewState extends State<ChatView> {
   int storyMapId = 0;
   late List repo = [];
   String selectedTexts = "";
+  final ScrollController _scrollController = ScrollController();
+
+  void _scrollToBottom() {
+    Future.delayed(const Duration(milliseconds: 100), () {
+      _scrollController.animateTo(
+        _scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    });
+  }
 
   //Ekranı güncellemek için short fonk.
   void _updateScreen() {
@@ -159,6 +170,7 @@ class _ChatViewState extends State<ChatView> {
                     width: 1, color: CustomColors.white.withOpacity(0.3)),
                 borderRadius: const BorderRadius.all(Radius.circular(15))),
             child: ListView.builder(
+              controller: _scrollController,
               itemCount: repo.length,
               itemBuilder: (BuildContext context, int index) {
                 final NewGame newGame = repo[index];
@@ -260,6 +272,7 @@ class _ChatViewState extends State<ChatView> {
                                 type: TextType.murderType);
                             repo = _databaseService.murderRepo;
                             setState(() {});
+                            _scrollToBottom();
                             break;
                           case TextType.dontLookBackType:
                             await _selectedStoryAddItem(
@@ -278,6 +291,7 @@ class _ChatViewState extends State<ChatView> {
                                 type: TextType.dontLookBackType);
                             repo = _databaseService.dontLookBackRepo;
                             setState(() {});
+                            _scrollToBottom();
                             break;
                           default:
                         }
@@ -326,6 +340,7 @@ class _ChatViewState extends State<ChatView> {
                                 type: TextType.murderType);
                             repo = _databaseService.murderRepo;
                             setState(() {});
+                            _scrollToBottom();
                             break;
                           case TextType.dontLookBackType:
                             await _selectedStoryAddItem(
@@ -344,6 +359,7 @@ class _ChatViewState extends State<ChatView> {
                                 type: TextType.dontLookBackType);
                             repo = _databaseService.dontLookBackRepo;
                             setState(() {});
+                            _scrollToBottom();
                             break;
                           default:
                         }

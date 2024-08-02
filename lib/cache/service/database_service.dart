@@ -14,14 +14,14 @@ class DatabaseService {
   //Her bir hikayenin depolanması için
   List<NewGame?> murderRepo = [];
   List<NewGame?> dontLookBackRepo = [];
-  List<NewGame> lostLucyRepo = [];
-  List<NewGame> nightGameRepo = [];
-  List<NewGame> runKaityRepo = [];
-  List<NewGame> smileRepo = [];
-  List<NewGame> behindRepo = [];
-  List<NewGame> luckyRepo = [];
+  List<NewGame?> lostLucyRepo = [];
+  List<NewGame?> nightGameRepo = [];
+  List<NewGame?> runKaityRepo = [];
+  List<NewGame?> smileRepo = [];
+  List<NewGame?> behindRepo = [];
+  List<NewGame?> luckyRepo = [];
 
-  //Bütün listeyi temizle yeni oyunda
+  //Bütün her şeyi siler!!!
   Future<void> deleteListElements({required TextType type}) async {
     final allGames = await isar.newGames.where().findAll();
     final allIds = allGames.map((game) => game.id).toList();
@@ -30,7 +30,7 @@ class DatabaseService {
     await selectedStoryUpdate(type: type);
   }
 
-//--------------------------------------------------------------------------------------
+  //seçili storyyi siler datadan
   Future<void> selectedStoryDelete({required TextType type}) async {
     switch (type) {
       case TextType.murderType:
