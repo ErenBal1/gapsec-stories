@@ -11,12 +11,9 @@ class DatabaseService {
     isar = await Isar.open([NewGameSchema], directory: dir.path);
   }
 
-  //Olay akışı için liste oluştur
-  List<NewGame> events = [];
-
   //Her bir hikayenin depolanması için
-  List<NewGame> murderRepo = [];
-  List<NewGame> dontLookBackRepo = [];
+  List<NewGame?> murderRepo = [];
+  List<NewGame?> dontLookBackRepo = [];
   List<NewGame> lostLucyRepo = [];
   List<NewGame> nightGameRepo = [];
   List<NewGame> runKaityRepo = [];
@@ -24,24 +21,92 @@ class DatabaseService {
   List<NewGame> behindRepo = [];
   List<NewGame> luckyRepo = [];
 
-  //Seçimi listeye ekle
-  Future<void> addToList(text) async {
-    final newMessage = NewGame()..murderTexts = text;
-    await isar.writeTxn(() => isar.newGames.put(newMessage));
-    await getUpdatedList();
-  }
-
-  //Bütün Listeyi getir
-  Future<void> getUpdatedList() async {
-    events = await isar.newGames.where().findAll();
-  }
-
   //Bütün listeyi temizle yeni oyunda
-  Future<void> deleteListElements() async {
+  Future<void> deleteListElements({required TextType type}) async {
     final allGames = await isar.newGames.where().findAll();
     final allIds = allGames.map((game) => game.id).toList();
     await isar.writeTxn(() => isar.newGames.deleteAll(allIds));
     //Sonra bütün listeyi yeniden temizle getir
-    await getUpdatedList();
+    await selectedStoryUpdate(type: type);
+  }
+
+//--------------------------------------------------------------------------------------
+  Future<void> selectedStoryDelete({required TextType type}) async {
+    switch (type) {
+      case TextType.murderType:
+        await isar.writeTxn(() async {
+          final items =
+              await isar.newGames.filter().murderTextsIsNotEmpty().findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        murderRepo.clear();
+        await selectedStoryUpdate(type: TextType.murderType);
+        break;
+      case TextType.dontLookBackType:
+        await isar.writeTxn(() async {
+          final items = await isar.newGames
+              .filter()
+              .dontLookBackTextsIsNotEmpty()
+              .findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        dontLookBackRepo.clear();
+        await selectedStoryUpdate(type: TextType.dontLookBackType);
+        break;
+      default:
+    }
+  }
+
+  Future<void> selectedStoryUpdate({required TextType type}) async {
+    final newGames = await isar.newGames.where().findAll();
+    switch (type) {
+      case TextType.murderType:
+        murderRepo = newGames
+            .where((item) =>
+                item.murderTexts != null && item.murderTexts!.isNotEmpty)
+            .toList();
+        print("murderRepo => $murderRepo");
+        print("murder story updated");
+        break;
+      case TextType.dontLookBackType:
+        dontLookBackRepo = newGames
+            .where((item) =>
+                item.dontLookBackTexts != null &&
+                item.dontLookBackTexts!.isNotEmpty)
+            .toList();
+        print("dontLookBackRepo => $dontLookBackRepo");
+        print("dontlookback story updated");
+        break;
+      default:
+    }
+  }
+
+  Future<void> selectedStoryAdd(
+      {required String eklenicekMetin, required TextType type}) async {
+    switch (type) {
+      case TextType.murderType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..murderTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.murderType);
+        }
+        break;
+      case TextType.dontLookBackType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..dontLookBackTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.dontLookBackType);
+        }
+        break;
+      default:
+    }
   }
 }

@@ -6,8 +6,8 @@ part 'newgame_model.g.dart';
 class NewGame {
   Id id = Isar.autoIncrement;
 
-  late String murderTexts;
-  // late String dontLookBackTexts;
+  String? murderTexts;
+  String? dontLookBackTexts;
 }
 
 enum TextType { murderType, dontLookBackType }

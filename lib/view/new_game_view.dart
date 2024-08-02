@@ -1,6 +1,7 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:gapsec/cache/games_storage/games_storage.dart';
+import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
@@ -23,8 +24,48 @@ class _NewGameViewState extends State<NewGameView> {
   final _databaseService = DatabaseService();
   int storyMapId = 0;
 
+  void _updateScreen() {
+    setState(() {});
+  }
+
+  Future<void> _selectedHistoryDelete({required TextType type}) async {
+    await _databaseService.selectedStoryDelete(type: type);
+    _updateScreen();
+  }
+
+  Future<void> _selectedStoryUpdate({required TextType type}) async {
+    await _databaseService.selectedStoryUpdate(type: type);
+    _updateScreen();
+  }
+
+  void showOkCancelAlert(BuildContext context, TextType type) async {
+    final result = await showOkCancelAlertDialog(
+      context: context,
+      title: 'Mevcut hikayen var!',
+      message: 'Yeniden oluşturulsun mu?',
+      okLabel: 'Evet',
+      cancelLabel: 'Hayır',
+    );
+
+    if (result == OkCancelResult.ok) {
+      switch (type) {
+        case TextType.murderType:
+          //silincek
+          _selectedHistoryDelete(type: TextType.murderType);
+          print('pressed Murder');
+          break;
+        case TextType.dontLookBackType:
+          _selectedHistoryDelete(type: TextType.dontLookBackType);
+          print("pressed dont look back");
+          break;
+        default:
+      }
+    }
+  }
+
   Future<void> _deleteListElements() async {
-    await _databaseService.deleteListElements();
+    await _databaseService.deleteListElements(type: TextType.dontLookBackType);
+    await _databaseService.deleteListElements(type: TextType.murderType);
   }
 
   //Animated textin tamamlandığı hakkında info
@@ -171,24 +212,38 @@ class _NewGameViewState extends State<NewGameView> {
                   padding: const EdgeInsets.only(left: 8.0),
                   child: InkWell(
                     onTap: () async {
-                      await _databaseService.getUpdatedList();
+                      //await _databaseService.getUpdatedList();
+
                       switch (gameName) {
                         case "Murder":
-                          if (_databaseService.events.isEmpty) {
+                          await _selectedStoryUpdate(type: TextType.murderType);
+                          if (_databaseService.murderRepo.isEmpty) {
                             hs.goToPage(
-                                page: ChatView(story: gameName),
+                                page: ChatView(
+                                  selectedRepo: _databaseService.murderRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.murderType,
+                                ),
                                 context: context);
                           } else {
-                            print("içi dolu");
+                            showOkCancelAlert(context, TextType.murderType);
                           }
                           break;
                         case "Don't Look Back":
-                          if (_databaseService.events.isEmpty) {
+                          await _selectedStoryUpdate(
+                              type: TextType.dontLookBackType);
+                          if (_databaseService.dontLookBackRepo.isEmpty) {
                             hs.goToPage(
-                                page: ChatView(story: gameName),
+                                page: ChatView(
+                                  selectedRepo:
+                                      _databaseService.dontLookBackRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.dontLookBackType,
+                                ),
                                 context: context);
                           } else {
-                            print("içi dolu");
+                            showOkCancelAlert(
+                                context, TextType.dontLookBackType);
                           }
                           break;
                         default:

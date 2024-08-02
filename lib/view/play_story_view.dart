@@ -1,21 +1,24 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:gapsec/cache/games_storage/dont_look_back.dart';
-import 'package:gapsec/cache/games_storage/games_storage.dart';
-import 'package:gapsec/stories/model/story_model.dart';
 import 'package:page_transition/page_transition.dart';
 
+import 'package:gapsec/cache/games_storage/dont_look_back.dart';
+import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 
 class ChatView extends StatefulWidget {
+  final TextType selectedTextType;
   final String story;
+  final List selectedRepo;
   const ChatView({
     super.key,
+    required this.selectedTextType,
     required this.story,
+    required this.selectedRepo,
   });
 
   @override
@@ -26,29 +29,26 @@ class _ChatViewState extends State<ChatView> {
   late Map<String, dynamic> left = {}; // tek olan map
   late Map<String, dynamic> right = {}; //çift olan map
   late List<Map<String, dynamic>> selectedList = [];
-  late String selectedStory = widget.story;
   bool textCompleted = false;
   final _databaseService = DatabaseService();
   int storyMapId = 0;
+  late List repo = [];
+  String selectedTexts = "";
 
   //Ekranı güncellemek için short fonk.
   void _updateScreen() {
     setState(() {});
   }
 
-  //Chat kısmındaki güncel listeyi önce çeker sonra ekranı günceller
-  Future<void> _getUpdatedList() async {
-    await _databaseService.getUpdatedList();
+  Future<void> _selectedStoryUpdate({required TextType type}) async {
+    await _databaseService.selectedStoryUpdate(type: type);
     _updateScreen();
   }
 
-  Future<void> _deleteListElements() async {
-    await _databaseService.deleteListElements();
-    _updateScreen();
-  }
-
-  Future<void> _addToList(String text) async {
-    await _databaseService.addToList(text);
+  Future<void> _selectedStoryAddItem(
+      {required String eklencekText, required TextType type}) async {
+    await _databaseService.selectedStoryAdd(
+        eklenicekMetin: eklencekText, type: type);
     _updateScreen();
   }
 
@@ -90,21 +90,48 @@ class _ChatViewState extends State<ChatView> {
 
   @override
   void initState() {
-    selectedStory = widget.story;
-    if (selectedStory == murder.name) {
-      selectedList = MurderList;
-      _deleteListElements();
-      _addToList(getMapWithId(selectedList, storyMapId)!["history"]);
-      left = assignToOdd(selectedList, storyMapId)!;
-      right = assignToEven(selectedList, storyMapId)!;
-    } else if (selectedStory == dontLookBack.name) {
-      selectedList = DontLookBackList;
-      _deleteListElements();
-      _addToList(getMapWithId(selectedList, storyMapId)!["history"]);
-      left = assignToOdd(selectedList, storyMapId)!;
-      right = assignToEven(selectedList, storyMapId)!;
-    }
-    _getUpdatedList();
+    print(widget.selectedTextType.toString());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      switch (widget.selectedTextType) {
+        case TextType.murderType:
+          selectedList = MurderList;
+
+          await _selectedStoryAddItem(
+              eklencekText: getMapWithId(selectedList, storyMapId)!["history"],
+              type: TextType.murderType);
+          left = assignToOdd(selectedList, storyMapId)!;
+          right = assignToEven(selectedList, storyMapId)!;
+          await _selectedStoryUpdate(type: TextType.murderType);
+          setState(() {
+            repo = _databaseService.murderRepo;
+          });
+          print("left inside => $left");
+          print("right inside => $right");
+          print("inside repo => $repo");
+          print("inside MurderRepo database => ${_databaseService.murderRepo}");
+          break;
+        case TextType.dontLookBackType:
+          selectedList = DontLookBackList;
+
+          await _selectedStoryAddItem(
+              eklencekText: getMapWithId(selectedList, storyMapId)!["history"],
+              type: TextType.dontLookBackType);
+          left = assignToOdd(selectedList, storyMapId)!;
+          right = assignToEven(selectedList, storyMapId)!;
+          await _selectedStoryUpdate(type: TextType.dontLookBackType);
+          setState(() {
+            repo = _databaseService.dontLookBackRepo;
+          });
+          print("left inside => $left");
+          print("right inside => $right");
+          print("inside repo => $repo");
+          print(
+              "inside DontLookBackRepo database => ${_databaseService.dontLookBackRepo}");
+          break;
+        default:
+      }
+    });
     super.initState();
   }
 
@@ -132,9 +159,18 @@ class _ChatViewState extends State<ChatView> {
                     width: 1, color: CustomColors.white.withOpacity(0.3)),
                 borderRadius: const BorderRadius.all(Radius.circular(15))),
             child: ListView.builder(
-              itemCount: _databaseService.events.length,
+              itemCount: repo.length,
               itemBuilder: (BuildContext context, int index) {
-                final NewGame newGame = _databaseService.events[index];
+                final NewGame newGame = repo[index];
+                switch (widget.selectedTextType) {
+                  case TextType.murderType:
+                    selectedTexts = newGame.murderTexts.toString();
+                    break;
+                  case TextType.dontLookBackType:
+                    selectedTexts = newGame.dontLookBackTexts.toString();
+                    break;
+                  default:
+                }
                 return index.isEven
                     ? Container(
                         //width: 20, //Config.screenWidth! * 0.7,
@@ -162,11 +198,11 @@ class _ChatViewState extends State<ChatView> {
                                     setState(() {});
                                     //tuşlar basılabilir hale gelicek
                                   },
-                                  key: ValueKey(newGame.murderTexts),
+                                  key: ValueKey(selectedTexts),
                                   isRepeatingAnimation: false,
                                   totalRepeatCount: 1,
                                   animatedTexts: [
-                                    TyperAnimatedText(newGame.murderTexts,
+                                    TyperAnimatedText(selectedTexts,
                                         speed:
                                             const Duration(milliseconds: 150)),
                                   ],
@@ -189,7 +225,7 @@ class _ChatViewState extends State<ChatView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              newGame.murderTexts,
+                              selectedTexts,
                               style: const TextStyle(fontSize: 40),
                             ),
                           ],
@@ -206,18 +242,48 @@ class _ChatViewState extends State<ChatView> {
                   InkWell(
                     onTap: () async {
                       if (textCompleted == true) {
-                        await _addToList(left["title"]);
-                        updateStoryMapId(left["aId"]);
-                        print("first answerId=> $storyMapId");
-                        _changeComplete();
-                        left = assignToOdd(selectedList, storyMapId)!;
-                        right = assignToEven(selectedList, storyMapId)!;
-                        await _addToList(
-                            getMapWithId(selectedList, storyMapId)!["history"]);
-                        /* updateStoryMapId(left["aId"]);
-                        print("last answerId=> $storyMapId"); */
+                        switch (widget.selectedTextType) {
+                          case TextType.murderType:
+                            await _selectedStoryAddItem(
+                                eklencekText: left["title"],
+                                type: TextType.murderType);
+                            updateStoryMapId(left["aId"]);
+                            print("first answerId=> $storyMapId");
+                            _changeComplete();
+                            left = assignToOdd(selectedList, storyMapId)!;
+                            right = assignToEven(selectedList, storyMapId)!;
+                            await _selectedStoryAddItem(
+                                eklencekText: getMapWithId(
+                                    selectedList, storyMapId)!["history"],
+                                type: TextType.murderType);
+                            await _selectedStoryUpdate(
+                                type: TextType.murderType);
+                            repo = _databaseService.murderRepo;
+                            setState(() {});
+                            break;
+                          case TextType.dontLookBackType:
+                            await _selectedStoryAddItem(
+                                eklencekText: left["title"],
+                                type: TextType.dontLookBackType);
+                            updateStoryMapId(left["aId"]);
+                            print("first answerId=> $storyMapId");
+                            _changeComplete();
+                            left = assignToOdd(selectedList, storyMapId)!;
+                            right = assignToEven(selectedList, storyMapId)!;
+                            await _selectedStoryAddItem(
+                                eklencekText: getMapWithId(
+                                    selectedList, storyMapId)!["history"],
+                                type: TextType.dontLookBackType);
+                            await _selectedStoryUpdate(
+                                type: TextType.dontLookBackType);
+                            repo = _databaseService.dontLookBackRepo;
+                            setState(() {});
+                            break;
+                          default:
+                        }
                       }
                     },
+                    // Sol taraftaki buton
                     child: Container(
                       width: Config.screenWidth! * 0.5,
                       height: Config.screenHeight! * 0.1,
@@ -242,16 +308,48 @@ class _ChatViewState extends State<ChatView> {
                   InkWell(
                     onTap: () async {
                       if (textCompleted == true) {
-                        await _addToList(right["title"]);
-                        updateStoryMapId(right["aId"]);
-                        print("first answerId=> $storyMapId");
-                        _changeComplete();
-                        left = assignToOdd(selectedList, storyMapId)!;
-                        right = assignToEven(selectedList, storyMapId)!;
-                        await _addToList(
-                            getMapWithId(selectedList, storyMapId)!["history"]);
+                        switch (widget.selectedTextType) {
+                          case TextType.murderType:
+                            await _selectedStoryAddItem(
+                                eklencekText: right["title"],
+                                type: TextType.murderType);
+                            updateStoryMapId(right["aId"]);
+                            print("first answerId=> $storyMapId");
+                            _changeComplete();
+                            left = assignToOdd(selectedList, storyMapId)!;
+                            right = assignToEven(selectedList, storyMapId)!;
+                            await _selectedStoryAddItem(
+                                eklencekText: getMapWithId(
+                                    selectedList, storyMapId)!["history"],
+                                type: TextType.murderType);
+                            await _selectedStoryUpdate(
+                                type: TextType.murderType);
+                            repo = _databaseService.murderRepo;
+                            setState(() {});
+                            break;
+                          case TextType.dontLookBackType:
+                            await _selectedStoryAddItem(
+                                eklencekText: right["title"],
+                                type: TextType.dontLookBackType);
+                            updateStoryMapId(right["aId"]);
+                            print("first answerId=> $storyMapId");
+                            _changeComplete();
+                            left = assignToOdd(selectedList, storyMapId)!;
+                            right = assignToEven(selectedList, storyMapId)!;
+                            await _selectedStoryAddItem(
+                                eklencekText: getMapWithId(
+                                    selectedList, storyMapId)!["history"],
+                                type: TextType.dontLookBackType);
+                            await _selectedStoryUpdate(
+                                type: TextType.dontLookBackType);
+                            repo = _databaseService.dontLookBackRepo;
+                            setState(() {});
+                            break;
+                          default:
+                        }
                       }
                     },
+                    //Sağ taraftaki button
                     child: Container(
                       width: Config.screenWidth! * 0.5,
                       height: Config.screenHeight! * 0.1,
@@ -295,7 +393,7 @@ class _ChatViewState extends State<ChatView> {
               ),
             ),
           ),
-          Positioned(
+          /* Positioned(
               right: Config.screenWidth! * 0.03,
               top: Config.screenHeight! * 0.05,
               child: IconButton(
@@ -303,7 +401,7 @@ class _ChatViewState extends State<ChatView> {
                   icon: const Icon(
                     Icons.refresh_outlined,
                     color: CustomColors.white,
-                  )))
+                  ))) */
         ],
       ),
     );
