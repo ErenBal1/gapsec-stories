@@ -1,10 +1,14 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
+import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 
 class NewGameView extends StatefulWidget {
@@ -17,6 +21,60 @@ class NewGameView extends StatefulWidget {
 class _NewGameViewState extends State<NewGameView> {
   final StoriesState vm = StoriesState();
   final HomeState hs = HomeState();
+  final _databaseService = DatabaseService();
+  int storyMapId = 0;
+
+  void _updateScreen() {
+    setState(() {});
+  }
+
+  Future<void> _selectedHistoryDelete({required TextType type}) async {
+    await _databaseService.selectedStoryDelete(type: type);
+    _updateScreen();
+  }
+
+  Future<void> _selectedStoryUpdate({required TextType type}) async {
+    await _databaseService.selectedStoryUpdate(type: type);
+    _updateScreen();
+  }
+
+  void showOkCancelAlert(BuildContext context, TextType type) async {
+    final result = await showOkCancelAlertDialog(
+      context: context,
+      title: 'Mevcut hikayen var!',
+      message: 'Yeniden oluşturulsun mu?',
+      okLabel: 'Evet',
+      cancelLabel: 'Hayır',
+    );
+
+    if (result == OkCancelResult.ok) {
+      switch (type) {
+        case TextType.murderType:
+          //silincek
+          _selectedHistoryDelete(type: TextType.murderType);
+          print('pressed Murder');
+          break;
+        case TextType.dontLookBackType:
+          _selectedHistoryDelete(type: TextType.dontLookBackType);
+          print("pressed dont look back");
+          break;
+        default:
+      }
+    }
+  }
+
+  Future<void> _deleteListElements() async {
+    await _databaseService.deleteListElements(type: TextType.dontLookBackType);
+    await _databaseService.deleteListElements(type: TextType.murderType);
+  }
+
+  //Animated textin tamamlandığı hakkında info
+
+  void updateStoryMapId(int newId) {
+    setState(() {
+      storyMapId = newId;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,6 +161,15 @@ class _NewGameViewState extends State<NewGameView> {
               ),
             ),
           ),
+          Positioned(
+              right: Config.screenWidth! * 0.03,
+              top: Config.screenHeight! * 0.05,
+              child: IconButton(
+                  onPressed: _deleteListElements,
+                  icon: const Icon(
+                    Icons.refresh_outlined,
+                    color: CustomColors.white,
+                  )))
         ],
       ),
     );
@@ -143,15 +210,64 @@ class _NewGameViewState extends State<NewGameView> {
                     border: Border.all(width: 1, color: CustomColors.black)),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        gameName,
-                        style: const TextStyle(fontFamily: "PixelFont"),
+                  child: InkWell(
+                    onTap: () async {
+                      //await _databaseService.getUpdatedList();
+
+                      switch (gameName) {
+                        case "Murder":
+                          await _selectedStoryUpdate(type: TextType.murderType);
+                          if (_databaseService.murderRepo.isEmpty) {
+                            hs.goToPage(
+                                page: ChatView(
+                                  selectedRepo: _databaseService.murderRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.murderType,
+                                ),
+                                context: context);
+                          } else {
+                            showOkCancelAlert(context, TextType.murderType);
+                          }
+                          break;
+                        case "Don't Look Back":
+                          await _selectedStoryUpdate(
+                              type: TextType.dontLookBackType);
+                          if (_databaseService.dontLookBackRepo.isEmpty) {
+                            hs.goToPage(
+                                page: ChatView(
+                                  selectedRepo:
+                                      _databaseService.dontLookBackRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.dontLookBackType,
+                                ),
+                                context: context);
+                          } else {
+                            showOkCancelAlert(
+                                context, TextType.dontLookBackType);
+                          }
+                          break;
+                        default:
+                      }
+                    },
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 40,
+                      //color: CustomColors.red,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            gameName,
+                            style: const TextStyle(fontFamily: "PixelFont"),
+                          ),
+                          const Icon(
+                            Icons.play_arrow_rounded,
+                            size: 30,
+                          )
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
