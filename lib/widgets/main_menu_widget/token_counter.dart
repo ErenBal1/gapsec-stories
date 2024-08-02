@@ -2,12 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
+import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/shop_view.dart';
 
 class TokenCounter extends StatelessWidget {
   TokenCounter({super.key});
   final HomeState vm = HomeState();
+  final ShopState ss = ShopState();
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +56,7 @@ class TokenCounter extends StatelessWidget {
                         GlowingIcon(Icons.add, Colors.blue),
                         const SizedBox(width: 30),
                         Text(
-                          '0',
+                          ss.amount.toString(),
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,

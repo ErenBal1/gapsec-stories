@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/state/shop_state/shop_state.dart';
+import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
-import 'package:gapsec/widgets/main_menu_widget/token_counter.dart';
 import 'package:gapsec/widgets/shop_view_widget/buy_token_container.dart';
 import 'package:gapsec/widgets/shop_view_widget/watch_ad_button.dart';
 
@@ -12,8 +13,16 @@ class ShopView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ShopState ss = ShopState();
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => ss.goBack(context),
+            icon: const Icon(
+              Icons.keyboard_arrow_down_rounded,
+              size: 40,
+              color: CustomColors.white,
+            )),
         title: const Text('Token Shop', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.purple[800],
         elevation: 0,
@@ -23,13 +32,15 @@ class ShopView extends StatelessWidget {
             child: Row(
               children: [
                 //amount of token
-                const Text(
-                  '10',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14),
-                ),
+                Observer(builder: (_) {
+                  return Text(
+                    ss.amount.toString(),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14),
+                  );
+                }),
                 const SizedBox(
                   width: 6,
                 ),
