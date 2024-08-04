@@ -9,6 +9,7 @@ class CustomColors {
   static const storyCardColor = Color.fromARGB(87, 244, 67, 54);
   static const selectedIconColor = Colors.yellow;
   static const cyanBlue = Colors.cyan;
+  static const yellow = selectedIconColor;
   static final GAPSECtitleColors = [
     Colors.blue,
     Colors.cyan.shade50,

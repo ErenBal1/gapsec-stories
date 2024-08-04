@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'package:gapsec/cache/games_storage/dont_look_back.dart';
@@ -9,6 +11,7 @@ import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:video_player/video_player.dart';
 
 class ChatView extends StatefulWidget {
   final TextType selectedTextType;
@@ -26,6 +29,7 @@ class ChatView extends StatefulWidget {
 }
 
 class _ChatViewState extends State<ChatView> {
+  late VideoPlayerController mp3controller;
   late Map<String, dynamic> left = {}; // tek olan map
   late Map<String, dynamic> right = {}; //çift olan map
   late List<Map<String, dynamic>> selectedList = [];
@@ -33,6 +37,7 @@ class _ChatViewState extends State<ChatView> {
   final _databaseService = DatabaseService();
   int storyMapId = 0;
   late List repo = [];
+  String mp3Path = "assets/sounds/dontLookBack.mp3";
   String selectedTexts = "";
   final ScrollController _scrollController = ScrollController();
 
@@ -102,48 +107,70 @@ class _ChatViewState extends State<ChatView> {
   @override
   void initState() {
     print(widget.selectedTextType.toString());
+    mp3controller = VideoPlayerController.asset(mp3Path)
+      ..initialize().then((_) {
+        mp3controller.setLooping(true);
+        setState(() {
+          mp3controller.value.isPlaying
+              ? mp3controller.pause()
+              : mp3controller.play();
+        });
+      });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      switch (widget.selectedTextType) {
-        case TextType.murderType:
-          selectedList = MurderList;
+    Future.delayed(const Duration(seconds: 3), () {
+      textCompleted = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        switch (widget.selectedTextType) {
+          case TextType.murderType:
+            selectedList = MurderList;
 
-          await _selectedStoryAddItem(
-              eklencekText: getMapWithId(selectedList, storyMapId)!["history"],
-              type: TextType.murderType);
-          left = assignToOdd(selectedList, storyMapId)!;
-          right = assignToEven(selectedList, storyMapId)!;
-          await _selectedStoryUpdate(type: TextType.murderType);
-          setState(() {
-            repo = _databaseService.murderRepo;
-          });
-          print("left inside => $left");
-          print("right inside => $right");
-          print("inside repo => $repo");
-          print("inside MurderRepo database => ${_databaseService.murderRepo}");
-          break;
-        case TextType.dontLookBackType:
-          selectedList = DontLookBackList;
+            await _selectedStoryAddItem(
+                eklencekText:
+                    getMapWithId(selectedList, storyMapId)!["history"],
+                type: TextType.murderType);
+            left = assignToOdd(selectedList, storyMapId)!;
+            right = assignToEven(selectedList, storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.murderType);
+            setState(() {
+              repo = _databaseService.murderRepo;
+            });
+            print("left inside => $left");
+            print("right inside => $right");
+            print("inside repo => $repo");
+            print(
+                "inside MurderRepo database => ${_databaseService.murderRepo}");
+            break;
+          case TextType.dontLookBackType:
+            selectedList = DontLookBackList;
 
-          await _selectedStoryAddItem(
-              eklencekText: getMapWithId(selectedList, storyMapId)!["history"],
-              type: TextType.dontLookBackType);
-          left = assignToOdd(selectedList, storyMapId)!;
-          right = assignToEven(selectedList, storyMapId)!;
-          await _selectedStoryUpdate(type: TextType.dontLookBackType);
-          setState(() {
-            repo = _databaseService.dontLookBackRepo;
-          });
-          print("left inside => $left");
-          print("right inside => $right");
-          print("inside repo => $repo");
-          print(
-              "inside DontLookBackRepo database => ${_databaseService.dontLookBackRepo}");
-          break;
-        default:
-      }
+            await _selectedStoryAddItem(
+                eklencekText:
+                    getMapWithId(selectedList, storyMapId)!["history"],
+                type: TextType.dontLookBackType);
+            left = assignToOdd(selectedList, storyMapId)!;
+            right = assignToEven(selectedList, storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.dontLookBackType);
+            setState(() {
+              repo = _databaseService.dontLookBackRepo;
+            });
+            print("left inside => $left");
+            print("right inside => $right");
+            print("inside repo => $repo");
+            print(
+                "inside DontLookBackRepo database => ${_databaseService.dontLookBackRepo}");
+            break;
+          default:
+        }
+      });
     });
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    mp3controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -156,7 +183,7 @@ class _ChatViewState extends State<ChatView> {
             width: double.infinity,
             height: Config.screenHeight,
             child: Image.asset(
-              "assets/images/dark.png",
+              "assets/images/cpp.png",
               fit: BoxFit.cover,
             ),
           ),
@@ -170,6 +197,7 @@ class _ChatViewState extends State<ChatView> {
                     width: 1, color: CustomColors.white.withOpacity(0.3)),
                 borderRadius: const BorderRadius.all(Radius.circular(15))),
             child: ListView.builder(
+              //  physics: const NeverScrollableScrollPhysics(),
               controller: _scrollController,
               itemCount: repo.length,
               itemBuilder: (BuildContext context, int index) {
@@ -184,208 +212,334 @@ class _ChatViewState extends State<ChatView> {
                   default:
                 }
                 return index.isEven
-                    ? Container(
-                        //width: 20, //Config.screenWidth! * 0.7,
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(7)),
-                          color: CustomColors.white.withOpacity(0.5),
-                        ),
-                        height: Config.screenHeight! * 0.2,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: DefaultTextStyle(
-                                style: const TextStyle(
-                                  fontSize: 30.0,
-                                  fontFamily: 'HorrorFont',
-                                  color: CustomColors.red,
-                                ),
-                                child: AnimatedTextKit(
-                                  onFinished: () {
-                                    _changeComplete();
-                                    setState(() {});
-                                    //tuşlar basılabilir hale gelicek
-                                  },
-                                  key: ValueKey(selectedTexts),
-                                  isRepeatingAnimation: false,
-                                  totalRepeatCount: 1,
-                                  animatedTexts: [
-                                    TyperAnimatedText(selectedTexts,
-                                        speed:
-                                            const Duration(milliseconds: 150)),
-                                  ],
+                    ? Padding(
+                        padding: const EdgeInsets.only(
+                            right: 50.0, bottom: 20, top: 20),
+                        child: Container(
+                          //width: 20, //Config.screenWidth! * 0.7,
+                          decoration: BoxDecoration(
+                            border: const Border(
+                                bottom: BorderSide(
+                                    color: CustomColors.yellow, width: 2)),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/systemChat.jpg"),
+                                fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(10),
+                                bottomRight: Radius.circular(10)),
+                            color: CustomColors.white.withOpacity(0.5),
+                          ),
+                          //height: Config.screenHeight! * 0.2,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: DefaultTextStyle(
+                                  style: const TextStyle(
+                                    fontSize: 30.0,
+                                    fontFamily: 'HorrorFont',
+                                    color: CustomColors.red,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      selectedTexts.tr(),
+                                      style: const TextStyle(fontSize: 30),
+                                    ),
+                                  ), /* AnimatedTextKit(
+                                    onFinished: () {
+                                      _changeComplete();
+                                      setState(() {});
+                                      //tuşlar basılabilir hale gelicek
+                                    },
+                                    key: ValueKey(selectedTexts),
+                                    isRepeatingAnimation: false,
+                                    totalRepeatCount: 0,
+                                    repeatForever: false,
+                                    animatedTexts: [
+                                      TyperAnimatedText(selectedTexts,
+                                          speed: const Duration(
+                                              milliseconds: 150)),
+                                    ],
+                                  ), */
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       )
-                    : Container(
-                        //width: 20, //Config.screenWidth! * 0.7,
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(7)),
-                          color: CustomColors.red.withOpacity(0.5),
-                        ),
-                        height: Config.screenHeight! * 0.2,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              selectedTexts,
-                              style: const TextStyle(fontSize: 40),
-                            ),
-                          ],
+                    : Padding(
+                        padding: const EdgeInsets.only(left: 50.0),
+                        child: Container(
+                          //width: 20, //Config.screenWidth! * 0.7,
+                          decoration: BoxDecoration(
+                            border: const Border(
+                                bottom: BorderSide(
+                                    color: CustomColors.red, width: 3)),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/systemChat.jpg"),
+                                fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomLeft: Radius.circular(10)),
+                            color: CustomColors.red.withOpacity(0.5),
+                          ),
+                          //height: Config.screenHeight! * 0.2,
+
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text(
+                                  selectedTexts,
+                                  style: TextStyle(
+                                    fontSize: 30.0,
+                                    fontFamily: 'HorrorFont',
+                                    color: CustomColors.yellow.withOpacity(0.8),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       );
               },
             ),
           )),
           Positioned(
-              bottom: Config.screenHeight! * 0.05,
+              bottom: Config.screenHeight! * 0.03,
               left: 0, //Config.screenWidth! * 0.025,
-              child: Row(
-                children: [
-                  InkWell(
-                    onTap: () async {
-                      if (textCompleted == true) {
-                        switch (widget.selectedTextType) {
-                          case TextType.murderType:
-                            await _selectedStoryAddItem(
-                                eklencekText: left["title"],
-                                type: TextType.murderType);
-                            updateStoryMapId(left["aId"]);
-                            print("first answerId=> $storyMapId");
-                            _changeComplete();
-                            left = assignToOdd(selectedList, storyMapId)!;
-                            right = assignToEven(selectedList, storyMapId)!;
-                            await _selectedStoryAddItem(
-                                eklencekText: getMapWithId(
-                                    selectedList, storyMapId)!["history"],
-                                type: TextType.murderType);
-                            await _selectedStoryUpdate(
-                                type: TextType.murderType);
-                            repo = _databaseService.murderRepo;
-                            setState(() {});
-                            _scrollToBottom();
-                            break;
-                          case TextType.dontLookBackType:
-                            await _selectedStoryAddItem(
-                                eklencekText: left["title"],
-                                type: TextType.dontLookBackType);
-                            updateStoryMapId(left["aId"]);
-                            print("first answerId=> $storyMapId");
-                            _changeComplete();
-                            left = assignToOdd(selectedList, storyMapId)!;
-                            right = assignToEven(selectedList, storyMapId)!;
-                            await _selectedStoryAddItem(
-                                eklencekText: getMapWithId(
-                                    selectedList, storyMapId)!["history"],
-                                type: TextType.dontLookBackType);
-                            await _selectedStoryUpdate(
-                                type: TextType.dontLookBackType);
-                            repo = _databaseService.dontLookBackRepo;
-                            setState(() {});
-                            _scrollToBottom();
-                            break;
-                          default:
+              child: SizedBox(
+                width: Config.screenWidth,
+                //color: CustomColors.red,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                      onTap: () async {
+                        if (textCompleted == true) {
+                          switch (widget.selectedTextType) {
+                            case TextType.murderType:
+                              setState(() {
+                                textCompleted = false;
+                              });
+                              await _selectedStoryAddItem(
+                                  eklencekText: left["title"],
+                                  type: TextType.murderType);
+                              updateStoryMapId(left["aId"]);
+                              print("first answerId=> $storyMapId");
+                              //_changeComplete();
+                              ////////////
+                              await _selectedStoryUpdate(
+                                  type: TextType.murderType);
+                              repo = _databaseService.murderRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              await Future.delayed(const Duration(seconds: 3));
+                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
+                              left = assignToOdd(selectedList, storyMapId)!;
+                              right = assignToEven(selectedList, storyMapId)!;
+                              await _selectedStoryAddItem(
+                                  eklencekText: getMapWithId(
+                                      selectedList, storyMapId)!["history"],
+                                  type: TextType.murderType);
+                              await _selectedStoryUpdate(
+                                  type: TextType.murderType);
+                              repo = _databaseService.murderRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              break;
+                            case TextType.dontLookBackType:
+                              await _selectedStoryAddItem(
+                                  eklencekText: left["title"],
+                                  type: TextType.dontLookBackType);
+                              updateStoryMapId(left["aId"]);
+                              print("first answerId=> $storyMapId");
+                              // _changeComplete();
+                              //////////////////
+                              await _selectedStoryUpdate(
+                                  type: TextType.dontLookBackType);
+                              repo = _databaseService.dontLookBackRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              await Future.delayed(const Duration(seconds: 3));
+                              //////////////////
+                              left = assignToOdd(selectedList, storyMapId)!;
+                              right = assignToEven(selectedList, storyMapId)!;
+                              await _selectedStoryAddItem(
+                                  eklencekText: getMapWithId(
+                                      selectedList, storyMapId)!["history"],
+                                  type: TextType.dontLookBackType);
+                              await _selectedStoryUpdate(
+                                  type: TextType.dontLookBackType);
+                              repo = _databaseService.dontLookBackRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              break;
+                            default:
+                          }
                         }
-                      }
-                    },
-                    // Sol taraftaki buton
-                    child: Container(
-                      width: Config.screenWidth! * 0.5,
-                      height: Config.screenHeight! * 0.1,
-                      decoration: BoxDecoration(
-                          color: CustomColors.black.withOpacity(0.95),
-                          border: Border.all(
-                              width: 1,
-                              color: CustomColors.white.withOpacity(0.5)),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(15))),
-                      child: Center(
-                        child: Text(
-                          textCompleted == true
-                              ? assignToOdd(selectedList, storyMapId)!["title"]
-                              : "",
-                          style: const TextStyle(
-                              color: CustomColors.white, fontSize: 30),
+                        setState(() {
+                          textCompleted = false;
+                        });
+
+                        // 2 saniye bekleyip textCompleted'ı tekrar true yap
+                        await Future.delayed(const Duration(seconds: 4));
+                        setState(() {
+                          textCompleted = true;
+                        });
+                      },
+                      // Sol taraftaki buton
+                      child: Container(
+                        width: Config.screenWidth! * 0.4,
+                        height: Config.screenHeight! * 0.1,
+                        decoration: BoxDecoration(
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/buttonBack.jpg"),
+                                fit: BoxFit.cover),
+                            color: CustomColors.black.withOpacity(0.95),
+                            border: Border.all(
+                                width: 1,
+                                color: CustomColors.white.withOpacity(0.5)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15))),
+                        child: Center(
+                          child: Text(
+                            textCompleted == true
+                                ? assignToOdd(
+                                    selectedList, storyMapId)!["title"]
+                                : "",
+                            style: const TextStyle(
+                                color: CustomColors.yellow, fontSize: 20),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  InkWell(
-                    onTap: () async {
-                      if (textCompleted == true) {
-                        switch (widget.selectedTextType) {
-                          case TextType.murderType:
-                            await _selectedStoryAddItem(
-                                eklencekText: right["title"],
-                                type: TextType.murderType);
-                            updateStoryMapId(right["aId"]);
-                            _changeComplete();
-                            left = assignToOdd(selectedList, storyMapId)!;
-                            right = assignToEven(selectedList, storyMapId)!;
-                            await _selectedStoryAddItem(
-                                eklencekText: getMapWithId(
-                                    selectedList, storyMapId)!["history"],
-                                type: TextType.murderType);
-                            await _selectedStoryUpdate(
-                                type: TextType.murderType);
-                            repo = _databaseService.murderRepo;
-                            setState(() {});
-                            _scrollToBottom();
-                            break;
-                          case TextType.dontLookBackType:
-                            await _selectedStoryAddItem(
-                                eklencekText: right["title"],
-                                type: TextType.dontLookBackType);
-                            updateStoryMapId(right["aId"]);
-                            _changeComplete();
-                            left = assignToOdd(selectedList, storyMapId)!;
-                            right = assignToEven(selectedList, storyMapId)!;
-                            await _selectedStoryAddItem(
-                                eklencekText: getMapWithId(
-                                    selectedList, storyMapId)!["history"],
-                                type: TextType.dontLookBackType);
-                            await _selectedStoryUpdate(
-                                type: TextType.dontLookBackType);
-                            repo = _databaseService.dontLookBackRepo;
-                            setState(() {});
-                            _scrollToBottom();
-                            break;
-                          default:
-                        }
-                      }
-                    },
-                    //Sağ taraftaki button
-                    child: Container(
-                      width: Config.screenWidth! * 0.5,
-                      height: Config.screenHeight! * 0.1,
-                      decoration: BoxDecoration(
-                          color: CustomColors.black.withOpacity(0.95),
-                          border: Border.all(
-                              width: 1,
-                              color: CustomColors.white.withOpacity(0.5)),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(15))),
+                    SizedBox(
+                      //color: CustomColors.cyanBlue,
+                      width: Config.screenWidth! * 0.15,
+                      height: Config.screenHeight! * 0.05,
                       child: Center(
-                        child: Text(
-                          textCompleted == true
-                              ? assignToEven(selectedList, storyMapId)!["title"]
-                              : "",
-                          style: const TextStyle(
-                              color: CustomColors.white, fontSize: 30),
+                        child: textCompleted == false
+                            ? const LoadingIndicator(
+                                indicatorType: Indicator.ballClipRotateMultiple,
+                                colors: [
+                                  Colors.white,
+                                  Colors.yellow,
+                                  Colors.black
+                                ],
+                                strokeWidth: 2,
+                              )
+                            : null,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        if (textCompleted == true) {
+                          switch (widget.selectedTextType) {
+                            case TextType.murderType:
+                              await _selectedStoryAddItem(
+                                  eklencekText: right["title"],
+                                  type: TextType.murderType);
+                              updateStoryMapId(right["aId"]);
+                              // _changeComplete();
+                              ////////////
+                              await _selectedStoryUpdate(
+                                  type: TextType.murderType);
+                              repo = _databaseService.murderRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              await Future.delayed(const Duration(seconds: 3));
+                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
+                              left = assignToOdd(selectedList, storyMapId)!;
+                              right = assignToEven(selectedList, storyMapId)!;
+                              await _selectedStoryAddItem(
+                                  eklencekText: getMapWithId(
+                                      selectedList, storyMapId)!["history"],
+                                  type: TextType.murderType);
+                              await _selectedStoryUpdate(
+                                  type: TextType.murderType);
+                              repo = _databaseService.murderRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              break;
+                            case TextType.dontLookBackType:
+                              await _selectedStoryAddItem(
+                                  eklencekText: right["title"],
+                                  type: TextType.dontLookBackType);
+                              updateStoryMapId(right["aId"]);
+                              //  _changeComplete();
+                              //////////////////
+                              await _selectedStoryUpdate(
+                                  type: TextType.dontLookBackType);
+                              repo = _databaseService.dontLookBackRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              await Future.delayed(const Duration(seconds: 3));
+                              //////////////////
+                              left = assignToOdd(selectedList, storyMapId)!;
+                              right = assignToEven(selectedList, storyMapId)!;
+                              await _selectedStoryAddItem(
+                                  eklencekText: getMapWithId(
+                                      selectedList, storyMapId)!["history"],
+                                  type: TextType.dontLookBackType);
+                              await _selectedStoryUpdate(
+                                  type: TextType.dontLookBackType);
+                              repo = _databaseService.dontLookBackRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              break;
+                            default:
+                          }
+                        }
+                        setState(() {
+                          textCompleted = false;
+                        });
+
+                        // 2 saniye bekleyip textCompleted'ı tekrar true yap
+                        await Future.delayed(const Duration(seconds: 3));
+                        setState(() {
+                          textCompleted = true;
+                        });
+                      },
+                      //Sağ taraftaki button
+                      child: Container(
+                        width: Config.screenWidth! * 0.4,
+                        height: Config.screenHeight! * 0.1,
+                        decoration: BoxDecoration(
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/buttonBack.jpg"),
+                                fit: BoxFit.cover),
+                            color: CustomColors.black.withOpacity(0.95),
+                            border: Border.all(
+                                width: 1,
+                                color: CustomColors.white.withOpacity(0.5)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15))),
+                        child: Center(
+                          child: Text(
+                            textCompleted == true
+                                ? assignToEven(
+                                    selectedList, storyMapId)!["title"]
+                                : "",
+                            style: const TextStyle(
+                                color: CustomColors.yellow, fontSize: 20),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               )),
           Positioned(
             top: Config.screenHeight! * 0.05,
