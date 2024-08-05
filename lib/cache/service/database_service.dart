@@ -12,6 +12,7 @@ class DatabaseService {
   }
 
   //Her bir hikayenin depolanması için
+  List<NewGame?> erenRepo = [];
   List<NewGame?> murderRepo = [];
   List<NewGame?> dontLookBackRepo = [];
   List<NewGame?> lostLucyRepo = [];
@@ -57,6 +58,7 @@ class DatabaseService {
         dontLookBackRepo.clear();
         await selectedStoryUpdate(type: TextType.dontLookBackType);
         break;
+
       default:
     }
   }
@@ -81,6 +83,14 @@ class DatabaseService {
         print("dontLookBackRepo => $dontLookBackRepo");
         print("dontlookback story updated");
         break;
+      case TextType.erenType:
+        erenRepo = newGames
+            .where(
+                (item) => item.erenTexts != null && item.erenTexts!.isNotEmpty)
+            .toList();
+        print("EREN REPO => $erenRepo");
+        print("eren story updated");
+        break;
       default:
     }
   }
@@ -104,6 +114,15 @@ class DatabaseService {
             await isar.newGames.put(item);
           });
           selectedStoryUpdate(type: TextType.dontLookBackType);
+        }
+        break;
+      case TextType.erenType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..erenTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.erenType);
         }
         break;
       default:

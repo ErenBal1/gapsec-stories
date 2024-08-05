@@ -13,6 +13,11 @@ class StoryModel {
       required this.whichRepo});
 }
 
+StoryModel eren = StoryModel(
+    name: "Eren",
+    description: "eren description",
+    isLock: false,
+    whichRepo: DatabaseService().erenRepo);
 StoryModel murder = StoryModel(
     name: "Murder",
     description: "Discipline is the best tool",
@@ -57,6 +62,7 @@ StoryModel lucky = StoryModel(
 class games {
   List historiesGames = [
     murder,
+    eren,
     dontLookBack,
     lostLucy,
     nightGame,

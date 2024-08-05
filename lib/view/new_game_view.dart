@@ -73,6 +73,17 @@ class _NewGameViewState extends State<NewGameView> {
               context: context);
           print("pressed dont look back");
           break;
+        case TextType.erenType:
+          await _selectedHistoryDelete(type: TextType.erenType);
+          hs.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.erenRepo,
+                story: gameName,
+                selectedTextType: TextType.erenType,
+              ),
+              context: context);
+          print("pressed eren");
+          break;
         default:
       }
     }
@@ -81,6 +92,7 @@ class _NewGameViewState extends State<NewGameView> {
   Future<void> _deleteListElements() async {
     await _databaseService.deleteListElements(type: TextType.dontLookBackType);
     await _databaseService.deleteListElements(type: TextType.murderType);
+    await _databaseService.deleteListElements(type: TextType.erenType);
   }
 
   //Animated textin tamamlandığı hakkında info
@@ -260,6 +272,21 @@ class _NewGameViewState extends State<NewGameView> {
                           } else {
                             await showOkCancelAlert(
                                 context, TextType.dontLookBackType, gameName);
+                          }
+                          break;
+                        case "Eren":
+                          await _selectedStoryUpdate(type: TextType.erenType);
+                          if (_databaseService.erenRepo.isEmpty) {
+                            hs.goToPage(
+                                page: ChatView(
+                                  selectedRepo: _databaseService.erenRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.erenType,
+                                ),
+                                context: context);
+                          } else {
+                            await showOkCancelAlert(
+                                context, TextType.erenType, gameName);
                           }
                           break;
                         default:

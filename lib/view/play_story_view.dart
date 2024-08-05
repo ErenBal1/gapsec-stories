@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/cache/games_storage/eren_story.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -17,6 +18,7 @@ class ChatView extends StatefulWidget {
   final TextType selectedTextType;
   final String story;
   final List selectedRepo;
+
   const ChatView({
     super.key,
     required this.selectedTextType,
@@ -159,6 +161,25 @@ class _ChatViewState extends State<ChatView> {
             print(
                 "inside DontLookBackRepo database => ${_databaseService.dontLookBackRepo}");
             break;
+          case TextType.erenType:
+            selectedList = eren;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    getMapWithId(selectedList, storyMapId)!["history"],
+                type: TextType.erenType);
+            left = assignToOdd(selectedList, storyMapId)!;
+            right = assignToEven(selectedList, storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.erenType);
+            setState(() {
+              repo = _databaseService.erenRepo;
+            });
+            print("left inside => $left");
+            print("right inside => $right");
+            print("inside repo => $repo");
+            print(
+                "inside DontLookBackRepo database => ${_databaseService.erenRepo}");
+            break;
           default:
         }
       });
@@ -208,6 +229,9 @@ class _ChatViewState extends State<ChatView> {
                     break;
                   case TextType.dontLookBackType:
                     selectedTexts = newGame.dontLookBackTexts.toString();
+                    break;
+                  case TextType.erenType:
+                    selectedTexts = newGame.erenTexts.toString();
                     break;
                   default:
                 }
@@ -358,6 +382,9 @@ class _ChatViewState extends State<ChatView> {
                               _scrollToBottom();
                               break;
                             case TextType.dontLookBackType:
+                              setState(() {
+                                textCompleted = false;
+                              });
                               await _selectedStoryAddItem(
                                   eklencekText: left["title"],
                                   type: TextType.dontLookBackType);
@@ -381,6 +408,36 @@ class _ChatViewState extends State<ChatView> {
                               await _selectedStoryUpdate(
                                   type: TextType.dontLookBackType);
                               repo = _databaseService.dontLookBackRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              break;
+                            case TextType.erenType:
+                              setState(() {
+                                textCompleted = false;
+                              });
+                              await _selectedStoryAddItem(
+                                  eklencekText: left["title"],
+                                  type: TextType.erenType);
+                              updateStoryMapId(left["aId"]);
+                              print("first answerId=> $storyMapId");
+                              // _changeComplete();
+                              //////////////////
+                              await _selectedStoryUpdate(
+                                  type: TextType.erenType);
+                              repo = _databaseService.erenRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              await Future.delayed(const Duration(seconds: 3));
+                              //////////////////
+                              left = assignToOdd(selectedList, storyMapId)!;
+                              right = assignToEven(selectedList, storyMapId)!;
+                              await _selectedStoryAddItem(
+                                  eklencekText: getMapWithId(
+                                      selectedList, storyMapId)!["history"],
+                                  type: TextType.erenType);
+                              await _selectedStoryUpdate(
+                                  type: TextType.erenType);
+                              repo = _databaseService.erenRepo;
                               setState(() {});
                               _scrollToBottom();
                               break;
@@ -447,6 +504,9 @@ class _ChatViewState extends State<ChatView> {
                         if (textCompleted == true) {
                           switch (widget.selectedTextType) {
                             case TextType.murderType:
+                              setState(() {
+                                textCompleted = false;
+                              });
                               await _selectedStoryAddItem(
                                   eklencekText: right["title"],
                                   type: TextType.murderType);
@@ -473,6 +533,9 @@ class _ChatViewState extends State<ChatView> {
                               _scrollToBottom();
                               break;
                             case TextType.dontLookBackType:
+                              setState(() {
+                                textCompleted = false;
+                              });
                               await _selectedStoryAddItem(
                                   eklencekText: right["title"],
                                   type: TextType.dontLookBackType);
@@ -495,6 +558,35 @@ class _ChatViewState extends State<ChatView> {
                               await _selectedStoryUpdate(
                                   type: TextType.dontLookBackType);
                               repo = _databaseService.dontLookBackRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              break;
+                            case TextType.erenType:
+                              setState(() {
+                                textCompleted = false;
+                              });
+                              await _selectedStoryAddItem(
+                                  eklencekText: right["title"],
+                                  type: TextType.erenType);
+                              updateStoryMapId(right["aId"]);
+                              //  _changeComplete();
+                              //////////////////
+                              await _selectedStoryUpdate(
+                                  type: TextType.erenType);
+                              repo = _databaseService.erenRepo;
+                              setState(() {});
+                              _scrollToBottom();
+                              await Future.delayed(const Duration(seconds: 3));
+                              //////////////////
+                              left = assignToOdd(selectedList, storyMapId)!;
+                              right = assignToEven(selectedList, storyMapId)!;
+                              await _selectedStoryAddItem(
+                                  eklencekText: getMapWithId(
+                                      selectedList, storyMapId)!["history"],
+                                  type: TextType.erenType);
+                              await _selectedStoryUpdate(
+                                  type: TextType.erenType);
+                              repo = _databaseService.erenRepo;
                               setState(() {});
                               _scrollToBottom();
                               break;
