@@ -41,6 +41,9 @@ dependencies:
 
   #Adaptive Dialog
   adaptive_dialog: ^2.1.0
+  #Loading Indicator
+  loading_indicator: ^3.1.1
+
  
 
 

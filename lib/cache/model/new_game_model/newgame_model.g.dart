@@ -22,8 +22,13 @@ const NewGameSchema = CollectionSchema(
       name: r'dontLookBackTexts',
       type: IsarType.string,
     ),
-    r'murderTexts': PropertySchema(
+    r'erenTexts': PropertySchema(
       id: 1,
+      name: r'erenTexts',
+      type: IsarType.string,
+    ),
+    r'murderTexts': PropertySchema(
+      id: 2,
       name: r'murderTexts',
       type: IsarType.string,
     )
@@ -55,6 +60,12 @@ int _newGameEstimateSize(
     }
   }
   {
+    final value = object.erenTexts;
+    if (value != null) {
+      bytesCount += 3 + value.length * 3;
+    }
+  }
+  {
     final value = object.murderTexts;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
@@ -70,7 +81,8 @@ void _newGameSerialize(
   Map<Type, List<int>> allOffsets,
 ) {
   writer.writeString(offsets[0], object.dontLookBackTexts);
-  writer.writeString(offsets[1], object.murderTexts);
+  writer.writeString(offsets[1], object.erenTexts);
+  writer.writeString(offsets[2], object.murderTexts);
 }
 
 NewGame _newGameDeserialize(
@@ -81,8 +93,9 @@ NewGame _newGameDeserialize(
 ) {
   final object = NewGame();
   object.dontLookBackTexts = reader.readStringOrNull(offsets[0]);
+  object.erenTexts = reader.readStringOrNull(offsets[1]);
   object.id = id;
-  object.murderTexts = reader.readStringOrNull(offsets[1]);
+  object.murderTexts = reader.readStringOrNull(offsets[2]);
   return object;
 }
 
@@ -96,6 +109,8 @@ P _newGameDeserializeProp<P>(
     case 0:
       return (reader.readStringOrNull(offset)) as P;
     case 1:
+      return (reader.readStringOrNull(offset)) as P;
+    case 2:
       return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -345,6 +360,152 @@ extension NewGameQueryFilter
     });
   }
 
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'erenTexts',
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'erenTexts',
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'erenTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsGreaterThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'erenTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsLessThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'erenTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsBetween(
+    String? lower,
+    String? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'erenTexts',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'erenTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'erenTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'erenTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'erenTexts',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'erenTexts',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'erenTexts',
+        value: '',
+      ));
+    });
+  }
+
   QueryBuilder<NewGame, NewGame, QAfterFilterCondition> idEqualTo(Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -564,6 +725,18 @@ extension NewGameQuerySortBy on QueryBuilder<NewGame, NewGame, QSortBy> {
     });
   }
 
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByErenTexts() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'erenTexts', Sort.asc);
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByErenTextsDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'erenTexts', Sort.desc);
+    });
+  }
+
   QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByMurderTexts() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'murderTexts', Sort.asc);
@@ -588,6 +761,18 @@ extension NewGameQuerySortThenBy
   QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByDontLookBackTextsDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'dontLookBackTexts', Sort.desc);
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByErenTexts() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'erenTexts', Sort.asc);
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByErenTextsDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'erenTexts', Sort.desc);
     });
   }
 
@@ -626,6 +811,13 @@ extension NewGameQueryWhereDistinct
     });
   }
 
+  QueryBuilder<NewGame, NewGame, QDistinct> distinctByErenTexts(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'erenTexts', caseSensitive: caseSensitive);
+    });
+  }
+
   QueryBuilder<NewGame, NewGame, QDistinct> distinctByMurderTexts(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -645,6 +837,12 @@ extension NewGameQueryProperty
   QueryBuilder<NewGame, String?, QQueryOperations> dontLookBackTextsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'dontLookBackTexts');
+    });
+  }
+
+  QueryBuilder<NewGame, String?, QQueryOperations> erenTextsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'erenTexts');
     });
   }
 

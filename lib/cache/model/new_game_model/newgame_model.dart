@@ -8,6 +8,7 @@ class NewGame {
 
   String? murderTexts;
   String? dontLookBackTexts;
+  String? erenTexts;
 }
 
-enum TextType { murderType, dontLookBackType }
+enum TextType { murderType, dontLookBackType, erenType }

@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
+
 List<Map<String, dynamic>> MurderList = [
   {
-    "history": "taha uyandı",
+    "history": "tyb".tr(),
     "answers": [
       {"title": "çok güzel", "aId": 1},
       {"title": "ne demek uyanmadı", "aId": 2}
@@ -8,7 +10,7 @@ List<Map<String, dynamic>> MurderList = [
     "id": 0
   },
   {
-    "history": "elini yüzünü yıkadı mı?",
+    "history": "elini yüzünü yıkadı mı sor bakalım",
     "answers": [
       {"title": "Evet", "aId": 3},
       {"title": "hayır", "aId": 4}
@@ -24,7 +26,8 @@ List<Map<String, dynamic>> MurderList = [
     "id": 2
   },
   {
-    "history": "O zaman kahvaltıya gelsin",
+    "history":
+        "O zaman kahvaltıya gelsin çünkü ben dışarı çıkıcam tekrar tekrar bişeyler hazırlayamam",
     "answers": [
       {"title": "çağırıyorum", "aId": 7},
       {"title": "tamam sorucam", "aId": 0}
