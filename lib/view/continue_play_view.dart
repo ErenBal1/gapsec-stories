@@ -85,6 +85,19 @@ class _ContinueChatViewState extends State<ContinueChatView> {
         return list.firstWhere((element) =>
             element["history"] ==
             _databaseService.murderRepo.last!.murderTexts.toString());
+      case TextType.dontLookBackType:
+        /*  print(list.firstWhere(
+            (element) => element["history"] == object.murderTexts.toString())); */
+        return list.firstWhere((element) =>
+            element["history"] ==
+            _databaseService.dontLookBackRepo.last!.dontLookBackTexts
+                .toString());
+      case TextType.erenType:
+        /*  print(list.firstWhere(
+            (element) => element["history"] == object.murderTexts.toString())); */
+        return list.firstWhere((element) =>
+            element["history"] ==
+            _databaseService.erenRepo.last!.erenTexts.toString());
 
       default:
     }
