@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
+import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/view/continue_play_view.dart';
 
 class ContinueView extends StatefulWidget {
   const ContinueView({super.key});
@@ -15,6 +17,7 @@ class ContinueView extends StatefulWidget {
 
 class _ContinueViewState extends State<ContinueView> {
   final _databaseService = DatabaseService();
+  final HomeState hs = HomeState();
   final StoriesState vm = StoriesState();
 
   void _updateScreen() {
@@ -31,6 +34,7 @@ class _ContinueViewState extends State<ContinueView> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
       await _selectedStoryUpdate(type: TextType.dontLookBackType);
+      await _selectedStoryUpdate(type: TextType.erenType);
     });
     super.initState();
   }
@@ -88,6 +92,13 @@ class _ContinueViewState extends State<ContinueView> {
                       content =
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
+                    break;
+                  case "Eren":
+                    if (_databaseService.erenRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
                   default:
                 }
                 return content;
@@ -179,7 +190,58 @@ class _ContinueViewState extends State<ContinueView> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: InkWell(
-                    onTap: () async {},
+                    onTap: () async {
+                      switch (gameName) {
+                        case "Murder":
+                          await _selectedStoryUpdate(type: TextType.murderType);
+                          if (_databaseService.murderRepo.isNotEmpty) {
+                            hs.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.murderRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.murderType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Don't Look Back":
+                          await _selectedStoryUpdate(
+                              type: TextType.dontLookBackType);
+                          if (_databaseService.dontLookBackRepo.isNotEmpty) {
+                            hs.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo:
+                                      _databaseService.dontLookBackRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.dontLookBackType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.dontLookBackType, gameName); */
+                          }
+                          break;
+                        case "Eren":
+                          await _selectedStoryUpdate(type: TextType.erenType);
+                          if (_databaseService.erenRepo.isNotEmpty) {
+                            hs.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.erenRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.erenType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.erenType, gameName); */
+                          }
+                          break;
+                        default:
+                      }
+                    },
                     child: SizedBox(
                       width: double.infinity,
                       height: 40,

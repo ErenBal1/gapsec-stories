@@ -58,6 +58,17 @@ class DatabaseService {
         dontLookBackRepo.clear();
         await selectedStoryUpdate(type: TextType.dontLookBackType);
         break;
+      case TextType.erenType:
+        await isar.writeTxn(() async {
+          final items =
+              await isar.newGames.filter().erenTextsIsNotEmpty().findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        erenRepo.clear();
+        await selectedStoryUpdate(type: TextType.erenType);
+        break;
 
       default:
     }
