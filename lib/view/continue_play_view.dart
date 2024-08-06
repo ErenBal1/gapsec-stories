@@ -80,21 +80,15 @@ class _ContinueChatViewState extends State<ContinueChatView> {
       List<Map<String, dynamic>> list, TextType type) {
     switch (type) {
       case TextType.murderType:
-        /*  print(list.firstWhere(
-            (element) => element["history"] == object.murderTexts.toString())); */
         return list.firstWhere((element) =>
             element["history"] ==
             _databaseService.murderRepo.last!.murderTexts.toString());
       case TextType.dontLookBackType:
-        /*  print(list.firstWhere(
-            (element) => element["history"] == object.murderTexts.toString())); */
         return list.firstWhere((element) =>
             element["history"] ==
             _databaseService.dontLookBackRepo.last!.dontLookBackTexts
                 .toString());
       case TextType.erenType:
-        /*  print(list.firstWhere(
-            (element) => element["history"] == object.murderTexts.toString())); */
         return list.firstWhere((element) =>
             element["history"] ==
             _databaseService.erenRepo.last!.erenTexts.toString());
@@ -192,6 +186,17 @@ class _ContinueChatViewState extends State<ContinueChatView> {
         case TextType.dontLookBackType:
           selectedList = DontLookBackList;
           await _selectedStoryUpdate(type: TextType.dontLookBackType);
+          left = initToOdd(
+            selectedList,
+            TextType.dontLookBackType,
+          )!;
+          //  print("left inside => $left");
+          right = initToEven(
+            selectedList,
+            TextType.dontLookBackType,
+          )!;
+          // print("right inside => $right");
+          await _selectedStoryUpdate(type: TextType.dontLookBackType);
           setState(() {
             repo = _databaseService.dontLookBackRepo;
           });
@@ -200,6 +205,17 @@ class _ContinueChatViewState extends State<ContinueChatView> {
           break;
         case TextType.erenType:
           selectedList = eren;
+          await _selectedStoryUpdate(type: TextType.erenType);
+          left = initToOdd(
+            selectedList,
+            TextType.erenType,
+          )!;
+          //  print("left inside => $left");
+          right = initToEven(
+            selectedList,
+            TextType.erenType,
+          )!;
+          // print("right inside => $right");
           await _selectedStoryUpdate(type: TextType.erenType);
           setState(() {
             repo = _databaseService.erenRepo;
@@ -447,15 +463,15 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                                   type: TextType.erenType);
                               updateStoryMapId(left["aId"]);
                               //   print("first answerId=> $storyMapId");
-                              // _changeComplete();
-                              //////////////////
+                              //_changeComplete();
+                              ////////////
                               await _selectedStoryUpdate(
                                   type: TextType.erenType);
                               repo = _databaseService.erenRepo;
                               setState(() {});
                               _scrollToBottom();
                               await Future.delayed(const Duration(seconds: 3));
-                              //////////////////
+                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
                               left = assignToOdd(selectedList, storyMapId)!;
                               right = assignToEven(selectedList, storyMapId)!;
                               await _selectedStoryAddItem(
@@ -467,6 +483,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                               repo = _databaseService.erenRepo;
                               setState(() {});
                               _scrollToBottom();
+
                               break;
                             default:
                           }
@@ -600,15 +617,15 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                                   eklencekText: right["title"],
                                   type: TextType.erenType);
                               updateStoryMapId(right["aId"]);
-                              //  _changeComplete();
-                              //////////////////
+                              // _changeComplete();
+                              ////////////
                               await _selectedStoryUpdate(
                                   type: TextType.erenType);
                               repo = _databaseService.erenRepo;
                               setState(() {});
                               _scrollToBottom();
                               await Future.delayed(const Duration(seconds: 3));
-                              //////////////////
+                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
                               left = assignToOdd(selectedList, storyMapId)!;
                               right = assignToEven(selectedList, storyMapId)!;
                               await _selectedStoryAddItem(
