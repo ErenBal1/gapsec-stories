@@ -1,9 +1,6 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/cache/games_storage/eren_story.dart';
-import 'package:loading_indicator/loading_indicator.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'package:gapsec/cache/games_storage/dont_look_back.dart';
