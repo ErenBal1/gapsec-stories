@@ -46,7 +46,7 @@ class _SettingsButtonState extends State<SettingsButtons> {
               Row(
                 children: [
                   AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 200),
                     width: _isLanguageExpanded ? 150 : 0,
                     height: 40,
                     child: SingleChildScrollView(
