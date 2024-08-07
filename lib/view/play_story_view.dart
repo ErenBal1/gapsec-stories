@@ -42,9 +42,9 @@ class _ChatViewState extends State<ChatView> {
 
   TextEditingController myTextController = TextEditingController();
 
-  void _scrollToBottom() {
+  void _scrollToTop() {
     _scrollController.animateTo(
-      _scrollController.position.maxScrollExtent,
+      0,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeOut,
     );
@@ -224,23 +224,22 @@ class _ChatViewState extends State<ChatView> {
           ),
         ),
       ),
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Positioned(
-            top: 10,
-            bottom: 200,
+          Center(
             child: Container(
               width: Config.screenWidth,
-              height: Config.screenHeight! * 0.9,
+              height: Config.screenHeight! * 0.67,
               decoration: BoxDecoration(
-                color: Colors.blueGrey[100],
+                color: Colors.blueGrey[200],
               ),
               child: ListView.builder(
-                shrinkWrap: true,
+                reverse: true,
                 controller: _scrollController,
                 itemCount: repo.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final NewGame newGame = repo[index];
+                  final NewGame newGame = repo[repo.length - 1 - index];
                   switch (widget.selectedTextType) {
                     case TextType.murderType:
                       selectedTexts = newGame.murderTexts.toString();
@@ -255,19 +254,21 @@ class _ChatViewState extends State<ChatView> {
                   }
                   return Container(
                     margin: EdgeInsets.only(
-                      left: index.isEven ? 10 : 200,
-                      right: index.isEven ? 200 : 10,
+                      left: (repo.length - 1 - index).isEven ? 10 : 200,
+                      right: (repo.length - 1 - index).isEven ? 200 : 10,
                       bottom: 10,
                     ),
                     decoration: BoxDecoration(
-                      color: index.isEven
+                      color: (repo.length - 1 - index).isEven
                           ? Colors.blueGrey[700]
                           : Colors.blueGrey[400],
                       borderRadius: BorderRadius.only(
                         topLeft: const Radius.circular(20),
                         topRight: const Radius.circular(20),
-                        bottomLeft: Radius.circular(index.isEven ? 0 : 20),
-                        bottomRight: Radius.circular(index.isEven ? 20 : 0),
+                        bottomLeft: Radius.circular(
+                            (repo.length - 1 - index).isEven ? 0 : 20),
+                        bottomRight: Radius.circular(
+                            (repo.length - 1 - index).isEven ? 20 : 0),
                       ),
                     ),
                     child: Padding(
@@ -286,71 +287,65 @@ class _ChatViewState extends State<ChatView> {
               ),
             ),
           ),
-          Positioned(
-            bottom: Config.screenHeight! * 0.03,
-            left: 0,
-            child: SizedBox(
-              width: Config.screenWidth,
-              child: Column(
-                children: [
-                  Container(
-                    // color: Colors.purple,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            readOnly: true,
-                            controller: myTextController,
-                            decoration: InputDecoration(
-                              fillColor: Colors.white,
-                              filled: true,
-                              hintText: "Your answer",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
+          SizedBox(
+            width: Config.screenWidth,
+            child: Column(
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          readOnly: true,
+                          controller: myTextController,
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            hintText: "Your answer",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
                             ),
                           ),
                         ),
-                        IconButton(
-                          onPressed: () =>
-                              handleStoryProgress(widget.selectedTextType),
-                          icon: const Icon(Icons.send),
-                          color: Colors.blue,
+                      ),
+                      IconButton(
+                        onPressed: () =>
+                            handleStoryProgress(widget.selectedTextType),
+                        icon: const Icon(Icons.send),
+                        color: Colors.blue,
+                      ),
+                    ],
+                  ),
+                ),
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  height: textCompleted ? 100 : 0,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        OptionButton(
+                          text: textCompleted
+                              ? assignToOdd(selectedList, storyMapId)!["title"]
+                              : "",
+                          onTap: () => myTextController.text =
+                              assignToOdd(selectedList, storyMapId)!["title"],
+                        ),
+                        const SizedBox(width: 10),
+                        OptionButton(
+                          text: textCompleted
+                              ? assignToEven(selectedList, storyMapId)!["title"]
+                              : "",
+                          onTap: () => myTextController.text =
+                              assignToEven(selectedList, storyMapId)!["title"],
                         ),
                       ],
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    height: textCompleted ? 100 : 0,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          OptionButton(
-                            text: textCompleted
-                                ? assignToOdd(
-                                    selectedList, storyMapId)!["title"]
-                                : "",
-                            onTap: () => myTextController.text =
-                                assignToOdd(selectedList, storyMapId)!["title"],
-                          ),
-                          const SizedBox(width: 10),
-                          OptionButton(
-                            text: textCompleted
-                                ? assignToEven(
-                                    selectedList, storyMapId)!["title"]
-                                : "",
-                            onTap: () => myTextController.text = assignToEven(
-                                selectedList, storyMapId)!["title"],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
@@ -398,7 +393,7 @@ class _ChatViewState extends State<ChatView> {
     setState(() {
       textCompleted = true;
     });
-    _scrollToBottom();
+    _scrollToTop();
   }
 
   List getCurrentRepo(TextType type) {
