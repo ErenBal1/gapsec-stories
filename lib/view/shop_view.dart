@@ -1,18 +1,122 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/widgets/shop_view_widget/watch_ad_button.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 
-class ShopView extends StatelessWidget {
+class ShopView extends StatefulWidget {
   const ShopView({
     super.key,
   });
 
   @override
+  State<ShopView> createState() => _ShopViewState();
+}
+
+class _ShopViewState extends State<ShopView> {
+  final InAppPurchase iap = InAppPurchase.instance;
+  final ShopState ss = ShopState();
+  Future<void> showOkAlertDialogWidget(
+      BuildContext context, String message) async {
+    final result = await showOkAlertDialog(
+      context: context,
+      title: 'Error',
+      message: message,
+      okLabel: 'OK',
+    );
+    if (result == OkCancelResult.ok) {
+      print("okey");
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    iap.purchaseStream.listen((purchaseDetailsList) {
+      _handlePurchaseUpdates(purchaseDetailsList);
+    }, onError: (error) {
+      showOkAlertDialogWidget(
+          context, 'An error occurred in purchase stream: $error');
+    });
+  }
+
+  void _handlePurchaseUpdates(List<PurchaseDetails> purchaseDetailsList) {
+    for (var purchase in purchaseDetailsList) {
+      if (purchase.status == PurchaseStatus.purchased) {
+        if (purchase.pendingCompletePurchase) {
+          iap.completePurchase(purchase);
+          // Satın alma başarılı, token miktarını güncelle
+          _updateTokenBalance(purchase.productID);
+        }
+      } else if (purchase.status == PurchaseStatus.error) {
+        showOkAlertDialogWidget(
+            context, 'Purchase Error: ${purchase.error!.message}');
+      }
+    }
+  }
+
+  void _updateTokenBalance(String productId) {
+    int tokensToAdd = _tokensFromProductId(productId);
+    setState(() {
+      ss.amount += tokensToAdd;
+    });
+    showOkAlertDialogWidget(
+        context, '$tokensToAdd tokens have been added to your account.');
+  }
+
+  int _tokensFromProductId(String productId) {
+    switch (productId) {
+      case 'token_100':
+        return 100;
+      case 'token_200':
+        return 200;
+      case 'token_300':
+        return 300;
+      case 'token_500':
+        return 500;
+      case 'token_600':
+        return 600;
+      case 'token_750':
+        return 750;
+      default:
+        return 0;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final ShopState ss = ShopState();
+    void buyToken(
+        {required String productId, required BuildContext context}) async {
+      final bool available = await iap.isAvailable();
+      if (!available) {
+        return showOkAlertDialogWidget(context,
+            "In-app purchases are not available. Please try again later.");
+      }
+
+      final ProductDetailsResponse response =
+          await iap.queryProductDetails({productId}.toSet());
+
+      if (response.notFoundIDs.isNotEmpty) {
+        // Ürün bulunamadı
+        return showOkAlertDialogWidget(context, "Product not found.");
+      }
+
+      final ProductDetails productDetails = response.productDetails.first;
+      final PurchaseParam purchaseParam =
+          PurchaseParam(productDetails: productDetails);
+
+      iap
+          .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
+          .then((_) {
+        showOkAlertDialogWidget(context, 'Purchase initiated.');
+      }).catchError((error) {
+        showOkAlertDialogWidget(context, 'Error initiating purchase: $error');
+      });
+    }
+
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -125,8 +229,9 @@ class ShopView extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
+                            onPressed: () async {
+                              buyToken(
+                                  productId: 'token_100', context: context);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple[800],
@@ -487,10 +592,4 @@ class ShopView extends StatelessWidget {
       ),
     );
   }
-}
-
-double priceFunc(int index, int itemCount) {
-  double carpimKatsayisi = 1.0 - (index * 0.05);
-  double price = carpimKatsayisi * (index + 1) * 5;
-  return price;
 }
