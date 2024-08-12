@@ -1,4 +1,6 @@
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
+import 'package:gapsec/cache/model/token_isLock_model/bool_model.dart';
+
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -8,7 +10,46 @@ class DatabaseService {
   //İsar başlat
   static Future<void> initialize() async {
     final dir = await getApplicationDocumentsDirectory();
-    isar = await Isar.open([NewGameSchema], directory: dir.path);
+    isar =
+        await Isar.open([NewGameSchema, BoolModelSchema], directory: dir.path);
+  }
+
+  //ilk önce default uygulama kilit durumlarını tanımla
+  int? tokenAmountDefault = 0;
+  bool? murderIsLockDefault = false;
+  bool? dontLookBackIsLockDefault = false;
+  bool? lostLucyIsLockDefault = true;
+  bool? nightGameIsLockDefault = true;
+  bool? runKaityIsLockDefault = true;
+  bool? smileIsLockDefault = true;
+  bool? behindIsLockDefault = true;
+  bool? luckyIsLockDefault = true;
+
+  //Uygulama açılınca kilit durumlarını update fonksiyonu yap
+
+  Future<void> updateDefaultValues() async {
+    final boolValues = await isar.boolModels.where().findAll();
+    if (boolValues.isNotEmpty) {
+      final item = boolValues.firstWhere(
+        (item) => item.murderIsLock != null,
+        orElse: () => BoolModel()..murderIsLock = null,
+      );
+
+      murderIsLockDefault = item.murderIsLock;
+      print("=> $murderIsLockDefault");
+    } else {
+      // Eğer hiç kayıt yoksa, null döndür
+      print("=> $murderIsLockDefault");
+    }
+  }
+
+  //belirli hikayenin kilit durumunu aç
+  Future<void> changeDefaultValue(bool newValue) async {
+    final item = BoolModel()..murderIsLock = newValue;
+    await isar.writeTxn(() async {
+      await isar.boolModels.put(item);
+    });
+    updateDefaultValues();
   }
 
   //Her bir hikayenin depolanması için
@@ -24,6 +65,9 @@ class DatabaseService {
 
   //Bütün her şeyi siler!!!
   Future<void> deleteListElements({required TextType type}) async {
+    final allBools = await isar.boolModels.where().findAll();
+    final allBoolIds = allBools.map((e) => e.id).toList();
+    await isar.writeTxn(() => isar.boolModels.deleteAll(allBoolIds));
     final allGames = await isar.newGames.where().findAll();
     final allIds = allGames.map((game) => game.id).toList();
     await isar.writeTxn(() => isar.newGames.deleteAll(allIds));

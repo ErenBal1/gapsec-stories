@@ -24,6 +24,21 @@ class _NewGameViewState extends State<NewGameView> {
   final _databaseService = DatabaseService();
   int storyMapId = 0;
 
+  @override
+  void initState() {
+    super.initState();
+    //_changeDefaultValue(); // bunu satın alım yapılan hikaye için yapıcaz
+    _updateDefaultValues();
+  }
+
+  Future<void> _changeDefaultValue() async {
+    await _databaseService.changeDefaultValue(true);
+  }
+
+  Future<void> _updateDefaultValues() async {
+    await _databaseService.updateDefaultValues();
+  }
+
   void _updateScreen() {
     setState(() {});
   }

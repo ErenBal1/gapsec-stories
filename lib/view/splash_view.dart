@@ -10,9 +10,9 @@ class SplashView extends StatelessWidget {
     const colorizeColors = [
       //Colors.purple,
       //Colors.blue,
-      Colors.cyan,
+      Colors.red,
       Colors.white,
-      Colors.cyan,
+      Colors.red,
     ];
     const devastList = [
       //Colors.purple,
