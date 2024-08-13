@@ -26,7 +26,7 @@ StoryModel murder = StoryModel(
 StoryModel dontLookBack = StoryModel(
     name: "Don't Look Back",
     description: "Don't Look Back best tool",
-    isLock: false,
+    isLock: true,
     whichRepo: DatabaseService().dontLookBackRepo);
 StoryModel lostLucy = StoryModel(
     name: "Lost Lucy",

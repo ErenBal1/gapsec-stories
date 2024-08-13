@@ -17,7 +17,7 @@ class DatabaseService {
   //ilk önce default uygulama kilit durumlarını tanımla
   int? tokenAmountDefault = 0;
   bool? murderIsLockDefault = false;
-  bool? dontLookBackIsLockDefault = false;
+  bool? dontLookBackIsLockDefault = true;
   bool? lostLucyIsLockDefault = true;
   bool? nightGameIsLockDefault = true;
   bool? runKaityIsLockDefault = true;
