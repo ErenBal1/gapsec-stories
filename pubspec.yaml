@@ -43,6 +43,8 @@ dependencies:
   adaptive_dialog: ^2.1.0
   #Loading Indicator
   loading_indicator: ^3.1.1
+  #In App Purchase
+  in_app_purchase: ^3.2.0
 
  
 
