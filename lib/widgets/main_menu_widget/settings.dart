@@ -9,6 +9,7 @@ class SettingsButtons extends StatefulWidget {
   const SettingsButtons({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SettingsButtonState createState() => _SettingsButtonState();
 }
 
