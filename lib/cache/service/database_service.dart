@@ -1,5 +1,6 @@
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/model/token_isLock_model/bool_model.dart';
+import 'package:gapsec/state/shop_state/shop_state.dart';
 
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -12,6 +13,7 @@ class DatabaseService {
     final dir = await getApplicationDocumentsDirectory();
     isar =
         await Isar.open([NewGameSchema, BoolModelSchema], directory: dir.path);
+    final boolValues = await isar.boolModels.where().findFirst();
   }
 
   //ilk önce default uygulama kilit durumlarını tanımla
@@ -26,10 +28,9 @@ class DatabaseService {
   bool? luckyIsLockDefault = true;
 
   //Uygulama açılınca kilit durumlarını update fonksiyonu yap
-
   Future<void> updateDefaultValues() async {
     final boolValues = await isar.boolModels.where().findAll();
-    if (boolValues.isNotEmpty) {
+    /* if (boolValues.isNotEmpty) {
       final item = boolValues.firstWhere(
         (item) => item.murderIsLock != null,
         orElse: () => BoolModel()..murderIsLock = null,
@@ -40,7 +41,38 @@ class DatabaseService {
     } else {
       // Eğer hiç kayıt yoksa, null döndür
       print("=> $murderIsLockDefault");
+    } */
+    if (boolValues.isNotEmpty) {
+      final item = boolValues.firstWhere(
+        (item) => item.tokenAmount != null,
+      );
+
+      tokenAmountDefault = item.tokenAmount;
+      print("tokenAmountDefault2=> $tokenAmountDefault");
     }
+  }
+
+  Future<void> addTokens(int amount) async {
+    final boolValues = await isar.boolModels.where().findFirst();
+    if (boolValues == null) {
+      final newBoolModel = BoolModel()..tokenAmount = amount;
+
+      await isar.writeTxn(() async {
+        await isar.boolModels.put(newBoolModel);
+      });
+    } else {
+      // Eğer kayıt varsa, tokenAmount null değilse ekle, null ise önce 0 olarak ayarla
+      boolValues.tokenAmount = (boolValues.tokenAmount ?? 0) + amount;
+      tokenAmountDefault = boolValues.tokenAmount;
+      print("tokenAmountDefault = $tokenAmountDefault");
+      await isar.writeTxn(() async {
+        await isar.boolModels.put(boolValues);
+      });
+    }
+    final updatedBoolModel = await isar.boolModels.where().findFirst();
+    print("Güncellenmiş token miktarı: ${updatedBoolModel?.tokenAmount}");
+    ShopState().updateAmount(updatedBoolModel?.tokenAmount ?? 0);
+    updateDefaultValues();
   }
 
   //belirli hikayenin kilit durumunu aç

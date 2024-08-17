@@ -1,15 +1,19 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/cache/model/token_isLock_model/bool_model.dart';
+import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/shop_view.dart';
 
 class TokenCounter extends StatelessWidget {
-  TokenCounter({super.key});
+  final ShopState ss;
+  TokenCounter({super.key, required this.ss});
+
   final HomeState vm = HomeState();
-  final ShopState ss = ShopState();
 
   @override
   Widget build(BuildContext context) {
@@ -55,21 +59,23 @@ class TokenCounter extends StatelessWidget {
                       children: [
                         GlowingIcon(Icons.add, Colors.blue),
                         const SizedBox(width: 30),
-                        Text(
-                          ss.amount.toString(),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            shadows: [
-                              Shadow(
-                                color: Colors.blue.withOpacity(0.6),
-                                blurRadius: 4,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                        ),
+                        Observer(builder: (_) {
+                          return Text(
+                            ss.amount.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.blue.withOpacity(0.6),
+                                  blurRadius: 4,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
                         const SizedBox(width: 6),
                         GlowingToken(Constants.tokenImagePath, Colors.blue),
                       ],
