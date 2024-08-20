@@ -1,6 +1,7 @@
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/model/token_isLock_model/bool_model.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
+import 'package:gapsec/stories/model/story_model.dart';
 
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -13,7 +14,7 @@ class DatabaseService {
     final dir = await getApplicationDocumentsDirectory();
     isar =
         await Isar.open([NewGameSchema, BoolModelSchema], directory: dir.path);
-    final boolValues = await isar.boolModels.where().findFirst();
+/*     final boolValues = await isar.boolModels.where().findFirst(); */
   }
 
   //ilk önce default uygulama kilit durumlarını tanımla
@@ -29,27 +30,29 @@ class DatabaseService {
 
   //Uygulama açılınca kilit durumlarını update fonksiyonu yap
   Future<void> updateDefaultValues() async {
-    final boolValues = await isar.boolModels.where().findAll();
-    /* if (boolValues.isNotEmpty) {
-      final item = boolValues.firstWhere(
-        (item) => item.murderIsLock != null,
-        orElse: () => BoolModel()..murderIsLock = null,
-      );
-
-      murderIsLockDefault = item.murderIsLock;
-      print("=> $murderIsLockDefault");
-    } else {
-      // Eğer hiç kayıt yoksa, null döndür
-      print("=> $murderIsLockDefault");
-    } */
-    if (boolValues.isNotEmpty) {
-      final item = boolValues.firstWhere(
-        (item) => item.tokenAmount != null,
-      );
-
-      tokenAmountDefault = item.tokenAmount;
-      print("tokenAmountDefault2=> $tokenAmountDefault");
+    final boolValues = await isar.boolModels.where().findFirst();
+    if (boolValues == null) {
+      print("BoolModel bulunamadı, varsayılan değerler kullanılacak.");
+      return; // Eğer null ise fonksiyon sonlanır
     }
+    dontLookBackIsLockDefault = boolValues.dontLookBackIsLock ?? true;
+    lostLucyIsLockDefault = boolValues.lostLucyIsLock ?? true;
+    nightGameIsLockDefault = boolValues.nightGameIsLock ?? true;
+    runKaityIsLockDefault = boolValues.runKaityIsLock ?? true;
+    smileIsLockDefault = boolValues.smileIsLock ?? true;
+    behindIsLockDefault = boolValues.behindIsLock ?? true;
+    luckyIsLockDefault = boolValues.luckyIsLock ?? true;
+
+    murder.isLock = murderIsLockDefault!;
+    dontLookBack.isLock = dontLookBackIsLockDefault!;
+    lostLucy.isLock = lostLucyIsLockDefault!;
+    nightGame.isLock = nightGameIsLockDefault!;
+    runKaity.isLock = runKaityIsLockDefault!;
+    smile.isLock = smileIsLockDefault!;
+    behind.isLock = behindIsLockDefault!;
+    lucky.isLock = luckyIsLockDefault!;
+    print("dlb => $dontLookBackIsLockDefault");
+    print("updated default values");
   }
 
   Future<void> addTokens(int amount) async {
@@ -72,16 +75,46 @@ class DatabaseService {
     final updatedBoolModel = await isar.boolModels.where().findFirst();
     print("Güncellenmiş token miktarı: ${updatedBoolModel?.tokenAmount}");
     ShopState().updateAmount(updatedBoolModel?.tokenAmount ?? 0);
-    updateDefaultValues();
+    await updateDefaultValues();
   }
 
   //belirli hikayenin kilit durumunu aç
-  Future<void> changeDefaultValue(bool newValue) async {
-    final item = BoolModel()..murderIsLock = newValue;
-    await isar.writeTxn(() async {
-      await isar.boolModels.put(item);
-    });
-    updateDefaultValues();
+  Future<void> changeDefaultValue(
+      {required bool newValue, required TextType type}) async {
+    final boolValues = await isar.boolModels.where().findFirst();
+    switch (type) {
+      case TextType.dontLookBackType:
+        if (boolValues != null) {
+          boolValues.dontLookBackIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..dontLookBackIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+        break;
+      case TextType.lostLucyType:
+        if (boolValues != null) {
+          boolValues.lostLucyIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..lostLucyIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+
+      default:
+    }
+
+    await updateDefaultValues();
   }
 
   //Her bir hikayenin depolanması için

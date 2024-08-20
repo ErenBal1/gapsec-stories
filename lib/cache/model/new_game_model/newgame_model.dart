@@ -11,4 +11,4 @@ class NewGame {
   String? erenTexts;
 }
 
-enum TextType { murderType, dontLookBackType, erenType }
+enum TextType { murderType, dontLookBackType, erenType, lostLucyType }

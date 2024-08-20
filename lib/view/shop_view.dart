@@ -1,6 +1,7 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
@@ -17,6 +18,7 @@ class ShopView extends StatefulWidget {
 }
 
 class _ShopViewState extends State<ShopView> {
+  final _databaseService = DatabaseService();
   final InAppPurchase iap = InAppPurchase.instance;
   final ShopState ss = ShopState();
   Future<void> showOkAlertDialogWidget(
@@ -30,6 +32,11 @@ class _ShopViewState extends State<ShopView> {
     if (result == OkCancelResult.ok) {
       print("okey");
     }
+  }
+
+  Future<void> _addTokens(int amount) async {
+    await _databaseService.addTokens(amount);
+    setState(() {});
   }
 
   @override
@@ -89,7 +96,9 @@ class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
     void buyToken(
-        {required String productId, required BuildContext context}) async {
+        {required String productId,
+        required BuildContext context,
+        required amount}) async {
       final bool available = await iap.isAvailable();
       if (!available) {
         return showOkAlertDialogWidget(context,
@@ -101,6 +110,7 @@ class _ShopViewState extends State<ShopView> {
 
       if (response.notFoundIDs.isNotEmpty) {
         // Ürün bulunamadı
+        _addTokens(amount); // tabiki yeri burası değil denemek içim koyuyoz
         return showOkAlertDialogWidget(context, "Product not found.");
       }
 
@@ -231,7 +241,9 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () async {
                               buyToken(
-                                  productId: 'token_100', context: context);
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 100);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple[800],
@@ -294,6 +306,10 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 200);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple[800],
@@ -360,6 +376,10 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 300);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple[800],
@@ -422,6 +442,10 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 500);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple[800],
@@ -488,6 +512,10 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 600);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple[800],
@@ -550,6 +578,10 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 750);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple[800],

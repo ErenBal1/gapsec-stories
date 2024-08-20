@@ -46,6 +46,7 @@ class _MainAppState extends State<MainApp> {
       theme: appTheme,
       title: "Gapsec",
       home: AnimatedSplashScreen(
+        function: () async => DatabaseService().updateDefaultValues(),
         splash: const SplashView(),
         duration: 8000,
         backgroundColor: CustomColors.black,

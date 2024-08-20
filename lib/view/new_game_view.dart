@@ -31,8 +31,9 @@ class _NewGameViewState extends State<NewGameView> {
     _updateDefaultValues();
   }
 
-  Future<void> _changeDefaultValue() async {
-    await _databaseService.changeDefaultValue(true);
+  Future<void> _changeDefaultValue(
+      {required bool newValue, required TextType type}) async {
+    await _databaseService.changeDefaultValue(newValue: newValue, type: type);
   }
 
   Future<void> _updateDefaultValues() async {

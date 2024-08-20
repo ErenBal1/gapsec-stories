@@ -68,22 +68,23 @@ class _StoriesViewState extends State<StoriesView>
     setState(() {});
   }
 
-  void updateIndex(int index, String title, String description) {
+  Future<void> updateIndex(int index, String title, String description) async {
+    await DatabaseService().updateDefaultValues();
     setState(() {
       iconSelectedIndex = index;
       selectedTitle = title;
       selectedDescription = description;
       switch (iconSelectedIndex) {
         case 0:
-          itsFree = !murder.isLock;
           setState(() {
             price = 0;
+            itsFree = !murder.isLock;
           });
           break;
         case 1:
-          itsFree = !dontLookBack.isLock;
           setState(() {
             price = 80;
+            itsFree = !dontLookBack.isLock;
           });
           break;
         case 2:
@@ -168,9 +169,32 @@ class _StoriesViewState extends State<StoriesView>
     if (result == OkCancelResult.ok) {
       switch (storyPrice) {
         case 80:
-          _addTokens(80);
+          _addTokens(-80).then(
+            (value) async => await _databaseService
+                .changeDefaultValue(
+                    type: TextType.dontLookBackType, newValue: false)
+                .then(
+              (value) {
+                setState(() {
+                  itsFree = dontLookBack.isLock;
+                });
+              },
+            ),
+          );
           break;
         case 120:
+          _addTokens(-120).then(
+            (value) async => await _databaseService
+                .changeDefaultValue(
+                    type: TextType.lostLucyType, newValue: false)
+                .then(
+              (value) {
+                setState(() {
+                  itsFree = lostLucy.isLock;
+                });
+              },
+            ),
+          );
           break;
         case 100:
           break;
@@ -227,7 +251,7 @@ class _StoriesViewState extends State<StoriesView>
                                 height: (Config.screenHeight! * 0.4),
                                 autoPlay: false,
                                 viewportFraction: 1,
-                                onPageChanged: (index, reason) {
+                                onPageChanged: (index, reason) async {
                                   setState(() => activeIndex = index);
                                   index == 0
                                       ? updateIndex(
