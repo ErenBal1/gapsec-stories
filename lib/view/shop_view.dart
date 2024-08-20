@@ -59,7 +59,7 @@ class _ShopViewState extends State<ShopView> {
       );
       _rewardedAd!.show(
           onUserEarnedReward: (ad, reward) => setState(() {
-                _addTokens(10);
+                _addTokens(2);
               }));
       print("Kullanıcı ödülü kazandı");
       _rewardedAd = null;
@@ -235,10 +235,35 @@ class _ShopViewState extends State<ShopView> {
             )
           ],
         ),
-        bottomNavigationBar: const WatchAdButton(),
+        bottomNavigationBar: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+          ),
+          child: ElevatedButton.icon(
+            onPressed: _showRewardedAd,
+            icon: const Icon(Icons.videocam),
+            label: const Text('Watch Ad for Free Tokens'),
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.black,
+              backgroundColor: Colors.amber,
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              textStyle:
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+          ),
+        ),
         body: ListView(
           children: [
-            TextButton(onPressed: _showRewardedAd, child: const Text("ad")),
+            // TextButton(onPressed: _showRewardedAd, child: const Text("ad")),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
