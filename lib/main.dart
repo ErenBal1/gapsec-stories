@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gapsec/cache/service/database_service.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'theme/app_theme.dart';
 import 'utils/app_colors.dart';
 import 'utils/constants.dart';
@@ -13,6 +14,7 @@ import 'package:page_transition/page_transition.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   await DatabaseService.initialize();
   await EasyLocalization.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

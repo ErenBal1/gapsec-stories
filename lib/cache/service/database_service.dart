@@ -110,6 +110,77 @@ class DatabaseService {
             await isar.boolModels.put(newBoolModel);
           });
         }
+        break;
+      case TextType.nightGameType:
+        if (boolValues != null) {
+          boolValues.nightGameIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..nightGameIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+        break;
+      case TextType.runKaityType:
+        if (boolValues != null) {
+          boolValues.runKaityIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..runKaityIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+        break;
+      case TextType.smileType:
+        if (boolValues != null) {
+          boolValues.smileIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..smileIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+        break;
+      case TextType.behindType:
+        if (boolValues != null) {
+          boolValues.behindIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..behindIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+        break;
+      case TextType.luckyType:
+        if (boolValues != null) {
+          boolValues.luckyIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..luckyIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+        break;
 
       default:
     }
@@ -178,6 +249,72 @@ class DatabaseService {
         erenRepo.clear();
         await selectedStoryUpdate(type: TextType.erenType);
         break;
+      case TextType.lostLucyType:
+        await isar.writeTxn(() async {
+          final items =
+              await isar.newGames.filter().lostLucyTextsIsNotEmpty().findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        lostLucyRepo.clear();
+        await selectedStoryUpdate(type: TextType.lostLucyType);
+        break;
+      case TextType.nightGameType:
+        await isar.writeTxn(() async {
+          final items =
+              await isar.newGames.filter().nightGameTextsIsNotEmpty().findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        nightGameRepo.clear();
+        await selectedStoryUpdate(type: TextType.nightGameType);
+        break;
+      case TextType.runKaityType:
+        await isar.writeTxn(() async {
+          final items =
+              await isar.newGames.filter().runKaityTextsIsNotEmpty().findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        runKaityRepo.clear();
+        await selectedStoryUpdate(type: TextType.runKaityType);
+        break;
+      case TextType.smileType:
+        await isar.writeTxn(() async {
+          final items =
+              await isar.newGames.filter().smileTextsIsNotEmpty().findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        smileRepo.clear();
+        await selectedStoryUpdate(type: TextType.smileType);
+        break;
+      case TextType.behindType:
+        await isar.writeTxn(() async {
+          final items =
+              await isar.newGames.filter().behindTextsIsNotEmpty().findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        behindRepo.clear();
+        await selectedStoryUpdate(type: TextType.behindType);
+        break;
+      case TextType.luckyType:
+        await isar.writeTxn(() async {
+          final items =
+              await isar.newGames.filter().luckyTextsIsNotEmpty().findAll();
+          for (var item in items) {
+            await isar.newGames.delete(item.id);
+          }
+        });
+        luckyRepo.clear();
+        await selectedStoryUpdate(type: TextType.luckyType);
+        break;
 
       default:
     }
@@ -211,6 +348,54 @@ class DatabaseService {
         print("EREN REPO => $erenRepo");
         print("eren story updated");
         break;
+      case TextType.lostLucyType:
+        lostLucyRepo = newGames
+            .where((item) =>
+                item.lostLucyTexts != null && item.lostLucyTexts!.isNotEmpty)
+            .toList();
+        print("lostLucyRepo => $lostLucyRepo");
+        print("lostLucy story updated");
+        break;
+      case TextType.nightGameType:
+        nightGameRepo = newGames
+            .where((item) =>
+                item.nightGameTexts != null && item.nightGameTexts!.isNotEmpty)
+            .toList();
+        print("nighGameRepo => $nightGameRepo");
+        print("nighGame story updated");
+        break;
+      case TextType.runKaityType:
+        runKaityRepo = newGames
+            .where((item) =>
+                item.runKaityTexts != null && item.runKaityTexts!.isNotEmpty)
+            .toList();
+        print("runKaityRepo => $runKaityRepo");
+        print("runKaity story updated");
+        break;
+      case TextType.smileType:
+        smileRepo = newGames
+            .where((item) =>
+                item.smileTexts != null && item.smileTexts!.isNotEmpty)
+            .toList();
+        print("smileRepo => $smileRepo");
+        print("smile story updated");
+        break;
+      case TextType.behindType:
+        behindRepo = newGames
+            .where((item) =>
+                item.behindTexts != null && item.behindTexts!.isNotEmpty)
+            .toList();
+        print("behindRepo => $behindRepo");
+        print("behind story updated");
+        break;
+      case TextType.luckyType:
+        luckyRepo = newGames
+            .where((item) =>
+                item.luckyTexts != null && item.luckyTexts!.isNotEmpty)
+            .toList();
+        print("luckyRepo => $luckyRepo");
+        print("lucky story updated");
+        break;
       default:
     }
   }
@@ -243,6 +428,60 @@ class DatabaseService {
             await isar.newGames.put(item);
           });
           selectedStoryUpdate(type: TextType.erenType);
+        }
+        break;
+      case TextType.lostLucyType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..lostLucyTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.lostLucyType);
+        }
+        break;
+      case TextType.nightGameType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..nightGameTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.nightGameType);
+        }
+        break;
+      case TextType.runKaityType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..runKaityTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.runKaityType);
+        }
+        break;
+      case TextType.smileType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..smileTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.smileType);
+        }
+        break;
+      case TextType.behindType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..behindTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.behindType);
+        }
+        break;
+      case TextType.luckyType:
+        if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
+          final item = NewGame()..luckyTexts = eklenicekMetin;
+          await isar.writeTxn(() async {
+            await isar.newGames.put(item);
+          });
+          selectedStoryUpdate(type: TextType.luckyType);
         }
         break;
       default:

@@ -1,11 +1,13 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/adMobService/ad_mob_service.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/widgets/shop_view_widget/watch_ad_button.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 class ShopView extends StatefulWidget {
@@ -18,6 +20,8 @@ class ShopView extends StatefulWidget {
 }
 
 class _ShopViewState extends State<ShopView> {
+  RewardedAd? _rewardedAd;
+
   final _databaseService = DatabaseService();
   final InAppPurchase iap = InAppPurchase.instance;
   final ShopState ss = ShopState();
@@ -39,9 +43,50 @@ class _ShopViewState extends State<ShopView> {
     setState(() {});
   }
 
+  void _showRewardedAd() {
+    if (_rewardedAd != null) {
+      _rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (ad) {
+          ad.dispose();
+          _createRewardedAd();
+          print("Reklam Kapatıldı");
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          ad.dispose();
+          _createRewardedAd();
+          print('Reklam gösterilemedi: $error');
+        },
+      );
+      _rewardedAd!.show(
+          onUserEarnedReward: (ad, reward) => setState(() {
+                _addTokens(10);
+              }));
+      print("Kullanıcı ödülü kazandı");
+      _rewardedAd = null;
+    } else {
+      print("Reklam yüklü değil");
+    }
+  }
+
+  void _createRewardedAd() {
+    RewardedAd.load(
+        adUnitId: AdMobService.rewardedAdUnitId!,
+        request: const AdRequest(),
+        rewardedAdLoadCallback: RewardedAdLoadCallback(
+            onAdLoaded: (ad) => setState(() {
+                  _rewardedAd = ad;
+                  print("Reklam başarıyla yüklendi");
+                }),
+            onAdFailedToLoad: (error) => setState(() {
+                  _rewardedAd = null;
+                  print('Reklam yüklenemedi: $error');
+                })));
+  }
+
   @override
   void initState() {
     super.initState();
+    _createRewardedAd();
     iap.purchaseStream.listen((purchaseDetailsList) {
       _handlePurchaseUpdates(purchaseDetailsList);
     }, onError: (error) {
@@ -193,6 +238,7 @@ class _ShopViewState extends State<ShopView> {
         bottomNavigationBar: const WatchAdButton(),
         body: ListView(
           children: [
+            TextButton(onPressed: _showRewardedAd, child: const Text("ad")),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

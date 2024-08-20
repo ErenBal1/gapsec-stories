@@ -157,6 +157,19 @@ class _StoriesViewState extends State<StoriesView>
       });
   }
 
+  Future<void> showOkAlertDialogWidget(
+      BuildContext context, String message) async {
+    final result = await showOkAlertDialog(
+      context: context,
+      title: 'Yetersiz bakiye :( ',
+      message: message,
+      okLabel: 'OK',
+    );
+    if (result == OkCancelResult.ok) {
+      print("Yetersiz bakiye onaylandı");
+    }
+  }
+
   Future<void> showOkCancelAlert(BuildContext context, int storyPrice) async {
     final result = await showOkCancelAlertDialog(
       context: context,
@@ -169,36 +182,134 @@ class _StoriesViewState extends State<StoriesView>
     if (result == OkCancelResult.ok) {
       switch (storyPrice) {
         case 80:
-          _addTokens(-80).then(
-            (value) async => await _databaseService
-                .changeDefaultValue(
-                    type: TextType.dontLookBackType, newValue: false)
-                .then(
-              (value) {
-                setState(() {
-                  itsFree = dontLookBack.isLock;
-                });
-              },
-            ),
-          );
+          if (ShopState().amount >= 80) {
+            _addTokens(-80).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.dontLookBackType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = dontLookBack.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
           break;
         case 120:
-          _addTokens(-120).then(
-            (value) async => await _databaseService
-                .changeDefaultValue(
-                    type: TextType.lostLucyType, newValue: false)
-                .then(
-              (value) {
-                setState(() {
-                  itsFree = lostLucy.isLock;
-                });
-              },
-            ),
-          );
+          if (ShopState().amount >= 120) {
+            _addTokens(-120).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.lostLucyType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = lostLucy.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
           break;
         case 100:
+          if (ShopState().amount >= 100) {
+            _addTokens(-100).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.nightGameType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = nightGame.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+          break;
+        case 110:
+          if (ShopState().amount >= 110) {
+            _addTokens(-110).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.runKaityType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = runKaity.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+          break;
+
+        case 150:
+          if (ShopState().amount >= 150) {
+            _addTokens(-150).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(type: TextType.smileType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = smile.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
           break;
         case 180:
+          if (ShopState().amount >= 180) {
+            _addTokens(-180).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.behindType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = behind.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 300:
+          if (ShopState().amount >= 300) {
+            _addTokens(-300).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(type: TextType.luckyType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = lucky.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
           break;
         default:
       }
@@ -351,7 +462,7 @@ class _StoriesViewState extends State<StoriesView>
                                   const Spacer(),
                                   itsFree
                                       ? Text(
-                                          "FREE",
+                                          "UNLOCKED",
                                           style: AppFonts.freeTitle,
                                         )
                                       : InkWell(
@@ -524,11 +635,12 @@ class _StoriesViewState extends State<StoriesView>
                                   const Spacer(),
                                   itsFree
                                       ? Text(
-                                          "FREE",
+                                          "UNLOCKED",
                                           style: AppFonts.freeTitle,
                                         )
                                       : InkWell(
                                           onTap: () {
+                                            showOkCancelAlert(context, price);
                                             print(price.toString());
                                           },
                                           child: Row(
