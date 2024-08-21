@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:gapsec/cache/games_storage/eren_story.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -88,10 +87,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
             element["history"] ==
             _databaseService.dontLookBackRepo.last!.dontLookBackTexts
                 .toString());
-      case TextType.erenType:
-        return list.firstWhere((element) =>
-            element["history"] ==
-            _databaseService.erenRepo.last!.erenTexts.toString());
 
       default:
     }
@@ -203,26 +198,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
           _scrollToBottom();
           break;
-        case TextType.erenType:
-          selectedList = eren;
-          await _selectedStoryUpdate(type: TextType.erenType);
-          left = initToOdd(
-            selectedList,
-            TextType.erenType,
-          )!;
-          //  print("left inside => $left");
-          right = initToEven(
-            selectedList,
-            TextType.erenType,
-          )!;
-          // print("right inside => $right");
-          await _selectedStoryUpdate(type: TextType.erenType);
-          setState(() {
-            repo = _databaseService.erenRepo;
-          });
-
-          _scrollToBottom();
-          break;
         default:
       }
     });
@@ -272,9 +247,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                   case TextType.dontLookBackType:
                     selectedTexts = newGame.dontLookBackTexts.toString();
                     break;
-                  case TextType.erenType:
-                    selectedTexts = newGame.erenTexts.toString();
-                    break;
+
                   default:
                 }
 
@@ -454,37 +427,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                               setState(() {});
                               _scrollToBottom();
                               break;
-                            case TextType.erenType:
-                              setState(() {
-                                textCompleted = false;
-                              });
-                              await _selectedStoryAddItem(
-                                  eklencekText: left["title"],
-                                  type: TextType.erenType);
-                              updateStoryMapId(left["aId"]);
-                              //   print("first answerId=> $storyMapId");
-                              //_changeComplete();
-                              ////////////
-                              await _selectedStoryUpdate(
-                                  type: TextType.erenType);
-                              repo = _databaseService.erenRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              await Future.delayed(const Duration(seconds: 3));
-                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
-                              left = assignToOdd(selectedList, storyMapId)!;
-                              right = assignToEven(selectedList, storyMapId)!;
-                              await _selectedStoryAddItem(
-                                  eklencekText: getMapWithId(
-                                      selectedList, storyMapId)!["history"],
-                                  type: TextType.erenType);
-                              await _selectedStoryUpdate(
-                                  type: TextType.erenType);
-                              repo = _databaseService.erenRepo;
-                              setState(() {});
-                              _scrollToBottom();
 
-                              break;
                             default:
                           }
                         }
@@ -606,35 +549,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                               await _selectedStoryUpdate(
                                   type: TextType.dontLookBackType);
                               repo = _databaseService.dontLookBackRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              break;
-                            case TextType.erenType:
-                              setState(() {
-                                textCompleted = false;
-                              });
-                              await _selectedStoryAddItem(
-                                  eklencekText: right["title"],
-                                  type: TextType.erenType);
-                              updateStoryMapId(right["aId"]);
-                              // _changeComplete();
-                              ////////////
-                              await _selectedStoryUpdate(
-                                  type: TextType.erenType);
-                              repo = _databaseService.erenRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              await Future.delayed(const Duration(seconds: 3));
-                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
-                              left = assignToOdd(selectedList, storyMapId)!;
-                              right = assignToEven(selectedList, storyMapId)!;
-                              await _selectedStoryAddItem(
-                                  eklencekText: getMapWithId(
-                                      selectedList, storyMapId)!["history"],
-                                  type: TextType.erenType);
-                              await _selectedStoryUpdate(
-                                  type: TextType.erenType);
-                              repo = _databaseService.erenRepo;
                               setState(() {});
                               _scrollToBottom();
                               break;

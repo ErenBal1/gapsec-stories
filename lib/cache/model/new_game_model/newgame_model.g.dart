@@ -96,12 +96,6 @@ int _newGameEstimateSize(
     }
   }
   {
-    final value = object.erenTexts;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
-    }
-  }
-  {
     final value = object.lostLucyTexts;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
@@ -148,7 +142,6 @@ void _newGameSerialize(
 ) {
   writer.writeString(offsets[0], object.behindTexts);
   writer.writeString(offsets[1], object.dontLookBackTexts);
-  writer.writeString(offsets[2], object.erenTexts);
   writer.writeString(offsets[3], object.lostLucyTexts);
   writer.writeString(offsets[4], object.luckyTexts);
   writer.writeString(offsets[5], object.murderTexts);
@@ -166,7 +159,6 @@ NewGame _newGameDeserialize(
   final object = NewGame();
   object.behindTexts = reader.readStringOrNull(offsets[0]);
   object.dontLookBackTexts = reader.readStringOrNull(offsets[1]);
-  object.erenTexts = reader.readStringOrNull(offsets[2]);
   object.id = id;
   object.lostLucyTexts = reader.readStringOrNull(offsets[3]);
   object.luckyTexts = reader.readStringOrNull(offsets[4]);

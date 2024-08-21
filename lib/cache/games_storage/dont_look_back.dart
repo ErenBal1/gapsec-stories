@@ -20,8 +20,8 @@ List<Map<String, dynamic>> DontLookBackList = [
   {
     "history": "Güneş enerjisi üzerine yoğunlaştınız. Ancak bütçeniz sınırlı.",
     "answers": [
-      {"title": " Düşük maliyetli malzemeler kullanın", "aId": 5},
-      {"title": "Ek fon bulmaya çalışın", "aId": 6}
+      {"title": " Düşük maliyetli malzemeler kullanın", "aId": 0},
+      {"title": "Ek fon bulmaya çalışın", "aId": 999}
     ],
     "id": 2
   },
@@ -54,10 +54,10 @@ List<Map<String, dynamic>> DontLookBackList = [
   {
     "history": "Yerel bir şirket projenizle ilgilendi ve destek teklif etti.",
     "answers": [
-      {"title": "Teklifi kabul edin", "aId": 12},
-      {"title": "Bağımsız kalmayı tercih edin", "aId": 13}
+      {"title": "", "aId": 0}, //bitirme id si
+      {"title": "", "aId": 1}
     ],
-    "id": 6
+    "id": 999
   },
   {
     "history":

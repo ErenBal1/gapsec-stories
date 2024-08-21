@@ -14,13 +14,11 @@ class NewGame {
   String? smileTexts;
   String? behindTexts;
   String? luckyTexts;
-  String? erenTexts;
 }
 
 enum TextType {
   murderType,
   dontLookBackType,
-  erenType,
   lostLucyType,
   nightGameType,
   runKaityType,
