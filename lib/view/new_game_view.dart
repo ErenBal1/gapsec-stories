@@ -10,6 +10,7 @@ import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
+import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 
 class NewGameView extends StatefulWidget {
   const NewGameView({super.key});
@@ -78,24 +79,12 @@ class _NewGameViewState extends State<NewGameView> {
               context: context);
           print('pressed Murder');
           break;
-        case TextType.dontLookBackType:
-          await _selectedHistoryDelete(type: TextType.dontLookBackType);
-          hs.goToPage(
-              page: ChatView(
-                selectedRepo: _databaseService.dontLookBackRepo,
-                story: gameName,
-                selectedTextType: TextType.dontLookBackType,
-              ),
-              context: context);
-          print("pressed dont look back");
-          break;
         default:
       }
     }
   }
 
   Future<void> _deleteListElements() async {
-    await _databaseService.deleteListElements(type: TextType.dontLookBackType);
     await _databaseService.deleteListElements(type: TextType.murderType);
   }
 
@@ -244,41 +233,33 @@ class _NewGameViewState extends State<NewGameView> {
                   child: InkWell(
                     onTap: () async {
                       //await _databaseService.getUpdatedList();
-
-                      switch (gameName) {
-                        case "Murder":
-                          await _selectedStoryUpdate(type: TextType.murderType);
-                          if (_databaseService.murderRepo.isEmpty) {
-                            hs.goToPage(
-                                page: ChatView(
-                                  selectedRepo: _databaseService.murderRepo,
-                                  story: gameName,
-                                  selectedTextType: TextType.murderType,
-                                ),
-                                context: context);
-                          } else {
-                            await showOkCancelAlert(
-                                context, TextType.murderType, gameName);
-                          }
-                          break;
-                        case "Don't Look Back":
-                          await _selectedStoryUpdate(
-                              type: TextType.dontLookBackType);
-                          if (_databaseService.dontLookBackRepo.isEmpty) {
-                            hs.goToPage(
-                                page: ChatView(
-                                  selectedRepo:
-                                      _databaseService.dontLookBackRepo,
-                                  story: gameName,
-                                  selectedTextType: TextType.dontLookBackType,
-                                ),
-                                context: context);
-                          } else {
-                            await showOkCancelAlert(
-                                context, TextType.dontLookBackType, gameName);
-                          }
-                          break;
-                        default:
+                      if (gameName == "Murder") {
+                        switch (gameName) {
+                          case "Murder":
+                            await _selectedStoryUpdate(
+                                type: TextType.murderType);
+                            if (_databaseService.murderRepo.isEmpty) {
+                              hs.goToPage(
+                                  page: ChatView(
+                                    selectedRepo: _databaseService.murderRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.murderType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.murderType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else {
+                        AlertWidgets().showOkAlert(
+                            context,
+                            "Yayında Aktif Olucak",
+                            "Test Mode",
+                            "Tamam",
+                            () => print("hell"));
                       }
                     },
                     child: SizedBox(

@@ -30,35 +30,10 @@ List<Map<String, dynamic>> MurderList = [
   },
   {
     "history":
-        "O zaman kahvaltıya gelsin çünkü ben dışarı çıkıcam tekrar tekrar bişeyler hazırlayamam",
-    "answers": [
-      {"title": "çağırıyorum", "aId": 7},
-      {"title": "tamam sorucam", "aId": 0}
-    ],
-    "id": 3
-  },
-  {
-    "history": "beni kızdırmasın",
-    "answers": [
-      {"title": "tamam", "aId": 3},
-      {"title": "tamam kızma", "aId": 4}
-    ],
-    "id": 4
-  },
-  {
-    "history": "karnı tokmuş",
-    "answers": [
-      {"title": "iyi o zaman gelmesin", "aId": 1},
-      {"title": "ne zaman yemişki", "aId": 0}
-    ],
-    "id": 7
-  },
-  {
-    "history":
         "Yatağa uzanıp cevabın gelmesini bekliyorsun ama tek yapabildiğin tavanı izlemek. Gözlerini dalıp gidiyor... gece yarısı 4 te başının altındaki telefonun titremesiyle hemen eline telefonu alıp mesajı okumaya çalışıyorsun gözlerin kamaşmış şekilde görüntünün netleşmesini bekliyorsun.1'NewMessage(Unknown): Posta kutunu kontrol etmeyi unutma Gab.",
     "answers": [
-      {"title": "Posta kutusu tuzak olabilir", "aId": 1},
-      {"title": "Aşşağı in ve posta kutusunu kontrol et", "aId": 0}
+      {"title": "Posta kutusu tuzak olabilir", "aId": 9},
+      {"title": "Aşşağı in ve posta kutusunu kontrol et", "aId": 8}
     ],
     "id": 5
   },
@@ -70,5 +45,14 @@ List<Map<String, dynamic>> MurderList = [
       {"title": "hiçbir yere kaçtığım yok!", "aId": 6}
     ],
     "id": 6
+  },
+  {
+    "history":
+        "1'NewMessage(Unknown): Gabriel gelen tehdit mesajlarını ve kimliği belirsiz kişinin yazdıklarını dikkate almayarak tedirgin yaşantısına devam eder. Ancak bir süre sonra işyerindeki bilgisayarında garip bir şey fark eder: Ekranda bir mesaj açılır ve 'Posta kutunla ilgilenmelisin' yazmaktadır. O anda işyerindeki posta kutusuna da bir mektup bırakıldığını fark eder.",
+    "answers": [
+      {"title": "Mektubu evde aç", "aId": 0},
+      {"title": "Mektubu iş yerinde aç", "aId": 0}
+    ],
+    "id": 9
   },
 ];

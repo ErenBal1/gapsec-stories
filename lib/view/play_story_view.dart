@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:page_transition/page_transition.dart';
-
-import 'package:gapsec/cache/games_storage/dont_look_back.dart';
 import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
@@ -86,21 +84,51 @@ class _ChatViewState extends State<ChatView> {
     });
   }
 
-  //answer mapini getiren tek için fonksiyon
   Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
+    var item = getMapWithId(list, id);
+    if (item != null) {
+      var answers = item['answers'] as List<Map<String, dynamic>>;
+
+      // Eğer her iki aId de aynı ise solda tek olmasını istediğimiz için ilk elemanı döndürdüm
+      if (answers[0]['aId'] == answers[1]['aId']) {
+        return answers[0];
+      }
+
+      // aId tek olanı seçiyoruz
+      return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
+    }
+    return null;
+  }
+  //answer mapini getiren tek için fonksiyon
+/*   Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
     var item = getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
       return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
     }
     return null;
-  }
+  } */
 
   //Answer mapi sağ için
+/*   Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
+    var item = getMapWithId(list, id);
+    if (item != null) {
+      var answers = item['answers'] as List<Map<String, dynamic>>;
+      return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
+    }
+    return null;
+  } */
   Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
     var item = getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
+
+      // Eğer her iki aId de aynı ise sağdaki çift olmasını istediğimiz için ilk elemanı döndürdüm
+      if (answers[0]['aId'] == answers[1]['aId']) {
+        return answers[1];
+      }
+
+      // aId çift olanı seçiyoruz
       return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
     }
     return null;
@@ -141,25 +169,6 @@ class _ChatViewState extends State<ChatView> {
             print("inside repo => $repo");
             print(
                 "inside MurderRepo database => ${_databaseService.murderRepo}");
-            break;
-          case TextType.dontLookBackType:
-            selectedList = DontLookBackList;
-
-            await _selectedStoryAddItem(
-                eklencekText:
-                    getMapWithId(selectedList, storyMapId)!["history"],
-                type: TextType.dontLookBackType);
-            left = assignToOdd(selectedList, storyMapId)!;
-            right = assignToEven(selectedList, storyMapId)!;
-            await _selectedStoryUpdate(type: TextType.dontLookBackType);
-            setState(() {
-              repo = _databaseService.dontLookBackRepo;
-            });
-            print("left inside => $left");
-            print("right inside => $right");
-            print("inside repo => $repo");
-            print(
-                "inside DontLookBackRepo database => ${_databaseService.dontLookBackRepo}");
             break;
           default:
         }
