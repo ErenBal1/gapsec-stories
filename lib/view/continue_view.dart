@@ -135,13 +135,6 @@ class _ContinueViewState extends State<ContinueView> {
               ),
             ),
           ),
-          const Positioned(
-              top: 30,
-              left: 50,
-              child: Text(
-                "Load game",
-                style: TextStyle(fontSize: 40),
-              ))
         ],
       ),
     );

@@ -47,6 +47,11 @@ dependencies:
   in_app_purchase: ^3.2.0
   #Google AdMob
   google_mobile_ads: ^5.1.0
+  #Glitch Affect
+  animated_glitch: ^2.0.0+2
+  #Neon
+  neon: ^0.1.0
+
 
  
 

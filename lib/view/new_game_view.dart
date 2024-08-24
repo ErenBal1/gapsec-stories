@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -109,10 +111,19 @@ class _NewGameViewState extends State<NewGameView> {
             width: double.infinity,
             height: Config.screenHeight,
             child: Image.asset(
-              "assets/images/castle.png",
+              "assets/images/back.png",
               fit: BoxFit.cover,
             ),
           ),
+          /* Positioned.fill(
+              child: BackdropFilter(
+            filter: ImageFilter.blur(
+                sigmaX: 1.0, sigmaY: 3.0), // Adjust the blur level
+            child: Container(
+              color: Colors.black
+                  .withOpacity(0), // This container must be translucent.
+            ),
+          )), */
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -124,13 +135,21 @@ class _NewGameViewState extends State<NewGameView> {
                     padding:
                         const EdgeInsets.only(top: 8.0, right: 70, left: 70),
                     child: ElevatedButton(
+                      style: const ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(
+                              CustomColors.storyCardColor)),
                       onPressed: () => hs.goToPage(
                           page: const StoriesView(), context: context),
                       child: const FittedBox(
                         child: Text(
                           "UNLOCK MORE...",
                           style: TextStyle(
-                              fontFamily: "PixelFont", color: CustomColors.red),
+                              shadows: [
+                                Shadow(
+                                    blurRadius: 8, color: CustomColors.yellow)
+                              ],
+                              fontFamily: "PixelFont",
+                              color: CustomColors.white),
                         ),
                       ),
                     ),
@@ -214,7 +233,7 @@ class _NewGameViewState extends State<NewGameView> {
           child: Container(
             width: (Config.screenWidth! * 0.8),
             height: Config.screenHeight! * 0.07,
-            color: CustomColors.cyanBlue.shade500,
+            color: CustomColors.storyCardColor,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(

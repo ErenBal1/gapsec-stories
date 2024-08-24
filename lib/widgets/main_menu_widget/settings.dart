@@ -4,6 +4,7 @@ import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/shop_view.dart';
 import 'package:gapsec/widgets/language_settings_widget/flag_button.dart';
+import 'package:gapsec/widgets/main_menu_widget/token_counter.dart';
 
 class SettingsButtons extends StatefulWidget {
   const SettingsButtons({super.key});

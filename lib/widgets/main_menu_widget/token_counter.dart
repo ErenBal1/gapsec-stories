@@ -32,12 +32,12 @@ class TokenCounter extends StatelessWidget {
                 color: Colors.black.withOpacity(0.6),
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                  color: Colors.blue.withOpacity(0.5),
+                  color: Colors.red.withOpacity(0.5),
                   width: 1,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.blue.withOpacity(0.2),
+                    color: Colors.yellow.withOpacity(0.2),
                     blurRadius: 6,
                     spreadRadius: 1,
                   ),
@@ -57,7 +57,7 @@ class TokenCounter extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        GlowingIcon(Icons.add, Colors.blue),
+                        GlowingIcon(Icons.add, Colors.red),
                         const SizedBox(width: 30),
                         Observer(builder: (_) {
                           return Text(
@@ -77,7 +77,7 @@ class TokenCounter extends StatelessWidget {
                           );
                         }),
                         const SizedBox(width: 6),
-                        GlowingToken(Constants.tokenImagePath, Colors.blue),
+                        GlowingToken(Constants.tokenImagePath, Colors.red),
                       ],
                     ),
                   ),
