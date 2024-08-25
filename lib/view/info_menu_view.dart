@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/utils/app_colors.dart';
-import 'package:gapsec/utils/constants.dart';
 import 'package:page_transition/page_transition.dart';
 
 class InfoMenuView extends StatelessWidget {
