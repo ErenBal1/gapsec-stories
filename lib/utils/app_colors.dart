@@ -10,13 +10,5 @@ class CustomColors {
   static const selectedIconColor = Colors.yellow;
   static const cyanBlue = Colors.cyan;
   static const yellow = selectedIconColor;
-  static final GAPSECtitleColors = [
-    Colors.blue,
-    Colors.cyan.shade50,
-    Colors.blue,
-    Colors.cyan.shade50,
-    Colors.blue,
-    Colors.cyan.shade50,
-    Colors.blue,
-  ];
+  static final GAPSECtitleColors = [Colors.red, Colors.black];
 }

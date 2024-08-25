@@ -28,7 +28,7 @@ dependencies:
   #Animated Tabs
   tab_container: ^3.5.3
   #Carousel Slider
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
   #Smooth Page Indicator
   smooth_page_indicator: ^1.2.0+3
   #Logger(print)
@@ -37,7 +37,7 @@ dependencies:
   awesome_snackbar_content: ^0.1.3
   isar: ^3.1.0+1
   isar_flutter_libs: ^3.1.0+1
-  path_provider: ^2.0.15
+  path_provider: ^2.1.4
 
   #Adaptive Dialog
   adaptive_dialog: ^2.1.0
@@ -45,6 +45,13 @@ dependencies:
   loading_indicator: ^3.1.1
   #In App Purchase
   in_app_purchase: ^3.2.0
+  #Google AdMob
+  google_mobile_ads: ^5.1.0
+  #Glitch Affect
+  animated_glitch: ^2.0.0+2
+  #Neon
+  neon: ^0.1.0
+
 
  
 
@@ -57,7 +64,7 @@ dev_dependencies:
   #MOBX
   mobx_codegen: ^2.6.1
   isar_generator: ^3.1.0+1
-  build_runner: ^2.4.11
+  build_runner: ^2.4.12
 
 
 flutter:

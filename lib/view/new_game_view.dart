@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -10,6 +12,7 @@ import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
+import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 
 class NewGameView extends StatefulWidget {
   const NewGameView({super.key});
@@ -31,8 +34,9 @@ class _NewGameViewState extends State<NewGameView> {
     _updateDefaultValues();
   }
 
-  Future<void> _changeDefaultValue() async {
-    await _databaseService.changeDefaultValue(true);
+  Future<void> _changeDefaultValue(
+      {required bool newValue, required TextType type}) async {
+    await _databaseService.changeDefaultValue(newValue: newValue, type: type);
   }
 
   Future<void> _updateDefaultValues() async {
@@ -77,37 +81,13 @@ class _NewGameViewState extends State<NewGameView> {
               context: context);
           print('pressed Murder');
           break;
-        case TextType.dontLookBackType:
-          await _selectedHistoryDelete(type: TextType.dontLookBackType);
-          hs.goToPage(
-              page: ChatView(
-                selectedRepo: _databaseService.dontLookBackRepo,
-                story: gameName,
-                selectedTextType: TextType.dontLookBackType,
-              ),
-              context: context);
-          print("pressed dont look back");
-          break;
-        case TextType.erenType:
-          await _selectedHistoryDelete(type: TextType.erenType);
-          hs.goToPage(
-              page: ChatView(
-                selectedRepo: _databaseService.erenRepo,
-                story: gameName,
-                selectedTextType: TextType.erenType,
-              ),
-              context: context);
-          print("pressed eren");
-          break;
         default:
       }
     }
   }
 
   Future<void> _deleteListElements() async {
-    await _databaseService.deleteListElements(type: TextType.dontLookBackType);
     await _databaseService.deleteListElements(type: TextType.murderType);
-    await _databaseService.deleteListElements(type: TextType.erenType);
   }
 
   //Animated textin tamamlandığı hakkında info
@@ -131,10 +111,19 @@ class _NewGameViewState extends State<NewGameView> {
             width: double.infinity,
             height: Config.screenHeight,
             child: Image.asset(
-              "assets/images/castle.png",
+              "assets/images/back.png",
               fit: BoxFit.cover,
             ),
           ),
+          /* Positioned.fill(
+              child: BackdropFilter(
+            filter: ImageFilter.blur(
+                sigmaX: 1.0, sigmaY: 3.0), // Adjust the blur level
+            child: Container(
+              color: Colors.black
+                  .withOpacity(0), // This container must be translucent.
+            ),
+          )), */
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -146,13 +135,21 @@ class _NewGameViewState extends State<NewGameView> {
                     padding:
                         const EdgeInsets.only(top: 8.0, right: 70, left: 70),
                     child: ElevatedButton(
+                      style: const ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(
+                              CustomColors.storyCardColor)),
                       onPressed: () => hs.goToPage(
                           page: const StoriesView(), context: context),
                       child: const FittedBox(
                         child: Text(
                           "UNLOCK MORE...",
                           style: TextStyle(
-                              fontFamily: "PixelFont", color: CustomColors.red),
+                              shadows: [
+                                Shadow(
+                                    blurRadius: 8, color: CustomColors.yellow)
+                              ],
+                              fontFamily: "PixelFont",
+                              color: CustomColors.white),
                         ),
                       ),
                     ),
@@ -236,7 +233,7 @@ class _NewGameViewState extends State<NewGameView> {
           child: Container(
             width: (Config.screenWidth! * 0.8),
             height: Config.screenHeight! * 0.07,
-            color: CustomColors.cyanBlue.shade500,
+            color: CustomColors.storyCardColor,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -255,56 +252,33 @@ class _NewGameViewState extends State<NewGameView> {
                   child: InkWell(
                     onTap: () async {
                       //await _databaseService.getUpdatedList();
-
-                      switch (gameName) {
-                        case "Murder":
-                          await _selectedStoryUpdate(type: TextType.murderType);
-                          if (_databaseService.murderRepo.isEmpty) {
-                            hs.goToPage(
-                                page: ChatView(
-                                  selectedRepo: _databaseService.murderRepo,
-                                  story: gameName,
-                                  selectedTextType: TextType.murderType,
-                                ),
-                                context: context);
-                          } else {
-                            await showOkCancelAlert(
-                                context, TextType.murderType, gameName);
-                          }
-                          break;
-                        case "Don't Look Back":
-                          await _selectedStoryUpdate(
-                              type: TextType.dontLookBackType);
-                          if (_databaseService.dontLookBackRepo.isEmpty) {
-                            hs.goToPage(
-                                page: ChatView(
-                                  selectedRepo:
-                                      _databaseService.dontLookBackRepo,
-                                  story: gameName,
-                                  selectedTextType: TextType.dontLookBackType,
-                                ),
-                                context: context);
-                          } else {
-                            await showOkCancelAlert(
-                                context, TextType.dontLookBackType, gameName);
-                          }
-                          break;
-                        case "Eren":
-                          await _selectedStoryUpdate(type: TextType.erenType);
-                          if (_databaseService.erenRepo.isEmpty) {
-                            hs.goToPage(
-                                page: ChatView(
-                                  selectedRepo: _databaseService.erenRepo,
-                                  story: gameName,
-                                  selectedTextType: TextType.erenType,
-                                ),
-                                context: context);
-                          } else {
-                            await showOkCancelAlert(
-                                context, TextType.erenType, gameName);
-                          }
-                          break;
-                        default:
+                      if (gameName == "Murder") {
+                        switch (gameName) {
+                          case "Murder":
+                            await _selectedStoryUpdate(
+                                type: TextType.murderType);
+                            if (_databaseService.murderRepo.isEmpty) {
+                              hs.goToPage(
+                                  page: ChatView(
+                                    selectedRepo: _databaseService.murderRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.murderType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.murderType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else {
+                        AlertWidgets().showOkAlert(
+                            context,
+                            "Yayında Aktif Olucak",
+                            "Test Mode",
+                            "Tamam",
+                            () => print("hell"));
                       }
                     },
                     child: SizedBox(

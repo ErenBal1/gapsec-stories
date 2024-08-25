@@ -1,11 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:gapsec/cache/games_storage/eren_story.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:page_transition/page_transition.dart';
-
-import 'package:gapsec/cache/games_storage/dont_look_back.dart';
 import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
@@ -88,10 +85,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
             element["history"] ==
             _databaseService.dontLookBackRepo.last!.dontLookBackTexts
                 .toString());
-      case TextType.erenType:
-        return list.firstWhere((element) =>
-            element["history"] ==
-            _databaseService.erenRepo.last!.erenTexts.toString());
 
       default:
     }
@@ -134,6 +127,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     var item = getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
+      if (answers[0]['aId'] == answers[1]['aId']) {
+        return answers[0];
+      }
       return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
     }
     return null;
@@ -144,6 +140,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     var item = getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
+      if (answers[0]['aId'] == answers[1]['aId']) {
+        return answers[1];
+      }
       return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
     }
     return null;
@@ -179,46 +178,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
           await _selectedStoryUpdate(type: TextType.murderType);
           setState(() {
             repo = _databaseService.murderRepo;
-          });
-
-          _scrollToBottom();
-          break;
-        case TextType.dontLookBackType:
-          selectedList = DontLookBackList;
-          await _selectedStoryUpdate(type: TextType.dontLookBackType);
-          left = initToOdd(
-            selectedList,
-            TextType.dontLookBackType,
-          )!;
-          //  print("left inside => $left");
-          right = initToEven(
-            selectedList,
-            TextType.dontLookBackType,
-          )!;
-          // print("right inside => $right");
-          await _selectedStoryUpdate(type: TextType.dontLookBackType);
-          setState(() {
-            repo = _databaseService.dontLookBackRepo;
-          });
-
-          _scrollToBottom();
-          break;
-        case TextType.erenType:
-          selectedList = eren;
-          await _selectedStoryUpdate(type: TextType.erenType);
-          left = initToOdd(
-            selectedList,
-            TextType.erenType,
-          )!;
-          //  print("left inside => $left");
-          right = initToEven(
-            selectedList,
-            TextType.erenType,
-          )!;
-          // print("right inside => $right");
-          await _selectedStoryUpdate(type: TextType.erenType);
-          setState(() {
-            repo = _databaseService.erenRepo;
           });
 
           _scrollToBottom();
@@ -269,12 +228,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                   case TextType.murderType:
                     selectedTexts = newGame.murderTexts.toString();
                     break;
-                  case TextType.dontLookBackType:
-                    selectedTexts = newGame.dontLookBackTexts.toString();
-                    break;
-                  case TextType.erenType:
-                    selectedTexts = newGame.erenTexts.toString();
-                    break;
+
                   default:
                 }
 
@@ -390,145 +344,91 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    InkWell(
-                      onTap: () async {
-                        if (textCompleted == true) {
-                          switch (widget.selectedTextType) {
-                            case TextType.murderType:
-                              setState(() {
-                                textCompleted = false;
-                              });
-                              await _selectedStoryAddItem(
-                                  eklencekText: left["title"],
-                                  type: TextType.murderType);
-                              updateStoryMapId(left["aId"]);
-                              //   print("first answerId=> $storyMapId");
-                              //_changeComplete();
-                              ////////////
-                              await _selectedStoryUpdate(
-                                  type: TextType.murderType);
-                              repo = _databaseService.murderRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              await Future.delayed(const Duration(seconds: 3));
-                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
-                              left = assignToOdd(selectedList, storyMapId)!;
-                              right = assignToEven(selectedList, storyMapId)!;
-                              await _selectedStoryAddItem(
-                                  eklencekText: getMapWithId(
-                                      selectedList, storyMapId)!["history"],
-                                  type: TextType.murderType);
-                              await _selectedStoryUpdate(
-                                  type: TextType.murderType);
-                              repo = _databaseService.murderRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              break;
-                            case TextType.dontLookBackType:
-                              setState(() {
-                                textCompleted = false;
-                              });
-                              await _selectedStoryAddItem(
-                                  eklencekText: left["title"],
-                                  type: TextType.dontLookBackType);
-                              updateStoryMapId(left["aId"]);
-                              //   print("first answerId=> $storyMapId");
-                              // _changeComplete();
-                              //////////////////
-                              await _selectedStoryUpdate(
-                                  type: TextType.dontLookBackType);
-                              repo = _databaseService.dontLookBackRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              await Future.delayed(const Duration(seconds: 3));
-                              //////////////////
-                              left = assignToOdd(selectedList, storyMapId)!;
-                              right = assignToEven(selectedList, storyMapId)!;
-                              await _selectedStoryAddItem(
-                                  eklencekText: getMapWithId(
-                                      selectedList, storyMapId)!["history"],
-                                  type: TextType.dontLookBackType);
-                              await _selectedStoryUpdate(
-                                  type: TextType.dontLookBackType);
-                              repo = _databaseService.dontLookBackRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              break;
-                            case TextType.erenType:
-                              setState(() {
-                                textCompleted = false;
-                              });
-                              await _selectedStoryAddItem(
-                                  eklencekText: left["title"],
-                                  type: TextType.erenType);
-                              updateStoryMapId(left["aId"]);
-                              //   print("first answerId=> $storyMapId");
-                              //_changeComplete();
-                              ////////////
-                              await _selectedStoryUpdate(
-                                  type: TextType.erenType);
-                              repo = _databaseService.erenRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              await Future.delayed(const Duration(seconds: 3));
-                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
-                              left = assignToOdd(selectedList, storyMapId)!;
-                              right = assignToEven(selectedList, storyMapId)!;
-                              await _selectedStoryAddItem(
-                                  eklencekText: getMapWithId(
-                                      selectedList, storyMapId)!["history"],
-                                  type: TextType.erenType);
-                              await _selectedStoryUpdate(
-                                  type: TextType.erenType);
-                              repo = _databaseService.erenRepo;
-                              setState(() {});
-                              _scrollToBottom();
+                    textCompleted == true
+                        ? InkWell(
+                            onTap: () async {
+                              if (textCompleted == true) {
+                                switch (widget.selectedTextType) {
+                                  case TextType.murderType:
+                                    setState(() {
+                                      textCompleted = false;
+                                    });
+                                    await _selectedStoryAddItem(
+                                        eklencekText: left["title"],
+                                        type: TextType.murderType);
+                                    updateStoryMapId(left["aId"]);
+                                    //   print("first answerId=> $storyMapId");
+                                    //_changeComplete();
+                                    ////////////
+                                    await _selectedStoryUpdate(
+                                        type: TextType.murderType);
+                                    repo = _databaseService.murderRepo;
+                                    setState(() {});
+                                    _scrollToBottom();
+                                    await Future.delayed(
+                                        const Duration(seconds: 3));
+                                    ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
+                                    left =
+                                        assignToOdd(selectedList, storyMapId)!;
+                                    right =
+                                        assignToEven(selectedList, storyMapId)!;
+                                    await _selectedStoryAddItem(
+                                        eklencekText: getMapWithId(selectedList,
+                                            storyMapId)!["history"],
+                                        type: TextType.murderType);
+                                    await _selectedStoryUpdate(
+                                        type: TextType.murderType);
+                                    repo = _databaseService.murderRepo;
+                                    setState(() {});
+                                    _scrollToBottom();
+                                    break;
 
-                              break;
-                            default:
-                          }
-                        }
-                        setState(() {
-                          textCompleted = false;
-                        });
+                                  default:
+                                }
+                              }
+                              setState(() {
+                                textCompleted = false;
+                              });
 
-                        // 2 saniye bekleyip textCompleted'ı tekrar true yap
-                        await Future.delayed(const Duration(seconds: 4));
-                        setState(() {
-                          textCompleted = true;
-                        });
-                        attempt++;
-                      },
-                      // Sol taraftaki buton
-                      child: Container(
-                        width: Config.screenWidth! * 0.4,
-                        height: Config.screenHeight! * 0.1,
-                        decoration: BoxDecoration(
-                            image: const DecorationImage(
-                                image:
-                                    AssetImage("assets/images/buttonBack.jpg"),
-                                fit: BoxFit.cover),
-                            color: CustomColors.black.withOpacity(0.95),
-                            border: Border.all(
-                                width: 1,
-                                color: CustomColors.white.withOpacity(0.5)),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(15))),
-                        child: Center(
-                          child: Text(
-                            textCompleted == true
-                                ? attempt != 0
-                                    ? assignToOdd(
-                                        selectedList, storyMapId)!["title"]
-                                    : initToOdd(selectedList,
-                                        widget.selectedTextType)!["title"]
-                                : "",
-                            style: const TextStyle(
-                                color: CustomColors.yellow, fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ),
+                              // 2 saniye bekleyip textCompleted'ı tekrar true yap
+                              await Future.delayed(const Duration(seconds: 4));
+                              setState(() {
+                                textCompleted = true;
+                              });
+                              attempt++;
+                            },
+                            // Sol taraftaki buton
+                            child: Container(
+                              width: Config.screenWidth! * 0.4,
+                              height: Config.screenHeight! * 0.1,
+                              decoration: BoxDecoration(
+                                  image: const DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/buttonBack.jpg"),
+                                      fit: BoxFit.cover),
+                                  color: CustomColors.black.withOpacity(0.95),
+                                  border: Border.all(
+                                      width: 1,
+                                      color:
+                                          CustomColors.white.withOpacity(0.5)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(15))),
+                              child: Center(
+                                child: Text(
+                                  textCompleted == true
+                                      ? attempt != 0
+                                          ? assignToOdd(selectedList,
+                                              storyMapId)!["title"]
+                                          : initToOdd(selectedList,
+                                              widget.selectedTextType)!["title"]
+                                      : "",
+                                  style: const TextStyle(
+                                      color: CustomColors.yellow, fontSize: 20),
+                                ),
+                              ),
+                            ),
+                          )
+                        : const SizedBox.shrink(),
                     SizedBox(
                       //color: CustomColors.cyanBlue,
                       width: Config.screenWidth! * 0.15,
@@ -547,141 +447,90 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             : null,
                       ),
                     ),
-                    InkWell(
-                      onTap: () async {
-                        if (textCompleted == true) {
-                          switch (widget.selectedTextType) {
-                            case TextType.murderType:
-                              setState(() {
-                                textCompleted = false;
-                              });
-                              await _selectedStoryAddItem(
-                                  eklencekText: right["title"],
-                                  type: TextType.murderType);
-                              updateStoryMapId(right["aId"]);
-                              // _changeComplete();
-                              ////////////
-                              await _selectedStoryUpdate(
-                                  type: TextType.murderType);
-                              repo = _databaseService.murderRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              await Future.delayed(const Duration(seconds: 3));
-                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
-                              left = assignToOdd(selectedList, storyMapId)!;
-                              right = assignToEven(selectedList, storyMapId)!;
-                              await _selectedStoryAddItem(
-                                  eklencekText: getMapWithId(
-                                      selectedList, storyMapId)!["history"],
-                                  type: TextType.murderType);
-                              await _selectedStoryUpdate(
-                                  type: TextType.murderType);
-                              repo = _databaseService.murderRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              break;
-                            case TextType.dontLookBackType:
-                              setState(() {
-                                textCompleted = false;
-                              });
-                              await _selectedStoryAddItem(
-                                  eklencekText: right["title"],
-                                  type: TextType.dontLookBackType);
-                              updateStoryMapId(right["aId"]);
-                              //  _changeComplete();
-                              //////////////////
-                              await _selectedStoryUpdate(
-                                  type: TextType.dontLookBackType);
-                              repo = _databaseService.dontLookBackRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              await Future.delayed(const Duration(seconds: 3));
-                              //////////////////
-                              left = assignToOdd(selectedList, storyMapId)!;
-                              right = assignToEven(selectedList, storyMapId)!;
-                              await _selectedStoryAddItem(
-                                  eklencekText: getMapWithId(
-                                      selectedList, storyMapId)!["history"],
-                                  type: TextType.dontLookBackType);
-                              await _selectedStoryUpdate(
-                                  type: TextType.dontLookBackType);
-                              repo = _databaseService.dontLookBackRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              break;
-                            case TextType.erenType:
-                              setState(() {
-                                textCompleted = false;
-                              });
-                              await _selectedStoryAddItem(
-                                  eklencekText: right["title"],
-                                  type: TextType.erenType);
-                              updateStoryMapId(right["aId"]);
-                              // _changeComplete();
-                              ////////////
-                              await _selectedStoryUpdate(
-                                  type: TextType.erenType);
-                              repo = _databaseService.erenRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              await Future.delayed(const Duration(seconds: 3));
-                              ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
-                              left = assignToOdd(selectedList, storyMapId)!;
-                              right = assignToEven(selectedList, storyMapId)!;
-                              await _selectedStoryAddItem(
-                                  eklencekText: getMapWithId(
-                                      selectedList, storyMapId)!["history"],
-                                  type: TextType.erenType);
-                              await _selectedStoryUpdate(
-                                  type: TextType.erenType);
-                              repo = _databaseService.erenRepo;
-                              setState(() {});
-                              _scrollToBottom();
-                              break;
-                            default:
-                          }
-                        }
-                        setState(() {
-                          textCompleted = false;
-                        });
+                    textCompleted == true
+                        ? InkWell(
+                            onTap: () async {
+                              if (textCompleted == true) {
+                                switch (widget.selectedTextType) {
+                                  case TextType.murderType:
+                                    setState(() {
+                                      textCompleted = false;
+                                    });
+                                    await _selectedStoryAddItem(
+                                        eklencekText: right["title"],
+                                        type: TextType.murderType);
+                                    updateStoryMapId(right["aId"]);
+                                    // _changeComplete();
+                                    ////////////
+                                    await _selectedStoryUpdate(
+                                        type: TextType.murderType);
+                                    repo = _databaseService.murderRepo;
+                                    setState(() {});
+                                    _scrollToBottom();
+                                    await Future.delayed(
+                                        const Duration(seconds: 3));
+                                    ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
+                                    left =
+                                        assignToOdd(selectedList, storyMapId)!;
+                                    right =
+                                        assignToEven(selectedList, storyMapId)!;
+                                    await _selectedStoryAddItem(
+                                        eklencekText: getMapWithId(selectedList,
+                                            storyMapId)!["history"],
+                                        type: TextType.murderType);
+                                    await _selectedStoryUpdate(
+                                        type: TextType.murderType);
+                                    repo = _databaseService.murderRepo;
+                                    setState(() {});
+                                    _scrollToBottom();
+                                    break;
 
-                        // 2 saniye bekleyip textCompleted'ı tekrar true yap
-                        await Future.delayed(const Duration(seconds: 3));
-                        setState(() {
-                          textCompleted = true;
-                        });
-                        attempt++;
-                      },
-                      //Sağ taraftaki button
-                      child: Container(
-                        width: Config.screenWidth! * 0.4,
-                        height: Config.screenHeight! * 0.1,
-                        decoration: BoxDecoration(
-                            image: const DecorationImage(
-                                image:
-                                    AssetImage("assets/images/buttonBack.jpg"),
-                                fit: BoxFit.cover),
-                            color: CustomColors.black.withOpacity(0.95),
-                            border: Border.all(
-                                width: 1,
-                                color: CustomColors.white.withOpacity(0.5)),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(15))),
-                        child: Center(
-                          child: Text(
-                            textCompleted == true
-                                ? attempt != 0
-                                    ? assignToEven(
-                                        selectedList, storyMapId)!["title"]
-                                    : initToEven(selectedList,
-                                        widget.selectedTextType)!["title"]
-                                : "",
-                            style: const TextStyle(
-                                color: CustomColors.yellow, fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ),
+                                  default:
+                                }
+                              }
+                              setState(() {
+                                textCompleted = false;
+                              });
+
+                              // 2 saniye bekleyip textCompleted'ı tekrar true yap
+                              await Future.delayed(const Duration(seconds: 3));
+                              setState(() {
+                                textCompleted = true;
+                              });
+                              attempt++;
+                            },
+                            //Sağ taraftaki button
+                            child: Container(
+                              width: Config.screenWidth! * 0.4,
+                              height: Config.screenHeight! * 0.1,
+                              decoration: BoxDecoration(
+                                  image: const DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/buttonBack.jpg"),
+                                      fit: BoxFit.cover),
+                                  color: CustomColors.black.withOpacity(0.95),
+                                  border: Border.all(
+                                      width: 1,
+                                      color:
+                                          CustomColors.white.withOpacity(0.5)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(15))),
+                              child: Center(
+                                child: Text(
+                                  textCompleted == true
+                                      ? attempt != 0
+                                          ? assignToEven(selectedList,
+                                              storyMapId)!["title"]
+                                          : initToEven(selectedList,
+                                              widget.selectedTextType)!["title"]
+                                      : "",
+                                  style: const TextStyle(
+                                      color: CustomColors.yellow, fontSize: 20),
+                                ),
+                              ),
+                            ),
+                          )
+                        : const SizedBox.shrink(),
                   ],
                 ),
               )),

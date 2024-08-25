@@ -25,6 +25,14 @@ mixin _$ShopState on _ShopStateBase, Store {
     });
   }
 
+  late final _$updateAmountAsyncAction =
+      AsyncAction('_ShopStateBase.updateAmount', context: context);
+
+  @override
+  Future<void> updateAmount(int newAmount) {
+    return _$updateAmountAsyncAction.run(() => super.updateAmount(newAmount));
+  }
+
   late final _$_ShopStateBaseActionController =
       ActionController(name: '_ShopStateBase', context: context);
 

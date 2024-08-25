@@ -34,7 +34,6 @@ class _ContinueViewState extends State<ContinueView> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
       await _selectedStoryUpdate(type: TextType.dontLookBackType);
-      await _selectedStoryUpdate(type: TextType.erenType);
     });
     super.initState();
   }
@@ -93,12 +92,6 @@ class _ContinueViewState extends State<ContinueView> {
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
                     break;
-                  case "Eren":
-                    if (_databaseService.erenRepo.isNotEmpty) {
-                      content =
-                          FittedBox(child: gameContainer(gameName: game.name));
-                    }
-                    break;
                   default:
                 }
                 return content;
@@ -142,13 +135,6 @@ class _ContinueViewState extends State<ContinueView> {
               ),
             ),
           ),
-          const Positioned(
-              top: 30,
-              left: 50,
-              child: Text(
-                "Load game",
-                style: TextStyle(fontSize: 40),
-              ))
         ],
       ),
     );
@@ -222,21 +208,6 @@ class _ContinueViewState extends State<ContinueView> {
                           } else {
                             /* await showOkCancelAlert(
                                 context, TextType.dontLookBackType, gameName); */
-                          }
-                          break;
-                        case "Eren":
-                          await _selectedStoryUpdate(type: TextType.erenType);
-                          if (_databaseService.erenRepo.isNotEmpty) {
-                            hs.goToPage(
-                                page: ContinueChatView(
-                                  selectedRepo: _databaseService.erenRepo,
-                                  story: gameName,
-                                  selectedTextType: TextType.erenType,
-                                ),
-                                context: context);
-                          } else {
-                            /* await showOkCancelAlert(
-                                context, TextType.erenType, gameName); */
                           }
                           break;
                         default:

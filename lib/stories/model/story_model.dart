@@ -4,7 +4,7 @@ import 'package:gapsec/cache/service/database_service.dart';
 class StoryModel {
   final String name;
   final String description;
-  final bool isLock;
+  bool isLock;
   final List<NewGame?> whichRepo;
   StoryModel(
       {required this.name,
@@ -13,11 +13,6 @@ class StoryModel {
       required this.whichRepo});
 }
 
-StoryModel eren = StoryModel(
-    name: "Eren",
-    description: "eren description",
-    isLock: false,
-    whichRepo: DatabaseService().erenRepo);
 StoryModel murder = StoryModel(
     name: "Murder",
     description: "Discipline is the best tool",
@@ -26,27 +21,27 @@ StoryModel murder = StoryModel(
 StoryModel dontLookBack = StoryModel(
     name: "Don't Look Back",
     description: "Don't Look Back best tool",
-    isLock: true,
+    isLock: DatabaseService().dontLookBackIsLockDefault ?? true,
     whichRepo: DatabaseService().dontLookBackRepo);
 StoryModel lostLucy = StoryModel(
     name: "Lost Lucy",
     description: "Lost Lucy best tool",
-    isLock: true,
+    isLock: DatabaseService().lostLucyIsLockDefault ?? true,
     whichRepo: DatabaseService().lostLucyRepo);
 StoryModel nightGame = StoryModel(
     name: "Night Game",
     description: "Night Game best tool",
-    isLock: true,
+    isLock: DatabaseService().nightGameIsLockDefault ?? true,
     whichRepo: DatabaseService().nightGameRepo);
 StoryModel runKaity = StoryModel(
     name: "Run Kaity",
     description: "Run Kaity best tool",
-    isLock: true,
+    isLock: DatabaseService().runKaityIsLockDefault ?? true,
     whichRepo: DatabaseService().runKaityRepo);
 StoryModel smile = StoryModel(
     name: "Smile",
     description: "Smile best tool",
-    isLock: true,
+    isLock: DatabaseService().smileIsLockDefault ?? true,
     whichRepo: DatabaseService().smileRepo);
 StoryModel behind = StoryModel(
     name: "Behind",
@@ -56,13 +51,12 @@ StoryModel behind = StoryModel(
 StoryModel lucky = StoryModel(
     name: "Lucky",
     description: "Lucky best tool",
-    isLock: true,
+    isLock: DatabaseService().luckyIsLockDefault ?? true,
     whichRepo: DatabaseService().luckyRepo);
 
 class games {
   List historiesGames = [
     murder,
-    eren,
     dontLookBack,
     lostLucy,
     nightGame,

@@ -18,7 +18,7 @@ abstract class _HomeStateBase with Store {
   @action
   void goToPageBottomToTop(
       {required BuildContext context, required Widget page}) {
-    Navigator.push(context,
-        PageTransition(type: PageTransitionType.bottomToTop, child: page));
+    Navigator.push(
+        context, PageTransition(type: PageTransitionType.fade, child: page));
   }
 }

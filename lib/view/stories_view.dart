@@ -1,14 +1,18 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
+import 'package:gapsec/cache/service/database_service.dart';
+import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:video_player/video_player.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class StoriesView extends StatefulWidget {
   const StoriesView({super.key});
@@ -24,14 +28,16 @@ class _StoriesViewState extends State<StoriesView>
   late VideoPlayerController mp3controller;
   late TabController tab1Controller;
   late TabController tab2Controller;
-  late CarouselController carouselController;
+  late CarouselSliderController carouselController;
   late TextTheme textTheme;
+  final _databaseService = DatabaseService();
   int iconSelectedIndex = 0;
   bool itsFree = true;
   String selectedTitle = murder.name;
   String selectedDescription = murder.description;
   String mp3Path = "assets/sounds/murder.mp3";
   int activeIndex = 0;
+  int price = 0;
 
   @override
   void initState() {
@@ -54,38 +60,68 @@ class _StoriesViewState extends State<StoriesView>
           });
         },
       );
-    carouselController = CarouselController();
+    carouselController = CarouselSliderController();
   }
 
-  void updateIndex(int index, String title, String description) {
+  Future<void> _addTokens(int amount) async {
+    await _databaseService.addTokens(amount);
+    setState(() {});
+  }
+
+  Future<void> updateIndex(int index, String title, String description) async {
+    await DatabaseService().updateDefaultValues();
     setState(() {
       iconSelectedIndex = index;
       selectedTitle = title;
       selectedDescription = description;
       switch (iconSelectedIndex) {
         case 0:
-          itsFree = !murder.isLock;
+          setState(() {
+            price = 0;
+            itsFree = !murder.isLock;
+          });
           break;
         case 1:
-          itsFree = !dontLookBack.isLock;
+          setState(() {
+            price = 80;
+            itsFree = !dontLookBack.isLock;
+          });
           break;
         case 2:
           itsFree = !lostLucy.isLock;
+          setState(() {
+            price = 120;
+          });
           break;
         case 3:
           itsFree = !nightGame.isLock;
+          setState(() {
+            price = 100;
+          });
           break;
         case 4:
           itsFree = !runKaity.isLock;
+          setState(() {
+            price = 110;
+          });
           break;
         case 5:
           itsFree = !smile.isLock;
+          setState(() {
+            price = 150;
+          });
           break;
         case 6:
           itsFree = !behind.isLock;
+          setState(() {
+            price = 180;
+          });
           break;
         case 7:
           itsFree = !lucky.isLock;
+          setState(() {
+            price = 300;
+          });
         default:
       }
     });
@@ -119,6 +155,165 @@ class _StoriesViewState extends State<StoriesView>
         // Hata oluşursa konsola yaz
         print("Error initializing new track: $error");
       });
+  }
+
+  Future<void> showOkAlertDialogWidget(
+      BuildContext context, String message) async {
+    final result = await showOkAlertDialog(
+      context: context,
+      title: 'Yetersiz bakiye :( ',
+      message: message,
+      okLabel: 'OK',
+    );
+    if (result == OkCancelResult.ok) {
+      print("Yetersiz bakiye onaylandı");
+    }
+  }
+
+  Future<void> showOkCancelAlert(BuildContext context, int storyPrice) async {
+    final result = await showOkCancelAlertDialog(
+      context: context,
+      title: 'Hikaye Kilidi Aç',
+      message: '$price Mystoken ile alınsın mı?',
+      okLabel: 'Evet',
+      cancelLabel: 'Hayır',
+    );
+
+    if (result == OkCancelResult.ok) {
+      switch (storyPrice) {
+        case 80:
+          if (ShopState().amount >= 80) {
+            _addTokens(-80).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.dontLookBackType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = dontLookBack.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 120:
+          if (ShopState().amount >= 120) {
+            _addTokens(-120).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.lostLucyType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = lostLucy.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 100:
+          if (ShopState().amount >= 100) {
+            _addTokens(-100).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.nightGameType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = nightGame.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+          break;
+        case 110:
+          if (ShopState().amount >= 110) {
+            _addTokens(-110).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.runKaityType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = runKaity.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+          break;
+
+        case 150:
+          if (ShopState().amount >= 150) {
+            _addTokens(-150).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(type: TextType.smileType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = smile.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 180:
+          if (ShopState().amount >= 180) {
+            _addTokens(-180).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(
+                      type: TextType.behindType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = behind.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 300:
+          if (ShopState().amount >= 300) {
+            _addTokens(-300).then(
+              (value) async => await _databaseService
+                  .changeDefaultValue(type: TextType.luckyType, newValue: false)
+                  .then(
+                (value) {
+                  setState(() {
+                    itsFree = lucky.isLock;
+                  });
+                },
+              ),
+            );
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        default:
+      }
+    }
   }
 
   @override
@@ -167,7 +362,7 @@ class _StoriesViewState extends State<StoriesView>
                                 height: (Config.screenHeight! * 0.4),
                                 autoPlay: false,
                                 viewportFraction: 1,
-                                onPageChanged: (index, reason) {
+                                onPageChanged: (index, reason) async {
                                   setState(() => activeIndex = index);
                                   index == 0
                                       ? updateIndex(
@@ -267,28 +462,34 @@ class _StoriesViewState extends State<StoriesView>
                                   const Spacer(),
                                   itsFree
                                       ? Text(
-                                          "FREE",
+                                          "UNLOCKED",
                                           style: AppFonts.freeTitle,
                                         )
-                                      : Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            const Text(
-                                              "20",
-                                              style: TextStyle(
-                                                  color: CustomColors.white,
-                                                  fontFamily: "PixelFont",
-                                                  fontSize: 20),
-                                            ),
-                                            CircleAvatar(
-                                              radius: 25,
-                                              child: Image.asset(
-                                                "assets/images/mystoken.png",
-                                                fit: BoxFit.cover,
+                                      : InkWell(
+                                          onTap: () {
+                                            showOkCancelAlert(context, price);
+                                            print(price.toString());
+                                          },
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                price.toString(),
+                                                style: const TextStyle(
+                                                    color: CustomColors.white,
+                                                    fontFamily: "PixelFont",
+                                                    fontSize: 20),
                                               ),
-                                            ),
-                                          ],
+                                              CircleAvatar(
+                                                radius: 25,
+                                                child: Image.asset(
+                                                  "assets/images/mystoken.png",
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         )
                                   /* Text(
                                     !itsFree ? "free" : "10dollar",
@@ -434,30 +635,36 @@ class _StoriesViewState extends State<StoriesView>
                                   const Spacer(),
                                   itsFree
                                       ? Text(
-                                          "FREE",
+                                          "UNLOCKED",
                                           style: AppFonts.freeTitle,
                                         )
-                                      : Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            const Text(
-                                              "20",
-                                              style: TextStyle(
-                                                  color: CustomColors.white,
-                                                  fontFamily: "PixelFont",
-                                                  fontSize: 20),
-                                            ),
-                                            CircleAvatar(
-                                              radius: 25,
-                                              child: Image.asset(
-                                                "assets/images/mystoken.png",
-                                                fit: BoxFit.cover,
+                                      : InkWell(
+                                          onTap: () {
+                                            showOkCancelAlert(context, price);
+                                            print(price.toString());
+                                          },
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                price.toString(),
+                                                style: const TextStyle(
+                                                    color: CustomColors.white,
+                                                    fontFamily: "PixelFont",
+                                                    fontSize: 20),
                                               ),
-                                            ),
-                                          ],
+                                              CircleAvatar(
+                                                radius: 25,
+                                                child: Image.asset(
+                                                  "assets/images/mystoken.png",
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         )
                                 ],
                               ),
