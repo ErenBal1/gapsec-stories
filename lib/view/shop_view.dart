@@ -5,6 +5,7 @@ import 'package:gapsec/adMobService/ad_mob_service.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/widgets/shop_view_widget/watch_ad_button.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -172,12 +173,14 @@ class _ShopViewState extends State<ShopView> {
       });
     }
 
+    const Color cardColor = CustomColors.storyCardColor;
+    Color cardTitleColor = const Color.fromARGB(255, 218, 204, 204);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.purple[800]!, Colors.purple[200]!],
+          colors: [Colors.black, Colors.red[400]!],
         ),
       ),
       child: Scaffold(
@@ -186,13 +189,13 @@ class _ShopViewState extends State<ShopView> {
           leading: IconButton(
               onPressed: () => ss.goBack(context),
               icon: const Icon(
-                Icons.keyboard_arrow_down_rounded,
-                size: 40,
+                Icons.close,
+                size: 25,
                 color: CustomColors.white,
               )),
           title: const Text('Mystoken Shop',
               style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.purple[800],
+          backgroundColor: CustomColors.storyCardColor,
           elevation: 0,
           actions: [
             Padding(
@@ -218,7 +221,7 @@ class _ShopViewState extends State<ShopView> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.purpleAccent.withOpacity(0.6),
+                          color: Colors.red.withOpacity(0.6),
                           spreadRadius: 4,
                           blurRadius: 4,
                         )
@@ -272,7 +275,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -296,7 +299,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -317,15 +320,13 @@ class _ShopViewState extends State<ShopView> {
                                   amount: 100);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
-                              'Buy Now',
-                              style: TextStyle(color: Colors.white60),
-                            ),
+                            child:
+                                Text('Buy Now', style: AppFonts.shopBuyButton),
                           ),
                         ],
                       ),
@@ -337,7 +338,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -361,7 +362,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -383,14 +384,14 @@ class _ShopViewState extends State<ShopView> {
                                   amount: 200);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],
@@ -407,7 +408,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -431,7 +432,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -453,14 +454,14 @@ class _ShopViewState extends State<ShopView> {
                                   amount: 300);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],
@@ -473,7 +474,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -497,7 +498,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -519,14 +520,14 @@ class _ShopViewState extends State<ShopView> {
                                   amount: 500);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],
@@ -543,7 +544,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -567,7 +568,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -589,14 +590,14 @@ class _ShopViewState extends State<ShopView> {
                                   amount: 600);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],
@@ -609,7 +610,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -633,7 +634,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -655,14 +656,14 @@ class _ShopViewState extends State<ShopView> {
                                   amount: 750);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],

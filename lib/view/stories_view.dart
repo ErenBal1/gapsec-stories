@@ -9,10 +9,10 @@ import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:video_player/video_player.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class StoriesView extends StatefulWidget {
   const StoriesView({super.key});
@@ -28,7 +28,7 @@ class _StoriesViewState extends State<StoriesView>
   late VideoPlayerController mp3controller;
   late TabController tab1Controller;
   late TabController tab2Controller;
-  late CarouselController carouselController;
+  late CarouselSliderController carouselController;
   late TextTheme textTheme;
   final _databaseService = DatabaseService();
   int iconSelectedIndex = 0;
@@ -60,7 +60,7 @@ class _StoriesViewState extends State<StoriesView>
           });
         },
       );
-    carouselController = CarouselController();
+    carouselController = CarouselSliderController();
   }
 
   Future<void> _addTokens(int amount) async {

@@ -27,38 +27,33 @@ const NewGameSchema = CollectionSchema(
       name: r'dontLookBackTexts',
       type: IsarType.string,
     ),
-    r'erenTexts': PropertySchema(
-      id: 2,
-      name: r'erenTexts',
-      type: IsarType.string,
-    ),
     r'lostLucyTexts': PropertySchema(
-      id: 3,
+      id: 2,
       name: r'lostLucyTexts',
       type: IsarType.string,
     ),
     r'luckyTexts': PropertySchema(
-      id: 4,
+      id: 3,
       name: r'luckyTexts',
       type: IsarType.string,
     ),
     r'murderTexts': PropertySchema(
-      id: 5,
+      id: 4,
       name: r'murderTexts',
       type: IsarType.string,
     ),
     r'nightGameTexts': PropertySchema(
-      id: 6,
+      id: 5,
       name: r'nightGameTexts',
       type: IsarType.string,
     ),
     r'runKaityTexts': PropertySchema(
-      id: 7,
+      id: 6,
       name: r'runKaityTexts',
       type: IsarType.string,
     ),
     r'smileTexts': PropertySchema(
-      id: 8,
+      id: 7,
       name: r'smileTexts',
       type: IsarType.string,
     )
@@ -142,12 +137,12 @@ void _newGameSerialize(
 ) {
   writer.writeString(offsets[0], object.behindTexts);
   writer.writeString(offsets[1], object.dontLookBackTexts);
-  writer.writeString(offsets[3], object.lostLucyTexts);
-  writer.writeString(offsets[4], object.luckyTexts);
-  writer.writeString(offsets[5], object.murderTexts);
-  writer.writeString(offsets[6], object.nightGameTexts);
-  writer.writeString(offsets[7], object.runKaityTexts);
-  writer.writeString(offsets[8], object.smileTexts);
+  writer.writeString(offsets[2], object.lostLucyTexts);
+  writer.writeString(offsets[3], object.luckyTexts);
+  writer.writeString(offsets[4], object.murderTexts);
+  writer.writeString(offsets[5], object.nightGameTexts);
+  writer.writeString(offsets[6], object.runKaityTexts);
+  writer.writeString(offsets[7], object.smileTexts);
 }
 
 NewGame _newGameDeserialize(
@@ -160,12 +155,12 @@ NewGame _newGameDeserialize(
   object.behindTexts = reader.readStringOrNull(offsets[0]);
   object.dontLookBackTexts = reader.readStringOrNull(offsets[1]);
   object.id = id;
-  object.lostLucyTexts = reader.readStringOrNull(offsets[3]);
-  object.luckyTexts = reader.readStringOrNull(offsets[4]);
-  object.murderTexts = reader.readStringOrNull(offsets[5]);
-  object.nightGameTexts = reader.readStringOrNull(offsets[6]);
-  object.runKaityTexts = reader.readStringOrNull(offsets[7]);
-  object.smileTexts = reader.readStringOrNull(offsets[8]);
+  object.lostLucyTexts = reader.readStringOrNull(offsets[2]);
+  object.luckyTexts = reader.readStringOrNull(offsets[3]);
+  object.murderTexts = reader.readStringOrNull(offsets[4]);
+  object.nightGameTexts = reader.readStringOrNull(offsets[5]);
+  object.runKaityTexts = reader.readStringOrNull(offsets[6]);
+  object.smileTexts = reader.readStringOrNull(offsets[7]);
   return object;
 }
 
@@ -191,8 +186,6 @@ P _newGameDeserializeProp<P>(
     case 6:
       return (reader.readStringOrNull(offset)) as P;
     case 7:
-      return (reader.readStringOrNull(offset)) as P;
-    case 8:
       return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -584,152 +577,6 @@ extension NewGameQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'dontLookBackTexts',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'erenTexts',
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'erenTexts',
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'erenTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'erenTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'erenTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'erenTexts',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'erenTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'erenTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'erenTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'erenTexts',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'erenTexts',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> erenTextsIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'erenTexts',
         value: '',
       ));
     });
@@ -1707,18 +1554,6 @@ extension NewGameQuerySortBy on QueryBuilder<NewGame, NewGame, QSortBy> {
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByErenTexts() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'erenTexts', Sort.asc);
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByErenTextsDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'erenTexts', Sort.desc);
-    });
-  }
-
   QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByLostLucyTexts() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lostLucyTexts', Sort.asc);
@@ -1815,18 +1650,6 @@ extension NewGameQuerySortThenBy
   QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByDontLookBackTextsDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'dontLookBackTexts', Sort.desc);
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByErenTexts() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'erenTexts', Sort.asc);
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByErenTextsDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'erenTexts', Sort.desc);
     });
   }
 
@@ -1932,13 +1755,6 @@ extension NewGameQueryWhereDistinct
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QDistinct> distinctByErenTexts(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'erenTexts', caseSensitive: caseSensitive);
-    });
-  }
-
   QueryBuilder<NewGame, NewGame, QDistinct> distinctByLostLucyTexts(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -2002,12 +1818,6 @@ extension NewGameQueryProperty
   QueryBuilder<NewGame, String?, QQueryOperations> dontLookBackTextsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'dontLookBackTexts');
-    });
-  }
-
-  QueryBuilder<NewGame, String?, QQueryOperations> erenTextsProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'erenTexts');
     });
   }
 

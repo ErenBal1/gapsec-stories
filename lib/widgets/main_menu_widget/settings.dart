@@ -36,7 +36,7 @@ class _SettingsButtonState extends State<SettingsButtons> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              IconButton(
+              /* IconButton(
                 onPressed: () => hs.goToPageBottomToTop(
                     context: context, page: const ShopView()),
                 icon: const Icon(
@@ -44,7 +44,7 @@ class _SettingsButtonState extends State<SettingsButtons> {
                 ),
                 color: Colors.white,
                 iconSize: 30,
-              ),
+              ), */
               Row(
                 children: [
                   AnimatedContainer(

@@ -59,7 +59,7 @@ abstract class _ShopStateBase with Store {
         context,
         PageTransition(
           child: Container(),
-          type: PageTransitionType.fade,
+          type: PageTransitionType.theme,
         ));
   }
 }

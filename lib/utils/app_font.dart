@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/utils/app_colors.dart';
 
 class AppFonts {
+  static var shopBuyButton = const TextStyle(
+      color: Colors.white60,
+      shadows: [Shadow(color: CustomColors.yellow, blurRadius: 2)]);
   static var mainMenuButton = const TextStyle(
     shadows: [
       BoxShadow(
-        color: CustomColors.red,
-        blurRadius: 30,
-        spreadRadius: 5,
+        color: CustomColors.white,
+        blurRadius: 3,
+        spreadRadius: 15,
       ),
       BoxShadow(
         color: CustomColors.black,
