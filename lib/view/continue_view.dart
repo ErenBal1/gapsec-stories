@@ -7,6 +7,7 @@ import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/continue_play_view.dart';
+import 'package:video_player/video_player.dart';
 
 class ContinueView extends StatefulWidget {
   const ContinueView({super.key});
@@ -19,6 +20,7 @@ class _ContinueViewState extends State<ContinueView> {
   final _databaseService = DatabaseService();
   final HomeState hs = HomeState();
   final StoriesState vm = StoriesState();
+  late VideoPlayerController _controller;
 
   void _updateScreen() {
     setState(() {});
@@ -31,11 +33,24 @@ class _ContinueViewState extends State<ContinueView> {
 
   @override
   void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset('assets/images/video.mp4')
+      ..initialize().then((_) {
+        _controller.play();
+        _controller.setLooping(true);
+        setState(() {});
+      });
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
       await _selectedStoryUpdate(type: TextType.dontLookBackType);
     });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -46,15 +61,22 @@ class _ContinueViewState extends State<ContinueView> {
 
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: [
-          SizedBox(
-            width: double.infinity,
-            height: Config.screenHeight,
-            child: Image.asset(
-              "assets/images/castle.png",
-              fit: BoxFit.cover,
-            ),
-          ),
+          _controller.value.isInitialized
+              ? AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
+                )
+              : Container(),
+          // SizedBox(
+          //   width: double.infinity,
+          //   height: Config.screenHeight,
+          //   child: Image.asset(
+          //     "assets/images/castle.png",
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -159,7 +181,7 @@ class _ContinueViewState extends State<ContinueView> {
           child: Container(
             width: (Config.screenWidth! * 0.8),
             height: Config.screenHeight! * 0.07,
-            color: CustomColors.cyanBlue.shade500,
+            color: Colors.orange[900],
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(

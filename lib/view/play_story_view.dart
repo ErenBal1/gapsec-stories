@@ -265,14 +265,14 @@ class _ChatViewState extends State<ChatView> {
                                 child: DefaultTextStyle(
                                   style: const TextStyle(
                                     fontSize: 30.0,
-                                    fontFamily: 'HorrorFont',
+                                    // fontFamily: 'HorrorFont',
                                     color: CustomColors.red,
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10.0),
                                     child: Text(
                                       selectedTexts.tr(),
-                                      style: const TextStyle(fontSize: 30),
+                                      style: const TextStyle(fontSize: 14),
                                     ),
                                   ), /* AnimatedTextKit(
                                     onFinished: () {
@@ -324,10 +324,10 @@ class _ChatViewState extends State<ChatView> {
                                 padding: const EdgeInsets.only(left: 10.0),
                                 child: Text(
                                   selectedTexts,
-                                  style: TextStyle(
-                                    fontSize: 30.0,
-                                    fontFamily: 'HorrorFont',
-                                    color: CustomColors.yellow.withOpacity(0.8),
+                                  style: const TextStyle(
+                                    fontSize: 14.0,
+                                    // fontFamily: 'HorrorFont',
+                                    color: Colors.green,
                                   ),
                                 ),
                               ),
