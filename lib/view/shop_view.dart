@@ -193,8 +193,7 @@ class _ShopViewState extends State<ShopView> {
                 size: 25,
                 color: CustomColors.white,
               )),
-          title: const Text('Mystoken Shop',
-              style: TextStyle(color: Colors.white)),
+          title: Image.asset('assets/images/MystokenShop-title.png'),
           backgroundColor: CustomColors.storyCardColor,
           elevation: 0,
           actions: [
@@ -241,9 +240,14 @@ class _ShopViewState extends State<ShopView> {
         bottomNavigationBar: Container(
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.red[400]!, Colors.black],
+            ),
+            color: Colors.red[800],
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
             ),
@@ -288,6 +292,9 @@ class _ShopViewState extends State<ShopView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Image.asset(
                             Constants.tokenImagePath,
                             height: 60,
@@ -302,16 +309,7 @@ class _ShopViewState extends State<ShopView> {
                               color: cardTitleColor,
                             ),
                           ),
-                          const SizedBox(height: 5),
-                          Text(
-                            '14.99 TL',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.green[700],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 15),
                           ElevatedButton(
                             onPressed: () async {
                               buyToken(
@@ -351,6 +349,9 @@ class _ShopViewState extends State<ShopView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Image.asset(
                             Constants.tokenImagePath,
                             height: 60,
@@ -365,16 +366,7 @@ class _ShopViewState extends State<ShopView> {
                               color: cardTitleColor,
                             ),
                           ),
-                          const SizedBox(height: 5),
-                          Text(
-                            '25.99 TL',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.green[700],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 15),
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
@@ -421,6 +413,9 @@ class _ShopViewState extends State<ShopView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Image.asset(
                             Constants.tokenImagePath,
                             height: 60,
@@ -435,16 +430,7 @@ class _ShopViewState extends State<ShopView> {
                               color: cardTitleColor,
                             ),
                           ),
-                          const SizedBox(height: 5),
-                          Text(
-                            '35.99 TL',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.green[700],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 15),
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
@@ -487,6 +473,9 @@ class _ShopViewState extends State<ShopView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Image.asset(
                             Constants.tokenImagePath,
                             height: 60,
@@ -501,16 +490,7 @@ class _ShopViewState extends State<ShopView> {
                               color: cardTitleColor,
                             ),
                           ),
-                          const SizedBox(height: 5),
-                          Text(
-                            '55.99 TL',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.green[700],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 15),
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
@@ -557,6 +537,9 @@ class _ShopViewState extends State<ShopView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Image.asset(
                             Constants.tokenImagePath,
                             height: 60,
@@ -571,16 +554,7 @@ class _ShopViewState extends State<ShopView> {
                               color: cardTitleColor,
                             ),
                           ),
-                          const SizedBox(height: 5),
-                          Text(
-                            '68.99 TL',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.green[700],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 15),
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
@@ -623,6 +597,9 @@ class _ShopViewState extends State<ShopView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Image.asset(
                             Constants.tokenImagePath,
                             height: 60,
@@ -637,16 +614,7 @@ class _ShopViewState extends State<ShopView> {
                               color: cardTitleColor,
                             ),
                           ),
-                          const SizedBox(height: 5),
-                          Text(
-                            '80.99 TL',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.green[700],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 15),
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed

@@ -29,8 +29,8 @@ class ChatView extends StatefulWidget {
 
 class _ChatViewState extends State<ChatView> {
   late VideoPlayerController mp3controller;
-  late Map<String, dynamic> left = {};
-  late Map<String, dynamic> right = {};
+  late Map<String, dynamic> left = {}; // tek olan map
+  late Map<String, dynamic> right = {}; //çift olan map
   late List<Map<String, dynamic>> selectedList = [];
   bool textCompleted = false;
   bool isEnable = true;
@@ -41,16 +41,17 @@ class _ChatViewState extends State<ChatView> {
   String selectedTexts = "";
   final ScrollController _scrollController = ScrollController();
 
-  TextEditingController myTextController = TextEditingController();
-
-  void _scrollToTop() {
-    _scrollController.animateTo(
-      0,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeOut,
-    );
+  void _scrollToBottom() {
+    Future.delayed(const Duration(milliseconds: 100), () {
+      _scrollController.animateTo(
+        _scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    });
   }
 
+  //Ekranı güncellemek için short fonk.
   void _updateScreen() {
     setState(() {});
   }
@@ -67,10 +68,12 @@ class _ChatViewState extends State<ChatView> {
     _updateScreen();
   }
 
+  //istediğimiz id ye sahip mapi getirir
   Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
     return list.firstWhere((element) => element["id"] == id);
   }
 
+  //Animated textin tamamlandığı hakkında info
   void _changeComplete() {
     textCompleted = !textCompleted;
   }
@@ -133,7 +136,6 @@ class _ChatViewState extends State<ChatView> {
 
   @override
   void initState() {
-    super.initState();
     print(widget.selectedTextType.toString());
     mp3controller = VideoPlayerController.asset(mp3Path)
       ..initialize().then((_) {
@@ -199,65 +201,16 @@ class _ChatViewState extends State<ChatView> {
   Widget build(BuildContext context) {
     Config().init(context);
     return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(45),
-        child: AppBar(
-          backgroundColor: Colors.blueGrey[600],
-          leading: IconButton(
-            onPressed: () async {
-              Navigator.pop(
-                context,
-                PageTransition(
-                  child: Container(),
-                  type: PageTransitionType.fade,
-                ),
-              );
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: CustomColors.white,
-              size: 20,
+      body: Stack(
+        children: [
+          SizedBox(
+            width: double.infinity,
+            height: Config.screenHeight,
+            child: Image.asset(
+              "assets/images/cpp.png",
+              fit: BoxFit.cover,
             ),
           ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const CircleAvatar(
-                backgroundImage: AssetImage('assets/images/default_avatar.png'),
-                radius: 18,
-              ),
-              const SizedBox(width: 8),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Unknown Number',
-                    style: TextStyle(
-                      color: CustomColors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 15,
-                    ),
-                  ),
-                  Text(
-                    'Online',
-                    style: TextStyle(
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.w500,
-                      fontSize: 13,
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
           Center(
               child: Container(
             width: Config.screenWidth! * 0.9,
@@ -312,14 +265,14 @@ class _ChatViewState extends State<ChatView> {
                                 child: DefaultTextStyle(
                                   style: const TextStyle(
                                     fontSize: 30.0,
-                                    fontFamily: 'HorrorFont',
+                                    // fontFamily: 'HorrorFont',
                                     color: CustomColors.red,
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10.0),
                                     child: Text(
                                       selectedTexts.tr(),
-                                      style: const TextStyle(fontSize: 30),
+                                      style: const TextStyle(fontSize: 14),
                                     ),
                                   ), /* AnimatedTextKit(
                                     onFinished: () {
@@ -371,10 +324,10 @@ class _ChatViewState extends State<ChatView> {
                                 padding: const EdgeInsets.only(left: 10.0),
                                 child: Text(
                                   selectedTexts,
-                                  style: TextStyle(
-                                    fontSize: 30.0,
-                                    fontFamily: 'HorrorFont',
-                                    color: CustomColors.yellow.withOpacity(0.8),
+                                  style: const TextStyle(
+                                    fontSize: 14.0,
+                                    // fontFamily: 'HorrorFont',
+                                    color: Colors.green,
                                   ),
                                 ),
                               ),
@@ -690,90 +643,6 @@ class _ChatViewState extends State<ChatView> {
                     color: CustomColors.white,
                   ))) */
         ],
-      ),
-    );
-  }
-
-  Future<void> handleStoryProgress(TextType type) async {
-    if (myTextController.text.isEmpty) {
-      print('Cevap boş');
-      return;
-    }
-
-    setState(() {
-      textCompleted = false;
-    });
-
-    await _selectedStoryAddItem(
-      eklencekText: myTextController.text,
-      type: type,
-    );
-
-    if (myTextController.text ==
-        assignToOdd(selectedList, storyMapId)!["title"]) {
-      updateStoryMapId(left["aId"]);
-    } else if (myTextController.text ==
-        assignToEven(selectedList, storyMapId)!["title"]) {
-      updateStoryMapId(right["aId"]);
-    }
-
-    await _selectedStoryUpdate(type: type);
-    repo = getCurrentRepo(type);
-    myTextController.clear();
-    await Future.delayed(const Duration(seconds: 2));
-
-    left = assignToOdd(selectedList, storyMapId)!;
-    right = assignToEven(selectedList, storyMapId)!;
-    await _selectedStoryAddItem(
-      eklencekText: getMapWithId(selectedList, storyMapId)!["history"],
-      type: type,
-    );
-    await _selectedStoryUpdate(type: type);
-    repo = getCurrentRepo(type);
-
-    setState(() {
-      textCompleted = true;
-    });
-    _scrollToTop();
-  }
-
-  List getCurrentRepo(TextType type) {
-    switch (type) {
-      case TextType.murderType:
-        return _databaseService.murderRepo;
-      case TextType.dontLookBackType:
-        return _databaseService.dontLookBackRepo;
-      case TextType.erenType:
-        return _databaseService.erenRepo;
-      default:
-        return [];
-    }
-  }
-}
-
-class OptionButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onTap;
-
-  const OptionButton({
-    super.key,
-    required this.text,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.blueGrey[600],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
-      child: Text(
-        text,
-        style: const TextStyle(color: Colors.black),
       ),
     );
   }

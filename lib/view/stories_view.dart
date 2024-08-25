@@ -445,7 +445,7 @@ class _StoriesViewState extends State<StoriesView>
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: DefaultTextStyle(
                                       style: const TextStyle(
-                                        fontSize: 24.0,
+                                        fontSize: 15.0,
                                         fontFamily: 'HorrorFont',
                                       ),
                                       child: AnimatedTextKit(
@@ -479,10 +479,13 @@ class _StoriesViewState extends State<StoriesView>
                                                 style: const TextStyle(
                                                     color: CustomColors.white,
                                                     fontFamily: "PixelFont",
-                                                    fontSize: 20),
+                                                    fontSize: 15),
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
                                               ),
                                               CircleAvatar(
-                                                radius: 25,
+                                                radius: 20,
                                                 child: Image.asset(
                                                   "assets/images/mystoken.png",
                                                   fit: BoxFit.cover,
@@ -618,7 +621,7 @@ class _StoriesViewState extends State<StoriesView>
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: DefaultTextStyle(
                                       style: const TextStyle(
-                                        fontSize: 24.0,
+                                        fontSize: 15.0,
                                         fontFamily: 'HorrorFont',
                                       ),
                                       child: AnimatedTextKit(
@@ -646,18 +649,19 @@ class _StoriesViewState extends State<StoriesView>
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.end,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
                                             children: [
                                               Text(
                                                 price.toString(),
                                                 style: const TextStyle(
                                                     color: CustomColors.white,
                                                     fontFamily: "PixelFont",
-                                                    fontSize: 20),
+                                                    fontSize: 15),
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
                                               ),
                                               CircleAvatar(
-                                                radius: 25,
+                                                radius: 20,
                                                 child: Image.asset(
                                                   "assets/images/mystoken.png",
                                                   fit: BoxFit.cover,

@@ -46,7 +46,7 @@ class MainMenuView extends StatelessWidget {
                 height: 30,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15.0),
+                padding: const EdgeInsets.only(left: 20.0),
                 child: MenuButtons(vm: vm),
               ),
             ],
