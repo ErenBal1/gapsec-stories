@@ -1,10 +1,14 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/adMobService/ad_mob_service.dart';
+import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/widgets/shop_view_widget/watch_ad_button.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 class ShopView extends StatefulWidget {
@@ -17,6 +21,9 @@ class ShopView extends StatefulWidget {
 }
 
 class _ShopViewState extends State<ShopView> {
+  RewardedAd? _rewardedAd;
+
+  final _databaseService = DatabaseService();
   final InAppPurchase iap = InAppPurchase.instance;
   final ShopState ss = ShopState();
   Future<void> showOkAlertDialogWidget(
@@ -32,9 +39,55 @@ class _ShopViewState extends State<ShopView> {
     }
   }
 
+  Future<void> _addTokens(int amount) async {
+    await _databaseService.addTokens(amount);
+    setState(() {});
+  }
+
+  void _showRewardedAd() {
+    if (_rewardedAd != null) {
+      _rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (ad) {
+          ad.dispose();
+          _createRewardedAd();
+          print("Reklam Kapatıldı");
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          ad.dispose();
+          _createRewardedAd();
+          print('Reklam gösterilemedi: $error');
+        },
+      );
+      _rewardedAd!.show(
+          onUserEarnedReward: (ad, reward) => setState(() {
+                _addTokens(2);
+              }));
+      print("Kullanıcı ödülü kazandı");
+      _rewardedAd = null;
+    } else {
+      print("Reklam yüklü değil");
+    }
+  }
+
+  void _createRewardedAd() {
+    RewardedAd.load(
+        adUnitId: AdMobService.rewardedAdUnitId!,
+        request: const AdRequest(),
+        rewardedAdLoadCallback: RewardedAdLoadCallback(
+            onAdLoaded: (ad) => setState(() {
+                  _rewardedAd = ad;
+                  print("Reklam başarıyla yüklendi");
+                }),
+            onAdFailedToLoad: (error) => setState(() {
+                  _rewardedAd = null;
+                  print('Reklam yüklenemedi: $error');
+                })));
+  }
+
   @override
   void initState() {
     super.initState();
+    _createRewardedAd();
     iap.purchaseStream.listen((purchaseDetailsList) {
       _handlePurchaseUpdates(purchaseDetailsList);
     }, onError: (error) {
@@ -89,7 +142,9 @@ class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
     void buyToken(
-        {required String productId, required BuildContext context}) async {
+        {required String productId,
+        required BuildContext context,
+        required amount}) async {
       final bool available = await iap.isAvailable();
       if (!available) {
         return showOkAlertDialogWidget(context,
@@ -101,6 +156,7 @@ class _ShopViewState extends State<ShopView> {
 
       if (response.notFoundIDs.isNotEmpty) {
         // Ürün bulunamadı
+        _addTokens(amount); // tabiki yeri burası değil denemek içim koyuyoz
         return showOkAlertDialogWidget(context, "Product not found.");
       }
 
@@ -117,12 +173,14 @@ class _ShopViewState extends State<ShopView> {
       });
     }
 
+    const Color cardColor = CustomColors.storyCardColor;
+    Color cardTitleColor = const Color.fromARGB(255, 218, 204, 204);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.purple[800]!, Colors.purple[200]!],
+          colors: [Colors.black, Colors.red[400]!],
         ),
       ),
       child: Scaffold(
@@ -131,13 +189,13 @@ class _ShopViewState extends State<ShopView> {
           leading: IconButton(
               onPressed: () => ss.goBack(context),
               icon: const Icon(
-                Icons.keyboard_arrow_down_rounded,
-                size: 40,
+                Icons.close,
+                size: 25,
                 color: CustomColors.white,
               )),
           title: const Text('Mystoken Shop',
               style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.purple[800],
+          backgroundColor: CustomColors.storyCardColor,
           elevation: 0,
           actions: [
             Padding(
@@ -163,7 +221,7 @@ class _ShopViewState extends State<ShopView> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.purpleAccent.withOpacity(0.6),
+                          color: Colors.red.withOpacity(0.6),
                           spreadRadius: 4,
                           blurRadius: 4,
                         )
@@ -180,9 +238,35 @@ class _ShopViewState extends State<ShopView> {
             )
           ],
         ),
-        bottomNavigationBar: const WatchAdButton(),
+        bottomNavigationBar: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+          ),
+          child: ElevatedButton.icon(
+            onPressed: _showRewardedAd,
+            icon: const Icon(Icons.videocam),
+            label: const Text('Watch Ad for Free Tokens'),
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.black,
+              backgroundColor: Colors.amber,
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              textStyle:
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+          ),
+        ),
         body: ListView(
           children: [
+            // TextButton(onPressed: _showRewardedAd, child: const Text("ad")),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -191,7 +275,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -215,7 +299,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -231,18 +315,18 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () async {
                               buyToken(
-                                  productId: 'token_100', context: context);
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 100);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
-                              'Buy Now',
-                              style: TextStyle(color: Colors.white60),
-                            ),
+                            child:
+                                Text('Buy Now', style: AppFonts.shopBuyButton),
                           ),
                         ],
                       ),
@@ -254,7 +338,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -278,7 +362,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -294,16 +378,20 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 200);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],
@@ -320,7 +408,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -344,7 +432,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -360,16 +448,20 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 300);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],
@@ -382,7 +474,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -406,7 +498,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -422,16 +514,20 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 500);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],
@@ -448,7 +544,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -472,7 +568,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -488,16 +584,20 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 600);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],
@@ -510,7 +610,7 @@ class _ShopViewState extends State<ShopView> {
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -534,7 +634,7 @@ class _ShopViewState extends State<ShopView> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple[800],
+                              color: cardTitleColor,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -550,16 +650,20 @@ class _ShopViewState extends State<ShopView> {
                           ElevatedButton(
                             onPressed: () {
                               // Buy Now Pressed
+                              buyToken(
+                                  productId: 'token_100',
+                                  context: context,
+                                  amount: 750);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.purple[800],
+                              backgroundColor: CustomColors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Buy Now',
-                              style: TextStyle(color: Colors.white60),
+                              style: AppFonts.shopBuyButton,
                             ),
                           ),
                         ],

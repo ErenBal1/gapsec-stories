@@ -21,55 +21,49 @@ class _MenuButtonsState extends State<MenuButtons> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Center(
-          child: AnimatedTextKit(
-            onTap: () =>
-                widget.vm.goToPage(context: context, page: const NewGameView()),
-            animatedTexts: [
-              TypewriterAnimatedText(
-                "new_game_button".tr(),
-                textStyle: AppFonts.mainMenuButton,
-                speed: const Duration(milliseconds: 80),
-              ),
-            ],
-            totalRepeatCount: 1,
-            displayFullTextOnTap: true,
-            stopPauseOnTap: true,
-          ),
+        AnimatedTextKit(
+          onTap: () =>
+              widget.vm.goToPage(context: context, page: const NewGameView()),
+          animatedTexts: [
+            TypewriterAnimatedText(
+              "new_game_button".tr(),
+              textStyle: AppFonts.mainMenuButton,
+              speed: const Duration(milliseconds: 80),
+            ),
+          ],
+          totalRepeatCount: 1,
+          displayFullTextOnTap: true,
+          stopPauseOnTap: true,
         ),
         const SizedBox(height: 20),
-        Center(
-          child: AnimatedTextKit(
-            onTap: () => widget.vm
-                .goToPage(context: context, page: const ContinueView()),
-            animatedTexts: [
-              TypewriterAnimatedText(
-                'load_game_button'.tr(),
-                textStyle: AppFonts.mainMenuButton,
-                speed: const Duration(milliseconds: 80),
-              ),
-            ],
-            totalRepeatCount: 1,
-            displayFullTextOnTap: true,
-            stopPauseOnTap: true,
-          ),
+        AnimatedTextKit(
+          onTap: () =>
+              widget.vm.goToPage(context: context, page: const ContinueView()),
+          animatedTexts: [
+            TypewriterAnimatedText(
+              'load_game_button'.tr(),
+              textStyle: AppFonts.mainMenuButton,
+              speed: const Duration(milliseconds: 80),
+            ),
+          ],
+          totalRepeatCount: 1,
+          displayFullTextOnTap: true,
+          stopPauseOnTap: true,
         ),
         const SizedBox(height: 20),
-        Center(
-          child: AnimatedTextKit(
-            onTap: () =>
-                widget.vm.goToPage(context: context, page: const StoriesView()),
-            animatedTexts: [
-              TypewriterAnimatedText(
-                'stories_button'.tr(),
-                textStyle: AppFonts.mainMenuButton,
-                speed: const Duration(milliseconds: 80),
-              ),
-            ],
-            totalRepeatCount: 1,
-            displayFullTextOnTap: true,
-            stopPauseOnTap: true,
-          ),
+        AnimatedTextKit(
+          onTap: () =>
+              widget.vm.goToPage(context: context, page: const StoriesView()),
+          animatedTexts: [
+            TypewriterAnimatedText(
+              'stories_button'.tr(),
+              textStyle: AppFonts.mainMenuButton,
+              speed: const Duration(milliseconds: 80),
+            ),
+          ],
+          totalRepeatCount: 1,
+          displayFullTextOnTap: true,
+          stopPauseOnTap: true,
         ),
       ],
     );

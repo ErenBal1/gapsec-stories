@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:gapsec/utils/app_colors.dart';
 
 class AppFonts {
+  static var shopBuyButton = const TextStyle(
+      color: Colors.white60,
+      shadows: [Shadow(color: CustomColors.yellow, blurRadius: 2)]);
   static var mainMenuButton = const TextStyle(
+    shadows: [
+      BoxShadow(
+        color: CustomColors.white,
+        blurRadius: 3,
+        spreadRadius: 15,
+      ),
+      BoxShadow(
+        color: CustomColors.black,
+        blurRadius: 30,
+        spreadRadius: 2,
+      ),
+    ],
     fontWeight: FontWeight.w500,
     fontFamily: "HorrorFont",
-    color: Color.fromARGB(255, 214, 255, 253),
+    color: Color.fromARGB(192, 209, 187, 157),
     fontSize: 30,
     letterSpacing: 0.2,
   );
@@ -16,8 +32,8 @@ class AppFonts {
     letterSpacing: 0.2,
   );
   static var mainMenuTitle = const TextStyle(
-    fontSize: 55,
-    fontFamily: "HorrorFont",
+    fontSize: 25,
+    fontFamily: "PixelFont",
     // fontWeight: FontWeight.w800,
     color: Colors.transparent,
   );

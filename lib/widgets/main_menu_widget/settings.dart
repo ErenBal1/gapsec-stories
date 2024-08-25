@@ -4,6 +4,7 @@ import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/shop_view.dart';
 import 'package:gapsec/widgets/language_settings_widget/flag_button.dart';
+import 'package:gapsec/widgets/main_menu_widget/token_counter.dart';
 
 class SettingsButtons extends StatefulWidget {
   const SettingsButtons({super.key});
@@ -35,7 +36,7 @@ class _SettingsButtonState extends State<SettingsButtons> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              IconButton(
+              /* IconButton(
                 onPressed: () => hs.goToPageBottomToTop(
                     context: context, page: const ShopView()),
                 icon: const Icon(
@@ -43,7 +44,7 @@ class _SettingsButtonState extends State<SettingsButtons> {
                 ),
                 color: Colors.white,
                 iconSize: 30,
-              ),
+              ), */
               Row(
                 children: [
                   AnimatedContainer(
