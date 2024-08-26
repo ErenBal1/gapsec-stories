@@ -36,9 +36,12 @@ class _ContinueViewState extends State<ContinueView> {
     super.initState();
     _controller = VideoPlayerController.asset('assets/images/video.mp4')
       ..initialize().then((_) {
-        _controller.play();
         _controller.setLooping(true);
-        setState(() {});
+        setState(() {
+          _controller.value.isPlaying
+              ? _controller.pause()
+              : _controller.play();
+        });
       });
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
