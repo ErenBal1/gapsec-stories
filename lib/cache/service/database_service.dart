@@ -32,8 +32,8 @@ class DatabaseService {
   Future<void> updateDefaultValues() async {
     final boolValues = await isar.boolModels.where().findFirst();
     if (boolValues == null) {
-      print("BoolModel bulunamadı, varsayılan değerler kullanılacak.");
-      return; // Eğer null ise fonksiyon sonlanır
+      // print("BoolModel bulunamadı, varsayılan değerler kullanılacak.");
+      return;
     }
     dontLookBackIsLockDefault = boolValues.dontLookBackIsLock ?? true;
     lostLucyIsLockDefault = boolValues.lostLucyIsLock ?? true;

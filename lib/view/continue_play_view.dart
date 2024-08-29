@@ -150,7 +150,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
   @override
   void initState() {
-    // print(widget.selectedTextType.toString());
     mp3controller = VideoPlayerController.asset(mp3Path)
       ..initialize().then((_) {
         mp3controller.setLooping(true);
@@ -163,7 +162,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       switch (widget.selectedTextType) {
         case TextType.murderType:
-          selectedList = MurderList;
+          selectedList = murderDetail;
           await _selectedStoryUpdate(type: TextType.murderType);
           left = initToOdd(
             selectedList,

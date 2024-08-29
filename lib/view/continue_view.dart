@@ -91,12 +91,16 @@ class _ContinueViewState extends State<ContinueView> {
                     padding:
                         const EdgeInsets.only(top: 8.0, right: 70, left: 70),
                     child: ElevatedButton(
+                      style: const ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(
+                              CustomColors.storyCardColor)),
                       onPressed: () {},
                       child: const FittedBox(
                         child: Text(
                           "UNLOCK MORE...",
                           style: TextStyle(
-                              fontFamily: "PixelFont", color: CustomColors.red),
+                              fontFamily: "PixelFont",
+                              color: CustomColors.white),
                         ),
                       ),
                     ),
@@ -184,7 +188,7 @@ class _ContinueViewState extends State<ContinueView> {
           child: Container(
             width: (Config.screenWidth! * 0.8),
             height: Config.screenHeight! * 0.07,
-            color: Colors.orange[900],
+            color: CustomColors.storyCardColor,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(

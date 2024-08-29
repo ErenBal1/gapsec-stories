@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 
-List<Map<String, dynamic>> MurderList = [
+// tekler yukarıda çiftler aşşağıda
+List<Map<String, dynamic>> murderDetail = [
   {
     "history":
         "Yapay zeka geliştiricisi Gabriel son derece iyi bir şirkette çalışmaktadır.Monoton geçen bir günün ardından eve gelir.Yatmadan önce son hazırlıkları yaparken telefonu titrer. \n 1'NewMessage:(Unknown) sen her şeyi biliyordun!(nasıl yani!!! bu ne demek oluyor kim bu!!Kalbin hızlanmaya başlıyor gözlerin karariyor polise mi haber vermeliydi yoksa kendi mi devam etmeliydielbette polise gitmiycekti.ellerin gerilmekten sırılsıklam oldu. mesajı açtın)"
@@ -23,8 +24,8 @@ List<Map<String, dynamic>> MurderList = [
     "history":
         "Uzun bir süre yanıt gelmedi ve bu sırada Gabriel hiçbir işine odaklanamıyordu stresten karnına ağrılar girmeye başladı.  Karanlık odasında etraf birden telefonuna gelen bildirimle aydınlandı.1'New Message(Unknown): Elbette Gab! Hatta hayatta unutamaycağın tek kişiyim. Işıklarını aç çünkü korkuların yeni başlıyor...",
     "answers": [
-      {"title": "Benden ne istiyorsun!", "aId": 5},
-      {"title": "Beni mi izliyorsun??", "aId": 6}
+      {"title": "Benden ne istiyorsun!", "aId": 901},
+      {"title": "Beni mi izliyorsun??", "aId": 10}
     ],
     "id": 2
   },
@@ -32,10 +33,10 @@ List<Map<String, dynamic>> MurderList = [
     "history":
         "Yatağa uzanıp cevabın gelmesini bekliyorsun ama tek yapabildiğin tavanı izlemek. Gözlerini dalıp gidiyor... gece yarısı 4 te başının altındaki telefonun titremesiyle hemen eline telefonu alıp mesajı okumaya çalışıyorsun gözlerin kamaşmış şekilde görüntünün netleşmesini bekliyorsun.1'NewMessage(Unknown): Posta kutunu kontrol etmeyi unutma Gab.",
     "answers": [
-      {"title": "Posta kutusu tuzak olabilir", "aId": 9},
-      {"title": "Aşşağı in ve posta kutusunu kontrol et", "aId": 8}
+      {"title": "Posta kutusu tuzak olabilir", "aId": 910},
+      {"title": "Aşşağı in ve posta kutusunu kontrol et", "aId": 7}
     ],
-    "id": 5
+    "id": 901
   },
   {
     "history":
