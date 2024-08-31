@@ -1,8 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
-import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
 
 class customCardWidgets {

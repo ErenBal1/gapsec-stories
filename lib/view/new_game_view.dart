@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -30,13 +28,7 @@ class _NewGameViewState extends State<NewGameView> {
   @override
   void initState() {
     super.initState();
-    //_changeDefaultValue(); // bunu satın alım yapılan hikaye için yapıcaz
     _updateDefaultValues();
-  }
-
-  Future<void> _changeDefaultValue(
-      {required bool newValue, required TextType type}) async {
-    await _databaseService.changeDefaultValue(newValue: newValue, type: type);
   }
 
   Future<void> _updateDefaultValues() async {

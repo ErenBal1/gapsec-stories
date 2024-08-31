@@ -1,3 +1,4 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -107,7 +108,16 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     var item = getMapWithName(list, type);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
-      return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
+      if (answers[0]['aId'] == answers[1]['aId']) {
+        return answers[1];
+      } else if (answers[0]['aId'] == 0 || answers[0]['aId'] == 0) {
+      } else if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
+        return answers[1];
+      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
+        return answers[1];
+      } else {
+        return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
+      }
     }
     return null;
   }
@@ -117,9 +127,30 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     var item = getMapWithName(list, type);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
+      if (answers[0]['aId'] == answers[1]['aId']) {
+        return answers[0];
+      } else if (answers[0]['aId'] == 0 || answers[0]['aId'] == 0) {
+      } else if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
+        return answers[0];
+      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
+        return answers[0];
+      }
       return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
     }
     return null;
+  }
+
+  Future<void> _showOkAlertDialogWidget(
+      BuildContext context, String message) async {
+    final result = await showOkAlertDialog(
+      context: context,
+      title: 'Tebrikler',
+      message: message,
+      okLabel: 'OK',
+    );
+    if (result == OkCancelResult.ok) {
+      print("okey");
+    }
   }
 
   //answer mapini getiren tek için fonksiyon
@@ -127,9 +158,18 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     var item = getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
+
+      // Eğer her iki aId de aynı ise solda tek olmasını istediğimiz için ilk elemanı döndürdüm
       if (answers[0]['aId'] == answers[1]['aId']) {
         return answers[0];
       }
+      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
+        return answers[0];
+      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
+        return answers[0];
+      }
+
+      // aId tek olanı seçiyoruz
       return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
     }
     return null;
@@ -140,9 +180,17 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     var item = getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
+
+      // Eğer her iki aId de aynı ise sağdaki çift olmasını istediğimiz için ilk elemanı döndürdüm
       if (answers[0]['aId'] == answers[1]['aId']) {
         return answers[1];
       }
+      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
+        return answers[1];
+      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
+        return answers[1];
+      }
+      // aId çift olanı seçiyoruz
       return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
     }
     return null;
@@ -150,7 +198,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
   @override
   void initState() {
-    // print(widget.selectedTextType.toString());
     mp3controller = VideoPlayerController.asset(mp3Path)
       ..initialize().then((_) {
         mp3controller.setLooping(true);
@@ -160,21 +207,20 @@ class _ContinueChatViewState extends State<ContinueChatView> {
               : mp3controller.play();
         });
       });
+
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       switch (widget.selectedTextType) {
         case TextType.murderType:
-          selectedList = MurderList;
+          selectedList = murderDetail;
           await _selectedStoryUpdate(type: TextType.murderType);
           left = initToOdd(
             selectedList,
             TextType.murderType,
           )!;
-          //  print("left inside => $left");
           right = initToEven(
             selectedList,
             TextType.murderType,
           )!;
-          // print("right inside => $right");
           await _selectedStoryUpdate(type: TextType.murderType);
           setState(() {
             repo = _databaseService.murderRepo;
@@ -392,9 +438,20 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
                               // 2 saniye bekleyip textCompleted'ı tekrar true yap
                               await Future.delayed(const Duration(seconds: 4));
-                              setState(() {
-                                textCompleted = true;
-                              });
+                              if (storyMapId >= 900) {
+                                print("hikaye sona geldi");
+                                _showOkAlertDialogWidget(
+                                    context, "Hikayeyi tamamladınız!");
+
+                                //hikaye sona geldiğine dair kullanıcıya etkileşim sağla
+                                setState(() {
+                                  textCompleted = false;
+                                });
+                              } else {
+                                setState(() {
+                                  textCompleted = true;
+                                });
+                              }
                               attempt++;
                             },
                             // Sol taraftaki buton
@@ -494,9 +551,19 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
                               // 2 saniye bekleyip textCompleted'ı tekrar true yap
                               await Future.delayed(const Duration(seconds: 3));
-                              setState(() {
-                                textCompleted = true;
-                              });
+                              if (storyMapId >= 900) {
+                                print("hikaye sona geldi");
+                                _showOkAlertDialogWidget(
+                                    context, "Hikayeyi tamamladınız!");
+                                setState(() {
+                                  textCompleted = false;
+                                });
+                                //hikaye sona geldiğine dair kullanıcıya etkileşim sağla
+                              } else {
+                                setState(() {
+                                  textCompleted = true;
+                                });
+                              }
                               attempt++;
                             },
                             //Sağ taraftaki button
