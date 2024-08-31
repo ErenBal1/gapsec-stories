@@ -93,6 +93,11 @@ class _ChatViewState extends State<ChatView> {
       if (answers[0]['aId'] == answers[1]['aId']) {
         return answers[0];
       }
+      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
+        return answers[0];
+      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
+        return answers[0];
+      }
 
       // aId tek olanı seçiyoruz
       return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
@@ -127,7 +132,11 @@ class _ChatViewState extends State<ChatView> {
       if (answers[0]['aId'] == answers[1]['aId']) {
         return answers[1];
       }
-
+      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
+        return answers[1];
+      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
+        return answers[1];
+      }
       // aId çift olanı seçiyoruz
       return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
     }
