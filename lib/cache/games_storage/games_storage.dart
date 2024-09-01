@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 
-List<Map<String, dynamic>> MurderList = [
+List<Map<String, dynamic>> murderDetail = [
   {
     "history":
         "Merhaba. Bu şey çalışmıyor mu? Lütfen biri bu yazımı okuyabiliyorsa cevap versin!"
@@ -274,8 +274,8 @@ List<Map<String, dynamic>> MurderList = [
   {
     "history": "System: Sinyal koptu!".tr(),
     "answers": [
-      {"title": "".tr(), "aId": 0},
-      {"title": "".tr(), "aId": 0}
+      {"title": "Hikayeyi yeniden başlat".tr(), "aId": 0},
+      {"title": "Hikayeyi yeniden başlat".tr(), "aId": 0}
     ],
     "id": 1000
   },

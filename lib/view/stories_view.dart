@@ -183,18 +183,10 @@ class _StoriesViewState extends State<StoriesView>
       switch (storyPrice) {
         case 80:
           if (ShopState().amount >= 80) {
-            _addTokens(-80).then(
-              (value) async => await _databaseService
-                  .changeDefaultValue(
-                      type: TextType.dontLookBackType, newValue: false)
-                  .then(
-                (value) {
-                  setState(() {
-                    itsFree = dontLookBack.isLock;
-                  });
-                },
-              ),
-            );
+            buySteps(
+                minusAmount: -80,
+                type: TextType.dontLookBackType,
+                storyIsLock: dontLookBack.isLock);
           } else {
             showOkAlertDialogWidget(context, "Marketten Mystoken al");
           }
@@ -202,18 +194,10 @@ class _StoriesViewState extends State<StoriesView>
           break;
         case 120:
           if (ShopState().amount >= 120) {
-            _addTokens(-120).then(
-              (value) async => await _databaseService
-                  .changeDefaultValue(
-                      type: TextType.lostLucyType, newValue: false)
-                  .then(
-                (value) {
-                  setState(() {
-                    itsFree = lostLucy.isLock;
-                  });
-                },
-              ),
-            );
+            buySteps(
+                minusAmount: -120,
+                type: TextType.lostLucyType,
+                storyIsLock: lostLucy.isLock);
           } else {
             showOkAlertDialogWidget(context, "Marketten Mystoken al");
           }
@@ -221,36 +205,20 @@ class _StoriesViewState extends State<StoriesView>
           break;
         case 100:
           if (ShopState().amount >= 100) {
-            _addTokens(-100).then(
-              (value) async => await _databaseService
-                  .changeDefaultValue(
-                      type: TextType.nightGameType, newValue: false)
-                  .then(
-                (value) {
-                  setState(() {
-                    itsFree = nightGame.isLock;
-                  });
-                },
-              ),
-            );
+            buySteps(
+                minusAmount: -100,
+                type: TextType.nightGameType,
+                storyIsLock: nightGame.isLock);
           } else {
             showOkAlertDialogWidget(context, "Marketten Mystoken al");
           }
           break;
         case 110:
           if (ShopState().amount >= 110) {
-            _addTokens(-110).then(
-              (value) async => await _databaseService
-                  .changeDefaultValue(
-                      type: TextType.runKaityType, newValue: false)
-                  .then(
-                (value) {
-                  setState(() {
-                    itsFree = runKaity.isLock;
-                  });
-                },
-              ),
-            );
+            buySteps(
+                minusAmount: -110,
+                type: TextType.runKaityType,
+                storyIsLock: runKaity.isLock);
           } else {
             showOkAlertDialogWidget(context, "Marketten Mystoken al");
           }
@@ -258,17 +226,10 @@ class _StoriesViewState extends State<StoriesView>
 
         case 150:
           if (ShopState().amount >= 150) {
-            _addTokens(-150).then(
-              (value) async => await _databaseService
-                  .changeDefaultValue(type: TextType.smileType, newValue: false)
-                  .then(
-                (value) {
-                  setState(() {
-                    itsFree = smile.isLock;
-                  });
-                },
-              ),
-            );
+            buySteps(
+                minusAmount: -150,
+                type: TextType.smileType,
+                storyIsLock: smile.isLock);
           } else {
             showOkAlertDialogWidget(context, "Marketten Mystoken al");
           }
@@ -276,18 +237,10 @@ class _StoriesViewState extends State<StoriesView>
           break;
         case 180:
           if (ShopState().amount >= 180) {
-            _addTokens(-180).then(
-              (value) async => await _databaseService
-                  .changeDefaultValue(
-                      type: TextType.behindType, newValue: false)
-                  .then(
-                (value) {
-                  setState(() {
-                    itsFree = behind.isLock;
-                  });
-                },
-              ),
-            );
+            buySteps(
+                minusAmount: -180,
+                type: TextType.behindType,
+                storyIsLock: behind.isLock);
           } else {
             showOkAlertDialogWidget(context, "Marketten Mystoken al");
           }
@@ -295,17 +248,10 @@ class _StoriesViewState extends State<StoriesView>
           break;
         case 300:
           if (ShopState().amount >= 300) {
-            _addTokens(-300).then(
-              (value) async => await _databaseService
-                  .changeDefaultValue(type: TextType.luckyType, newValue: false)
-                  .then(
-                (value) {
-                  setState(() {
-                    itsFree = lucky.isLock;
-                  });
-                },
-              ),
-            );
+            buySteps(
+                minusAmount: -300,
+                type: TextType.luckyType,
+                storyIsLock: lucky.isLock);
           } else {
             showOkAlertDialogWidget(context, "Marketten Mystoken al");
           }
@@ -316,10 +262,28 @@ class _StoriesViewState extends State<StoriesView>
     }
   }
 
+  void buySteps(
+      {required int minusAmount,
+      required TextType type,
+      required bool storyIsLock}) {
+    _addTokens(minusAmount).then(
+      (value) async => await _databaseService
+          .changeDefaultValue(type: type, newValue: false)
+          .then(
+        (value) {
+          setState(() {
+            itsFree = storyIsLock;
+          });
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Config().init(context);
     return PopScope(
+      // kaydırarak geri dönmeyi engeller
       canPop: false,
       child: Scaffold(
         body: Stack(
@@ -465,40 +429,7 @@ class _StoriesViewState extends State<StoriesView>
                                           "UNLOCKED",
                                           style: AppFonts.freeTitle,
                                         )
-                                      : InkWell(
-                                          onTap: () {
-                                            showOkCancelAlert(context, price);
-                                            print(price.toString());
-                                          },
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                price.toString(),
-                                                style: const TextStyle(
-                                                    color: CustomColors.white,
-                                                    fontFamily: "PixelFont",
-                                                    fontSize: 15),
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              CircleAvatar(
-                                                radius: 20,
-                                                child: Image.asset(
-                                                  "assets/images/mystoken.png",
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        )
-                                  /* Text(
-                                    !itsFree ? "free" : "10dollar",
-                                    style: const TextStyle(
-                                        color: CustomColors.white),
-                                  ) */
+                                      : buyIcon(context: context, price: price)
                                 ],
                               ),
                             ),
@@ -513,67 +444,30 @@ class _StoriesViewState extends State<StoriesView>
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                IconButton(
-                                  onPressed: () {
-                                    updateIndex(
-                                        0, murder.name, murder.description);
-                                    playNewTrack("assets/sounds/murder.mp3");
-                                  },
-                                  icon: murder.isLock == true
-                                      ? const Icon(Icons.lock)
-                                      : const Icon(Icons.star),
-                                  color: iconSelectedIndex == 0
-                                      ? CustomColors.selectedIconColor
-                                      : murder.isLock == true
-                                          ? CustomColors.red
-                                          : CustomColors.white,
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    updateIndex(1, dontLookBack.name,
-                                        dontLookBack.description);
-                                    playNewTrack(
-                                        "assets/sounds/dontLookBack.mp3");
-                                  },
-                                  icon: dontLookBack.isLock == true
-                                      ? const Icon(Icons.lock)
-                                      : const Icon(Icons.star),
-                                  color: iconSelectedIndex == 1
-                                      ? CustomColors.selectedIconColor
-                                      : dontLookBack.isLock == true
-                                          ? CustomColors.red
-                                          : CustomColors.white,
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    updateIndex(
-                                        2, lostLucy.name, lostLucy.description);
-                                    playNewTrack("assets/sounds/lostLucy.mp3");
-                                  },
-                                  icon: lostLucy.isLock == true
-                                      ? const Icon(Icons.lock)
-                                      : const Icon(Icons.star),
-                                  color: iconSelectedIndex == 2
-                                      ? CustomColors.selectedIconColor
-                                      : lostLucy.isLock == true
-                                          ? CustomColors.red
-                                          : CustomColors.white,
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    updateIndex(3, nightGame.name,
-                                        nightGame.description);
-                                    playNewTrack("assets/sounds/nightGame.mp3");
-                                  },
-                                  icon: nightGame.isLock == true
-                                      ? const Icon(Icons.lock)
-                                      : const Icon(Icons.star),
-                                  color: iconSelectedIndex == 3
-                                      ? CustomColors.selectedIconColor
-                                      : nightGame.isLock == true
-                                          ? CustomColors.red
-                                          : CustomColors.white,
-                                )
+                                storySelectButton(
+                                    storyName: murder.name,
+                                    storyDescription: murder.description,
+                                    storyIsLock: murder.isLock,
+                                    selectedIndex: 0,
+                                    musicName: "murder"),
+                                storySelectButton(
+                                    storyName: dontLookBack.name,
+                                    storyDescription: dontLookBack.description,
+                                    storyIsLock: dontLookBack.isLock,
+                                    selectedIndex: 1,
+                                    musicName: "dontLookBack"),
+                                storySelectButton(
+                                    storyName: lostLucy.name,
+                                    storyDescription: lostLucy.description,
+                                    storyIsLock: lostLucy.isLock,
+                                    selectedIndex: 2,
+                                    musicName: "lostLucy"),
+                                storySelectButton(
+                                    storyName: nightGame.name,
+                                    storyDescription: nightGame.description,
+                                    storyIsLock: nightGame.isLock,
+                                    selectedIndex: 3,
+                                    musicName: "nightGame"),
                               ],
                             ),
                           ),
@@ -641,35 +535,7 @@ class _StoriesViewState extends State<StoriesView>
                                           "UNLOCKED",
                                           style: AppFonts.freeTitle,
                                         )
-                                      : InkWell(
-                                          onTap: () {
-                                            showOkCancelAlert(context, price);
-                                            print(price.toString());
-                                          },
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                price.toString(),
-                                                style: const TextStyle(
-                                                    color: CustomColors.white,
-                                                    fontFamily: "PixelFont",
-                                                    fontSize: 15),
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              CircleAvatar(
-                                                radius: 20,
-                                                child: Image.asset(
-                                                  "assets/images/mystoken.png",
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        )
+                                      : buyIcon(context: context, price: price)
                                 ],
                               ),
                             ),
@@ -684,66 +550,30 @@ class _StoriesViewState extends State<StoriesView>
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                IconButton(
-                                  onPressed: () {
-                                    updateIndex(
-                                        4, runKaity.name, runKaity.description);
-                                    playNewTrack("assets/sounds/runKaity.mp3");
-                                  },
-                                  icon: runKaity.isLock == true
-                                      ? const Icon(Icons.lock)
-                                      : const Icon(Icons.star),
-                                  color: iconSelectedIndex == 4
-                                      ? CustomColors.selectedIconColor
-                                      : runKaity.isLock == true
-                                          ? CustomColors.red
-                                          : CustomColors.white,
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    updateIndex(
-                                        5, smile.name, smile.description);
-                                    playNewTrack("assets/sounds/smile.mp3");
-                                  },
-                                  icon: smile.isLock == true
-                                      ? const Icon(Icons.lock)
-                                      : const Icon(Icons.star),
-                                  color: iconSelectedIndex == 5
-                                      ? CustomColors.selectedIconColor
-                                      : smile.isLock == true
-                                          ? CustomColors.red
-                                          : CustomColors.white,
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    updateIndex(
-                                        6, behind.name, behind.description);
-                                    playNewTrack("assets/sounds/behind.mp3");
-                                  },
-                                  icon: behind.isLock == true
-                                      ? const Icon(Icons.lock)
-                                      : const Icon(Icons.star),
-                                  color: iconSelectedIndex == 6
-                                      ? CustomColors.selectedIconColor
-                                      : behind.isLock == true
-                                          ? CustomColors.red
-                                          : CustomColors.white,
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    updateIndex(
-                                        7, lucky.name, lucky.description);
-                                    playNewTrack("assets/sounds/lucky.mp3");
-                                  },
-                                  icon: lucky.isLock == true
-                                      ? const Icon(Icons.lock)
-                                      : const Icon(Icons.star),
-                                  color: iconSelectedIndex == 7
-                                      ? CustomColors.selectedIconColor
-                                      : lucky.isLock == true
-                                          ? CustomColors.red
-                                          : CustomColors.white,
-                                )
+                                storySelectButton(
+                                    storyName: runKaity.name,
+                                    storyDescription: runKaity.description,
+                                    storyIsLock: runKaity.isLock,
+                                    selectedIndex: 4,
+                                    musicName: "runKaity"),
+                                storySelectButton(
+                                    storyName: smile.name,
+                                    storyDescription: smile.description,
+                                    storyIsLock: smile.isLock,
+                                    selectedIndex: 5,
+                                    musicName: "smile"),
+                                storySelectButton(
+                                    storyName: behind.name,
+                                    storyDescription: behind.description,
+                                    storyIsLock: behind.isLock,
+                                    selectedIndex: 6,
+                                    musicName: "behind"),
+                                storySelectButton(
+                                    storyName: lucky.name,
+                                    storyDescription: lucky.description,
+                                    storyIsLock: lucky.isLock,
+                                    selectedIndex: 7,
+                                    musicName: "lucky")
                               ],
                             ),
                           ),
@@ -757,6 +587,58 @@ class _StoriesViewState extends State<StoriesView>
           ),
         )
       ];
+
+  InkWell buyIcon({required int price, required BuildContext context}) {
+    return InkWell(
+      onTap: () {
+        showOkCancelAlert(context, price);
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            price.toString(),
+            style: const TextStyle(
+                color: CustomColors.white,
+                fontFamily: "PixelFont",
+                fontSize: 15),
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          CircleAvatar(
+            radius: 20,
+            child: Image.asset(
+              "assets/images/mystoken.png",
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  IconButton storySelectButton(
+      {required String storyName,
+      required String storyDescription,
+      required bool storyIsLock,
+      required int selectedIndex,
+      required String musicName}) {
+    return IconButton(
+      onPressed: () {
+        updateIndex(selectedIndex, storyName, storyDescription);
+        playNewTrack("assets/sounds/$musicName.mp3");
+      },
+      icon:
+          storyIsLock == true ? const Icon(Icons.lock) : const Icon(Icons.star),
+      color: iconSelectedIndex == selectedIndex
+          ? CustomColors.selectedIconColor
+          : storyIsLock == true
+              ? CustomColors.red
+              : CustomColors.white,
+    );
+  }
+
   Widget buildIndicator() => AnimatedSmoothIndicator(
         effect: CustomizableEffect(
           spacing: 3,

@@ -93,6 +93,11 @@ class _ChatViewState extends State<ChatView> {
       if (answers[0]['aId'] == answers[1]['aId']) {
         return answers[0];
       }
+      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
+        return answers[0];
+      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
+        return answers[0];
+      }
 
       // aId tek olanı seçiyoruz
       return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
@@ -127,7 +132,11 @@ class _ChatViewState extends State<ChatView> {
       if (answers[0]['aId'] == answers[1]['aId']) {
         return answers[1];
       }
-
+      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
+        return answers[1];
+      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
+        return answers[1];
+      }
       // aId çift olanı seçiyoruz
       return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
     }
@@ -152,7 +161,7 @@ class _ChatViewState extends State<ChatView> {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         switch (widget.selectedTextType) {
           case TextType.murderType:
-            selectedList = MurderList;
+            selectedList = murderDetail;
 
             await _selectedStoryAddItem(
                 eklencekText:
@@ -576,10 +585,19 @@ class _ChatViewState extends State<ChatView> {
 
                               // 2 saniye bekleyip textCompleted'ı tekrar true yap
                               await Future.delayed(const Duration(seconds: 3));
-                              setState(() {
-                                textCompleted = true;
-                                isEnable = true;
-                              });
+                              if (storyMapId >= 900) {
+                                print("hikaye sona geldi");
+                                _showOkAlertDialogWidget(
+                                    context, "Hikayeyi tamamladınız!");
+                                setState(() {
+                                  isEnable = false;
+                                });
+                                //hikaye sona geldiğine dair kullanıcıya etkileşim sağla
+                              } else {
+                                setState(() {
+                                  textCompleted = true;
+                                });
+                              }
                             },
                             //Sağ taraftaki button
                             child: Container(
@@ -633,15 +651,6 @@ class _ChatViewState extends State<ChatView> {
               ),
             ),
           ),
-          /* Positioned(
-              right: Config.screenWidth! * 0.03,
-              top: Config.screenHeight! * 0.05,
-              child: IconButton(
-                  onPressed: _deleteListElements,
-                  icon: const Icon(
-                    Icons.refresh_outlined,
-                    color: CustomColors.white,
-                  ))) */
         ],
       ),
     );
