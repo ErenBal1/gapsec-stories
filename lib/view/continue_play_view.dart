@@ -33,6 +33,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
   late Map<String, dynamic> right = {}; //çift olan map
   late List<Map<String, dynamic>> selectedList = [];
   bool textCompleted = true;
+  bool isEnable = true;
   int attempt = 0;
   final _databaseService = DatabaseService();
   int storyMapId = 0;
@@ -245,393 +246,201 @@ class _ContinueChatViewState extends State<ContinueChatView> {
   Widget build(BuildContext context) {
     Config().init(context);
     return Scaffold(
-      body: Stack(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            height: Config.screenHeight,
-            child: Image.asset(
-              "assets/images/cpp.png",
-              fit: BoxFit.cover,
-            ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/cpp.png"),
+            fit: BoxFit.cover,
           ),
-          Center(
-              child: Container(
-            width: Config.screenWidth! * 0.9,
-            height: Config.screenHeight! * 0.8,
-            decoration: BoxDecoration(
-                color: CustomColors.black.withOpacity(0.3),
-                border: Border.all(
-                    width: 1, color: CustomColors.white.withOpacity(0.3)),
-                borderRadius: const BorderRadius.all(Radius.circular(15))),
-            child: ListView.builder(
-              //  physics: const NeverScrollableScrollPhysics(),
-              controller: _scrollController,
-              itemCount: repo.length,
-              itemBuilder: (BuildContext context, int index) {
-                final NewGame newGame = repo[index];
-                switch (widget.selectedTextType) {
-                  case TextType.murderType:
-                    selectedTexts = newGame.murderTexts.toString();
-                    break;
-
-                  default:
-                }
-
-                return index.isEven
-                    ? Padding(
-                        padding: const EdgeInsets.only(
-                            right: 50.0, bottom: 20, top: 20),
-                        child: Container(
-                          //width: 20, //Config.screenWidth! * 0.7,
-                          decoration: BoxDecoration(
-                            border: const Border(
-                                bottom: BorderSide(
-                                    color: CustomColors.yellow, width: 2)),
-                            image: const DecorationImage(
-                                image:
-                                    AssetImage("assets/images/systemChat.jpg"),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(10),
-                                bottomRight: Radius.circular(10)),
-                            color: CustomColors.white.withOpacity(0.5),
-                          ),
-                          //height: Config.screenHeight! * 0.2,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: DefaultTextStyle(
-                                  style: const TextStyle(
-                                    fontSize: 30.0,
-                                    fontFamily: 'HorrorFont',
-                                    color: CustomColors.red,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 10.0),
-                                    child: Text(
-                                      selectedTexts.tr(),
-                                      style: const TextStyle(fontSize: 30),
-                                    ),
-                                  ), /* AnimatedTextKit(
-                                    onFinished: () {
-                                      _changeComplete();
-                                      setState(() {});
-                                      //tuşlar basılabilir hale gelicek
-                                    },
-                                    key: ValueKey(selectedTexts),
-                                    isRepeatingAnimation: false,
-                                    totalRepeatCount: 0,
-                                    repeatForever: false,
-                                    animatedTexts: [
-                                      TyperAnimatedText(selectedTexts,
-                                          speed: const Duration(
-                                              milliseconds: 150)),
-                                    ],
-                                  ), */
-                                ),
-                              ),
-                            ],
-                          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Header
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                color: Colors.black.withOpacity(0.7),
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back_ios,
+                          color: Colors.green, size: 20),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    const Text(
+                      "Murder",
+                      style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              // Chat area
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                  child: ListView.builder(
+                    controller: _scrollController,
+                    itemCount: repo.length,
+                    itemBuilder: (context, index) {
+                      final NewGame newGame = repo[index];
+                      switch (widget.selectedTextType) {
+                        case TextType.murderType:
+                          selectedTexts = newGame.murderTexts.toString();
+                          break;
+                        case TextType.dontLookBackType:
+                          selectedTexts = newGame.dontLookBackTexts.toString();
+                          break;
+                        default:
+                      }
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          left: index.isEven ? 0 : 50,
+                          right: index.isEven ? 50 : 0,
+                          bottom: 16,
                         ),
-                      )
-                    : Padding(
-                        padding: const EdgeInsets.only(left: 50.0),
                         child: Container(
-                          //width: 20, //Config.screenWidth! * 0.7,
+                          padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            border: const Border(
-                                bottom: BorderSide(
-                                    color: CustomColors.red, width: 3)),
-                            image: const DecorationImage(
-                                image:
-                                    AssetImage("assets/images/systemChat.jpg"),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                bottomLeft: Radius.circular(10)),
-                            color: CustomColors.red.withOpacity(0.5),
+                            color: index.isEven
+                                ? Colors.green.withOpacity(0.2)
+                                : Colors.grey.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.green, width: 1),
                           ),
-                          //height: Config.screenHeight! * 0.2,
-
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10.0),
-                                child: Text(
-                                  selectedTexts,
-                                  style: TextStyle(
-                                    fontSize: 30.0,
-                                    fontFamily: 'HorrorFont',
-                                    color: CustomColors.yellow.withOpacity(0.8),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            selectedTexts.tr(),
+                            style: const TextStyle(
+                                color: Colors.green, fontSize: 14),
                           ),
                         ),
                       );
-              },
-            ),
-          )),
-          Positioned(
-              bottom: Config.screenHeight! * 0.03,
-              left: 0, //Config.screenWidth! * 0.025,
-              child: SizedBox(
-                width: Config.screenWidth,
-                //color: CustomColors.red,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    textCompleted == true
-                        ? InkWell(
-                            onTap: () async {
-                              if (textCompleted == true) {
-                                switch (widget.selectedTextType) {
-                                  case TextType.murderType:
-                                    setState(() {
-                                      textCompleted = false;
-                                    });
-                                    await _selectedStoryAddItem(
-                                        eklencekText: left["title"],
-                                        type: TextType.murderType);
-                                    updateStoryMapId(left["aId"]);
-                                    //   print("first answerId=> $storyMapId");
-                                    //_changeComplete();
-                                    ////////////
-                                    await _selectedStoryUpdate(
-                                        type: TextType.murderType);
-                                    repo = _databaseService.murderRepo;
-                                    setState(() {});
-                                    _scrollToBottom();
-                                    await Future.delayed(
-                                        const Duration(seconds: 3));
-                                    ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
-                                    left =
-                                        assignToOdd(selectedList, storyMapId)!;
-                                    right =
-                                        assignToEven(selectedList, storyMapId)!;
-                                    await _selectedStoryAddItem(
-                                        eklencekText: getMapWithId(selectedList,
-                                            storyMapId)!["history"],
-                                        type: TextType.murderType);
-                                    await _selectedStoryUpdate(
-                                        type: TextType.murderType);
-                                    repo = _databaseService.murderRepo;
-                                    setState(() {});
-                                    _scrollToBottom();
-                                    break;
-
-                                  default:
-                                }
-                              }
-                              setState(() {
-                                textCompleted = false;
-                              });
-
-                              // 2 saniye bekleyip textCompleted'ı tekrar true yap
-                              await Future.delayed(const Duration(seconds: 4));
-                              if (storyMapId >= 900) {
-                                print("hikaye sona geldi");
-                                _showOkAlertDialogWidget(
-                                    context, "Hikayeyi tamamladınız!");
-
-                                //hikaye sona geldiğine dair kullanıcıya etkileşim sağla
-                                setState(() {
-                                  textCompleted = false;
-                                });
-                              } else {
-                                setState(() {
-                                  textCompleted = true;
-                                });
-                              }
-                              attempt++;
-                            },
-                            // Sol taraftaki buton
-                            child: Container(
-                              width: Config.screenWidth! * 0.4,
-                              height: Config.screenHeight! * 0.1,
-                              decoration: BoxDecoration(
-                                  image: const DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/buttonBack.jpg"),
-                                      fit: BoxFit.cover),
-                                  color: CustomColors.black.withOpacity(0.95),
-                                  border: Border.all(
-                                      width: 1,
-                                      color:
-                                          CustomColors.white.withOpacity(0.5)),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(15))),
-                              child: Center(
-                                child: Text(
-                                  textCompleted == true
-                                      ? attempt != 0
-                                          ? assignToOdd(selectedList,
-                                              storyMapId)!["title"]
-                                          : initToOdd(selectedList,
-                                              widget.selectedTextType)!["title"]
-                                      : "",
-                                  style: const TextStyle(
-                                      color: CustomColors.yellow, fontSize: 20),
-                                ),
-                              ),
-                            ),
-                          )
-                        : const SizedBox.shrink(),
-                    SizedBox(
-                      //color: CustomColors.cyanBlue,
-                      width: Config.screenWidth! * 0.15,
-                      height: Config.screenHeight! * 0.05,
-                      child: Center(
-                        child: textCompleted == false
-                            ? const LoadingIndicator(
-                                indicatorType: Indicator.ballClipRotateMultiple,
-                                colors: [
-                                  Colors.white,
-                                  Colors.yellow,
-                                  Colors.black
-                                ],
-                                strokeWidth: 2,
-                              )
-                            : null,
-                      ),
-                    ),
-                    textCompleted == true
-                        ? InkWell(
-                            onTap: () async {
-                              if (textCompleted == true) {
-                                switch (widget.selectedTextType) {
-                                  case TextType.murderType:
-                                    setState(() {
-                                      textCompleted = false;
-                                    });
-                                    await _selectedStoryAddItem(
-                                        eklencekText: right["title"],
-                                        type: TextType.murderType);
-                                    updateStoryMapId(right["aId"]);
-                                    // _changeComplete();
-                                    ////////////
-                                    await _selectedStoryUpdate(
-                                        type: TextType.murderType);
-                                    repo = _databaseService.murderRepo;
-                                    setState(() {});
-                                    _scrollToBottom();
-                                    await Future.delayed(
-                                        const Duration(seconds: 3));
-                                    ///////////Bu kısım cevabımızdan sonraki bekleme işlemleri için
-                                    left =
-                                        assignToOdd(selectedList, storyMapId)!;
-                                    right =
-                                        assignToEven(selectedList, storyMapId)!;
-                                    await _selectedStoryAddItem(
-                                        eklencekText: getMapWithId(selectedList,
-                                            storyMapId)!["history"],
-                                        type: TextType.murderType);
-                                    await _selectedStoryUpdate(
-                                        type: TextType.murderType);
-                                    repo = _databaseService.murderRepo;
-                                    setState(() {});
-                                    _scrollToBottom();
-                                    break;
-
-                                  default:
-                                }
-                              }
-                              setState(() {
-                                textCompleted = false;
-                              });
-
-                              // 2 saniye bekleyip textCompleted'ı tekrar true yap
-                              await Future.delayed(const Duration(seconds: 3));
-                              if (storyMapId >= 900) {
-                                print("hikaye sona geldi");
-                                _showOkAlertDialogWidget(
-                                    context, "Hikayeyi tamamladınız!");
-                                setState(() {
-                                  textCompleted = false;
-                                });
-                                //hikaye sona geldiğine dair kullanıcıya etkileşim sağla
-                              } else {
-                                setState(() {
-                                  textCompleted = true;
-                                });
-                              }
-                              attempt++;
-                            },
-                            //Sağ taraftaki button
-                            child: Container(
-                              width: Config.screenWidth! * 0.4,
-                              height: Config.screenHeight! * 0.1,
-                              decoration: BoxDecoration(
-                                  image: const DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/buttonBack.jpg"),
-                                      fit: BoxFit.cover),
-                                  color: CustomColors.black.withOpacity(0.95),
-                                  border: Border.all(
-                                      width: 1,
-                                      color:
-                                          CustomColors.white.withOpacity(0.5)),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(15))),
-                              child: Center(
-                                child: Text(
-                                  textCompleted == true
-                                      ? attempt != 0
-                                          ? assignToEven(selectedList,
-                                              storyMapId)!["title"]
-                                          : initToEven(selectedList,
-                                              widget.selectedTextType)!["title"]
-                                      : "",
-                                  style: const TextStyle(
-                                      color: CustomColors.yellow, fontSize: 20),
-                                ),
-                              ),
-                            ),
-                          )
-                        : const SizedBox.shrink(),
-                  ],
-                ),
-              )),
-          Positioned(
-            top: Config.screenHeight! * 0.05,
-            left: Config.screenWidth! * 0.03,
-            child: Observer(
-              builder: (_) => IconButton(
-                onPressed: () async {
-                  Navigator.pop(
-                      context,
-                      PageTransition(
-                        child: Container(),
-                        type: PageTransitionType.fade,
-                      ));
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios_new_outlined,
-                  color: CustomColors.white,
+                    },
+                  ),
                 ),
               ),
-            ),
+              // Choices area
+              if (textCompleted)
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  color: Colors.black.withOpacity(0.7),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.green,
+                            backgroundColor: Colors.green.withOpacity(0.2),
+                            side: const BorderSide(color: Colors.green),
+                          ),
+                          child: Text(
+                              assignToOdd(selectedList, storyMapId)!["title"]),
+                          onPressed: () async {
+                            await _handleChoice(left);
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.green,
+                            backgroundColor: Colors.green.withOpacity(0.2),
+                            side: const BorderSide(color: Colors.green),
+                          ),
+                          child: Text(
+                              assignToEven(selectedList, storyMapId)!["title"]),
+                          onPressed: () async {
+                            await _handleChoice(right);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              if (!textCompleted)
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  color: Colors.black.withOpacity(0.7),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: LoadingIndicator(
+                          indicatorType: Indicator.ballPulse,
+                          colors: [Colors.green],
+                          strokeWidth: 2,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Mesaj bekleniyor...",
+                        style: TextStyle(color: Colors.green, fontSize: 14),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
           ),
-          /* Positioned(
-              right: Config.screenWidth! * 0.03,
-              top: Config.screenHeight! * 0.05,
-              child: IconButton(
-                  onPressed: _deleteListElements,
-                  icon: const Icon(
-                    Icons.refresh_outlined,
-                    color: CustomColors.white,
-                  ))) */
-        ],
+        ),
       ),
     );
+  }
+
+  Future<void> _handleChoice(Map<String, dynamic> choice) async {
+    setState(() {
+      textCompleted = false;
+      isEnable = false;
+    });
+
+    await _selectedStoryAddItem(
+      eklencekText: choice["title"],
+      type: widget.selectedTextType,
+    );
+    updateStoryMapId(choice["aId"]);
+
+    await _selectedStoryUpdate(type: widget.selectedTextType);
+    setState(() {
+      repo = widget.selectedTextType == TextType.murderType
+          ? _databaseService.murderRepo
+          : _databaseService.dontLookBackRepo;
+    });
+    _scrollToBottom();
+
+    await Future.delayed(const Duration(seconds: 3));
+
+    left = assignToOdd(selectedList, storyMapId)!;
+    right = assignToEven(selectedList, storyMapId)!;
+    await _selectedStoryAddItem(
+      eklencekText: getMapWithId(selectedList, storyMapId)!["history"],
+      type: widget.selectedTextType,
+    );
+    await _selectedStoryUpdate(type: widget.selectedTextType);
+    setState(() {
+      repo = widget.selectedTextType == TextType.murderType
+          ? _databaseService.murderRepo
+          : _databaseService.dontLookBackRepo;
+    });
+    _scrollToBottom();
+
+    if (storyMapId >= 900) {
+      print("hikaye sona geldi");
+      _showOkAlertDialogWidget(context, "Hikayeyi tamamladınız!");
+      setState(() {
+        isEnable = false;
+      });
+    } else {
+      setState(() {
+        textCompleted = true;
+      });
+    }
   }
 }
