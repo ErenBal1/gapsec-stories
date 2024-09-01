@@ -11,6 +11,7 @@ import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
+import 'package:video_player/video_player.dart';
 
 class NewGameView extends StatefulWidget {
   const NewGameView({super.key});
@@ -24,11 +25,28 @@ class _NewGameViewState extends State<NewGameView> {
   final HomeState hs = HomeState();
   final _databaseService = DatabaseService();
   int storyMapId = 0;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
     _updateDefaultValues();
+    _controller =
+        VideoPlayerController.asset('assets/videos/new_game_video.mp4')
+          ..initialize().then((_) {
+            _controller.setLooping(true);
+            setState(() {
+              _controller.value.isPlaying
+                  ? _controller.pause()
+                  : _controller.play();
+            });
+          });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   Future<void> _updateDefaultValues() async {
@@ -98,15 +116,15 @@ class _NewGameViewState extends State<NewGameView> {
 
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: [
-          SizedBox(
-            width: double.infinity,
-            height: Config.screenHeight,
-            child: Image.asset(
-              "assets/images/back.png",
-              fit: BoxFit.cover,
-            ),
-          ),
+          _controller.value.isInitialized
+              ? AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
+                )
+              : Container(),
+
           /* Positioned.fill(
               child: BackdropFilter(
             filter: ImageFilter.blur(

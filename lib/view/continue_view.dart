@@ -34,7 +34,7 @@ class _ContinueViewState extends State<ContinueView> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/images/video.mp4')
+    _controller = VideoPlayerController.asset('assets/videos/video.mp4')
       ..initialize().then((_) {
         _controller.setLooping(true);
         setState(() {
