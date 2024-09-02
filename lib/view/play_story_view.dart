@@ -34,7 +34,7 @@ class _ChatViewState extends State<ChatView> {
   final _databaseService = DatabaseService();
   int storyMapId = 0;
   late List repo = [];
-  String mp3Path = "assets/sounds/dontLookBack.mp3";
+  String mp3Path = "assets/sounds/runKaity.mp3";
   String selectedTexts = "";
   final ScrollController _scrollController = ScrollController();
 
@@ -176,7 +176,7 @@ class _ChatViewState extends State<ChatView> {
       BuildContext context, String message) async {
     final result = await showOkAlertDialog(
       context: context,
-      title: 'Tebrikler',
+      title: 'GAPSEC Ends...',
       message: message,
       okLabel: 'OK',
     );
@@ -376,7 +376,7 @@ class _ChatViewState extends State<ChatView> {
 
     if (storyMapId >= 900) {
       print("hikaye sona geldi");
-      _showOkAlertDialogWidget(context, "Hikayeyi tamamladınız!");
+      _showOkAlertDialogWidget(context, "Bölüm sonuna ulaştınız!");
       setState(() {
         isEnable = false;
       });

@@ -512,8 +512,8 @@ List<Map<String, dynamic>> murderDetail = [
         "Daha fazla bilgi edinmeliyim. Yavaşça yaklaşıyorum. Şimdi konuşmaları duyabiliyorum ve... Tanrım! Bu adamlar avcı değil! Kaçırılmış birinden bahsediyorlar!"
             .tr(),
     "answers": [
-      {"title": "".tr(), "aId": 0},
-      {"title": "".tr(), "aId": 0}
+      {"title": "Yanlarına git ve her şeyi anlat.".tr(), "aId": 0},
+      {"title": "Saklan ve dinlemeye devam et".tr(), "aId": 0}
     ],
     "id": 50
   },
@@ -633,8 +633,8 @@ List<Map<String, dynamic>> murderDetail = [
   {
     "history": "Bağlantı koptu.".tr(),
     "answers": [
-      {"title": "Kurtuldun mu?".tr(), "aId": 0},
-      {"title": "Iyi misin?".tr(), "aId": 0}
+      {"title": "Kurtuldun mu?".tr(), "aId": 63},
+      {"title": "Iyi misin?".tr(), "aId": 63}
     ],
     "id": 62
   },
