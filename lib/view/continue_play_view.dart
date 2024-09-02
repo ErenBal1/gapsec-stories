@@ -145,7 +145,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
       BuildContext context, String message) async {
     final result = await showOkAlertDialog(
       context: context,
-      title: 'Tebrikler',
+      title: 'GAPSEC',
       message: message,
       okLabel: 'OK',
     );
@@ -433,7 +433,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
     if (storyMapId >= 900) {
       print("hikaye sona geldi");
-      _showOkAlertDialogWidget(context, "Hikayeyi tamamladınız!");
+      _showOkAlertDialogWidget(context, "Bölüm sonuna ulaştınız!");
       setState(() {
         isEnable = false;
       });
