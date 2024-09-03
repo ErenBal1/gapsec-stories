@@ -38,7 +38,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
   final _databaseService = DatabaseService();
   int storyMapId = 0;
   late List repo = [];
-  String mp3Path = "assets/sounds/dontLookBack.mp3";
+  String mp3Path = "assets/sounds/runKaity.mp3";
   String selectedTexts = "";
   final ScrollController _scrollController = ScrollController();
 
@@ -145,7 +145,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
       BuildContext context, String message) async {
     final result = await showOkAlertDialog(
       context: context,
-      title: 'GAPSEC',
+      title: 'GAPSEC Ends...',
       message: message,
       okLabel: 'OK',
     );
