@@ -230,14 +230,17 @@ List<Map<String, dynamic>> murderDetail = [
     "answers": [
       {"title": "murder_story_28_answer_1".tr(), "aId": 30},
       {"title": "murder_story_28_answer_2".tr(), "aId": 29}
+
     ],
     "id": 28
   },
   {
     "history": "murder_story_29_history".tr(),
     "answers": [
+
       {"title": "murder_story_29_answer_1".tr(), "aId": 30},
       {"title": "murder_story_29_answer_2".tr(), "aId": 30}
+
     ],
     "id": 29
   },
@@ -250,6 +253,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 30
   },
   {
+
     "history": "murder_story_31_history".tr(),
     "answers": [
       {"title": "murder_story_31_answer_1".tr(), "aId": 33},
@@ -258,14 +262,17 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 31
   },
   {
+
     "history": "murder_story_32_history".tr(),
     "answers": [
       {"title": "murder_story_32_answer_1".tr(), "aId": 35},
       {"title": "murder_story_32_answer_2".tr(), "aId": 37}
+
     ],
     "id": 32
   },
   {
+
     "history": "murder_story_33_history".tr(),
     "answers": [
       {"title": "murder_story_33_answer_1".tr(), "aId": 34},
@@ -273,7 +280,7 @@ List<Map<String, dynamic>> murderDetail = [
     ],
     "id": 33
   },
-  {
+  
     "history": "murder_story_34_history".tr(),
     "answers": [
       {"title": "murder_story_34_answer_1".tr(), "aId": 40},
@@ -410,14 +417,17 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 50
   },
   {
+
     "history": "murder_story_51_history".tr(),
     "answers": [
       {"title": "murder_story_51_answer_1".tr(), "aId": 52},
       {"title": "murder_story_51_answer_2".tr(), "aId": 1001}
+
     ],
     "id": 51
   },
   {
+
     "history": "murder_story_52_history".tr(),
     "answers": [
       {"title": "murder_story_52_answer_1".tr(), "aId": 53},
@@ -426,14 +436,17 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 52
   },
   {
+
     "history": "murder_story_53_history".tr(),
     "answers": [
       {"title": "murder_story_53_answer_1".tr(), "aId": 54},
       {"title": "murder_story_53_answer_2".tr(), "aId": 54}
+
     ],
     "id": 53
   },
   {
+
     "history": "murder_story_54_history".tr(),
     "answers": [
       {"title": "murder_story_54_answer_1".tr(), "aId": 30},
@@ -442,6 +455,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 54
   },
   {
+
     "history": "murder_story_1001_history".tr(),
     "answers": [
       {"title": "murder_story_1001_answer_1".tr(), "aId": 0},
@@ -450,6 +464,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 1001
   },
   {
+
     "history": "murder_story_56_history".tr(),
     "answers": [
       {"title": "murder_story_56_answer_1".tr(), "aId": 57},
@@ -458,6 +473,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 56
   },
   {
+
     "history": "murder_story_57_history".tr(),
     "answers": [
       {"title": "murder_story_57_answer_1".tr(), "aId": 59},
@@ -466,6 +482,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 57
   },
   {
+
     "history": "murder_story_58_history".tr(),
     "answers": [
       {"title": "murder_story_58_answer_1".tr(), "aId": 59},
@@ -474,6 +491,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 58
   },
   {
+
     "history": "murder_story_59_history".tr(),
     "answers": [
       {"title": "murder_story_59_answer_1".tr(), "aId": 60},
@@ -482,6 +500,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 59
   },
   {
+
     "history": "murder_story_60_history".tr(),
     "answers": [
       {"title": "murder_story_60_answer_1".tr(), "aId": 61},
@@ -490,6 +509,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 60
   },
   {
+
     "history": "murder_story_61_history".tr(),
     "answers": [
       {"title": "murder_story_61_answer_1".tr(), "aId": 62},
@@ -498,6 +518,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 61
   },
   {
+
     "history": "murder_story_62_history".tr(),
     "answers": [
       {"title": "murder_story_62_answer_1".tr(), "aId": 63},
@@ -506,6 +527,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 62
   },
   {
+
     "history": "murder_story_63_history".tr(),
     "answers": [
       {"title": "murder_story_63_answer_1".tr(), "aId": 64},
@@ -514,6 +536,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 63
   },
   {
+
     "history": "murder_story_64_history".tr(),
     "answers": [
       {"title": "murder_story_64_answer_1".tr(), "aId": 66},
@@ -522,6 +545,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 64
   },
   {
+
     "history": "murder_story_65_history".tr(),
     "answers": [
       {"title": "murder_story_65_answer_1".tr(), "aId": 70},
@@ -530,6 +554,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 65
   },
   {
+
     "history": "murder_story_66_history".tr(),
     "answers": [
       {"title": "murder_story_66_answer_1".tr(), "aId": 68},
@@ -538,6 +563,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 66
   },
   {
+
     "history": "murder_story_67_history".tr(),
     "answers": [
       {"title": "murder_story_67_answer_1".tr(), "aId": 70},
@@ -546,6 +572,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 67
   },
   {
+
     "history": "murder_story_68_history".tr(),
     "answers": [
       {"title": "murder_story_68_answer_1".tr(), "aId": 71},
@@ -554,6 +581,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 68
   },
   {
+
     "history": "murder_story_69_history".tr(),
     "answers": [
       {"title": "murder_story_69_answer_1".tr(), "aId": 1002},
@@ -562,6 +590,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 69
   },
   {
+
     "history": "murder_story_70_history".tr(),
     "answers": [
       {"title": "murder_story_70_answer_1".tr(), "aId": 1002},
@@ -570,6 +599,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 70
   },
   {
+
     "history": "murder_story_1002_history".tr(),
     "answers": [
       {"title": "murder_story_1002_answer_1".tr(), "aId": 0},
@@ -578,6 +608,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 1002
   },
   {
+
     "history": "murder_story_71_history".tr(),
     "answers": [
       {"title": "murder_story_71_answer_1".tr(), "aId": 73},
@@ -586,6 +617,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 71
   },
   {
+
     "history": "murder_story_72_history".tr(),
     "answers": [
       {"title": "murder_story_72_answer_1".tr(), "aId": 74},
@@ -594,6 +626,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 72
   },
   {
+
     "history": "murder_story_73_history".tr(),
     "answers": [
       {"title": "murder_story_73_answer_1".tr(), "aId": 1003},
@@ -602,6 +635,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 73
   },
   {
+
     "history": "murder_story_74_history".tr(),
     "answers": [
       {"title": "murder_story_74_answer_1".tr(), "aId": 75},
@@ -610,6 +644,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 74
   },
   {
+
     "history": "murder_story_75_history".tr(),
     "answers": [
       {"title": "murder_story_75_answer_1".tr(), "aId": 76},
@@ -618,6 +653,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 75
   },
   {
+
     "history": "murder_story_76_history".tr(),
     "answers": [
       {"title": "murder_story_76_answer_1".tr(), "aId": 77},
@@ -626,6 +662,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 76
   },
   {
+
     "history": "murder_story_77_history".tr(),
     "answers": [
       {"title": "murder_story_77_answer_1".tr(), "aId": 78},
@@ -634,6 +671,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 77
   },
   {
+
     "history": "murder_story_78_history".tr(),
     "answers": [
       {"title": "murder_story_78_answer_1".tr(), "aId": 79},
@@ -642,6 +680,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 78
   },
   {
+
     "history": "murder_story_79_history".tr(),
     "answers": [
       {"title": "murder_story_79_answer_1".tr(), "aId": 1004},
@@ -650,6 +689,7 @@ List<Map<String, dynamic>> murderDetail = [
     "id": 79
   },
   {
+
     "history": "murder_story_1003_history".tr(),
     "answers": [
       {"title": "murder_story_1003_answer_1".tr(), "aId": 0},
