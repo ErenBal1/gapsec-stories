@@ -311,10 +311,10 @@ class _ChatViewState extends State<ChatView> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   color: Colors.black.withOpacity(0.7),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                         height: 20,
                         child: LoadingIndicator(
@@ -323,10 +323,11 @@ class _ChatViewState extends State<ChatView> {
                           strokeWidth: 2,
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
-                        "Mesaj bekleniyor...",
-                        style: TextStyle(color: Colors.green, fontSize: 14),
+                        "waitingformessage".tr(),
+                        style:
+                            const TextStyle(color: Colors.green, fontSize: 14),
                       ),
                     ],
                   ),

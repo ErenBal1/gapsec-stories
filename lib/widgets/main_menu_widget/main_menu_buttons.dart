@@ -25,7 +25,7 @@ class _MenuButtonsState extends State<MenuButtons> {
           onTap: () =>
               widget.vm.goToPage(context: context, page: const NewGameView()),
           animatedTexts: [
-            TypewriterAnimatedText(
+            TyperAnimatedText(
               "new_game_button".tr(),
               textStyle: AppFonts.mainMenuButton,
               speed: const Duration(milliseconds: 80),
@@ -40,7 +40,7 @@ class _MenuButtonsState extends State<MenuButtons> {
           onTap: () =>
               widget.vm.goToPage(context: context, page: const ContinueView()),
           animatedTexts: [
-            TypewriterAnimatedText(
+            TyperAnimatedText(
               'load_game_button'.tr(),
               textStyle: AppFonts.mainMenuButton,
               speed: const Duration(milliseconds: 80),
@@ -55,7 +55,7 @@ class _MenuButtonsState extends State<MenuButtons> {
           onTap: () =>
               widget.vm.goToPage(context: context, page: const StoriesView()),
           animatedTexts: [
-            TypewriterAnimatedText(
+            TyperAnimatedText(
               'stories_button'.tr(),
               textStyle: AppFonts.mainMenuButton,
               speed: const Duration(milliseconds: 80),

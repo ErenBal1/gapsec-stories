@@ -3,5 +3,342 @@
         "load_game_button" : "Load Game",
         "stories_button" : "Stories",
         "murderTitle" : "Murder",
-        "tyb" : "taha wake up"
+        "waitingformessage" : "Waiting for message...",
+
+        "murder_story_0_history": "Hello. Is this thing not working? Please respond if anyone can read this!",
+        "murder_story_0_answer_1": "Who are you?",
+        "murder_story_0_answer_2": "Yes. I can read it.",
+        
+        "murder_story_1_history": "OH FINALLY! IT'S BEEN HOURS SINCE I TALKED TO A HUMAN.",
+        "murder_story_1_answer_1": "Who are you then?",
+        "murder_story_1_answer_2": "What's happening?",
+        
+        "murder_story_2_history": "Me? I... I'm not really sure who I am. I don't even remember how I got here. All I know is that I've been alone here for a long time and I've finally reached someone.",
+        "murder_story_2_answer_1": "Calm down. Can you describe where you are?",
+        "murder_story_2_answer_2": "Can you tell me what happened?",
+        
+        "murder_story_3_history": "The place I'm in is creaking, I think I'm in a wooden cabin. I can see a bit of the surroundings through a small window. There's a door and a bag on the hanger behind it.",
+        "murder_story_3_answer_1": "Get away from there.",
+        "murder_story_3_answer_2": "You should take things that might be useful.",
+        
+        "murder_story_4_history": "I don't know... I don't know anything. The last thing I remember was sleeping at home, and now I'm in this place surrounded by trees, communicating with you via phone. Please, help me, it's getting dark.",
+        "murder_story_4_answer_1": "You need to find shelter immediately.",
+        "murder_story_4_answer_2": "Are there only trees around you?",
+        
+        "murder_story_5_history": "You're right, I'm leaving right now... But wait... I'm sure you don't want to see what I'm seeing. There's a severed hand on the floor, with closed fingers! I think I'm going to be sick. The hand is holding something metal, I think it's a key. This must be the key to the door, I'm taking it. The bag behind the door might be useful too, I'm taking it and leaving.",
+        "murder_story_5_answer_1": "You need to find shelter immediately.",
+        "murder_story_5_answer_2": "Are there only trees around you?",
+        
+        "murder_story_6_history": "Wait a second, I think I have a key in my pocket, I need to hurry, whoever brought me here could come back at any moment. I'm taking the bag with me. The door is locked! I'm trying with the key from my pocket... Okay, it's open now. I'm getting away from here quickly. I'm running into the forest. It's really cold outside.",
+        "murder_story_6_answer_1": "You need to find shelter immediately.",
+        "murder_story_6_answer_2": "Are there only trees around you?",
+        
+        "murder_story_7_history": "I don't know! I opened my eyes in this place surrounded by trees, and this messaging was open on my phone. Who are you? Did you kidnap me!",
+        "murder_story_7_answer_1": "Who are you? I don't even know you!",
+        "murder_story_7_answer_2": "Kidnap?",
+        
+        "murder_story_8_history": "I'm sorry for accusing you directly, but I'm scared and it's getting dark. I'm starting to get cold, I don't know what to do!!!",
+        "murder_story_8_answer_1": "You need to find shelter immediately.",
+        "murder_story_8_answer_2": "Are there only trees around you?",
+        
+        "murder_story_9_history": "EASY FOR YOU TO SAY! THERE'S NOTHING AROUND ME. WAIT! I THINK I SEE SOMETHING. THERE'S SMOKE AHEAD.",
+        "murder_story_9_answer_1": "There might be people. You should go there.",
+        "murder_story_9_answer_2": "Go before it gets dark or you'll freeze to death.",
+        
+        "murder_story_10_history": "Yes, I'm in a huge forest. Wait a second, I think there's something. There's smoke rising in the distance.",
+        "murder_story_10_answer_1": "There might be people. You should go there.",
+        "murder_story_10_answer_2": "Go before it gets dark or you'll freeze to death.",
+        
+        "murder_story_11_history": "Okay. I'm going, it doesn't look too far. I hope I can find someone.",
+        "murder_story_11_answer_1": "Have you arrived?",
+        "murder_story_11_answer_2": "Are you still walking?",
+        
+        "murder_story_12_history": "You're right. Maybe if there are people, they can help me. I've started walking.",
+        "murder_story_12_answer_1": "Have you arrived?",
+        "murder_story_12_answer_2": "Are you still walking?",
+        
+        "murder_story_13_history": "I'm still walking but I think I'm getting close. The smoke is more visible and I can smell it. But... wait a minute... I hear strange noises.",
+        "murder_story_13_answer_1": "What kind of noises do you hear?",
+        "murder_story_13_answer_2": "Approach quietly.",
+        
+        "murder_story_14_history": "I'm still walking but I think I'm getting close. The smoke is more visible and I can smell it. But... wait a minute... Oh my God! What is this!!!",
+        "murder_story_14_answer_1": "What, WHAT'S HAPPENING?",
+        "murder_story_14_answer_2": "Hey! Are you there?",
+        
+        "murder_story_15_history": "The cabin in front of me is on fire! There might be people inside!!!",
+        "murder_story_15_answer_1": "Wait. Be careful. It could spread.",
+        "murder_story_15_answer_2": "Stay away from the fire. You can't help.",
+        
+        "murder_story_16_history": "Yes. I'm here but I'm in shock. I don't know what to do. The cabin in front of me is on fire! And I have nothing to put it out with. What if there are people inside!!!!",
+        "murder_story_16_answer_1": "Wait. Be careful. It could spread.",
+        "murder_story_16_answer_2": "Stay away from the fire. You can't help.",
+        
+        "murder_story_17_history": "I guess it's too late now. Everything is about to turn to ashes. Wait a second, there's a bag near the cabin.",
+        "murder_story_17_answer_1": "Check the bag.",
+        "murder_story_17_answer_2": "Is there anything else around?",
+        
+        "murder_story_18_history": "I decided to check the bag. I'm approaching carefully... It looks like there's something inside.",
+        "murder_story_18_answer_1": "Open the bag and look inside.",
+        "murder_story_18_answer_2": "Don't take the bag, just examine it from the outside.",
+        
+        "murder_story_19_history": "I'll look around. I think there's only the bag here. Here it is! There's also an axe next to it. This could be very useful. I'm taking everything.",
+        "murder_story_19_answer_1": "Open the bag and look inside.",
+        "murder_story_19_answer_2": "Don't take the bag, just examine it from the outside.",
+        
+        "murder_story_20_history": "I opened the bag. There was also an axe next to it. Inside... there's a laptop, some documents, and... a phone!!! But both the phone and the computer are password-protected.",
+        "murder_story_20_answer_1": "Forget about the phone for now.",
+        "murder_story_20_answer_2": "Take a look at the documents.",
+        
+        "murder_story_21_history": "Okay. I'm not taking the bag. It could be a trap. I took the axe next to it, I can defend myself with this. Wait! Bell sound! I hear a bell sound. It can't be a church, can it? We're in the middle of the forest.",
+        "murder_story_21_answer_1": "Carefully go towards the sound. Clearly, you're not alone.",
+        "murder_story_21_answer_2": "You need to find the source of the bell sound.",
+        
+        "murder_story_22_history": "Okay. I'm carefully going towards the source of the sound.",
+        "murder_story_22_answer_1": "Have you arrived?",
+        "murder_story_22_answer_2": "Can you see anything?",
+        
+        "murder_story_23_history": "Yes. There really is a church here. It's covered in vines. But I don't understand why there's a church here. This place is so desolate.",
+        "murder_story_23_answer_1": "If there's someone inside, they might be able to help you.",
+        "murder_story_23_answer_2": "Quietly look inside.",
+        
+        "murder_story_24_history": "I don't know who's inside. So I'm entering cautiously. The church is completely covered in vines. It's like it's camouflaged!",
+        "murder_story_24_answer_1": "What do you see?",
+        "murder_story_24_answer_2": "Is there anyone?",
+        
+        "murder_story_25_history": "Very strange. Candles are burning. But there's no one inside. I'm starting to get scared. It's like I hear sounds from below. YES! I put my ear to listen. There are some unintelligible sounds.",
+        "murder_story_25_answer_1": "There must be people down there!",
+        "murder_story_25_answer_2": "Going down could be dangerous!",
+        
+        "murder_story_26_history": "This could be dangerous, but we have to take risks to get out of this place now. As I continued walking, I tripped on something and almost fell. When I picked up what I tripped on, I saw it was a staircase covered with stones! I slowly pushed the stones aside. The sounds increased a lot! I'm going down.",
+        "murder_story_26_answer_1": "I'm waiting for news.",
+        "murder_story_26_answer_2": "Don't forget your axe. You might need it.",
+        
+        "murder_story_27_history": "I opened my eyes on an iron table. There's a dim yellow light on the ceiling. There are blood stains here and there on the floor.",
+        "murder_story_27_answer_1": "Get out of there before someone comes.",
+        "murder_story_27_answer_2": "That must be an operating room!",
+        
+        "murder_story_28_history": "I'm looking at the documents. Most of them are burned, but some papers are still readable. There's a map and... a company logo. It says \"DarkC\". What does this mean?",
+        "murder_story_28_answer_1": "Examine the map.",
+        "murder_story_28_answer_2": "Look for more information about the documents.",
+        
+        "murder_story_29_history": "Maybe I could find more information about this on the phone and computer, but neither of them is usable right now. I think I should examine the map now to see where I am and where I need to go.",
+        "murder_story_29_answer_1": "Find out where we are.",
+        "murder_story_29_answer_2": "Examine the map.",
+        
+        "murder_story_30_history": "I started examining the map. This... this looks like where I am. And there's a red mark. At a point very close to where I am right now. This can't be a coincidence, can it?",
+        "murder_story_30_answer_1": "Try to go to the marked point.",
+        "murder_story_30_answer_2": "Check the other items in the bag.",
+        
+        "murder_story_31_history": "Alright. Let me take a look at the other items. I'm trying to turn on the computer but it asks for a password. The phone is the same. But... wait a second, there's a small note in the inner pocket of the bag.",
+        "murder_story_31_answer_1": "What does it say? Can you read it?",
+        "murder_story_31_answer_2": "Could it be a clue for the password?",
+        
+        "murder_story_32_history": "Yes, something definitely died here, but if an animal had fallen, they wouldn't have covered it up like this, I think. Maybe they tried to cover up a murder. I think I'm right, because I see a shoe a little further ahead and I'm going right up to it. Yes! This is definitely a murder, because the shoe is covered in blood.",
+        "murder_story_32_answer_1": "Get away from there using the map.",
+        "murder_story_32_answer_2": "Can you go down into the well?",
+        
+        "murder_story_33_history": "I think the password is only 6 digits long and it's the same length as the pin code required for the computer. Let's see, is this the password? Yes, it opened! God, the battery is very low; what should I do?",
+        "murder_story_33_answer_1": "Check the disks.",
+        "murder_story_33_answer_2": "Look at all the files you can open.",
+        
+        "murder_story_34_history": "I'm trying, but the device is about to shut down. A file caught my eye; its name is 'remove.' There are pictures of people inside. And... the person here is me! How can this be?",
+        "murder_story_34_answer_1": "Could this mean 'eliminate'?",
+        "murder_story_34_answer_2": "Get out of there immediately!",
+        
+        "murder_story_35_history": "The map doesn't show anywhere I can go. Whatever is in this well might enlighten us. It doesn't look very deep; maybe I can use thick tree branches as support and go down. The smell is very heavy, so I have to wrap my t-shirt around my nose. I'm going down. There's a big, black bag here and there's a note taped on it; it just says 'Lucy'. This is my sister's name. Oh God, it can't be, it shouldn't be! I don't want to open the bag, this isn't real!",
+        "murder_story_35_answer_1": "You have to find out.",
+        "murder_story_35_answer_2": "Open the bag.",
+        
+        "murder_story_36_history": "I'm going towards the marked point. I'm almost there. I think... is this it? There's a hole here covered with branches. I think this is a well and the marked point is showing exactly here. I approached the well and put the branch pieces aside. An incredible smell started coming to my nose; the smell of something rotten and I almost threw up. I barely managed to throw myself aside.",
+        "murder_story_36_answer_1": "Going down there could be dangerous for you.",
+        "murder_story_36_answer_2": "An animal might have fallen in.",
+        
+        "murder_story_37_history": "It doesn't look very deep; maybe I can use thick tree branches as support and go down. The smell is very heavy, so I have to wrap my t-shirt around my nose. I'm going down. There's a big, black bag here and there's a note taped on it; it just says 'Lucy'. This is my sister's name too. Oh God, it can't be, it shouldn't be! I don't want to open the bag, this isn't real!",
+        "murder_story_37_answer_1": "You have to find out.",
+        "murder_story_37_answer_2": "Open the bag.",
+        
+        "murder_story_38_history": "This... this... my sister. On her arm it says 'run', written in blood. What's happening? What does all this mean? Did I find my sister's body? My head is spinning.",
+        "murder_story_38_answer_1": "Hey! Are you there?",
+        "murder_story_38_answer_2": "Are you okay? Get out of there quickly!",
+        
+        "murder_story_39_history": "I had fainted and it started raining. If I hadn't woken up, I would have drowned in the well. I barely managed to get myself out and the device started malfunctioning.",
+        "murder_story_39_answer_1": "Get away from there now.",
+        "murder_story_39_answer_2": "You have to run.",
+        
+        "murder_story_40_history": "I think you're right, my life is in danger. Wait! Someone is watching me. Right in front of me.",
+        "murder_story_40_answer_1": "What do you see?",
+        "murder_story_40_answer_2": "Who's in front of you?",
+        
+        "murder_story_41_history": "Connection lost.",
+        "murder_story_41_answer_1": "I'm scared, are you okay?",
+        "murder_story_41_answer_2": "Please say you're alright.",
+        
+        "murder_story_42_history": "No signal.",
+        "murder_story_42_answer_1": "Please respond",
+        "murder_story_42_answer_2": "Are you alive?",
+        
+        "murder_story_43_history": "Yes, I'm alive. How did I get here? The last thing I remember was someone dressed in all black covering my face with a cloth. What is this place? I hear bell sounds where I am. Did they bring me to a church?",
+        "murder_story_43_answer_1": "What's around you?",
+        "murder_story_43_answer_2": "Describe where you are.",
+        
+        "murder_story_44_history": "Sounds... it's like people are talking. But I can't understand what they're saying. And...",
+        "murder_story_44_answer_1": "And?",
+        "murder_story_44_answer_2": "Are you there?",
+        
+        "murder_story_45_history": "I'm here. I think the phone signal is not good here. And... I think there's a radio sound too. Should I get closer?",
+        "murder_story_45_answer_1": "Yes, but be careful.",
+        "murder_story_45_answer_2": "No, it might not be safe. Go back.",
+        
+        "murder_story_46_history": "Okay, I'm moving very slowly. I see a clearing through the trees. And...",
+        "murder_story_46_answer_1": "What do you see? Tell me immediately!",
+        "murder_story_46_answer_2": "Stay calm. Take a deep breath and tell me what you see.",
+        
+        "murder_story_47_history": "Yes, this could be dangerous, but it's almost dark and I can't survive in the forest like this. So I'm sorry, I have to go. Wait a second, what's that!",
+        "murder_story_47_answer_1": "What do you see? Tell me immediately!",
+        "murder_story_47_answer_2": "Stay calm. Take a deep breath and tell me what you see.",
+        
+        "murder_story_48_history": "There's a small camping area. Two tents are set up, a campfire is burning, and three men are sitting around it. Camping equipment is scattered around. Their clothes are normal but a bit dirty; they look like hunters.",
+        "murder_story_48_answer_1": "Observe a bit more.",
+        "murder_story_48_answer_2": "Ask for help.",
+        
+        "murder_story_49_history": "I decided to watch a bit more. The men are talking to each other but I can't hear exactly what they're saying. One is looking at a map in his hand, the other two seem to be preparing food. What should I do?",
+        "murder_story_49_answer_1": "Quietly get closer, try to hear their conversation.",
+        "murder_story_49_answer_2": "Retreat and look for help elsewhere.",
+        
+        "murder_story_50_history": "I need to get more information. I'm approaching slowly. Now I can hear their conversation and... Oh God! These men are not hunters! They're talking about someone who's been kidnapped!",
+        "murder_story_50_answer_1": "Go to them and tell them everything.",
+        "murder_story_50_answer_2": "Hide and continue listening.",
+        
+        "murder_story_51_history": "My heart is beating so fast but I need to get more information. I'm approaching slowly. Now I can hear their conversation and... Oh God! These men are not hunters! They're talking about someone who's been kidnapped!",
+        "murder_story_51_answer_1": "Go to them and tell them everything.",
+        "murder_story_51_answer_2": "Hide and keep listening",
+        
+        "murder_story_52_history": "Don't you think that would be too dangerous? They could kill me, you should see their knives. From what I hear, they're speaking in a foreign language, I don't understand what they're saying. I think someone is looking at a map.",
+        "murder_story_52_answer_1": "If you can get to the map, we might be able to get out of here.",
+        "murder_story_52_answer_2": "The map could be our escape route.",
+        
+        "murder_story_53_history": "Wait... I heard a gunshot. They all started running towards the sound, look, the map is lying on the ground! Should I go and take it?",
+        "murder_story_53_answer_1": "It's a good opportunity, take it quickly.",
+        "murder_story_53_answer_2": "Be quick, don't get caught.",
+        
+        "murder_story_54_history": "I don't remember ever panicking this much in my life. And I have a surprise for you, I saw a bag on the ground and I took that too! I'm getting away from here before they come back.",
+        "murder_story_54_answer_1": "Be careful, open the map first.",
+        "murder_story_54_answer_2": "We need to find out where we are.",
+        
+        "murder_story_1001_history": "We need to get to something from here, I'm listening a bit more and they're talking about someone. Oh my God, I stepped on a twig, they're all looking here and starting to run towards me!",
+        "murder_story_1001_answer_1": "Restart the story.",
+        "murder_story_1001_answer_2": "Restart the story.",
+        
+        "murder_story_56_history": "I opened my eyes on an iron table. There's a dim yellow light on the ceiling. There are blood stains here and there on the floor.",
+        "murder_story_56_answer_1": "Get out of there before someone comes.",
+        "murder_story_56_answer_2": "That must be an operating room!",
+        
+        "murder_story_57_history": "I don't think I can get out of here alive. There's something shining on the floor, I couldn't even see the bloody scalpel on the floor because of the light. I took it and I need to get out of here.",
+        "murder_story_57_answer_1": "Be careful, someone could come at any moment!",
+        "murder_story_57_answer_2": "Protect yourself!",
+        
+        "murder_story_58_history": "Yes, how could I not think of that! I couldn't even see the bloody scalpel on the floor because of the light. I took it and I need to get out of here.",
+        "murder_story_58_answer_1": "Be careful, someone could come at any moment!",
+        "murder_story_58_answer_2": "Protect yourself!",
+        
+        "murder_story_59_history": "I almost got caught. There's a shadow coming this way. I went behind the door.",
+        "murder_story_59_answer_1": "Kill them!",
+        "murder_story_59_answer_2": "Get rid of them to escape.",
+        
+        "murder_story_60_history": "I can't believe myself, I just killed a priest. No! This wasn't a priest.",
+        "murder_story_60_answer_1": "How did you know?",
+        "murder_story_60_answer_2": "Get rid of it.",
+        
+        "murder_story_61_history": "I took the body to the far end of the room. He had a needle in his hand and when he noticed me, he tried to stab me with it. Why would a priest try to do this? I think more than one person is coming this way. I started running, the floors are wet and slippery. They are...",
+        "murder_story_61_answer_1": "Run away from there without looking back!",
+        "murder_story_61_answer_2": "Run towards where you see light!",
+        
+        "murder_story_62_history": "Connection lost.",
+        "murder_story_62_answer_1": "Did you escape?",
+        "murder_story_62_answer_2": "Are you okay?",
+        
+        "murder_story_63_history": "I climbed up the stairs. There was a hatch above me and when I lifted it, I found myself in the church's confession booth. I locked the hatch but they could break it at any moment. What should I do?",
+        "murder_story_63_answer_1": "Get out of the church!",
+        "murder_story_63_answer_2": "Hide inside the church.",
+        
+        "murder_story_64_history": "I'm forcing the door but it won't open. They're about to break the hatch. I think I'm trapped!",
+        "murder_story_64_answer_1": "Break the window and run!",
+        "murder_story_64_answer_2": "Break the window and hide!",
+        
+        "murder_story_65_history": "I see a box over there. I think I can fit inside. I hope they don't find me.",
+        "murder_story_65_answer_1": "Wait for things to calm down.",
+        "murder_story_65_answer_2": "Don't make any sound!",
+        
+        "murder_story_66_history": "I broke the window but as I was getting out, the glass tore my leg. I think they broke the hatch because I hear shouting. What's going on here? I'm bleeding a lot, so I can't run.",
+        "murder_story_66_answer_1": "You don't have time to stop, get away!",
+        "murder_story_66_answer_2": "Bandage the wound.",
+        
+        "murder_story_67_history": "I broke the window and hid in the box at the side. I hope they don't find me here.",
+        "murder_story_67_answer_1": "Wait for things to calm down.",
+        "murder_story_67_answer_2": "Don't make any sound!",
+        
+        "murder_story_68_history": "Adrenaline filled my whole body and I quickly got far enough away that they couldn't find my trace. Those people are killers! I couldn't write most of what I saw while escaping, but what I saw there is still before my eyes. There were pictures of people in the corridors; these must belong to the people they killed or are after.",
+        "murder_story_68_answer_1": "You need to get out of the forest.",
+        "murder_story_68_answer_2": "Go back there and learn the truth.",
+        
+        "murder_story_69_history": "I tore the sleeve of my t-shirt and bandaged the wound. I've lost too much time. No... they're coming! I think this is it.",
+        "murder_story_69_answer_1": "You have to run!",
+        "murder_story_69_answer_2": "No, you can't give up!",
+        
+        "murder_story_70_history": "My heart is about to jump out of my chest. They broke the hatch! Someone is shouting 'How did he escape?' I think they think I escaped through the window. Why did they start laughing? Footsteps are coming this way. Oh God, no! My footprints!",
+        "murder_story_70_answer_1": "Tell me they didn't find you!",
+        "murder_story_70_answer_2": "Are you there?",
+        
+        "murder_story_71_history": "While running, I unknowingly passed through a dirt road. If I follow it, we might get to the main road.",
+        "murder_story_71_answer_1": "We have no other choice.",
+        "murder_story_71_answer_2": "Follow the road.",
+        
+        "murder_story_72_history": "Those people are killers! Everywhere smelled of corpses and I'm still not myself. Going back there could cost me my life.",
+        "murder_story_72_answer_1": "You're right, we should set a trap.",
+        "murder_story_72_answer_2": "We need to make a plan.",
+        
+        "murder_story_73_history": "Okay, I'm following the road. I don't know how long I've been walking; I'm very tired. I see iron fences ahead, maybe it could be an exit! There's a sign on the fences: 'Red Church Area No Entry!' Red Church? What kind of place is this? What's that! There's a camera on the tree and it just turned towards me! Damn it! There it is!",
+        "murder_story_73_answer_1": "What happened? Tell me!",
+        "murder_story_73_answer_2": "Hey, are you there?",
+        
+        "murder_story_74_history": "The only thing I have is this bloody scalpel that I'm holding tightly in my hand and this useless bag. Wait, I'm examining it more. I have bad news for you: We've been being tracked from the very beginning. There's a tracking device in the bag.",
+        "murder_story_74_answer_1": "Use the bag as bait.",
+        "murder_story_74_answer_2": "You need to bring them to the location we want.",
+        
+        "murder_story_75_history": "I hid the bag in the grass and moved away. It didn't take long, here I think someone is coming. I'm behind the tree and waiting for them to pass in front of me.",
+        "murder_story_75_answer_1": "Wait and finish the job.",
+        "murder_story_75_answer_2": "Don't kill, we need to make them talk.",
+        
+        "murder_story_76_history": "So you're coming to kill me, are you? I'm very sorry that you gave your last breath from your cut throat, you were targeting the wrong person, my friend! Now it's your friend's turn.",
+        "murder_story_76_answer_1": "I can't believe you did this.",
+        "murder_story_76_answer_2": "We still need to learn the truth.",
+        
+        "murder_story_77_history": "We can still learn everything from the last killer. I'm getting rid of the body and starting to wait. Night has fallen, I think someone is coming! Come on, don't leave your friend alone, you idiot!",
+        "murder_story_77_answer_1": "Don't kill him!",
+        "murder_story_77_answer_2": "No, stop!",
+        
+        "murder_story_78_history": "That's it, I knew he would take the bait. He's writhing with the scalpel in his stomach; I'll try to make him talk. You should hear this! My stepmother, to have my sister and me killed... Why did you do this to us?",
+        "murder_story_78_answer_1": "Your stepmother?",
+        "murder_story_78_answer_2": "What does this mean!",
+        
+        "murder_story_79_history": "Yes, now I remember. The last thing I heard was that my stepmother wanted to get rid of us. She must have brought me here. The last thing I remember, she had bought coffee while driving me home, but I don't remember what happened next. She must have poisoned me!",
+        "murder_story_79_answer_1": "You were smarter than we expected, son.",
+        "murder_story_79_answer_2": "You were better than we thought.",
+        
+        "murder_story_1004_history": "Who are you! Mom, dad? Why did you do this to me? What did you want from my sister? What did you want?! Look for a hole to escape because now...",
+        "murder_story_1004_answer_1": "Restart the story.",
+        "murder_story_1004_answer_2": "Restart the story.",
+
+        "murder_story_1002_history": "Subject 17 failed. Signal lost.",
+        "murder_story_1002_answer_1": "Restart the story.",
+        "murder_story_1002_answer_2": "Restart the story.",
+
+        "murder_story_1003_history": "No longer accessible.",
+        "murder_story_1003_answer_1": "Restart the story.",
+        "murder_story_1003_answer_2": "Restart the story.",
+
+        "murder_story_1000_history": "Signal Lost! No further signal received.",
+        "murder_story_1000_answer_1": "Restart the story.",
+        "murder_story_1000_answer_2": "Restart the story."
+
 }
