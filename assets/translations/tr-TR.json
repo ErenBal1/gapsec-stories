@@ -3,5 +3,344 @@
         "load_game_button" : "Devam Et",
         "stories_button" : "Hikayeler",
         "murderTitle" : "Katil",
-        "tyb": "taha çok hızlı uyandı"
+        "waitingformessage" : "Mesaj bekleniyor...",
+
+        "murder_story_0_history": "Merhaba. Bu şey çalışmıyor mu? Lütfen biri bu yazımı okuyabiliyorsa cevap versin!",
+        "murder_story_0_answer_1": "Sen de kimsin?",
+        "murder_story_0_answer_2": "Evet. Okuyabiliyorum.",
+        
+        "murder_story_1_history": "OH SONUNDA! BİR İNSANLA KONUŞMAYALI SAATLER OLMUŞTU.",
+        "murder_story_1_answer_1": "Kimsin sen peki?",
+        "murder_story_1_answer_2": "Ne oluyor?",
+        
+        "murder_story_2_history": "Ben mi? Ben... Aslında kim olduğumdan emin değilim. Buraya nasıl geldiğimi bile hatırlamıyorum. Tek bildiğim, uzun zamandır burada yalnız olduğum ve sonunda birine ulaşabildiğim.",
+        "murder_story_2_answer_1": "Sakin ol. Nerede olduğunu tarif edebilir misin?",
+        "murder_story_2_answer_2": "Neler oldu anlatabilir misin?",
+        
+        "murder_story_3_history": "Olduğum yer gıcırdıyor sanırım ahşap bir kulübedeyim. Küçük pencereden etrafı biraz seçebiliyorum. Kapı ve arkasındaki askılıkta bir çanta var.",
+        "murder_story_3_answer_1": "Uzaklaş oradan.",
+        "murder_story_3_answer_2": "İşine yarayan şeyleri almalısın.",
+        
+        "murder_story_4_history": "Bilmiyorum... Hiçbir şey bilmiyorum. son hatırladığım şey evimde uyumaktı, şimdi ise etrafımda sadece ağaçların olduğu bu yerdeyim telefonla seninle iletişim kurabiliyorum. Lütfen, bana yardım et hava kararmak üzere.",
+        "murder_story_4_answer_1": "Hemen bir yer bulmalısın.",
+        "murder_story_4_answer_2": "Etrafında sadece ağaç mı var?",
+        
+        "murder_story_5_history": "Haklısın, hemen çıkıyorum... Ama bekle... Gördüklerimi görmek istemeyeceğine eminim. Yerde bileğinden kesilmiş, parmakları kapalı bir el var! Kusacağım sanırım. Elin tuttuğu metal bir şey var sanırım bir anahtar. Bu anahtar kapının anahtarı olmalı, onu alıyorum. Kapnın arkasındaki çanta da işimize yarayabilir onu da alıp çıkıyorum.",
+        "murder_story_5_answer_1": "Hemen bir yer bulmalısın.",
+        "murder_story_5_answer_2": "Etrafında sadece ağaç mı var?",
+        
+        "murder_story_6_history": "Bekle bir saniye sanırım cebimde bir anahtar var, acele etmeliyim beni buraya kim getirdiyse her an geri gelebilir. Çantayı yanıma alıyorum. Kapı kilitli! Cebimdeki anahtarla deniyorum... Tamam şimdi açıldı. Buradan hemen uzaklaşıyorum. Ormanın içine doğru koşuyorum. Dışarısı gerçekten çok soğuk.",
+        "murder_story_6_answer_1": "Hemen bir yer bulmalısın.",
+        "murder_story_6_answer_2": "Etrafında sadece ağaç mı var?",
+        
+        "murder_story_7_history": "Bilmiyorum! Gözlerimi sadece ağaçların olduğu bu yerde açtım ve telefonumda bu mesajlaşma açıktı. Kimsin sen? Sen mi kaçırdın beni!",
+        "murder_story_7_answer_1": "Sen kimsin? Ben seni tanımıyorum bile!",
+        "murder_story_7_answer_2": "Kaçırmak mı?",
+        
+        "murder_story_8_history": "Direkt suçladığım için özür dilerim ama korkuyorum ve hava kararmak üzere. Üşümeye başladım, ne yapacağımı bilmiyorum!!!",
+        "murder_story_8_answer_1": "Hemen bir yer bulmalısın.",
+        "murder_story_8_answer_2": "Etrafında sadece ağaç mı var?",
+        
+        "murder_story_9_history": "SÖYLEMESİ KOLAY! ETRAFIMDA HİÇBİR ŞEY YOK. DUR! SANIRIM BİR ŞEY GÖRÜYORUM. DUMAN VAR İLERİDE.",
+        "murder_story_9_answer_1": "Birileri olabilir. Oraya gitmelisin.",
+        "murder_story_9_answer_2": "Hava kararmadan git yoksa soğuktan öleceksin.",
+        
+        "murder_story_10_history": "Evet kocaman bi ormandayım. Bir saniye galiba bir şeyler var. İleride dumanlar yükseliyor.",
+        "murder_story_10_answer_1": "Birileri olabilir. Oraya gitmelisin.",
+        "murder_story_10_answer_2": "Hava kararmadan git yoksa soğuktan öleceksin.",
+        
+        "murder_story_11_history": "Tamam. Gidiyorum, çok uzak gözükmüyor. Umarım birilerini bulabilirim.",
+        "murder_story_11_answer_1": "Vardın mı?",
+        "murder_story_11_answer_2": "Hâlâ yürüyor musun?",
+        
+        "murder_story_12_history": "Haklısın. Belki birileri varsa bana yardım edebilir. Yürümeye başladım.",
+        "murder_story_12_answer_1": "Vardın mı?",
+        "murder_story_12_answer_2": "Hâlâ yürüyor musun?",
+        
+        "murder_story_13_history": "Hâlâ yürüyorum ama sanırım yaklaştım. Duman daha belirgin ve kokuyu alabiliyorum. Ama... bir dakika... garip sesler duyuyorum.",
+        "murder_story_13_answer_1": "Ne tür sesler duyuyorsun?",
+        "murder_story_13_answer_2": "Sessizce yaklaş.",
+        
+        "murder_story_14_history": "Hâlâ yürüyorum ama sanırım yaklaştım. Duman daha belirgin ve kokuyu alabiliyorum. Ama... bir dakika... Aman Tanrım! Bu da ne!!!",
+        "murder_story_14_answer_1": "Ne, NELER OLUYOR?",
+        "murder_story_14_answer_2": "Hey! Orada mısın?",
+        
+        "murder_story_15_history": "Önümdeki kulübe yanıyor! İçeride birileri olabilir!!!",
+        "murder_story_15_answer_1": "Bekle. Dikkatli ol. Üzerine sıçrayabilir.",
+        "murder_story_15_answer_2": "Ateşten uzak dur. Yardım edemezsin.",
+        
+        "murder_story_16_history": "Evet. Buradayım ama şok içerisindeyim. Ne yapacağımı bilmiyorum. Önümdeki kulübe yanıyor! Ve söndürebilecek hiçbir şeyim yok. Ya içeride birileri varsa!!!!",
+        "murder_story_16_answer_1": "Bekle. Dikkatli ol. Üzerine sıçrayabilir.",
+        "murder_story_16_answer_2": "Ateşten uzak dur. Yardım edemezsin.",
+        
+        "murder_story_17_history": "Galiba artık çok geç. Her şey küle dönüşmek üzere. Bir saniye, kulübenin yakınlarında bir çanta var.",
+        "murder_story_17_answer_1": "Çantayı kontrol et.",
+        "murder_story_17_answer_2": "Çevrede başka bir şey var mı?",
+        
+        "murder_story_18_history": "Çantayı kontrol etmeye karar verdim. Dikkatle yaklaşıyorum... İçerisinde bir şeyler var gibi görünüyor.",
+        "murder_story_18_answer_1": "Çantayı aç ve içindekilere bak.",
+        "murder_story_18_answer_2": "Çantayı alma, sadece dışarıdan incele.",
+        
+        "murder_story_19_history": "Etrafına bakacağım. Sanırım burada sadece çanta var. İşte bu! Yanında balta da var. Bu çok işime yarayabilir. Hepsini alıyorum.",
+        "murder_story_19_answer_1": "Çantayı aç ve içindekilere bak.",
+        "murder_story_19_answer_2": "Çantayı alma, sadece dışarıdan incele.",
+        
+        "murder_story_20_history": "Çantayı açtım. Yanında da balta vardı. İçinde... bir dizüstü bilgisayar, bazı belgeler ve... bir telefon var!!! Ama telefon ve bilgisayarda şifre var.",
+        "murder_story_20_answer_1": "Telefonu şimdilik boşver.",
+        "murder_story_20_answer_2": "Belgelere göz at.",
+        
+        "murder_story_21_history": "Pekala. Çantayı almıyorum. Tuzak olabilir. Yanındaki baltayı aldım, bununla kendimi savunabilirim. Dur! Çan sesi! Çan sesi duyuyorum. Kilise olamaz herhalde burada ormanın ortasındayız.",
+        "murder_story_21_answer_1": "Dikkatlice sese git. Belli ki yalnız değilsin.",
+        "murder_story_21_answer_2": "Çan sesinin kaynağını bulmalısın.",
+        
+        "murder_story_22_history": "Tamam. Dikkatlice sesin kaynağına doğru gidiyorum.",
+        "murder_story_22_answer_1": "Vardın mı?",
+        "murder_story_22_answer_2": "Bir şeyler görebiliyor musun?",
+        
+        "murder_story_23_history": "Evet. Burada bir kilise var gerçekten. Etrafını sarmaşıklar sarmış. Ama neden burada bir kilise var anlamış değilim. Burası çok ıssız.",
+        "murder_story_23_answer_1": "İçeride birileri varsa sana yardım edebilir.",
+        "murder_story_23_answer_2": "Sessizce içeriye bak.",
+        
+        "murder_story_24_history": "İçeride kimlerin olduğunu bilmiyorum. Bu yüzden temkinlice içeriye giriyorum. Kiliseyi tamamen sarmaşıklar kaplamış. Tıpkı kamuflaj olmuş gibi!",
+        "murder_story_24_answer_1": "Neler görüyorsun?",
+        "murder_story_24_answer_2": "Kimse var mı?",
+        
+        "murder_story_25_history": "Çok garip. Mumlar yanıyor. Ama içeride kimse yok. Korkmaya başladım. Sanki altımdan sesler geliyor. EVET! Kontrol etmek için kulağımı koydum. Anlaşılmayan birtakım sesler var.",
+        "murder_story_25_answer_1": "Aşağıda birileri olmalı!",
+        "murder_story_25_answer_2": "Aşağıya inmen tehlikeli olabilir!",
+        
+        "murder_story_26_history": "Bu tehlikeli olabilir ama artık bu yerden kurtulmak için risk almak zorundayız. Yürümeye devam ederken ayağım bir şeye takıldı az daha düşüyordum. Takıldığım şeyi kaldırdığımda taşlarla kapatılmış bir merdiven olduğunu gördüm! Taşları yavaşça kenara ittirdim. Sesler iyice arttı! Aşağıya iniyorum.",
+        "murder_story_26_answer_1": "Haber bekliyorum.",
+        "murder_story_26_answer_2": "Baltanı unutma. Sana lazım olabilir.",
+        
+        "murder_story_27_history": "Gözlerimi demir bir masanın üzerinde açtım. Tavanda loş bir sarı ışık yanıyor. Yerlerde yer yer kan lekeleri var.",
+        "murder_story_27_answer_1": "Kimse gelmeden çık oradan.",
+        "murder_story_27_answer_2": "Orası ameliyathane olmalı!",
+        
+        "murder_story_28_history": "Belgelere göz atıyorum. Çoğu yanmış ama bazı kağıtlar hâlâ okunabilir durumda. Bir harita ve... bir şirket logosu var. \"DarkC\" yazıyor. Bu da ne demek?",
+        "murder_story_28_answer_1": "Haritayı incele.",
+        "murder_story_28_answer_2": "Belgeler hakkında daha fazla bilgi ara.",
+
+        "murder_story_29_history": "Belki telefon ve bilgisayarda bu konu hakkında bir şeyler daha bulabilirdim ama şu an ikisi de kullanabilir durumda değil. Bence artık nerede olduğumu ve nereye gitmem gerektiğini görebilmek için haritayı incelemem gerek.",
+        "murder_story_29_answer_1": "Nerede olduğumuzu öğren.",
+        "murder_story_29_answer_2": "Haritayı incele.",
+
+        "murder_story_30_history": "Haritayı incelemeye başladım. Burası... burası benim olduğum yere benziyor. Ve kırmızı bir işaret var. Tam da şu an bulunduğum yere yakın bir noktada. Bu bir tesadüf olamaz değil mi?",
+        "murder_story_30_answer_1": "İşaretli noktaya gitmeyi dene.",
+        "murder_story_30_answer_2": "Çantadaki diğer eşyaları kontrol et.",
+        
+        "murder_story_31_history": "Tamamdır. Diğer eşyalara bir göz atayım. Bilgisarayı açmaya çalışıyorum ama şifre istiyor. Telefon da aynı şekilde. Ama... bir saniye, çantanın iç cebinde küçük bir not var.",
+        "murder_story_31_answer_1": "Ne yazıyor? Okuyabiliyor musun?",
+        "murder_story_31_answer_2": "Şifre için bir ipucu olabilir mi?",
+        
+        "murder_story_32_history": "Evet, burada kesinlikle bir şey ölmüş, ama bir hayvan düşmüş olsaydı, üstünü bu şekilde kapatmazlardı diye düşünüyorum. Belki de bir cinayeti örtbas etmeye çalışmışlar. Sanırım haklıyım, çünkü az ileride bir ayakkabı görüyorum ve hemen yanına gidiyorum. Evet! Bu kesinlikle bir cinayet, çünkü ayakkabının her yeri kan içinde.",
+        "murder_story_32_answer_1": "Haritayı kullanarak oradan uzaklaş.",
+        "murder_story_32_answer_2": "Kuyunun içine inebilir misin?",
+        
+        "murder_story_33_history": "Sanırım şifre sadece 6 rakamdan oluşuyor ve bilgisayardaki şifre için istenen pin kodu ile aynı uzunlukta. Bakalım, şifre bu mu? Evet, açıldı! Tanrım, şarjı çok az; ne yapmalıyım?",
+        "murder_story_33_answer_1": "Diskleri kontrol et.",
+        "murder_story_33_answer_2": "Açabildiğin tüm dosyalara bak.",
+        
+        "murder_story_34_history": "Deniyorum, ama cihaz kapanmak üzere. Bir dosya gözüme çarptı; adı 'kaldır.' İçinde insanların resimleri var. Ve… buradaki kişi benim! Bu nasıl olabilir?",
+        "murder_story_34_answer_1": "Bu, 'ortadan kaldır' anlamına geliyor olabilir mi?",
+        "murder_story_34_answer_2": "Hemen kaç oradan!",
+        
+        "murder_story_35_history": "Haritada gidebileceğim bir yer gözükmüyor. Bu kuyunun içinde ne varsa bizi aydınlatabilir. Çok derin görünmüyor; belki kalın ağaç dallarını destek olarak kullanıp inebilirim. Koku çok ağır, bu yüzden tişörtümü burnuma sarmak zorundayım. İniyorum. Burada büyük, siyah bir poşet var ve üstüne bantlanmış bir not var; sadece 'Lucy' yazıyor. Bu, kız kardeşimin adı. Tanrım, olamaz, olmamalı! Poşeti açmak istemiyorum, bu gerçek değil!",
+        "murder_story_35_answer_1": "Öğrenmek zorundasın.",
+        "murder_story_35_answer_2": "Poşeti aç.",
+        
+        "murder_story_36_history": "İşaretli noktaya doğru gidiyorum. Neredeyse varmak üzereyim. Galiba… bu mu? Burada, üzeri dallarla kapatılmış bir delik var. Sanırım bu bir kuyu ve işaretli nokta tam olarak burayı gösteriyor. Kuyunun yanına yaklaştım ve üzerindeki dal parçalarını kenara koydum. Burnuma inanılmaz bir koku gelmeye başladı; çürümüş bir şeylerin kokusu ve neredeyse kusacaktım. Kendimi zor attım kenara.",
+        "murder_story_36_answer_1": "Oraya inmen senin için tehlikeli olabilir.",
+        "murder_story_36_answer_2": "İçerisine bir hayvan düşmüş olabilir.",
+        
+        "murder_story_37_history": "Çok derin görünmüyor; belki kalın ağaç dallarını destek olarak kullanıp inebilirim. Koku çok ağır, bu yüzden tişörtümü burnuma sarmak zorundayım. İniyorum. Burada büyük, siyah bir poşet var ve üstüne bantlanmış bir not var; sadece 'Lucy' yazıyor. Kız kardeşimin adı da bu. Tanrım, olamaz, olmamalı! Poşeti açmak istemiyorum, bu gerçek değil!",
+        "murder_story_37_answer_1": "Öğrenmek zorundasın.",
+        "murder_story_37_answer_2": "Poşeti aç.",
+        
+        "murder_story_38_history": "Bu… bu… kardeşim. Kolunda ise 'kaç' yazıyor, kanla yazılmış. Neler oluyor? Bütün bu olaylar ne anlama geliyor? Kardeşimin cesedini mi buldum? Başım dönüyor.",
+        "murder_story_38_answer_1": "Hey! Orada mısın?",
+        "murder_story_38_answer_2": "İyi misin? Çabuk çık oradan!",
+        
+        "murder_story_39_history": "Bayılmışım ve yağmur yağmaya başlamış. Uyanmasaydım, kuyunun içerisinde boğulacakmışım. Kendimi dışarı zor attım ve cihaz düzgün çalışmamaya başladı.",
+        "murder_story_39_answer_1": "Artık oradan uzaklaş.",
+        "murder_story_39_answer_2": "Kaçmak zorundasın.",
+        
+        "murder_story_40_history": "Galiba haklısın, canım tehlikede. Bekle! Birisi beni izliyor. Tam karşımda.",
+        "murder_story_40_answer_1": "Ne görüyorsun?",
+        "murder_story_40_answer_2": "Karşında olan kim?",
+        
+        "murder_story_41_history": "Bağlantı koptu.",
+        "murder_story_41_answer_1": "Korkuyorum iyi misin?",
+        "murder_story_41_answer_2": "Lütfen iyi olduğunu söyle.",
+        
+        "murder_story_42_history": "Sinyal yok.",
+        "murder_story_42_answer_1": "Lütfen cevap ver",
+        "murder_story_42_answer_2": "Yaşıyor musun?",
+        
+        "murder_story_43_history": "Evet, yaşıyorum. Buraya nasıl geldim? Hatırladığım son şey, simsiyah giyinmiş birinin elindeki bezle yüzümü kapatmasıydı. Burası da ne böyle? Bulunduğum yerde çan sesleri geliyor. Yoksa beni kiliseye mi getirdiler?",
+        "murder_story_43_answer_1": "Etrafında neler var?",
+        "murder_story_43_answer_2": "Bulunduğun yeri tarif et.",
+        
+        "murder_story_44_history": "Sesler… sanki birileri konuşuyor gibi. Ama ne söyledikleri anlaşılmıyor. Ve…",
+        "murder_story_44_answer_1": "Ve?",
+        "murder_story_44_answer_2": "Orada mısın?",
+        
+        "murder_story_45_history": "Buradayım. Sanırım telefonun sinyali burada iyi çekmiyor. Ve… sanırım bir radyo sesi de var. Yaklaşayım mı?",
+        "murder_story_45_answer_1": "Evet ama dikkatli ol.",
+        "murder_story_45_answer_2": "Hayır, güvenli olmayabilir. Geri dön.",
+        
+        "murder_story_46_history": "Tamam, çok yavaşça ilerliyorum. Ağaçların arasından bir açıklık görüyorum. Ve…",
+        "murder_story_46_answer_1": "Ne görüyorsun? Hemen anlat!",
+        "murder_story_46_answer_2": "Sakin ol. Derin nefes al ve gördüklerini anlat.",
+        
+        "murder_story_47_history": "Evet, bu tehlikeli olabilir ama hava neredeyse kararmak üzere ve ormanda bu şekilde hayatta kalamam. Bu yüzden özür dilerim, gitmek zorundayım. Bir saniye, o da ne!",
+        "murder_story_47_answer_1": "Ne görüyorsun? Hemen anlat!",
+        "murder_story_47_answer_2": "Sakin ol. Derin nefes al ve gördüklerini anlat.",
+        
+        "murder_story_48_history": "Bir küçük kamp alanı var. İki çadır kurulmuş, bir kamp ateşi yanıyor ve etrafında üç adam oturuyor. Kamp malzemeleri dağılmış. Giyimleri normal ama biraz kirli; avcı gibiler.",
+        "murder_story_48_answer_1": "Biraz daha gözlemle.",
+        "murder_story_48_answer_2": "Yardım iste.",
+        
+        "murder_story_49_history": "Biraz daha izlemeye karar verdim. Adamlar birbirleriyle konuşuyorlar ama ne dediklerini tam olarak duyamıyorum. Biri elindeki haritaya bakıyor, diğer ikisi yemek hazırlıyor gibi görünüyor. Ne yapmalıyım?",
+        "murder_story_49_answer_1": "Sessizce daha da yaklaş, konuşmalarını duymaya çalış.",
+        "murder_story_49_answer_2": "Geri çekil ve başka bir yerde yardım ara.",
+        
+        "murder_story_50_history": "Daha fazla bilgi edinmeliyim. Yavaşça yaklaşıyorum. Şimdi konuşmaları duyabiliyorum ve... Tanrım! Bu adamlar avcı değil! Kaçırılmış birinden bahsediyorlar!",
+        "murder_story_50_answer_1": "Yanlarına git ve her şeyi anlat.",
+        "murder_story_50_answer_2": "Saklan ve dinlemeye devam et.",
+        
+        "murder_story_51_history": "Kalbim çok hızlı atıyor ama daha fazla bilgi edinmeliyim. Yavaşça yaklaşıyorum. Şimdi konuşmaları duyabiliyorum ve... Tanrım! Bu adamlar avcı değil! Kaçırılmış birinden bahsediyorlar!",
+        "murder_story_51_answer_1": "Yanlarına git ve her şeyi anlat.",
+        "murder_story_51_answer_2": "Saklan ve dinlemeye devam et.",
+        
+        "murder_story_52_history": "Sence bu çok tehlikeli olmaz mı? Beni öldürebilirler, bıçaklarını görmelisin. Duyduklarıma göre yabancı bir dilde konuşuyorlar, ne dediklerini anlamıyorum. Galiba birisi haritaya bakıyor.",
+        "murder_story_52_answer_1": "Haritaya ulaşabilirsen burdan kurtulabiliriz.",
+        "murder_story_52_answer_2": "Harita bizim kaçış yolumuz olabilir.",
+        
+        "murder_story_53_history": "Bekle... silah sesi duydum. Hepsi yerinden koşarak sese doğru koşmaya başladılar, işte orda harita yerde duruyor! gidip alıyım mı?",
+        "murder_story_53_answer_1": "Güzel bir fırsat hemen al.",
+        "murder_story_53_answer_2": "Çabuk ol yakalanma.",
+        
+        "murder_story_54_history": "Hayatımda hiç bu kadar panik yaptığımı hatırlamıyorum. Ve sana bir sürprizim var yerde çanta gördüm ve onu da aldım! Onlar dönmeden hemen burdan uzaklaşıyorum.",
+        "murder_story_54_answer_1": "Dikkatli ol ilk önce haritayı aç.",
+        "murder_story_54_answer_2": "Nerede olduğumuzu öğrenmeliyiz.",
+        
+        "murder_story_1001_history": "Buradan bişeylere ulaşmak zorundayız biraz daha dinliyorum ve birinden bahsediyorlar. Aman Allahım dal parçasına bastım hepsi buraya bakıyor ve üzerime doğru koşmaya başladılar!",
+        "murder_story_1001_answer_1": "Hikayeyi yeniden başlat.",
+        "murder_story_1001_answer_2": "Hikayeyi yeniden başlat.",
+        
+        "murder_story_56_history": "Gözlerimi demir bir masanın üzerinde açtım. Tavanda loş bir sarı ışık yanıyor. Yerlerde yer yer kan lekeleri var.",
+        "murder_story_56_answer_1": "Kimse gelmeden çık oradan.",
+        "murder_story_56_answer_2": "Orası ameliyathane olmalı!",
+        
+        "murder_story_57_history": "Buradan canlı çıkabileceğimi hiç sanmıyorum. Yerde parlayan bir şey var, ışıktan dolayı yerdeki kanlı neşteri bile göremedim. Elime aldım ve buradan çıkmalıyım.",
+        "murder_story_57_answer_1": "Dikkatli ol her an biri gelebilir!",
+        "murder_story_57_answer_2": "Kendini koru!",
+        
+        "murder_story_58_history": "Evet, bunu nasıl da düşünemedim! Işıktan dolayı yerdeki kanlı neşteri bile göremedim. Elime aldım ve buradan çıkmalıyım.",
+        "murder_story_58_answer_1": "Dikkatli ol her an biri gelebilir!",
+        "murder_story_58_answer_2": "Kendini koru!",
+        
+        "murder_story_59_history": "Az daha yakalanıyordum. Buraya doğru gelen bir gölge var. Kapının arkasına geçtim.",
+        "murder_story_59_answer_1": "Öldür onu!",
+        "murder_story_59_answer_2": "Kaçmak için kurtul ondan.",
+        
+        "murder_story_60_history": "Kendime inanamıyorum, az önce bir rahibi öldürdüm. Hayır! Bu rahip değilmiş.",
+        "murder_story_60_answer_1": "Nasıl anladın?",
+        "murder_story_60_answer_2": "Ortadan kaldır.",
+        
+        "murder_story_61_history": "Cesedi odanın en ucuna götürdüm. Elinde bir iğne vardı ve beni fark edince bana saplamaya çalıştı. Neden bir rahip bunu yapmaya çalışsın? Sanırım birden fazla kişi bu tarafa geliyor. Koşmaya başladım, yerler ıslak ve kaygan. Onlar da…",
+        "murder_story_61_answer_1": "Arkana bakmadan kaç oradan!",
+        "murder_story_61_answer_2": "Işık gördüğün yere doğru koş!",
+        
+        "murder_story_62_history": "Bağlantı koptu.",
+        "murder_story_62_answer_1": "Kurtuldun mu?",
+        "murder_story_62_answer_2": "İyi misin?",
+        
+        "murder_story_63_history": "Merdivenlerden yukarı doğru tırmandım. Üzerimde bir kapak vardı ve kaldırdığımda kendimi kilisenin günah çıkarma kabininde buldum. Kapağı kilitledim ama her an kırabilirler. Ne yapmalıyım?",
+        "murder_story_63_answer_1": "Kiliseden çık!",
+        "murder_story_63_answer_2": "Kilisenin içine saklan.",
+        
+        "murder_story_64_history": "Kapıyı zorluyorum ama açılmıyor. Neredeyse kapağı kırmak üzereler. Sanırım kapana kısıldım!",
+        "murder_story_64_answer_1": "Camı kır ve koş!",
+        "murder_story_64_answer_2": "Camı kır ve saklan!",
+        
+        "murder_story_65_history": "Şurada bir kutu görüyorum. Sanırım içine sığabilirim. Umarım beni bulamazlar.",
+        "murder_story_65_answer_1": "Etrafın sakinleşmesini bekle.",
+        "murder_story_65_answer_2": "Sakın ses yapma!",
+        
+        "murder_story_66_history": "Camı kırdım ama tam çıkarken cam bacağımı yırttı. Sanırım kapağı kırdılar, çünkü bağırma sesleri geliyor. Burada neler dönüyor böyle? Çok fazla kanıyorum, bu yüzden koşamıyorum.",
+        "murder_story_66_answer_1": "Durmak için vaktin yok uzaklaş!",
+        "murder_story_66_answer_2": "Yarayı sar.",
+        
+        "murder_story_67_history": "Camı kırdım ve kenardaki kutunun içine saklandım. Umarım burada beni bulamazlar.",
+        "murder_story_67_answer_1": "Etrafın sakinleşmesini bekle.",
+        "murder_story_67_answer_2": "Sakın ses yapma!",
+        
+        "murder_story_68_history": "Adrenalin bütün vücudumu sardı ve kısa sürede izimi bulamayacakları kadar uzaklaştım. O insanlar katil! Kaçarken çoğu şeyi yazamadım ama orada gördüklerim hala gözlerimin önünde. Koridorlarda insan resimleri vardı; bunlar, öldürdükleri veya peşinde oldukları kişilere ait olmalı.",
+        "murder_story_68_answer_1": "Ormandan kurtulmalısın.",
+        "murder_story_68_answer_2": "Oraya geri dön ve gerçekleri öğren.",
+        
+        "murder_story_69_history": "Tişörtümün kolunu yırttım ve yarayı sardım. Çok fazla vakit kaybettim. Hayır… geliyorlar! Sanırım buraya kadar.",
+        "murder_story_69_answer_1": "Kaçmak zorundasın!",
+        "murder_story_69_answer_2": "Hayır pes edemezsin!",
+        
+        "murder_story_70_history": "Kalbim yerinden çıkmak üzere. Kapağı kırdılar! 'Nasıl kaçar o?' diye bağırıyor biri. Sanırım camdan kaçtığımı düşünüyorlar. Neden gülmeye başladılar? Adım sesleri bu tarafa doğru geliyor. Tanrım, hayır! Ayak izlerim!",
+        "murder_story_70_answer_1": "Seni bulmadıklarını söyle bana!",
+        "murder_story_70_answer_2": "Orada mısın?",
+        
+        "murder_story_71_history": "Koşarken farkında olmadan toprak yoldan geçtim. Takip edersem ana yola çıkabiliriz.",
+        "murder_story_71_answer_1": "Başka şansımız yok.",
+        "murder_story_71_answer_2": "Yolu takip et.",
+        
+        "murder_story_72_history": "O insanlar katil! Her yer ceset kokuyordu ve hâlâ kendimde değilim. Oraya geri dönmek canımla sonuçlanabilir.",
+        "murder_story_72_answer_1": "Haklısın, tuzak kurmalıyız.",
+        "murder_story_72_answer_2": "Plan yapmalıyız.",
+        
+        "murder_story_73_history": "Tamam, yolu takip ediyorum. Ne kadar süredir yürüdüğümü bilmiyorum; çok yoruldum. İleride demir çitler görüyorum, belki çıkış olabilir! Çitlerin üzerinde bir tabela var: 'Kırmızı Kilise Alanı Giriş Yasaktır!' Kırmızı Kilise mi? Neresi burası böyle? O da ne! Ağaçta bir kamera var ve tam da bana döndü! Kahretsin! İşte orada!",
+        "murder_story_73_answer_1": "Ne oldu? Söyle!",
+        "murder_story_73_answer_2": "Hey, orada mısın?",
+        
+        "murder_story_74_history": "Tek sahip olduğum şey elimde sımsıkı tuttuğum bu kanlı neşter ve işe yaramaz bu çanta. Bekle, daha fazla kurcalıyorum. Sana kötü bir haberim var: En başından beri izleniyoruz. Çantada bir takip cihazı var.",
+        "murder_story_74_answer_1": "Çantayı yem olarak kullan.",
+        "murder_story_74_answer_2": "Onları istediğimiz konuma getirmelisin.",
+        
+        "murder_story_75_history": "Çantayı otların arasına sakladım ve uzaklaştım. Çok geçmedi, işte sanırım biri geliyor. Ağacın arkasındayım ve önümden geçmesini bekliyorum.",
+        "murder_story_75_answer_1": "Bekle ve bitir işini.",
+        "murder_story_75_answer_2": "Öldürme, konuşturmalıyız.",
+        
+        "murder_story_76_history": "Demek ki sen beni öldürmeye geliyorsun, öyle mi? Son nefesini kesilmiş soluk borundan verdiğin için çok üzgünüm, yanlış kişinin hedefindeydin dostum! Sıra arkadaşına geldi.",
+        "murder_story_76_answer_1": "Bunu yaptığına inanamıyorum.",
+        "murder_story_76_answer_2": "Hala gerçekleri öğrenmemiz gerekli.",
+        
+        "murder_story_77_history": "Hâlâ son katilden her şeyi öğrenebiliriz. Cesedi ortadan kaldırıyorum ve beklemeye başlıyorum. Gece oldu, sanırım biri geliyor! Gel bakalım, arkadaşını yalnız bırakma, değil mi, aptal!",
+        "murder_story_77_answer_1": "Öldürme onu!",
+        "murder_story_77_answer_2": "Hayır dur!",
+        
+        "murder_story_78_history": "İşte bu kadar yemi yutacağını biliyordum. Karnında neşterle kıvranıyor; konuşturmayı deneyeceğim. Bunları duymalısın! Üvey annem, kardeşimle beni öldürtmek için… Bize bunu neden yaptın?",
+        "murder_story_78_answer_1": "Üvey annen mi?",
+        "murder_story_78_answer_2": "Bu da ne demek!",
+        
+        "murder_story_79_history": "Evet, şimdi hatırlıyorum. En son, üvey annemin bizden kurtulmak istediğini duymuştum. Beni buraya o getirmiş olmalı. Son hatırladığım şey, arabayla beni eve götürürken kahve almıştı, ama devamını hatırlamıyorum. Beni zehirlemiş olmalı!",
+        "murder_story_79_answer_1": "Beklediğimizden zekiydin evlat.",
+        "murder_story_79_answer_2": "Tahmin ettiğimizden iyiydin.",
+        
+        "murder_story_1004_history": "Kimsin sen! Anne, baba? Bunu bana neden yaptınız? Ne istediniz kardeşimden? Ne istediniz?! Kaçacak delik arayın çünkü artık…",
+        "murder_story_1004_answer_1": "Hikayeyi yeniden başlat.",
+        "murder_story_1004_answer_2": "Hikayeyi yeniden başlat.",
+
+        "murder_story_1002_history": "Denek 17 başarısız. Sinyal koptu.",
+        "murder_story_1002_answer_1": "Hikayeyi yeniden başlat.",
+        "murder_story_1002_answer_2": "Hikayeyi yeniden başlat.",
+
+        "murder_story_1003_history": "Artık ulaşılabilir değil.",
+        "murder_story_1003_answer_1": "Hikayeyi yeniden başlat.",
+        "murder_story_1003_answer_2": "Hikayeyi yeniden başlat.",
+
+        "murder_story_1000_history": "Sinyal Koptu! Bir daha sinyal alınamadı..",
+        "murder_story_1000_answer_1": "Hikayeyi yeniden başlat.",
+        "murder_story_1000_answer_2": "Hikayeyi yeniden başlat."
+
+        
+
 }
