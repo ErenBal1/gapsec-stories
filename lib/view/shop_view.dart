@@ -122,7 +122,7 @@ class _ShopViewState extends State<ShopView> {
 
   int _tokensFromProductId(String productId) {
     switch (productId) {
-      case 'token_100':
+      case 'token_100': //mystoken_100
         return 100;
       case 'token_200':
         return 200;
@@ -156,7 +156,6 @@ class _ShopViewState extends State<ShopView> {
 
       if (response.notFoundIDs.isNotEmpty) {
         // Ürün bulunamadı
-        _addTokens(amount); // tabiki yeri burası değil denemek içim koyuyoz
         return showOkAlertDialogWidget(context, "Product not found.");
       }
 
@@ -168,6 +167,7 @@ class _ShopViewState extends State<ShopView> {
           .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
           .then((_) {
         showOkAlertDialogWidget(context, 'Purchase initiated.');
+        _addTokens(amount);
       }).catchError((error) {
         showOkAlertDialogWidget(context, 'Error initiating purchase: $error');
       });
