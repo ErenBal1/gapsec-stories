@@ -32,7 +32,7 @@ class _NewGameViewState extends State<NewGameView> {
     super.initState();
     _updateDefaultValues();
     _controller =
-        VideoPlayerController.asset('assets/videos/new_game_video.mp4')
+        VideoPlayerController.asset(ConstantPaths.newGameBackgroundVideo)
           ..initialize().then((_) {
             _controller.setLooping(true);
             setState(() {

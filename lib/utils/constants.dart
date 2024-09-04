@@ -1,8 +1,35 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 
-class Constants {
-  static const mainPageBackgroundImage = "assets/images/ups_new_background.jpg";
+class ConstantPaths {
+  static const mainPageBackgroundImage =
+      "assets/images/main-menu-background.png";
   static const tokenImagePath = 'assets/images/mystoken.png';
+  static const shopTitle = 'assets/images/MystokenShop-title.png';
+  static const infoPageBackgroundImage =
+      "assets/images/info-page-background.png";
+  static const newGameBackgroundVideo =
+      'assets/videos/new-game-background-video.mp4';
+  static const continueBackgroundVideo =
+      'assets/videos/continue-background-video.mp4';
+}
+
+class ConstantTexts {
+  static const String GAPSEC = "GAPSEC";
+  static const String NEW_GAME = "new_game_button";
+  static const String CONTINUE = "load_game_button";
+  static const String STORIES = "stories_button";
+  static const String watchADforFreeTokens = "watchADforFreeTokens";
+  static const String BuyNow = "buyNow";
+  static const String CreatedBy = "createdBy";
+  static const String Developers = "developers";
+  static const String Contributors = "contributors";
+  static const String devast = "DEVAST";
+  static const String developersnames = "TAHA YASIN BIKE   EREN BAL";
+  static const String contributorsnames = "TAHA YASIN BIKE   EREN BAL";
+  static const String Version = "Version 1.0.0";
+  static const String murdertitle = "murderTitle";
 }
 
 class LanguageConstants {

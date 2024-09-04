@@ -75,7 +75,7 @@ class TokenCounter extends StatelessWidget {
                           );
                         }),
                         const SizedBox(width: 6),
-                        GlowingToken(Constants.tokenImagePath, Colors.red),
+                        GlowingToken(ConstantPaths.tokenImagePath, Colors.red),
                       ],
                     ),
                   ),

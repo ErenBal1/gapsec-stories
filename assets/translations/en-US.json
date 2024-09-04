@@ -4,6 +4,12 @@
         "stories_button" : "Stories",
         "murderTitle" : "Murder",
         "waitingformessage" : "Waiting for message...",
+        "watchADforFreeTokens" : "Watch Ad for Free Tokens",
+        "buyNow" : "Buy Now",
+        "createdBy" : "Created By",
+        "developers": "Developers",
+        "contributors": "Contributors",
+        
 
         "murder_story_0_history": "Hello. Is this thing not working? Please respond if anyone can read this!",
         "murder_story_0_answer_1": "Who are you?",
