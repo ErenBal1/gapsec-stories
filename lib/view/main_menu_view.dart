@@ -4,6 +4,7 @@ import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_font.dart';
+import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/widgets/main_menu_widget/main_menu_buttons.dart';
 import 'package:gapsec/widgets/main_menu_widget/settings.dart';
 import 'package:gapsec/widgets/main_menu_widget/token_counter.dart';
@@ -32,7 +33,7 @@ class MainMenuView extends StatelessWidget {
             showDistortions: showDistortion,
             controller: controller,
             child: Image.asset(
-              'assets/images/car.png',
+              ConstantPaths.mainPageBackgroundImage,
               fit: BoxFit.cover,
             ),
           ),
@@ -41,7 +42,9 @@ class MainMenuView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SafeArea(child: Text("GAPSEC", style: AppFonts.mainMenuTitle)),
+              SafeArea(
+                  child: Text(ConstantTexts.GAPSEC,
+                      style: AppFonts.mainMenuTitle)),
               const SizedBox(
                 height: 30,
               ),

@@ -4,6 +4,13 @@
         "stories_button" : "Hikayeler",
         "murderTitle" : "Katil",
         "waitingformessage" : "Mesaj bekleniyor...",
+        "watchADforFreeTokens" : "Ücretsiz Jeton İçin Reklam İzleyin",
+        "buyNow" : "Satın Alın",
+        "createdBy" : "Oluşturan",
+        "developers": "Geliştiriciler",
+        "contributors": "Katkıda Bulunanlar",
+
+
 
         "murder_story_0_history": "Merhaba. Bu şey çalışmıyor mu? Lütfen biri bu yazımı okuyabiliyorsa cevap versin!",
         "murder_story_0_answer_1": "Sen de kimsin?",
@@ -117,7 +124,7 @@
         "murder_story_27_answer_1": "Kimse gelmeden çık oradan.",
         "murder_story_27_answer_2": "Orası ameliyathane olmalı!",
         
-        "murder_story_28_history": "Belgelere göz atıyorum. Çoğu yanmış ama bazı kağıtlar hâlâ okunabilir durumda. Bir harita ve... bir şirket logosu var. \"DarkC\" yazıyor. Bu da ne demek?",
+        "murder_story_28_history": "Belgelere göz atıyorum. Çoğu yanmış ama bazı kağıtlar hâlâ okunabilir durumda. Bir harita ve... bir şirket logosu var, bilgisayardaki ile aynı. Tam okuyamıyorum, sence ne yapmalıyım?",
         "murder_story_28_answer_1": "Haritayı incele.",
         "murder_story_28_answer_2": "Belgeler hakkında daha fazla bilgi ara.",
 

@@ -4,6 +4,12 @@
         "stories_button" : "Stories",
         "murderTitle" : "Murder",
         "waitingformessage" : "Waiting for message...",
+        "watchADforFreeTokens" : "Watch Ad for Free Tokens",
+        "buyNow" : "Buy Now",
+        "createdBy" : "Created By",
+        "developers": "Developers",
+        "contributors": "Contributors",
+        
 
         "murder_story_0_history": "Hello. Is this thing not working? Please respond if anyone can read this!",
         "murder_story_0_answer_1": "Who are you?",
@@ -117,7 +123,7 @@
         "murder_story_27_answer_1": "Get out of there before someone comes.",
         "murder_story_27_answer_2": "That must be an operating room!",
         
-        "murder_story_28_history": "I'm looking at the documents. Most of them are burned, but some papers are still readable. There's a map and... a company logo. It says \"DarkC\". What does this mean?",
+        "murder_story_28_history": "I'm looking through the documents. Most of them are burned, but some papers are still readable. There's a map and... a company logo, the same as the one on the computer. I can't read it fully, what do you think I should do?",
         "murder_story_28_answer_1": "Examine the map.",
         "murder_story_28_answer_2": "Look for more information about the documents.",
         

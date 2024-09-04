@@ -191,11 +191,11 @@ class _ChatViewState extends State<ChatView> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/cpp.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
+            // image: DecorationImage(
+            //   image: AssetImage("assets/images/cpp.png"),
+            //   fit: BoxFit.contain,
+            // ),
+            ),
         child: SafeArea(
           child: Column(
             children: [

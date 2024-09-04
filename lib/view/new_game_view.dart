@@ -32,7 +32,7 @@ class _NewGameViewState extends State<NewGameView> {
     super.initState();
     _updateDefaultValues();
     _controller =
-        VideoPlayerController.asset('assets/videos/new_game_video.mp4')
+        VideoPlayerController.asset(ConstantPaths.newGameBackgroundVideo)
           ..initialize().then((_) {
             _controller.setLooping(true);
             setState(() {
@@ -152,7 +152,7 @@ class _NewGameViewState extends State<NewGameView> {
                           page: const StoriesView(), context: context),
                       child: const FittedBox(
                         child: Text(
-                          "UNLOCK MORE...",
+                          "DAHA FAZLASI ICIN", //daha fazla ac
                           style: TextStyle(
                               shadows: [
                                 Shadow(
@@ -178,7 +178,7 @@ class _NewGameViewState extends State<NewGameView> {
                   width: Config.screenWidth! * 0.4,
                   height: Config.screenWidth! * 0.4,
                   child: Image.asset(
-                    "assets/images/keystore.png",
+                    "assets/images/keystore.png", //CONST PATH
                     color: CustomColors.white,
                     fit: BoxFit.cover,
                   ))),
@@ -190,7 +190,7 @@ class _NewGameViewState extends State<NewGameView> {
                   width: 100,
                   height: 140,
                   child: Image.asset(
-                    "assets/images/lamb.png",
+                    "assets/images/lamb.png", //CONST PATH
                     fit: BoxFit.cover,
                   ))),
           Positioned(
@@ -234,7 +234,7 @@ class _NewGameViewState extends State<NewGameView> {
               width: 50,
               height: 50,
               child: Image.asset(
-                "assets/images/key.png",
+                "assets/images/key.png", //CONST PATH
                 fit: BoxFit.cover,
               )),
         ),
@@ -285,7 +285,7 @@ class _NewGameViewState extends State<NewGameView> {
                       } else {
                         AlertWidgets().showOkAlert(
                             context,
-                            "Yayında Aktif Olucak",
+                            "Uygulama Yayınlanınca Aktif Olacak.",
                             "Test Mode",
                             "Tamam",
                             () => print("hell"));

@@ -30,7 +30,7 @@ class BuyTokenContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            Constants.tokenImagePath,
+            ConstantPaths.tokenImagePath,
             height: 60,
             width: 60,
           ),

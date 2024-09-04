@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
+import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/continue_view.dart';
 import 'package:gapsec/view/new_game_view.dart';
 import 'package:gapsec/view/stories_view.dart';
@@ -26,7 +27,7 @@ class _MenuButtonsState extends State<MenuButtons> {
               widget.vm.goToPage(context: context, page: const NewGameView()),
           animatedTexts: [
             TyperAnimatedText(
-              "new_game_button".tr(),
+              ConstantTexts.NEW_GAME.tr(),
               textStyle: AppFonts.mainMenuButton,
               speed: const Duration(milliseconds: 80),
             ),
@@ -41,7 +42,7 @@ class _MenuButtonsState extends State<MenuButtons> {
               widget.vm.goToPage(context: context, page: const ContinueView()),
           animatedTexts: [
             TyperAnimatedText(
-              'load_game_button'.tr(),
+              ConstantTexts.CONTINUE.tr(),
               textStyle: AppFonts.mainMenuButton,
               speed: const Duration(milliseconds: 80),
             ),
@@ -56,7 +57,7 @@ class _MenuButtonsState extends State<MenuButtons> {
               widget.vm.goToPage(context: context, page: const StoriesView()),
           animatedTexts: [
             TyperAnimatedText(
-              'stories_button'.tr(),
+              ConstantTexts.STORIES.tr(),
               textStyle: AppFonts.mainMenuButton,
               speed: const Duration(milliseconds: 80),
             ),

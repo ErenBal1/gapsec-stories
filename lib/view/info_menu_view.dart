@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/constants.dart';
 import 'package:page_transition/page_transition.dart';
 
 class InfoMenuView extends StatelessWidget {
@@ -13,7 +15,7 @@ class InfoMenuView extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            "assets/images/arkaa.png",
+            ConstantPaths.infoPageBackgroundImage,
             fit: BoxFit.fill,
           ),
           SafeArea(
@@ -41,19 +43,20 @@ class InfoMenuView extends StatelessWidget {
 
                 Column(
                   children: [
-                    _buildCreditText('Created By', 'DEVAST'),
-                    const SizedBox(height: 8),
                     _buildCreditText(
-                        'Developers', 'TAHA YASIN BIKE   EREN BAL'),
+                        ConstantTexts.CreatedBy.tr(), ConstantTexts.devast),
                     const SizedBox(height: 8),
-                    _buildCreditText(
-                        'Contributors', 'TAHA YASIN BIKE   EREN BAL'),
+                    _buildCreditText(ConstantTexts.Developers.tr(),
+                        ConstantTexts.developersnames),
+                    const SizedBox(height: 8),
+                    _buildCreditText(ConstantTexts.Contributors.tr(),
+                        ConstantTexts.contributorsnames),
                   ],
                 ),
                 const Spacer(),
                 // Version Info
                 const Text(
-                  'Version 1.0.0',
+                  ConstantTexts.Version,
                   style: TextStyle(
                     color: Colors.white70,
                     fontSize: 14,

@@ -1,4 +1,5 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/adMobService/ad_mob_service.dart';
@@ -121,7 +122,7 @@ class _ShopViewState extends State<ShopView> {
 
   int _tokensFromProductId(String productId) {
     switch (productId) {
-      case 'token_100':
+      case 'token_100': //mystoken_100
         return 100;
       case 'token_200':
         return 200;
@@ -155,7 +156,6 @@ class _ShopViewState extends State<ShopView> {
 
       if (response.notFoundIDs.isNotEmpty) {
         // Ürün bulunamadı
-        _addTokens(amount); // tabiki yeri burası değil denemek içim koyuyoz
         return showOkAlertDialogWidget(context, "Product not found.");
       }
 
@@ -167,6 +167,7 @@ class _ShopViewState extends State<ShopView> {
           .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
           .then((_) {
         showOkAlertDialogWidget(context, 'Purchase initiated.');
+        _addTokens(amount);
       }).catchError((error) {
         showOkAlertDialogWidget(context, 'Error initiating purchase: $error');
       });
@@ -192,7 +193,7 @@ class _ShopViewState extends State<ShopView> {
                 size: 25,
                 color: CustomColors.white,
               )),
-          title: Image.asset('assets/images/MystokenShop-title.png'),
+          title: Image.asset(ConstantPaths.shopTitle),
           backgroundColor: CustomColors.storyCardColor,
           elevation: 0,
           actions: [
@@ -226,7 +227,7 @@ class _ShopViewState extends State<ShopView> {
                       ],
                     ),
                     child: Image.asset(
-                      Constants.tokenImagePath,
+                      ConstantPaths.tokenImagePath,
                       height: 30,
                       width: 30,
                     ),
@@ -254,7 +255,7 @@ class _ShopViewState extends State<ShopView> {
           child: ElevatedButton.icon(
             onPressed: _showRewardedAd,
             icon: const Icon(Icons.videocam),
-            label: const Text('Watch Ad for Free Tokens'),
+            label: Text(ConstantTexts.watchADforFreeTokens.tr()),
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
               backgroundColor: Colors.amber,
@@ -295,7 +296,7 @@ class _ShopViewState extends State<ShopView> {
                             height: 10,
                           ),
                           Image.asset(
-                            Constants.tokenImagePath,
+                            ConstantPaths.tokenImagePath,
                             height: 60,
                             width: 60,
                           ),
@@ -322,8 +323,8 @@ class _ShopViewState extends State<ShopView> {
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child:
-                                Text('Buy Now', style: AppFonts.shopBuyButton),
+                            child: Text(ConstantTexts.BuyNow.tr(),
+                                style: AppFonts.shopBuyButton),
                           ),
                         ],
                       ),
@@ -352,7 +353,7 @@ class _ShopViewState extends State<ShopView> {
                             height: 10,
                           ),
                           Image.asset(
-                            Constants.tokenImagePath,
+                            ConstantPaths.tokenImagePath,
                             height: 60,
                             width: 60,
                           ),
@@ -381,7 +382,7 @@ class _ShopViewState extends State<ShopView> {
                               ),
                             ),
                             child: Text(
-                              'Buy Now',
+                              ConstantTexts.BuyNow.tr(),
                               style: AppFonts.shopBuyButton,
                             ),
                           ),
@@ -416,7 +417,7 @@ class _ShopViewState extends State<ShopView> {
                             height: 10,
                           ),
                           Image.asset(
-                            Constants.tokenImagePath,
+                            ConstantPaths.tokenImagePath,
                             height: 60,
                             width: 60,
                           ),
@@ -445,7 +446,7 @@ class _ShopViewState extends State<ShopView> {
                               ),
                             ),
                             child: Text(
-                              'Buy Now',
+                              ConstantTexts.BuyNow.tr(),
                               style: AppFonts.shopBuyButton,
                             ),
                           ),
@@ -476,7 +477,7 @@ class _ShopViewState extends State<ShopView> {
                             height: 10,
                           ),
                           Image.asset(
-                            Constants.tokenImagePath,
+                            ConstantPaths.tokenImagePath,
                             height: 60,
                             width: 60,
                           ),
@@ -505,7 +506,7 @@ class _ShopViewState extends State<ShopView> {
                               ),
                             ),
                             child: Text(
-                              'Buy Now',
+                              ConstantTexts.BuyNow.tr(),
                               style: AppFonts.shopBuyButton,
                             ),
                           ),
@@ -540,7 +541,7 @@ class _ShopViewState extends State<ShopView> {
                             height: 10,
                           ),
                           Image.asset(
-                            Constants.tokenImagePath,
+                            ConstantPaths.tokenImagePath,
                             height: 60,
                             width: 60,
                           ),
@@ -569,7 +570,7 @@ class _ShopViewState extends State<ShopView> {
                               ),
                             ),
                             child: Text(
-                              'Buy Now',
+                              ConstantTexts.BuyNow.tr(),
                               style: AppFonts.shopBuyButton,
                             ),
                           ),
@@ -600,7 +601,7 @@ class _ShopViewState extends State<ShopView> {
                             height: 10,
                           ),
                           Image.asset(
-                            Constants.tokenImagePath,
+                            ConstantPaths.tokenImagePath,
                             height: 60,
                             width: 60,
                           ),
@@ -629,7 +630,7 @@ class _ShopViewState extends State<ShopView> {
                               ),
                             ),
                             child: Text(
-                              'Buy Now',
+                              ConstantTexts.BuyNow.tr(),
                               style: AppFonts.shopBuyButton,
                             ),
                           ),
