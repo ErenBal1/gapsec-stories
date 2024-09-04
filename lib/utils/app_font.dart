@@ -56,4 +56,22 @@ class AppFonts {
     fontWeight: FontWeight.w800,
     color: Color.fromARGB(146, 244, 67, 54),
   );
+  static const splashScreenColorizeTextStyle = TextStyle(
+    fontSize: 50.0,
+    fontFamily: 'HorrorFont',
+  );
+
+  static const unlockMoreButtonTextStyle = TextStyle(
+      shadows: [Shadow(blurRadius: 8, color: CustomColors.yellow)],
+      fontFamily: "PixelFont",
+      color: CustomColors.white);
+
+  static const storyTitleTextStyle = TextStyle(
+    fontFamily: "PixelFont",
+  );
+  static const waitingForMessageTextStyle =
+      TextStyle(color: Colors.green, fontSize: 14);
+
+  static const storyTitleInGameTextStyle =
+      TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold);
 }

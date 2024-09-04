@@ -1,6 +1,7 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gapsec/utils/app_font.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
@@ -34,7 +35,6 @@ class _ChatViewState extends State<ChatView> {
   final _databaseService = DatabaseService();
   int storyMapId = 0;
   late List repo = [];
-  String mp3Path = "assets/sounds/runKaity.mp3";
   String selectedTexts = "";
   final ScrollController _scrollController = ScrollController();
 
@@ -125,15 +125,16 @@ class _ChatViewState extends State<ChatView> {
   @override
   void initState() {
     print(widget.selectedTextType.toString());
-    mp3controller = VideoPlayerController.asset(mp3Path)
-      ..initialize().then((_) {
-        mp3controller.setLooping(true);
-        setState(() {
-          mp3controller.value.isPlaying
-              ? mp3controller.pause()
-              : mp3controller.play();
-        });
-      });
+    mp3controller =
+        VideoPlayerController.asset(ConstantPaths.murderBackgroundMusicPath)
+          ..initialize().then((_) {
+            mp3controller.setLooping(true);
+            setState(() {
+              mp3controller.value.isPlaying
+                  ? mp3controller.pause()
+                  : mp3controller.play();
+            });
+          });
 
     Future.delayed(const Duration(seconds: 3), () {
       textCompleted = true;
@@ -211,13 +212,8 @@ class _ChatViewState extends State<ChatView> {
                           color: Colors.green, size: 20),
                       onPressed: () => Navigator.pop(context),
                     ),
-                    const Text(
-                      "Murder",
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
-                    ),
+                    const Text(ConstantTexts.murder,
+                        style: AppFonts.storyTitleInGameTextStyle),
                   ],
                 ),
               ),
@@ -325,9 +321,8 @@ class _ChatViewState extends State<ChatView> {
                       ),
                       const SizedBox(width: 10),
                       Text(
-                        "waitingformessage".tr(),
-                        style:
-                            const TextStyle(color: Colors.green, fontSize: 14),
+                        ConstantTexts.waitingForMessage.tr(),
+                        style: AppFonts.waitingForMessageTextStyle,
                       ),
                     ],
                   ),
@@ -377,7 +372,7 @@ class _ChatViewState extends State<ChatView> {
 
     if (storyMapId >= 900) {
       print("hikaye sona geldi");
-      _showOkAlertDialogWidget(context, "Bölüm sonuna ulaştınız!");
+      _showOkAlertDialogWidget(context, ConstantTexts.you_have_reached_the_end);
       setState(() {
         isEnable = false;
       });

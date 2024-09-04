@@ -6,8 +6,8 @@ import 'package:gapsec/adMobService/ad_mob_service.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
-import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/widgets/shop_view_widget/buy_token_container.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
@@ -122,17 +122,17 @@ class _ShopViewState extends State<ShopView> {
 
   int _tokensFromProductId(String productId) {
     switch (productId) {
-      case 'token_100': //mystoken_100
+      case 'mystoken_100':
         return 100;
-      case 'token_200':
+      case 'mystoken_200':
         return 200;
-      case 'token_300':
+      case 'mystoken_300':
         return 300;
-      case 'token_500':
+      case 'mystoken_500':
         return 500;
-      case 'token_600':
+      case 'mystoken_600':
         return 600;
-      case 'token_750':
+      case 'mystoken_750':
         return 750;
       default:
         return 0;
@@ -156,6 +156,7 @@ class _ShopViewState extends State<ShopView> {
 
       if (response.notFoundIDs.isNotEmpty) {
         // Ürün bulunamadı
+
         return showOkAlertDialogWidget(context, "Product not found.");
       }
 
@@ -173,8 +174,6 @@ class _ShopViewState extends State<ShopView> {
       });
     }
 
-    const Color cardColor = CustomColors.storyCardColor;
-    Color cardTitleColor = const Color.fromARGB(255, 218, 204, 204);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -274,391 +273,46 @@ class _ShopViewState extends State<ShopView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '100 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () async {
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 100);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(ConstantTexts.BuyNow.tr(),
-                                style: AppFonts.shopBuyButton),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                mystokenBuyContainer(
+                  buyToken: buyToken,
+                  productID: 'mystoken_100',
+                  amountOfToken: '100 Mystoken',
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '200 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 200);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                mystokenBuyContainer(
+                  buyToken: buyToken,
+                  productID: 'mystoken_200',
+                  amountOfToken: '200 Mystoken',
                 )
               ],
             ),
             Row(
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '300 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 300);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                mystokenBuyContainer(
+                  buyToken: buyToken,
+                  productID: 'mystoken_300',
+                  amountOfToken: '300 Mystoken',
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '500 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 500);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
+                mystokenBuyContainer(
+                  buyToken: buyToken,
+                  productID: 'mystoken_500',
+                  amountOfToken: '500 Mystoken',
+                ),
               ],
             ),
             Row(
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '600 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 600);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                mystokenBuyContainer(
+                  buyToken: buyToken,
+                  productID: 'mystoken_600',
+                  amountOfToken: '600 Mystoken',
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '750 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 750);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
+                mystokenBuyContainer(
+                  buyToken: buyToken,
+                  productID: 'mystoken_750',
+                  amountOfToken: '750 Mystoken',
+                ),
               ],
             ),
-            /* Expanded(
-              child: GridView.builder(
-                padding: const EdgeInsets.all(16),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.75,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                ),
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  return BuyTokenContainer(
-                    tokens: (index + 1) * 20,
-                    price: priceFunc(index, 6),
-                  );
-                },
-              ),
-            ), */
           ],
         ),
       ),

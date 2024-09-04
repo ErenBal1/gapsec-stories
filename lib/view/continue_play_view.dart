@@ -2,6 +2,7 @@ import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/utils/app_font.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:gapsec/cache/games_storage/games_storage.dart';
@@ -38,7 +39,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
   final _databaseService = DatabaseService();
   int storyMapId = 0;
   late List repo = [];
-  String mp3Path = "assets/sounds/runKaity.mp3";
   String selectedTexts = "";
   final ScrollController _scrollController = ScrollController();
 
@@ -199,15 +199,16 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
   @override
   void initState() {
-    mp3controller = VideoPlayerController.asset(mp3Path)
-      ..initialize().then((_) {
-        mp3controller.setLooping(true);
-        setState(() {
-          mp3controller.value.isPlaying
-              ? mp3controller.pause()
-              : mp3controller.play();
-        });
-      });
+    mp3controller =
+        VideoPlayerController.asset(ConstantPaths.murderBackgroundMusicPath)
+          ..initialize().then((_) {
+            mp3controller.setLooping(true);
+            setState(() {
+              mp3controller.value.isPlaying
+                  ? mp3controller.pause()
+                  : mp3controller.play();
+            });
+          });
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       switch (widget.selectedTextType) {
@@ -247,12 +248,12 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     Config().init(context);
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/cpp.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
+        // decoration: const BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage("assets/images/cpp.png"),
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
         child: SafeArea(
           child: Column(
             children: [
@@ -268,13 +269,8 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                           color: Colors.green, size: 20),
                       onPressed: () => Navigator.pop(context),
                     ),
-                    const Text(
-                      "Murder",
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
-                    ),
+                    const Text(ConstantTexts.murder,
+                        style: AppFonts.storyTitleInGameTextStyle),
                   ],
                 ),
               ),
@@ -368,10 +364,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   color: Colors.black.withOpacity(0.7),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                         height: 20,
                         child: LoadingIndicator(
@@ -380,10 +376,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                           strokeWidth: 2,
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
-                        "Mesaj bekleniyor...",
-                        style: TextStyle(color: Colors.green, fontSize: 14),
+                        ConstantTexts.waitingForMessage.tr(),
+                        style: AppFonts.waitingForMessageTextStyle,
                       ),
                     ],
                   ),
@@ -433,7 +429,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
     if (storyMapId >= 900) {
       print("hikaye sona geldi");
-      _showOkAlertDialogWidget(context, "Bölüm sonuna ulaştınız!");
+      _showOkAlertDialogWidget(context, ConstantTexts.you_have_reached_the_end);
       setState(() {
         isEnable = false;
       });

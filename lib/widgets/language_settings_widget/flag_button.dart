@@ -24,18 +24,16 @@ class FlagButton extends StatelessWidget {
         onPressed: () {
           AlertWidgets().showOkAlert(
             context,
-            "Please reopen your app",
-            "Restart recommended",
-            "Ok",
+            ConstantTexts.languageChanged.tr(),
+            ConstantTexts.manualRestartNeeded.tr(),
+            ConstantTexts.okay.tr(),
             () async {
               if (path == LanguageConstants.TRflagPath &&
                   context.locale != LanguageConstants.trLocale) {
                 context.setLocale(LanguageConstants.trLocale);
-                // restartApp(context);
               } else if (path == LanguageConstants.UKflagPath &&
                   context.locale != LanguageConstants.enLocale) {
                 context.setLocale(LanguageConstants.enLocale);
-                // restartApp(context);
               }
             },
           );

@@ -13,6 +13,10 @@ class ConstantPaths {
       'assets/videos/new-game-background-video.mp4';
   static const continueBackgroundVideo =
       'assets/videos/continue-background-video.mp4';
+  static const keyHoleImagePath = "assets/images/keyHole.png";
+  static const lampImagePath = "assets/images/lamp.png";
+  static const keyImagePath = "assets/images/key.png";
+  static const murderBackgroundMusicPath = 'assets/sounds/runKaity.mp3';
 }
 
 class ConstantTexts {
@@ -30,6 +34,21 @@ class ConstantTexts {
   static const String contributorsnames = "TAHA YASIN BIKE   EREN BAL";
   static const String Version = "Version 1.0.0";
   static const String murdertitle = "murderTitle";
+  static const String yourChoices = "your_choices";
+  static const String yourStories = "your_stories";
+  static const String unlockMore = "unlock_more";
+  static const String active_when_app_published = "active_when_app_published";
+  static const String test_mode = "test_mode";
+  static const String okay = "okay";
+  static const String restartStory = "do_you_want_to_restart_the_story";
+  static const String doYouConfirmAlert = "do_you_confirm";
+  static const String yes = "yes";
+  static const String no = "no";
+  static const String waitingForMessage = "waitingformessage";
+  static const String you_have_reached_the_end = "you_have_reached_the_end";
+  static const String murder = "Murder";
+  static const String languageChanged = "language_changed";
+  static const String manualRestartNeeded = "manual_restart_needed";
 }
 
 class LanguageConstants {

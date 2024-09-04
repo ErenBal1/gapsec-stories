@@ -9,8 +9,21 @@
         "createdBy" : "Oluşturan",
         "developers": "Geliştiriciler",
         "contributors": "Katkıda Bulunanlar",
+        "your_choices": "Senin Seçimlerin",
+        "your_stories": "Senin Hikayelerin",
+        "unlock_more": "DAHA FAZLASI İÇİN",
+        "active_when_app_published": "Uygulama Yayınlanınca Aktif Olacak.",
+        "test_mode":"Test Modu",
+        "okay": "Tamam",
+        "do_you_want_to_restart_the_story": "Hikayeyi Yeniden Başlat?",
+        "do_you_confirm": "Mevcut ilerlemeniz kaybolacak! Onaylıyor musunuz?",
+        "yes": "Evet",
+        "no": "Hayır",
+        "you_have_reached_the_end":"Bölüm sonuna ulaştınız!",
+        "language_changed":"Language changed. Please close and reopen the app.",
+        "manual_restart_needed":"Manual restart needed",
 
-
+ 
 
         "murder_story_0_history": "Merhaba. Bu şey çalışmıyor mu? Lütfen biri bu yazımı okuyabiliyorsa cevap versin!",
         "murder_story_0_answer_1": "Sen de kimsin?",
