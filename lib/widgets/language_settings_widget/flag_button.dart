@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/utils/restart_app.dart';
+import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 
 class FlagButton extends StatelessWidget {
   String path;
@@ -21,15 +22,23 @@ class FlagButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () {
-          if (path == LanguageConstants.TRflagPath &&
-              context.locale != LanguageConstants.trLocale) {
-            context.setLocale(LanguageConstants.trLocale);
-            restartApp(context);
-          } else if (path == LanguageConstants.UKflagPath &&
-              context.locale != LanguageConstants.enLocale) {
-            context.setLocale(LanguageConstants.enLocale);
-            restartApp(context);
-          }
+          AlertWidgets().showOkAlert(
+            context,
+            "Please reopen your app",
+            "Restart recommended",
+            "Ok",
+            () async {
+              if (path == LanguageConstants.TRflagPath &&
+                  context.locale != LanguageConstants.trLocale) {
+                context.setLocale(LanguageConstants.trLocale);
+                // restartApp(context);
+              } else if (path == LanguageConstants.UKflagPath &&
+                  context.locale != LanguageConstants.enLocale) {
+                context.setLocale(LanguageConstants.enLocale);
+                // restartApp(context);
+              }
+            },
+          );
         },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
