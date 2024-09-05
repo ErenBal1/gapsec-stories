@@ -1,4 +1,5 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
@@ -7,6 +8,7 @@ import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
@@ -71,10 +73,10 @@ class _NewGameViewState extends State<NewGameView> {
       BuildContext context, TextType type, String gameName) async {
     final result = await showOkCancelAlertDialog(
       context: context,
-      title: 'Mevcut hikayen var!',
-      message: 'Yeniden oluşturulsun mu?',
-      okLabel: 'Evet',
-      cancelLabel: 'Hayır',
+      title: ConstantTexts.restartStory.tr(),
+      message: ConstantTexts.doYouConfirmAlert.tr(),
+      okLabel: ConstantTexts.yes.tr(),
+      cancelLabel: ConstantTexts.no.tr(),
     );
 
     if (result == OkCancelResult.ok) {
@@ -124,16 +126,6 @@ class _NewGameViewState extends State<NewGameView> {
                   child: VideoPlayer(_controller),
                 )
               : Container(),
-
-          /* Positioned.fill(
-              child: BackdropFilter(
-            filter: ImageFilter.blur(
-                sigmaX: 1.0, sigmaY: 3.0), // Adjust the blur level
-            child: Container(
-              color: Colors.black
-                  .withOpacity(0), // This container must be translucent.
-            ),
-          )), */
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -144,25 +136,7 @@ class _NewGameViewState extends State<NewGameView> {
                   return Padding(
                     padding:
                         const EdgeInsets.only(top: 8.0, right: 70, left: 70),
-                    child: ElevatedButton(
-                      style: const ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll(
-                              CustomColors.storyCardColor)),
-                      onPressed: () => hs.goToPage(
-                          page: const StoriesView(), context: context),
-                      child: const FittedBox(
-                        child: Text(
-                          "DAHA FAZLASI ICIN", //daha fazla ac
-                          style: TextStyle(
-                              shadows: [
-                                Shadow(
-                                    blurRadius: 8, color: CustomColors.yellow)
-                              ],
-                              fontFamily: "PixelFont",
-                              color: CustomColors.white),
-                        ),
-                      ),
-                    ),
+                    child: unlockMoreButton(hs: hs),
                   );
                 }
 
@@ -178,7 +152,7 @@ class _NewGameViewState extends State<NewGameView> {
                   width: Config.screenWidth! * 0.4,
                   height: Config.screenWidth! * 0.4,
                   child: Image.asset(
-                    "assets/images/keystore.png", //CONST PATH
+                    ConstantPaths.keyHoleImagePath,
                     color: CustomColors.white,
                     fit: BoxFit.cover,
                   ))),
@@ -186,39 +160,34 @@ class _NewGameViewState extends State<NewGameView> {
               right: 20,
               top: 0,
               child: SizedBox(
-                  //color: CustomColors.red,
                   width: 100,
                   height: 140,
                   child: Image.asset(
-                    "assets/images/lamb.png", //CONST PATH
+                    ConstantPaths.lampImagePath,
                     fit: BoxFit.cover,
                   ))),
-          Positioned(
-            top: Config.screenHeight! *
-                0.05, // Adjust position according to your design needs
-            left: Config.screenWidth! *
-                0.03, // Adjust position according to your design needs
-            child: Observer(
-              builder: (_) => IconButton(
-                onPressed: () async {
-                  vm.goBack(context: context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios_new_outlined,
-                  color: CustomColors.white,
-                ),
+          SafeArea(
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Observer(
+                builder: (_) => IconButton(
+                    onPressed: () async {
+                      vm.goBack(context: context);
+                    },
+                    icon: AppFonts.backButtonIcon),
               ),
             ),
           ),
-          Positioned(
-              right: Config.screenWidth! * 0.03,
-              top: Config.screenHeight! * 0.05,
-              child: IconButton(
-                  onPressed: _deleteListElements,
-                  icon: const Icon(
-                    Icons.refresh_outlined,
-                    color: CustomColors.white,
-                  )))
+          SafeArea(
+            child: Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    onPressed: _deleteListElements,
+                    icon: const Icon(
+                      Icons.refresh_outlined,
+                      color: CustomColors.white,
+                    ))),
+          )
         ],
       ),
     );
@@ -234,7 +203,7 @@ class _NewGameViewState extends State<NewGameView> {
               width: 50,
               height: 50,
               child: Image.asset(
-                "assets/images/key.png", //CONST PATH
+                ConstantPaths.keyImagePath,
                 fit: BoxFit.cover,
               )),
         ),
@@ -285,23 +254,22 @@ class _NewGameViewState extends State<NewGameView> {
                       } else {
                         AlertWidgets().showOkAlert(
                             context,
-                            "Uygulama Yayınlanınca Aktif Olacak.",
-                            "Test Mode",
-                            "Tamam",
+                            ConstantTexts.active_when_app_published,
+                            ConstantTexts.test_mode,
+                            ConstantTexts.okay,
                             () => print("hell"));
                       }
                     },
                     child: SizedBox(
                       width: double.infinity,
                       height: 40,
-                      //color: CustomColors.red,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             gameName,
-                            style: const TextStyle(fontFamily: "PixelFont"),
+                            style: AppFonts.storyTitleTextStyle,
                           ),
                           const Icon(
                             Icons.play_arrow_rounded,
@@ -317,6 +285,28 @@ class _NewGameViewState extends State<NewGameView> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class unlockMoreButton extends StatelessWidget {
+  const unlockMoreButton({
+    super.key,
+    required this.hs,
+  });
+
+  final HomeState hs;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: const ButtonStyle(
+          backgroundColor: WidgetStatePropertyAll(CustomColors.storyCardColor)),
+      onPressed: () => hs.goToPage(page: const StoriesView(), context: context),
+      child: FittedBox(
+        child: Text(ConstantTexts.unlockMore.tr(),
+            style: AppFonts.unlockMoreButtonTextStyle),
+      ),
     );
   }
 }

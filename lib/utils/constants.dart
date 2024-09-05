@@ -13,6 +13,10 @@ class ConstantPaths {
       'assets/videos/new-game-background-video.mp4';
   static const continueBackgroundVideo =
       'assets/videos/continue-background-video.mp4';
+  static const keyHoleImagePath = "assets/images/keyHole.png";
+  static const lampImagePath = "assets/images/lamp.png";
+  static const keyImagePath = "assets/images/key.png";
+  static const murderBackgroundMusicPath = 'assets/sounds/runKaity.mp3';
 }
 
 class ConstantTexts {
@@ -30,6 +34,40 @@ class ConstantTexts {
   static const String contributorsnames = "TAHA YASIN BIKE   EREN BAL";
   static const String Version = "Version 1.0.0";
   static const String murdertitle = "murderTitle";
+  static const String yourChoices = "your_choices";
+  static const String yourStories = "your_stories";
+  static const String unlockMore = "unlock_more";
+  static const String active_when_app_published = "active_when_app_published";
+  static const String test_mode = "test_mode";
+  static const String okay = "okay";
+  static const String restartStory = "do_you_want_to_restart_the_story";
+  static const String doYouConfirmAlert = "do_you_confirm";
+  static const String yes = "yes";
+  static const String no = "no";
+  static const String waitingForMessage = "waitingformessage";
+  static const String you_have_reached_the_end = "you_have_reached_the_end";
+  static const String murder = "Murder";
+  static const String languageChanged = "language_changed";
+  static const String manualRestartNeeded = "manual_restart_needed";
+  static const String iap_not_available = "iap_not_available";
+  static const String product_not_found = "product_not_found";
+  static const String purchase_initiated = "purchase_initiated";
+  static const String purchase_error = "purchase_error";
+  static const String tokens_added = "tokens_added";
+  static const String error = "error";
+  static const String mystoken_100_id = "mystoken_100";
+  static const String mystoken_100_title = '100 Mystoken';
+  static const String mystoken_200_id = "mystoken_200";
+  static const String mystoken_200_title = '200 Mystoken';
+  static const String mystoken_300_id = "mystoken_300";
+  static const String mystoken_300_title = '300 Mystoken';
+  static const String mystoken_500_id = "mystoken_500";
+  static const String mystoken_500_title = '500 Mystoken';
+  static const String mystoken_600_id = "mystoken_600";
+  static const String mystoken_600_title = '600 Mystoken';
+  static const String mystoken_750_id = "mystoken_750";
+  static const String mystoken_750_title = '750 Mystoken';
+  static const String purchase_stream_error = "purchase_stream_error";
 }
 
 class LanguageConstants {

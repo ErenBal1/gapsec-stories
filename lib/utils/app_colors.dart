@@ -12,3 +12,17 @@ class CustomColors {
   static const yellow = selectedIconColor;
   static final GAPSECtitleColors = [Colors.red, Colors.black];
 }
+
+class ListColors {
+  static const colorizeColors = [
+    Colors.red,
+    Colors.white,
+    Colors.red,
+  ];
+
+  static const devastColorList = [
+    Colors.black,
+    Colors.white,
+    Colors.black,
+  ];
+}

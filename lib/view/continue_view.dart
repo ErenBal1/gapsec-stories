@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
@@ -5,8 +6,10 @@ import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/continue_play_view.dart';
+import 'package:gapsec/view/stories_view.dart';
 import 'package:video_player/video_player.dart';
 
 class ContinueView extends StatefulWidget {
@@ -73,14 +76,6 @@ class _ContinueViewState extends State<ContinueView> {
                   child: VideoPlayer(_controller),
                 )
               : Container(),
-          // SizedBox(
-          //   width: double.infinity,
-          //   height: Config.screenHeight,
-          //   child: Image.asset(
-          //     "assets/images/castle.png",
-          //     fit: BoxFit.cover,
-          //   ),
-          // ),
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -91,20 +86,7 @@ class _ContinueViewState extends State<ContinueView> {
                   return Padding(
                     padding:
                         const EdgeInsets.only(top: 8.0, right: 70, left: 70),
-                    child: ElevatedButton(
-                      style: const ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll(
-                              CustomColors.storyCardColor)),
-                      onPressed: () {},
-                      child: const FittedBox(
-                        child: Text(
-                          "UNLOCK MORE...",
-                          style: TextStyle(
-                              fontFamily: "PixelFont",
-                              color: CustomColors.white),
-                        ),
-                      ),
-                    ),
+                    child: unlockMoreButton(hs: hs),
                   );
                 }
                 Widget content = Container();
@@ -135,7 +117,7 @@ class _ContinueViewState extends State<ContinueView> {
                   width: Config.screenWidth! * 0.4,
                   height: Config.screenWidth! * 0.4,
                   child: Image.asset(
-                    "assets/images/keystore.png",
+                    ConstantPaths.keyHoleImagePath,
                     color: CustomColors.white,
                     fit: BoxFit.cover,
                   ))),
@@ -143,26 +125,20 @@ class _ContinueViewState extends State<ContinueView> {
               right: 20,
               top: 0,
               child: SizedBox(
-                  //color: CustomColors.red,
                   width: 100,
                   height: 140,
                   child: Image.asset(
-                    "assets/images/lamb.png",
+                    ConstantPaths.lampImagePath,
                     fit: BoxFit.cover,
                   ))),
-          Positioned(
-            top: Config.screenHeight! *
-                0.05, // Adjust position according to your design needs
-            left: Config.screenWidth! *
-                0.03, // Adjust position according to your design needs
-            child: IconButton(
-              onPressed: () async {
-                vm.goBack(context: context);
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                color: CustomColors.white,
-              ),
+          SafeArea(
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                  onPressed: () async {
+                    vm.goBack(context: context);
+                  },
+                  icon: AppFonts.backButtonIcon),
             ),
           ),
         ],
@@ -180,7 +156,7 @@ class _ContinueViewState extends State<ContinueView> {
               width: 50,
               height: 50,
               child: Image.asset(
-                "assets/images/key.png",
+                ConstantPaths.keyImagePath,
                 fit: BoxFit.cover,
               )),
         ),
@@ -246,14 +222,13 @@ class _ContinueViewState extends State<ContinueView> {
                     child: SizedBox(
                       width: double.infinity,
                       height: 40,
-                      //color: CustomColors.red,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             gameName,
-                            style: const TextStyle(fontFamily: "PixelFont"),
+                            style: AppFonts.storyTitleTextStyle,
                           ),
                           const Icon(
                             Icons.play_arrow_rounded,
@@ -269,6 +244,26 @@ class _ContinueViewState extends State<ContinueView> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class unlockMoreButton extends StatelessWidget {
+  const unlockMoreButton({
+    super.key,
+    required this.hs,
+  });
+  final HomeState hs;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: const ButtonStyle(
+          backgroundColor: WidgetStatePropertyAll(CustomColors.storyCardColor)),
+      onPressed: () => hs.goToPage(page: const StoriesView(), context: context),
+      child: FittedBox(
+        child: Text(ConstantTexts.unlockMore.tr(),
+            style: AppFonts.unlockMoreButtonTextStyle),
+      ),
     );
   }
 }

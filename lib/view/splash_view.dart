@@ -1,31 +1,16 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/app_font.dart';
+import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/widgets/language_settings_widget/flag_button.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const colorizeColors = [
-      //Colors.purple,
-      //Colors.blue,
-      Colors.red,
-      Colors.white,
-      Colors.red,
-    ];
-    const devastList = [
-      //Colors.purple,
-      //Colors.blue,
-      Colors.black,
-      Colors.white,
-      Colors.black,
-    ];
-
-    const colorizeTextStyle = TextStyle(
-      fontSize: 50.0,
-      fontFamily: 'HorrorFont',
-    );
     return Scaffold(
       backgroundColor: CustomColors.black,
       body: Center(
@@ -36,27 +21,27 @@ class SplashView extends StatelessWidget {
             animatedTexts: [
               ColorizeAnimatedText(
                 speed: const Duration(milliseconds: 150),
-                'GAPSEC',
-                textStyle: colorizeTextStyle,
-                colors: colorizeColors,
+                ConstantTexts.GAPSEC,
+                textStyle: AppFonts.splashScreenColorizeTextStyle,
+                colors: ListColors.colorizeColors,
               ),
               ColorizeAnimatedText(
                 speed: const Duration(milliseconds: 150),
-                'Your Choices',
-                textStyle: colorizeTextStyle,
-                colors: colorizeColors,
+                ConstantTexts.yourChoices.tr(),
+                textStyle: AppFonts.splashScreenColorizeTextStyle,
+                colors: ListColors.colorizeColors,
               ),
               ColorizeAnimatedText(
                 speed: const Duration(milliseconds: 150),
-                'Your Stories',
-                textStyle: colorizeTextStyle,
-                colors: colorizeColors,
+                ConstantTexts.yourStories.tr(),
+                textStyle: AppFonts.splashScreenColorizeTextStyle,
+                colors: ListColors.colorizeColors,
               ),
               ColorizeAnimatedText(
                 speed: const Duration(milliseconds: 200),
-                'DEVAST',
-                textStyle: colorizeTextStyle,
-                colors: devastList,
+                ConstantTexts.devast,
+                textStyle: AppFonts.splashScreenColorizeTextStyle,
+                colors: ListColors.devastColorList,
               ),
             ],
             isRepeatingAnimation: false,

@@ -9,6 +9,31 @@
         "createdBy" : "Created By",
         "developers": "Developers",
         "contributors": "Contributors",
+        "your_choices": "Your Choices",
+        "your_stories": "Your Stories",
+        "unlock_more": "UNLOCK MORE",
+        "active_when_app_published": "It Will Be Active When The App is Published.",
+        "test_mode":"Test Mode",
+        "okay": "OK",
+        "do_you_want_to_restart_the_story": "Restart the Story?",
+        "do_you_confirm": "Your current progress will be lost! Do you confirm?",
+        "yes": "Yes",
+        "no": "No",
+        "you_have_reached_the_end":"You have reached the end of the story!",
+        "language_changed":"Dil değiştirildi. Lütfen uygulamayı kapatıp tekrar açın.",
+        "manual_restart_needed":"Manuel yeniden başlatma gerekli",
+        "error": "Error",
+        "tokens_added": "{} tokens have been added to your account.",
+        "iap_not_available": "In-app purchases are not available. Please try again later.",
+        "product_not_found": "Product not found.",
+        "purchase_initiated": "Purchase initiated.",
+        "purchase_error": "Purchase Error: {}",
+        "purchase_stream_error": "An error occurred in purchase stream: {}",
+        
+
+
+
+        
         
 
         "murder_story_0_history": "Hello. Is this thing not working? Please respond if anyone can read this!",

@@ -1,4 +1,3 @@
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -6,15 +5,13 @@ import 'package:gapsec/adMobService/ad_mob_service.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
-import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 class ShopView extends StatefulWidget {
-  const ShopView({
-    super.key,
-  });
+  const ShopView({super.key});
 
   @override
   State<ShopView> createState() => _ShopViewState();
@@ -22,21 +19,22 @@ class ShopView extends StatefulWidget {
 
 class _ShopViewState extends State<ShopView> {
   RewardedAd? _rewardedAd;
-
+  final AlertWidgets _alertWidgets = AlertWidgets();
   final _databaseService = DatabaseService();
   final InAppPurchase iap = InAppPurchase.instance;
   final ShopState ss = ShopState();
+
   Future<void> showOkAlertDialogWidget(
       BuildContext context, String message) async {
-    final result = await showOkAlertDialog(
-      context: context,
-      title: 'Error',
-      message: message,
-      okLabel: 'OK',
+    await _alertWidgets.showOkAlert(
+      context,
+      message,
+      ConstantTexts.error.tr(),
+      ConstantTexts.okay.tr(),
+      () {
+        print("okay");
+      },
     );
-    if (result == OkCancelResult.ok) {
-      print("okey");
-    }
   }
 
   Future<void> _addTokens(int amount) async {
@@ -50,22 +48,22 @@ class _ShopViewState extends State<ShopView> {
         onAdDismissedFullScreenContent: (ad) {
           ad.dispose();
           _createRewardedAd();
-          print("Reklam Kapatıldı");
+          print("Ad closed");
         },
         onAdFailedToShowFullScreenContent: (ad, error) {
           ad.dispose();
           _createRewardedAd();
-          print('Reklam gösterilemedi: $error');
+          print('Failed to show ad: $error');
         },
       );
       _rewardedAd!.show(
           onUserEarnedReward: (ad, reward) => setState(() {
                 _addTokens(2);
               }));
-      print("Kullanıcı ödülü kazandı");
+      print("User earned reward");
       _rewardedAd = null;
     } else {
-      print("Reklam yüklü değil");
+      print("Ad not loaded");
     }
   }
 
@@ -76,11 +74,11 @@ class _ShopViewState extends State<ShopView> {
         rewardedAdLoadCallback: RewardedAdLoadCallback(
             onAdLoaded: (ad) => setState(() {
                   _rewardedAd = ad;
-                  print("Reklam başarıyla yüklendi");
+                  print("Ad loaded successfully");
                 }),
             onAdFailedToLoad: (error) => setState(() {
                   _rewardedAd = null;
-                  print('Reklam yüklenemedi: $error');
+                  print('Failed to load ad: $error');
                 })));
   }
 
@@ -92,7 +90,7 @@ class _ShopViewState extends State<ShopView> {
       _handlePurchaseUpdates(purchaseDetailsList);
     }, onError: (error) {
       showOkAlertDialogWidget(
-          context, 'An error occurred in purchase stream: $error');
+          context, ConstantTexts.purchase_error.tr(args: [error.toString()]));
     });
   }
 
@@ -101,12 +99,11 @@ class _ShopViewState extends State<ShopView> {
       if (purchase.status == PurchaseStatus.purchased) {
         if (purchase.pendingCompletePurchase) {
           iap.completePurchase(purchase);
-          // Satın alma başarılı, token miktarını güncelle
           _updateTokenBalance(purchase.productID);
         }
       } else if (purchase.status == PurchaseStatus.error) {
-        showOkAlertDialogWidget(
-            context, 'Purchase Error: ${purchase.error!.message}');
+        showOkAlertDialogWidget(context,
+            ConstantTexts.purchase_error.tr(args: [purchase.error!.message]));
       }
     }
   }
@@ -117,124 +114,229 @@ class _ShopViewState extends State<ShopView> {
       ss.amount += tokensToAdd;
     });
     showOkAlertDialogWidget(
-        context, '$tokensToAdd tokens have been added to your account.');
+        context, ConstantTexts.tokens_added.tr(args: [tokensToAdd.toString()]));
   }
 
   int _tokensFromProductId(String productId) {
     switch (productId) {
-      case 'token_100': //mystoken_100
+      case ConstantTexts.mystoken_100_id:
         return 100;
-      case 'token_200':
+      case ConstantTexts.mystoken_200_id:
         return 200;
-      case 'token_300':
+      case ConstantTexts.mystoken_300_id:
         return 300;
-      case 'token_500':
+      case ConstantTexts.mystoken_500_id:
         return 500;
-      case 'token_600':
+      case ConstantTexts.mystoken_600_id:
         return 600;
-      case 'token_750':
+      case ConstantTexts.mystoken_750_id:
         return 750;
       default:
         return 0;
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    void buyToken(
-        {required String productId,
-        required BuildContext context,
-        required amount}) async {
-      final bool available = await iap.isAvailable();
-      if (!available) {
-        return showOkAlertDialogWidget(context,
-            "In-app purchases are not available. Please try again later.");
-      }
-
-      final ProductDetailsResponse response =
-          await iap.queryProductDetails({productId}.toSet());
-
-      if (response.notFoundIDs.isNotEmpty) {
-        // Ürün bulunamadı
-        return showOkAlertDialogWidget(context, "Product not found.");
-      }
-
-      final ProductDetails productDetails = response.productDetails.first;
-      final PurchaseParam purchaseParam =
-          PurchaseParam(productDetails: productDetails);
-
-      iap
-          .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
-          .then((_) {
-        showOkAlertDialogWidget(context, 'Purchase initiated.');
-        _addTokens(amount);
-      }).catchError((error) {
-        showOkAlertDialogWidget(context, 'Error initiating purchase: $error');
-      });
+  void buyToken(
+      {required String productId,
+      required BuildContext context,
+      required int amount}) async {
+    final bool available = await iap.isAvailable();
+    if (!available) {
+      return showOkAlertDialogWidget(
+          context, ConstantTexts.iap_not_available.tr());
     }
 
-    const Color cardColor = CustomColors.storyCardColor;
-    Color cardTitleColor = const Color.fromARGB(255, 218, 204, 204);
+    final ProductDetailsResponse response =
+        await iap.queryProductDetails({productId}.toSet());
+
+    if (response.notFoundIDs.isNotEmpty) {
+      return showOkAlertDialogWidget(
+          context, ConstantTexts.product_not_found.tr());
+    }
+
+    final ProductDetails productDetails = response.productDetails.first;
+    final PurchaseParam purchaseParam =
+        PurchaseParam(productDetails: productDetails);
+
+    iap
+        .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
+        .then((_) {
+      showOkAlertDialogWidget(context, ConstantTexts.purchase_initiated.tr());
+      _addTokens(amount);
+    }).catchError((error) {
+      showOkAlertDialogWidget(
+          context, ConstantTexts.purchase_error.tr(args: [error.toString()]));
+    });
+  }
+
+  Widget _buildTokenPackage(String productId, String title, String subtitle) {
+    return GestureDetector(
+      onTap: () => buyToken(
+          productId: productId,
+          context: context,
+          amount: _tokensFromProductId(productId)),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.6),
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Colors.amber[700]!, width: 2),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.amber.withOpacity(0.3),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(ConstantPaths.tokenImagePath, height: 60, width: 60),
+            const SizedBox(height: 10),
+            Text(
+              title,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              subtitle,
+              style: TextStyle(color: Colors.amber[300], fontSize: 14),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () => buyToken(
+                  productId: productId,
+                  context: context,
+                  amount: _tokensFromProductId(productId)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amber,
+                foregroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+              child: const Text('Buy Now',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.black, Colors.red[400]!],
+          colors: [Colors.black, Colors.red[900]!],
         ),
       ),
       child: Scaffold(
-        backgroundColor: CustomColors.transparent,
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          leading: IconButton(
+          leading: Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
               onPressed: () => ss.goBack(context),
               icon: const Icon(
                 Icons.close,
-                size: 25,
                 color: CustomColors.white,
-              )),
-          title: Image.asset(ConstantPaths.shopTitle),
-          backgroundColor: CustomColors.storyCardColor,
+              ),
+            ),
+          ),
+          title: SizedBox(
+              height: 120, child: Image.asset(ConstantPaths.shopTitle)),
+          backgroundColor: Colors.transparent,
           elevation: 0,
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: Row(
                 children: [
-                  //amount of token
                   Observer(builder: (_) {
                     return Text(
                       ss.amount.toString(),
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14),
+                      style: TextStyle(
+                        color: Colors.amber[300],
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                      ),
                     );
                   }),
-                  const SizedBox(
-                    width: 6,
-                  ),
-                  //token icon
+                  const SizedBox(width: 6),
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.red.withOpacity(0.6),
-                          spreadRadius: 4,
+                          color: Colors.amber.withOpacity(0.6),
+                          spreadRadius: 2,
                           blurRadius: 4,
-                        )
+                        ),
                       ],
                     ),
                     child: Image.asset(
                       ConstantPaths.tokenImagePath,
-                      height: 30,
-                      width: 30,
+                      height: 35,
+                      width: 35,
                     ),
                   )
                 ],
               ),
             )
+          ],
+        ),
+        body: ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            const SizedBox(height: 20),
+            Text(
+              'Boost Your Experience!',
+              style: TextStyle(
+                color: Colors.amber[100],
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Get MysTokens to unlock exclusive content and features',
+              style: TextStyle(
+                color: Colors.amber[50],
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            GridView.count(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              childAspectRatio: 0.75,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              children: [
+                _buildTokenPackage(ConstantTexts.mystoken_100_id,
+                    ConstantTexts.mystoken_100_title, '🔥 Starter Pack'),
+                _buildTokenPackage(ConstantTexts.mystoken_200_id,
+                    ConstantTexts.mystoken_200_title, '💪 Power Pack'),
+                _buildTokenPackage(ConstantTexts.mystoken_300_id,
+                    ConstantTexts.mystoken_300_title, '🚀 Boost Pack'),
+                _buildTokenPackage(ConstantTexts.mystoken_500_id,
+                    ConstantTexts.mystoken_500_title, '💎 Premium Pack'),
+                _buildTokenPackage(ConstantTexts.mystoken_600_id,
+                    ConstantTexts.mystoken_600_title, '👑 Royal Pack'),
+                _buildTokenPackage(ConstantTexts.mystoken_750_id,
+                    ConstantTexts.mystoken_750_title, '🌟 Ultimate Pack'),
+              ],
+            ),
           ],
         ),
         bottomNavigationBar: Container(
@@ -244,9 +346,8 @@ class _ShopViewState extends State<ShopView> {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.red[400]!, Colors.black],
+              colors: [Colors.red[900]!, Colors.black],
             ),
-            color: Colors.red[800],
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
@@ -254,10 +355,13 @@ class _ShopViewState extends State<ShopView> {
           ),
           child: ElevatedButton.icon(
             onPressed: _showRewardedAd,
-            icon: const Icon(Icons.videocam),
-            label: Text(ConstantTexts.watchADforFreeTokens.tr()),
+            icon: const Icon(Icons.videocam, color: Colors.black),
+            label: Text(
+              ConstantTexts.watchADforFreeTokens.tr(),
+              style: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold),
+            ),
             style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black,
               backgroundColor: Colors.amber,
               padding: const EdgeInsets.symmetric(vertical: 15),
               textStyle:
@@ -267,399 +371,6 @@ class _ShopViewState extends State<ShopView> {
               ),
             ),
           ),
-        ),
-        body: ListView(
-          children: [
-            // TextButton(onPressed: _showRewardedAd, child: const Text("ad")),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '100 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () async {
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 100);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(ConstantTexts.BuyNow.tr(),
-                                style: AppFonts.shopBuyButton),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '200 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 200);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '300 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 300);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '500 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 500);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '600 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 600);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            spreadRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Image.asset(
-                            ConstantPaths.tokenImagePath,
-                            height: 60,
-                            width: 60,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '750 Mystoken',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: cardTitleColor,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Buy Now Pressed
-                              buyToken(
-                                  productId: 'token_100',
-                                  context: context,
-                                  amount: 750);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: CustomColors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            child: Text(
-                              ConstantTexts.BuyNow.tr(),
-                              style: AppFonts.shopBuyButton,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            /* Expanded(
-              child: GridView.builder(
-                padding: const EdgeInsets.all(16),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.75,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                ),
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  return BuyTokenContainer(
-                    tokens: (index + 1) * 20,
-                    price: priceFunc(index, 6),
-                  );
-                },
-              ),
-            ), */
-          ],
         ),
       ),
     );
