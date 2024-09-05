@@ -166,30 +166,28 @@ class _NewGameViewState extends State<NewGameView> {
                     ConstantPaths.lampImagePath,
                     fit: BoxFit.cover,
                   ))),
-          Positioned(
-            top: Config.screenHeight! * 0.05,
-            left: Config.screenWidth! * 0.03,
-            child: Observer(
-              builder: (_) => IconButton(
-                onPressed: () async {
-                  vm.goBack(context: context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios_new_outlined,
-                  color: CustomColors.white,
-                ),
+          SafeArea(
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Observer(
+                builder: (_) => IconButton(
+                    onPressed: () async {
+                      vm.goBack(context: context);
+                    },
+                    icon: AppFonts.backButtonIcon),
               ),
             ),
           ),
-          Positioned(
-              right: Config.screenWidth! * 0.03,
-              top: Config.screenHeight! * 0.05,
-              child: IconButton(
-                  onPressed: _deleteListElements,
-                  icon: const Icon(
-                    Icons.refresh_outlined,
-                    color: CustomColors.white,
-                  )))
+          SafeArea(
+            child: Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    onPressed: _deleteListElements,
+                    icon: const Icon(
+                      Icons.refresh_outlined,
+                      color: CustomColors.white,
+                    ))),
+          )
         ],
       ),
     );
@@ -307,7 +305,7 @@ class unlockMoreButton extends StatelessWidget {
       onPressed: () => hs.goToPage(page: const StoriesView(), context: context),
       child: FittedBox(
         child: Text(ConstantTexts.unlockMore.tr(),
-            style: AppFonts.splashScreenColorizeTextStyle),
+            style: AppFonts.unlockMoreButtonTextStyle),
       ),
     );
   }

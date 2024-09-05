@@ -49,6 +49,25 @@ class ConstantTexts {
   static const String murder = "Murder";
   static const String languageChanged = "language_changed";
   static const String manualRestartNeeded = "manual_restart_needed";
+  static const String iap_not_available = "iap_not_available";
+  static const String product_not_found = "product_not_found";
+  static const String purchase_initiated = "purchase_initiated";
+  static const String purchase_error = "purchase_error";
+  static const String tokens_added = "tokens_added";
+  static const String error = "error";
+  static const String mystoken_100_id = "mystoken_100";
+  static const String mystoken_100_title = '100 Mystoken';
+  static const String mystoken_200_id = "mystoken_200";
+  static const String mystoken_200_title = '200 Mystoken';
+  static const String mystoken_300_id = "mystoken_300";
+  static const String mystoken_300_title = '300 Mystoken';
+  static const String mystoken_500_id = "mystoken_500";
+  static const String mystoken_500_title = '500 Mystoken';
+  static const String mystoken_600_id = "mystoken_600";
+  static const String mystoken_600_title = '600 Mystoken';
+  static const String mystoken_750_id = "mystoken_750";
+  static const String mystoken_750_title = '750 Mystoken';
+  static const String purchase_stream_error = "purchase_stream_error";
 }
 
 class LanguageConstants {

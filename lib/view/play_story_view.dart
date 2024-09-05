@@ -201,15 +201,13 @@ class _ChatViewState extends State<ChatView> {
           child: Column(
             children: [
               // Header
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                color: Colors.black.withOpacity(0.7),
+              Align(
+                alignment: Alignment.topLeft,
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.arrow_back_ios,
-                          color: Colors.green, size: 20),
+                      icon:
+                          const Icon(Icons.arrow_back_ios, color: Colors.green),
                       onPressed: () => Navigator.pop(context),
                     ),
                     const Text(ConstantTexts.murder,

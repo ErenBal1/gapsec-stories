@@ -131,17 +131,14 @@ class _ContinueViewState extends State<ContinueView> {
                     ConstantPaths.lampImagePath,
                     fit: BoxFit.cover,
                   ))),
-          Positioned(
-            top: Config.screenHeight! * 0.05,
-            left: Config.screenWidth! * 0.03,
-            child: IconButton(
-              onPressed: () async {
-                vm.goBack(context: context);
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                color: CustomColors.white,
-              ),
+          SafeArea(
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                  onPressed: () async {
+                    vm.goBack(context: context);
+                  },
+                  icon: AppFonts.backButtonIcon),
             ),
           ),
         ],
@@ -265,7 +262,7 @@ class unlockMoreButton extends StatelessWidget {
       onPressed: () => hs.goToPage(page: const StoriesView(), context: context),
       child: FittedBox(
         child: Text(ConstantTexts.unlockMore.tr(),
-            style: AppFonts.splashScreenColorizeTextStyle),
+            style: AppFonts.unlockMoreButtonTextStyle),
       ),
     );
   }

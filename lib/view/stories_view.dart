@@ -346,20 +346,17 @@ class _StoriesViewState extends State<StoriesView>
                 ),
               ),
             ),
-            Positioned(
-              top: Config.screenHeight! * 0.05,
-              left: Config.screenWidth! * 0.02,
-              child: Observer(builder: (_) {
-                return IconButton(
-                  onPressed: () async {
-                    vm.goBack(context: context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios_new_outlined,
-                    color: CustomColors.white,
-                  ),
-                );
-              }),
+            SafeArea(
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Observer(builder: (_) {
+                  return IconButton(
+                      onPressed: () async {
+                        vm.goBack(context: context);
+                      },
+                      icon: AppFonts.backButtonIcon);
+                }),
+              ),
             ),
             Positioned(
                 top: Config.screenHeight! * 0.44,
