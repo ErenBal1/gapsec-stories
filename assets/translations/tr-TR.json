@@ -23,13 +23,13 @@
         "language_changed":"Language changed. Please close and reopen the app.",
         "manual_restart_needed":"Manual restart needed",
         "error": "Hata",
-   
         "tokens_added": "Hesabınıza {} jeton eklendi.",
         "iap_not_available": "Uygulama içi satın alma şu anda mevcut değil. Lütfen daha sonra tekrar deneyin.",
         "product_not_found": "Ürün bulunamadı.",
         "purchase_initiated": "Satın alma başlatıldı.",
         "purchase_error": "Satın Alma Hatası: {}",
         "purchase_stream_error": "Satın alma akışında bir hata oluştu: {}",
+        "languageAlertOK" : "OK",
     
 
  

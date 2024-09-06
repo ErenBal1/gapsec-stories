@@ -26,7 +26,7 @@ class FlagButton extends StatelessWidget {
             context,
             ConstantTexts.languageChanged.tr(),
             ConstantTexts.manualRestartNeeded.tr(),
-            ConstantTexts.okay.tr(),
+            ConstantTexts.languageAlertOK.tr(),
             () async {
               if (path == LanguageConstants.TRflagPath &&
                   context.locale != LanguageConstants.trLocale) {

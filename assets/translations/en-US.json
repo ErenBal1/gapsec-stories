@@ -29,6 +29,7 @@
         "purchase_initiated": "Purchase initiated.",
         "purchase_error": "Purchase Error: {}",
         "purchase_stream_error": "An error occurred in purchase stream: {}",
+        "languageAlertOK" : "Tamam",
         
 
 

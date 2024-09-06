@@ -68,6 +68,7 @@ class ConstantTexts {
   static const String mystoken_750_id = "mystoken_750";
   static const String mystoken_750_title = '750 Mystoken';
   static const String purchase_stream_error = "purchase_stream_error";
+  static const String languageAlertOK = "languageAlertOK";
 }
 
 class LanguageConstants {
