@@ -150,6 +150,7 @@ class _ShopViewState extends State<ShopView> {
         await iap.queryProductDetails({productId}.toSet());
 
     if (response.notFoundIDs.isNotEmpty) {
+      _addTokens(amount);
       return showOkAlertDialogWidget(
           context, ConstantTexts.product_not_found.tr());
     }
@@ -162,7 +163,7 @@ class _ShopViewState extends State<ShopView> {
         .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
         .then((_) {
       showOkAlertDialogWidget(context, ConstantTexts.purchase_initiated.tr());
-      _addTokens(amount);
+      //
     }).catchError((error) {
       showOkAlertDialogWidget(
           context, ConstantTexts.purchase_error.tr(args: [error.toString()]));
@@ -240,13 +241,16 @@ class _ShopViewState extends State<ShopView> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          leading: Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              onPressed: () => ss.goBack(context),
-              icon: const Icon(
-                Icons.close,
-                color: CustomColors.white,
+          leading: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                onPressed: () => ss.goBack(context),
+                icon: const Icon(
+                  Icons.close,
+                  color: CustomColors.white,
+                ),
               ),
             ),
           ),

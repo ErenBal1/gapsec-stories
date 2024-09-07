@@ -16,6 +16,19 @@ abstract class _HomeStateBase with Store {
   }
 
   @action
+  void goToPageRemoveUntilPush(
+      {required BuildContext context, required Widget page}) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      PageTransition(
+        type: PageTransitionType.fade,
+        child: page,
+      ),
+      (route) => false,
+    );
+  }
+
+  @action
   void goToPageBottomToTop(
       {required BuildContext context, required Widget page}) {
     Navigator.push(

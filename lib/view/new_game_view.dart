@@ -10,6 +10,7 @@ import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
@@ -166,15 +167,20 @@ class _NewGameViewState extends State<NewGameView> {
                     ConstantPaths.lampImagePath,
                     fit: BoxFit.cover,
                   ))),
-          SafeArea(
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Observer(
-                builder: (_) => IconButton(
-                    onPressed: () async {
-                      vm.goBack(context: context);
-                    },
-                    icon: AppFonts.backButtonIcon),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+            child: SafeArea(
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Observer(
+                  builder: (_) => IconButton(
+                      onPressed: () async {
+                        hs.goToPageRemoveUntilPush(
+                            context: context, page: HomeView());
+                      },
+                      icon: AppFonts.homeButtonIcon),
+                ),
               ),
             ),
           ),

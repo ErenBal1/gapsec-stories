@@ -131,14 +131,18 @@ class _ContinueViewState extends State<ContinueView> {
                     ConstantPaths.lampImagePath,
                     fit: BoxFit.cover,
                   ))),
-          SafeArea(
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: IconButton(
-                  onPressed: () async {
-                    vm.goBack(context: context);
-                  },
-                  icon: AppFonts.backButtonIcon),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+            child: SafeArea(
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                    onPressed: () async {
+                      vm.goBack(context: context);
+                    },
+                    icon: AppFonts.backButtonIcon),
+              ),
             ),
           ),
         ],

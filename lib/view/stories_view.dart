@@ -1,4 +1,4 @@
-import 'package:adaptive_dialog/adaptive_dialog.dart';
+/* import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
@@ -654,4 +654,584 @@ class _StoriesViewState extends State<StoriesView>
         activeIndex: activeIndex,
         count: 2,
       );
+}
+ */
+import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:flutter/material.dart';
+import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
+import 'package:gapsec/cache/service/database_service.dart';
+import 'package:gapsec/state/homse_state/home_state.dart';
+import 'package:gapsec/state/shop_state/shop_state.dart';
+import 'package:gapsec/state/stories_state/stories_state.dart';
+import 'package:gapsec/stories/model/story_model.dart';
+import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/view/new_game_view.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:gapsec/utils/constants.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:video_player/video_player.dart';
+
+class StoriesView extends StatefulWidget {
+  const StoriesView({super.key});
+
+  @override
+  _StoriesViewState createState() => _StoriesViewState();
+}
+
+class _StoriesViewState extends State<StoriesView>
+    with TickerProviderStateMixin {
+  final StoriesState vm = StoriesState();
+  late VideoPlayerController mp4controller;
+  late VideoPlayerController mp3controller;
+  final HomeState hs = HomeState();
+  late CarouselSliderController carouselController;
+  late TextTheme textTheme;
+  final _databaseService = DatabaseService();
+  int iconSelectedIndex = 0;
+  bool itsFree = true;
+  String selectedTitle = murder.name;
+  String selectedDescription = murder.description;
+  int activeIndex = 0;
+  int price = 0;
+  String mp4Path = "assets/videos/thunder.mp4";
+  String mp3Path = "assets/sounds/murder.mp3";
+
+  @override
+  void initState() {
+    super.initState();
+    mp4controller = VideoPlayerController.asset(mp4Path)
+      ..initialize().then((_) {
+        mp4controller.setLooping(true);
+        setState(() {
+          mp4controller.value.isPlaying
+              ? mp4controller.pause()
+              : mp4controller.play();
+        });
+      });
+    mp3controller = VideoPlayerController.asset(mp3Path)
+      ..initialize().then((_) {
+        mp3controller.setLooping(true);
+        setState(() {
+          mp3controller.value.isPlaying
+              ? mp3controller.pause()
+              : mp3controller.play();
+        });
+      });
+    carouselController = CarouselSliderController();
+  }
+
+  @override
+  void dispose() {
+    mp3controller.dispose();
+    mp4controller.dispose();
+    super.dispose();
+  }
+
+  void playNewTrack({required String mp4Path}) {
+    mp4controller.pause(); // Mevcut müziği durdur
+    mp4controller.dispose(); // Kaynakları serbest bırak
+    mp3controller.pause();
+    mp3controller.dispose();
+
+    // Yeni controller ile yeni dosya yükleniyor
+    mp4controller = VideoPlayerController.asset(mp4Path)
+      ..initialize().then((_) {
+        mp4controller.setLooping(true);
+        setState(() {
+          mp4controller.value.isPlaying
+              ? mp4controller.pause()
+              : mp4controller.play();
+        });
+      }).catchError((error) {
+        // Hata oluşursa konsola yaz
+        print("Error initializing new track: $error");
+      });
+  }
+
+  Future<void> _addTokens(int amount) async {
+    await _databaseService.addTokens(amount);
+    setState(() {});
+  }
+
+  Future<void> updateIndex(int index, String title, String description) async {
+    await DatabaseService().updateDefaultValues();
+    setState(() {
+      iconSelectedIndex = index;
+      selectedTitle = title;
+      selectedDescription = description;
+      switch (iconSelectedIndex) {
+        case 0:
+          setState(() {
+            price = 0;
+            itsFree = !murder.isLock;
+            mp4Path = "assets/videos/thunder.mp4";
+            playNewTrack(mp4Path: mp4Path);
+          });
+          break;
+        case 1:
+          setState(() {
+            price = 80;
+            itsFree = !dontLookBack.isLock;
+            mp4Path = "assets/videos/somin.mp4";
+            playNewTrack(mp4Path: mp4Path);
+          });
+          break;
+        case 2:
+          setState(() {
+            price = 120;
+            itsFree = !lostLucy.isLock;
+            mp4Path = "assets/videos/continue-background-video.mp4";
+            playNewTrack(mp4Path: mp4Path);
+          });
+          break;
+        case 3:
+          setState(() {
+            itsFree = !nightGame.isLock;
+            price = 100;
+            mp4Path = "assets/videos/continue-background-video.mp4";
+            playNewTrack(
+              mp4Path: mp4Path,
+            );
+          });
+          break;
+        case 4:
+          setState(() {
+            price = 110;
+            itsFree = !runKaity.isLock;
+            mp4Path = "assets/videos/continue-background-video.mp4";
+            playNewTrack(mp4Path: mp4Path);
+          });
+          break;
+        case 5:
+          setState(() {
+            price = 150;
+            itsFree = !smile.isLock;
+            mp4Path = "assets/videos/continue-background-video.mp4";
+            playNewTrack(mp4Path: mp4Path);
+          });
+          break;
+        case 6:
+          setState(() {
+            price = 180;
+            itsFree = !behind.isLock;
+            mp4Path = "assets/videos/continue-background-video.mp4";
+            mp3Path = "assets/sounds/behind.mp3";
+            playNewTrack(mp4Path: mp4Path);
+          });
+          break;
+        case 7:
+          setState(() {
+            price = 300;
+            itsFree = !lucky.isLock;
+            mp4Path = "assets/videos/continue-background-video.mp4";
+            playNewTrack(mp4Path: mp4Path);
+          });
+        default:
+      }
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    textTheme = Theme.of(context).textTheme;
+    super.didChangeDependencies();
+  }
+
+  Future<void> showOkAlertDialogWidget(
+      BuildContext context, String message) async {
+    final result = await showOkAlertDialog(
+      context: context,
+      title: 'Yetersiz bakiye :( ',
+      message: message,
+      okLabel: 'OK',
+    );
+    if (result == OkCancelResult.ok) {
+      print("Yetersiz bakiye onaylandı");
+    }
+  }
+
+  Future<void> showOkCancelAlert(BuildContext context, int storyPrice) async {
+    final result = await showOkCancelAlertDialog(
+      context: context,
+      title: 'Hikaye Kilidi Aç',
+      message: '$price Mystoken ile alınsın mı?',
+      okLabel: 'Evet',
+      cancelLabel: 'Hayır',
+    );
+
+    if (result == OkCancelResult.ok) {
+      switch (storyPrice) {
+        case 80:
+          if (ShopState().amount >= 80) {
+            buySteps(
+                minusAmount: -80,
+                type: TextType.dontLookBackType,
+                storyIsLock: dontLookBack.isLock);
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 120:
+          if (ShopState().amount >= 120) {
+            buySteps(
+                minusAmount: -120,
+                type: TextType.lostLucyType,
+                storyIsLock: lostLucy.isLock);
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 100:
+          if (ShopState().amount >= 100) {
+            buySteps(
+                minusAmount: -100,
+                type: TextType.nightGameType,
+                storyIsLock: nightGame.isLock);
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+          break;
+        case 110:
+          if (ShopState().amount >= 110) {
+            buySteps(
+                minusAmount: -110,
+                type: TextType.runKaityType,
+                storyIsLock: runKaity.isLock);
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+          break;
+
+        case 150:
+          if (ShopState().amount >= 150) {
+            buySteps(
+                minusAmount: -150,
+                type: TextType.smileType,
+                storyIsLock: smile.isLock);
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 180:
+          if (ShopState().amount >= 180) {
+            buySteps(
+                minusAmount: -180,
+                type: TextType.behindType,
+                storyIsLock: behind.isLock);
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        case 300:
+          if (ShopState().amount >= 300) {
+            buySteps(
+                minusAmount: -300,
+                type: TextType.luckyType,
+                storyIsLock: lucky.isLock);
+          } else {
+            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+          }
+
+          break;
+        default:
+      }
+    }
+  }
+
+  void buySteps(
+      {required int minusAmount,
+      required TextType type,
+      required bool storyIsLock}) {
+    _addTokens(minusAmount).then(
+      (value) async => await _databaseService
+          .changeDefaultValue(type: type, newValue: false)
+          .then(
+        (value) {
+          setState(() {
+            itsFree = storyIsLock;
+          });
+        },
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Config().init(context);
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.black, Color(0xFF3D0000)],
+            ),
+          ),
+          child: SafeArea(
+            child: Column(
+              children: [
+                _buildHeader(),
+                Expanded(
+                  child: _buildStoryCarousel(),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => vm.goBack(context: context),
+          ),
+          Text(
+            "STORIES",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'HorrorFont',
+              letterSpacing: 2,
+              shadows: [
+                Shadow(
+                  blurRadius: 5.0,
+                  color: Colors.red.withOpacity(0.5),
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.6),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.amber, width: 1),
+            ),
+            child: Row(
+              children: [
+                Text(
+                  "${ShopState().amount}",
+                  style: const TextStyle(
+                    color: Colors.amber,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(width: 5),
+                Image.asset(ConstantPaths.tokenImagePath,
+                    height: 24, width: 24),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStoryCarousel() {
+    return Column(
+      children: [
+        CarouselSlider.builder(
+          itemCount: games().historiesGames.length,
+          options: CarouselOptions(
+            height: MediaQuery.of(context).size.height * 0.70,
+            enlargeCenterPage: true,
+            onPageChanged: (index, reason) {
+              setState(() {
+                activeIndex = index;
+                updateIndex(index, games().historiesGames[index].name,
+                    games().historiesGames[index].description);
+              });
+            },
+          ),
+          itemBuilder: (context, index, realIndex) {
+            return _buildStoryCard(games().historiesGames[index]);
+          },
+        ),
+        const SizedBox(height: 20),
+        buildIndicator(),
+      ],
+    );
+  }
+
+  Widget _buildStoryCard(StoryModel story) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 5.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.red[800]!, width: 2),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.red.withOpacity(0.3),
+            blurRadius: 15.0,
+            spreadRadius: 2.0,
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(18),
+        child: Stack(
+          children: [
+            // Video arka planı
+            Container(
+              child: VideoPlayer(mp4controller),
+            ),
+            // Hikaye içeriği
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.transparent, Colors.black.withOpacity(0.8)],
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      story.name,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'HorrorFont',
+                        letterSpacing: 1.5,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 3.0,
+                            color: Colors.red.withOpacity(0.6),
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          story.description,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontStyle: FontStyle.italic,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    story.isLock
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () =>
+                                    showOkCancelAlert(context, price),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.green[700],
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 12),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                ),
+                                child: const Text('Satın Al',
+                                    style: TextStyle(fontSize: 16)),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 12, vertical: 6),
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.6),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border:
+                                      Border.all(color: Colors.amber, width: 1),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      '$price',
+                                      style: const TextStyle(
+                                        color: Colors.amber,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 5),
+                                    Image.asset(ConstantPaths.tokenImagePath,
+                                        height: 24, width: 24),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        : ElevatedButton(
+                            onPressed: () async {
+                              // Hikayeye başlama işlemi
+                              await mp3controller.dispose();
+                              await mp4controller.dispose();
+
+                              hs.goToPage(
+                                  context: context, page: const NewGameView());
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red[800],
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
+                            child: const Text('Hikayeye Başla',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: CustomColors.cyanBlue)),
+                          ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildIndicator() {
+    return AnimatedSmoothIndicator(
+      activeIndex: activeIndex,
+      count: games().historiesGames.length,
+      effect: CustomizableEffect(
+        spacing: 8,
+        dotDecoration: DotDecoration(
+          width: 10,
+          height: 10,
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        activeDotDecoration: DotDecoration(
+          width: 20,
+          height: 10,
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(5),
+        ),
+      ),
+    );
+  }
 }
