@@ -727,7 +727,7 @@ class _StoriesViewState extends State<StoriesView>
     super.dispose();
   }
 
-  void playNewTrack({required String mp4Path, required String? mp3Path}) {
+  void playNewTrack({required String mp4Path}) {
     mp4controller.pause(); // Mevcut müziği durdur
     mp4controller.dispose(); // Kaynakları serbest bırak
     mp3controller.pause();
@@ -746,20 +746,6 @@ class _StoriesViewState extends State<StoriesView>
         // Hata oluşursa konsola yaz
         print("Error initializing new track: $error");
       });
-    if (mp3Path != null && mp3Path.isNotEmpty) {
-      mp3controller = VideoPlayerController.asset(mp3Path)
-        ..initialize().then((_) {
-          mp3controller.setLooping(true);
-          setState(() {
-            mp3controller.value.isPlaying
-                ? mp3controller.pause()
-                : mp3controller.play();
-          });
-        }).catchError((error) {
-          // Hata oluşursa konsola yaz
-          print("Error initializing new track: $error");
-        });
-    }
   }
 
   Future<void> _addTokens(int amount) async {
@@ -779,8 +765,7 @@ class _StoriesViewState extends State<StoriesView>
             price = 0;
             itsFree = !murder.isLock;
             mp4Path = "assets/videos/thunder.mp4";
-            mp3Path = "assets/sounds/murder.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: mp3Path);
+            playNewTrack(mp4Path: mp4Path);
           });
           break;
         case 1:
@@ -788,8 +773,7 @@ class _StoriesViewState extends State<StoriesView>
             price = 80;
             itsFree = !dontLookBack.isLock;
             mp4Path = "assets/videos/somin.mp4";
-            mp3Path = "assets/sounds/dontLookBack.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: "");
+            playNewTrack(mp4Path: mp4Path);
           });
           break;
         case 2:
@@ -797,8 +781,7 @@ class _StoriesViewState extends State<StoriesView>
             price = 120;
             itsFree = !lostLucy.isLock;
             mp4Path = "assets/videos/continue-background-video.mp4";
-            mp3Path = "assets/sounds/lostLucy.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: mp3Path);
+            playNewTrack(mp4Path: mp4Path);
           });
           break;
         case 3:
@@ -806,8 +789,9 @@ class _StoriesViewState extends State<StoriesView>
             itsFree = !nightGame.isLock;
             price = 100;
             mp4Path = "assets/videos/continue-background-video.mp4";
-            mp3Path = "assets/sounds/nightGame.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: mp3Path);
+            playNewTrack(
+              mp4Path: mp4Path,
+            );
           });
           break;
         case 4:
@@ -815,8 +799,7 @@ class _StoriesViewState extends State<StoriesView>
             price = 110;
             itsFree = !runKaity.isLock;
             mp4Path = "assets/videos/continue-background-video.mp4";
-            mp3Path = "assets/sounds/runKaity.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: mp3Path);
+            playNewTrack(mp4Path: mp4Path);
           });
           break;
         case 5:
@@ -824,8 +807,7 @@ class _StoriesViewState extends State<StoriesView>
             price = 150;
             itsFree = !smile.isLock;
             mp4Path = "assets/videos/continue-background-video.mp4";
-            mp3Path = "assets/sounds/smile.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: mp3Path);
+            playNewTrack(mp4Path: mp4Path);
           });
           break;
         case 6:
@@ -834,7 +816,7 @@ class _StoriesViewState extends State<StoriesView>
             itsFree = !behind.isLock;
             mp4Path = "assets/videos/continue-background-video.mp4";
             mp3Path = "assets/sounds/behind.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: mp3Path);
+            playNewTrack(mp4Path: mp4Path);
           });
           break;
         case 7:
@@ -842,8 +824,7 @@ class _StoriesViewState extends State<StoriesView>
             price = 300;
             itsFree = !lucky.isLock;
             mp4Path = "assets/videos/continue-background-video.mp4";
-            mp3Path = "assets/sounds/lucky.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: mp3Path);
+            playNewTrack(mp4Path: mp4Path);
           });
         default:
       }
