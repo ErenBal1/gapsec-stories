@@ -167,16 +167,20 @@ class _NewGameViewState extends State<NewGameView> {
                     ConstantPaths.lampImagePath,
                     fit: BoxFit.cover,
                   ))),
-          SafeArea(
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Observer(
-                builder: (_) => IconButton(
-                    onPressed: () async {
-                      hs.goToPageRemoveUntilPush(
-                          context: context, page: HomeView());
-                    },
-                    icon: AppFonts.homeButtonIcon),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+            child: SafeArea(
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Observer(
+                  builder: (_) => IconButton(
+                      onPressed: () async {
+                        hs.goToPageRemoveUntilPush(
+                            context: context, page: HomeView());
+                      },
+                      icon: AppFonts.homeButtonIcon),
+                ),
               ),
             ),
           ),

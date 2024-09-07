@@ -241,13 +241,16 @@ class _ShopViewState extends State<ShopView> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          leading: Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              onPressed: () => ss.goBack(context),
-              icon: const Icon(
-                Icons.close,
-                color: CustomColors.white,
+          leading: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                onPressed: () => ss.goBack(context),
+                icon: const Icon(
+                  Icons.close,
+                  color: CustomColors.white,
+                ),
               ),
             ),
           ),
