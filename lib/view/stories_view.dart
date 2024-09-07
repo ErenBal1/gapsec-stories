@@ -727,7 +727,7 @@ class _StoriesViewState extends State<StoriesView>
     super.dispose();
   }
 
-  void playNewTrack({required String mp4Path, required String mp3Path}) {
+  void playNewTrack({required String mp4Path, required String? mp3Path}) {
     mp4controller.pause(); // Mevcut müziği durdur
     mp4controller.dispose(); // Kaynakları serbest bırak
     mp3controller.pause();
@@ -746,18 +746,20 @@ class _StoriesViewState extends State<StoriesView>
         // Hata oluşursa konsola yaz
         print("Error initializing new track: $error");
       });
-    mp3controller = VideoPlayerController.asset(mp3Path)
-      ..initialize().then((_) {
-        mp3controller.setLooping(true);
-        setState(() {
-          mp3controller.value.isPlaying
-              ? mp3controller.pause()
-              : mp3controller.play();
+    if (mp3Path != null && mp3Path.isNotEmpty) {
+      mp3controller = VideoPlayerController.asset(mp3Path)
+        ..initialize().then((_) {
+          mp3controller.setLooping(true);
+          setState(() {
+            mp3controller.value.isPlaying
+                ? mp3controller.pause()
+                : mp3controller.play();
+          });
+        }).catchError((error) {
+          // Hata oluşursa konsola yaz
+          print("Error initializing new track: $error");
         });
-      }).catchError((error) {
-        // Hata oluşursa konsola yaz
-        print("Error initializing new track: $error");
-      });
+    }
   }
 
   Future<void> _addTokens(int amount) async {
@@ -785,9 +787,9 @@ class _StoriesViewState extends State<StoriesView>
           setState(() {
             price = 80;
             itsFree = !dontLookBack.isLock;
-            mp4Path = "assets/videos/new-game-background-video.mp4";
+            mp4Path = "assets/videos/somin.mp4";
             mp3Path = "assets/sounds/dontLookBack.mp3";
-            playNewTrack(mp4Path: mp4Path, mp3Path: mp3Path);
+            playNewTrack(mp4Path: mp4Path, mp3Path: "");
           });
           break;
         case 2:
