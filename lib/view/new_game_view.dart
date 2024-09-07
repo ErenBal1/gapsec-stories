@@ -10,6 +10,7 @@ import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
+import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
@@ -172,9 +173,10 @@ class _NewGameViewState extends State<NewGameView> {
               child: Observer(
                 builder: (_) => IconButton(
                     onPressed: () async {
-                      vm.goBack(context: context);
+                      hs.goToPageRemoveUntilPush(
+                          context: context, page: HomeView());
                     },
-                    icon: AppFonts.backButtonIcon),
+                    icon: AppFonts.homeButtonIcon),
               ),
             ),
           ),
