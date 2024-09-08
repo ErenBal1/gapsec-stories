@@ -335,10 +335,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
                           ),
-                          child: Text(
-                              assignToOdd(selectedList, storyMapId)!["title"]),
+                          child: Text(left["title"]),
                           onPressed: () async {
                             await _handleChoice(left);
+                            attempt++;
                           },
                         ),
                       ),
@@ -350,10 +350,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
                           ),
-                          child: Text(
-                              assignToEven(selectedList, storyMapId)!["title"]),
+                          child: Text(right["title"]),
                           onPressed: () async {
                             await _handleChoice(right);
+                            attempt++;
                           },
                         ),
                       ),
