@@ -20,6 +20,7 @@ class ConstantPaths {
 }
 
 class ConstantTexts {
+  static const String StartStory = "start_story";
   static const String MurderDescription = "murder_description";
   static const String GAPSEC = "GAPSEC";
   static const String NEW_GAME = "new_game_button";

@@ -657,7 +657,9 @@ class _StoriesViewState extends State<StoriesView>
 }
  */
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
@@ -1148,8 +1150,8 @@ class _StoriesViewState extends State<StoriesView>
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                 ),
-                                child: const Text('Satın Al',
-                                    style: TextStyle(fontSize: 16)),
+                                child: Text(ConstantTexts.BuyNow.tr(),
+                                    style: const TextStyle(fontSize: 16)),
                               ),
                               Container(
                                 padding: const EdgeInsets.symmetric(
@@ -1195,8 +1197,8 @@ class _StoriesViewState extends State<StoriesView>
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text('Hikayeye Başla',
-                                style: TextStyle(
+                            child: Text(ConstantTexts.StartStory.tr(),
+                                style: const TextStyle(
                                     fontSize: 16,
                                     color: CustomColors.cyanBlue)),
                           ),
