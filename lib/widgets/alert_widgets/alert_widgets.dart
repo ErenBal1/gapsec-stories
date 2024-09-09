@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class AlertWidgets {
   Future<void> showOkCancelAlert(
       BuildContext context,
+      int? cancelFuncOK,
       String messageText,
       String cancelLabelText,
       String titleText,
@@ -20,6 +21,8 @@ class AlertWidgets {
     // Eğer bir işlem yapmak istiyorsanız, burada result'u kullanabilirsiniz.
     // örneğin:
     if (result == OkCancelResult.ok) {
+      return okFunc;
+    } else if (cancelFuncOK == 1) {
       return okFunc;
     }
   }

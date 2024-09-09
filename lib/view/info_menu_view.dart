@@ -22,18 +22,22 @@ class InfoMenuView extends StatelessWidget {
           SafeArea(
             child: Column(
               children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Observer(
-                    builder: (_) => IconButton(
-                        onPressed: () => Navigator.pop(
-                              context,
-                              PageTransition(
-                                child: Container(),
-                                type: PageTransitionType.fade,
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 16.0),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Observer(
+                      builder: (_) => IconButton(
+                          onPressed: () => Navigator.pop(
+                                context,
+                                PageTransition(
+                                  child: Container(),
+                                  type: PageTransitionType.fade,
+                                ),
                               ),
-                            ),
-                        icon: AppFonts.backButtonIcon),
+                          icon: AppFonts.backButtonIcon),
+                    ),
                   ),
                 ),
                 const Spacer(flex: 7),

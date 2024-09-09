@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
+import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/utils/restart_app.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
@@ -21,7 +23,7 @@ class FlagButton extends StatelessWidget {
         border: isSelected ? Border.all(color: Colors.amber, width: 2) : null,
       ),
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: () async {
           AlertWidgets().showOkAlert(
             context,
             ConstantTexts.languageChanged.tr(),
@@ -37,6 +39,7 @@ class FlagButton extends StatelessWidget {
               }
             },
           );
+          await StoriesState().deleteAllStories(type: TextType.murderType);
         },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

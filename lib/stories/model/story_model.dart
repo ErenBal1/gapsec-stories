@@ -1,5 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
+import 'package:gapsec/utils/constants.dart';
 
 class StoryModel {
   final String name;
@@ -17,8 +20,7 @@ class StoryModel {
 
 StoryModel murder = StoryModel(
     name: "Murder",
-    description:
-        "Karanlık sokakların gizemi, çözülmeyi bekleyen bir cinayetin izleriyle dolu. Gerçeği ortaya çıkarabilecek misin?",
+    description: ConstantTexts.MurderDescription.tr(),
     isLock: false,
     whichRepo: DatabaseService().murderRepo,
     price: 100);

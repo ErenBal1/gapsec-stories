@@ -53,6 +53,15 @@ mixin _$StoriesState on _StoriesStateBase, Store {
     return _$initializeVideoAsyncAction.run(() => super.initializeVideo());
   }
 
+  late final _$deleteAllStoriesAsyncAction =
+      AsyncAction('_StoriesStateBase.deleteAllStories', context: context);
+
+  @override
+  Future<void> deleteAllStories({required TextType type}) {
+    return _$deleteAllStoriesAsyncAction
+        .run(() => super.deleteAllStories(type: type));
+  }
+
   late final _$closeVideoAsyncAction =
       AsyncAction('_StoriesStateBase.closeVideo', context: context);
 

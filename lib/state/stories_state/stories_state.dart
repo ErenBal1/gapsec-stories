@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
+import 'package:gapsec/cache/service/database_service.dart';
 import 'package:mobx/mobx.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:video_player/video_player.dart';
@@ -30,6 +32,12 @@ abstract class _StoriesStateBase with Store {
     } catch (e) {
       debugPrint('Video initialization failed: $e');
     }
+  }
+
+  @action
+  Future<void> deleteAllStories({required TextType type}) async {
+    final DatabaseService databaseService = DatabaseService();
+    await databaseService.selectedStoryDelete(type: type);
   }
 
   @action

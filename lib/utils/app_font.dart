@@ -79,4 +79,8 @@ class AppFonts {
     Icons.arrow_back_ios_new_outlined,
     color: CustomColors.white,
   );
+  static const homeButtonIcon = Icon(
+    Icons.home,
+    color: CustomColors.white,
+  );
 }

@@ -24,6 +24,18 @@ mixin _$HomeState on _HomeStateBase, Store {
   }
 
   @override
+  void goToPageRemoveUntilPush(
+      {required BuildContext context, required Widget page}) {
+    final _$actionInfo = _$_HomeStateBaseActionController.startAction(
+        name: '_HomeStateBase.goToPageRemoveUntilPush');
+    try {
+      return super.goToPageRemoveUntilPush(context: context, page: page);
+    } finally {
+      _$_HomeStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void goToPageBottomToTop(
       {required BuildContext context, required Widget page}) {
     final _$actionInfo = _$_HomeStateBaseActionController.startAction(
