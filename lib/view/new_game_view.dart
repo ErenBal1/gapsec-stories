@@ -184,7 +184,8 @@ class _NewGameViewState extends State<NewGameView> {
               ),
             ),
           ),
-          SafeArea(
+          //Test etmek için data base'i sıfırlama tuşu
+          /* SafeArea(
             child: Align(
                 alignment: Alignment.topRight,
                 child: IconButton(
@@ -193,7 +194,7 @@ class _NewGameViewState extends State<NewGameView> {
                       Icons.refresh_outlined,
                       color: CustomColors.white,
                     ))),
-          )
+          ) */
         ],
       ),
     );

@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/utils/app_font.dart';
+import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:gapsec/cache/games_storage/games_storage.dart';
@@ -79,9 +80,12 @@ class _ContinueChatViewState extends State<ContinueChatView> {
       List<Map<String, dynamic>> list, TextType type) {
     switch (type) {
       case TextType.murderType:
-        return list.firstWhere((element) =>
-            element["history"] ==
-            _databaseService.murderRepo.last!.murderTexts.toString());
+        return list.firstWhere(
+          (element) =>
+              element["history"] ==
+              _databaseService.murderRepo.last!.murderTexts.toString(),
+        );
+
       case TextType.dontLookBackType:
         return list.firstWhere((element) =>
             element["history"] ==
@@ -335,10 +339,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
                           ),
-                          child: Text(
-                              assignToOdd(selectedList, storyMapId)!["title"]),
+                          child: Text(left["title"]),
                           onPressed: () async {
                             await _handleChoice(left);
+                            attempt++;
                           },
                         ),
                       ),
@@ -350,10 +354,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
                           ),
-                          child: Text(
-                              assignToEven(selectedList, storyMapId)!["title"]),
+                          child: Text(right["title"]),
                           onPressed: () async {
                             await _handleChoice(right);
+                            attempt++;
                           },
                         ),
                       ),

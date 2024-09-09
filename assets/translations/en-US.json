@@ -1,4 +1,6 @@
 {
+        "start_story" : "Start story",
+        "murder_description": "The mystery of the dark alleys is full of traces of a murder waiting to be solved. Can you uncover the truth?",
         "new_game_button" : "New Game",
         "load_game_button" : "Load Game",
         "stories_button" : "Stories",

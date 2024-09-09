@@ -657,7 +657,9 @@ class _StoriesViewState extends State<StoriesView>
 }
  */
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
@@ -693,7 +695,7 @@ class _StoriesViewState extends State<StoriesView>
   String selectedDescription = murder.description;
   int activeIndex = 0;
   int price = 0;
-  String mp4Path = "assets/videos/thunder.mp4";
+  String mp4Path = "assets/videos/new-game-background-sounds.mp4";
   String mp3Path = "assets/sounds/murder.mp3";
 
   @override
@@ -708,7 +710,7 @@ class _StoriesViewState extends State<StoriesView>
               : mp4controller.play();
         });
       });
-    mp3controller = VideoPlayerController.asset(mp3Path)
+    /* mp3controller = VideoPlayerController.asset(mp3Path)
       ..initialize().then((_) {
         mp3controller.setLooping(true);
         setState(() {
@@ -716,13 +718,12 @@ class _StoriesViewState extends State<StoriesView>
               ? mp3controller.pause()
               : mp3controller.play();
         });
-      });
+      }); */
     carouselController = CarouselSliderController();
   }
 
   @override
   void dispose() {
-    mp3controller.dispose();
     mp4controller.dispose();
     super.dispose();
   }
@@ -730,8 +731,6 @@ class _StoriesViewState extends State<StoriesView>
   void playNewTrack({required String mp4Path}) {
     mp4controller.pause(); // Mevcut müziği durdur
     mp4controller.dispose(); // Kaynakları serbest bırak
-    mp3controller.pause();
-    mp3controller.dispose();
 
     // Yeni controller ile yeni dosya yükleniyor
     mp4controller = VideoPlayerController.asset(mp4Path)
@@ -764,7 +763,7 @@ class _StoriesViewState extends State<StoriesView>
           setState(() {
             price = 0;
             itsFree = !murder.isLock;
-            mp4Path = "assets/videos/thunder.mp4";
+            mp4Path = "assets/videos/new-game-background-sounds.mp4";
             playNewTrack(mp4Path: mp4Path);
           });
           break;
@@ -772,7 +771,7 @@ class _StoriesViewState extends State<StoriesView>
           setState(() {
             price = 80;
             itsFree = !dontLookBack.isLock;
-            mp4Path = "assets/videos/somin.mp4";
+            mp4Path = "assets/videos/continue-background-video.mp4";
             playNewTrack(mp4Path: mp4Path);
           });
           break;
@@ -1151,8 +1150,8 @@ class _StoriesViewState extends State<StoriesView>
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                 ),
-                                child: const Text('Satın Al',
-                                    style: TextStyle(fontSize: 16)),
+                                child: Text(ConstantTexts.BuyNow.tr(),
+                                    style: const TextStyle(fontSize: 16)),
                               ),
                               Container(
                                 padding: const EdgeInsets.symmetric(
@@ -1198,8 +1197,8 @@ class _StoriesViewState extends State<StoriesView>
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            child: const Text('Hikayeye Başla',
-                                style: TextStyle(
+                            child: Text(ConstantTexts.StartStory.tr(),
+                                style: const TextStyle(
                                     fontSize: 16,
                                     color: CustomColors.cyanBlue)),
                           ),

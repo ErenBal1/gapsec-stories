@@ -51,6 +51,8 @@ dependencies:
   animated_glitch: ^2.0.0+2
   #Neon
   neon: ^0.1.0
+  #Rename
+  rename: ^3.0.2
 
 
  
