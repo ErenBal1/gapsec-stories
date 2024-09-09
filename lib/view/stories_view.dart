@@ -693,7 +693,7 @@ class _StoriesViewState extends State<StoriesView>
   String selectedDescription = murder.description;
   int activeIndex = 0;
   int price = 0;
-  String mp4Path = "assets/videos/thunder.mp4";
+  String mp4Path = "assets/videos/new-game-background-sounds.mp4";
   String mp3Path = "assets/sounds/murder.mp3";
 
   @override
@@ -708,7 +708,7 @@ class _StoriesViewState extends State<StoriesView>
               : mp4controller.play();
         });
       });
-    mp3controller = VideoPlayerController.asset(mp3Path)
+    /* mp3controller = VideoPlayerController.asset(mp3Path)
       ..initialize().then((_) {
         mp3controller.setLooping(true);
         setState(() {
@@ -716,13 +716,12 @@ class _StoriesViewState extends State<StoriesView>
               ? mp3controller.pause()
               : mp3controller.play();
         });
-      });
+      }); */
     carouselController = CarouselSliderController();
   }
 
   @override
   void dispose() {
-    mp3controller.dispose();
     mp4controller.dispose();
     super.dispose();
   }
@@ -730,8 +729,6 @@ class _StoriesViewState extends State<StoriesView>
   void playNewTrack({required String mp4Path}) {
     mp4controller.pause(); // Mevcut müziği durdur
     mp4controller.dispose(); // Kaynakları serbest bırak
-    mp3controller.pause();
-    mp3controller.dispose();
 
     // Yeni controller ile yeni dosya yükleniyor
     mp4controller = VideoPlayerController.asset(mp4Path)
@@ -764,7 +761,7 @@ class _StoriesViewState extends State<StoriesView>
           setState(() {
             price = 0;
             itsFree = !murder.isLock;
-            mp4Path = "assets/videos/thunder.mp4";
+            mp4Path = "assets/videos/new-game-background-sounds.mp4";
             playNewTrack(mp4Path: mp4Path);
           });
           break;
@@ -772,7 +769,7 @@ class _StoriesViewState extends State<StoriesView>
           setState(() {
             price = 80;
             itsFree = !dontLookBack.isLock;
-            mp4Path = "assets/videos/somin.mp4";
+            mp4Path = "assets/videos/continue-background-video.mp4";
             playNewTrack(mp4Path: mp4Path);
           });
           break;

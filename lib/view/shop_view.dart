@@ -63,7 +63,8 @@ class _ShopViewState extends State<ShopView> {
       print("User earned reward");
       _rewardedAd = null;
     } else {
-      print("Ad not loaded");
+      showOkAlertDialogWidget(
+          context, "Advertising is not active in test mode.");
     }
   }
 
@@ -108,6 +109,37 @@ class _ShopViewState extends State<ShopView> {
     }
   }
 
+/*   Future<void> restorePurchases() async {
+  final bool available = await InAppPurchase.instance.isAvailable();
+
+  if (available) {
+    final List<PurchaseDetails> pastPurchases =
+        await InAppPurchase.instance.restorePurchases(); // Updated method
+
+    for (PurchaseDetails purchase in pastPurchases) {
+      if (purchase.status == PurchaseStatus.purchased) {
+        // Handle each purchase accordingly
+        if (purchase.productID == 'mystoken_100') {
+          _addTokens(100);
+        } else if (purchase.productID == 'mystoken_200') {
+          _addTokens(200);
+        } else if (purchase.productID == 'mystoken_300') {
+          _addTokens(300);
+        } else if (purchase.productID == 'mystoken_500') {
+          _addTokens(500);
+        } else if (purchase.productID == 'mystoken_600') {
+          _addTokens(600);
+        } else if (purchase.productID == 'mystoken_750') {
+          _addTokens(750);
+        }
+        // Handle more product IDs as needed
+      }
+    }
+  } else {
+    print('Store is not available');
+  }
+} */
+
   void _updateTokenBalance(String productId) {
     int tokensToAdd = _tokensFromProductId(productId);
     setState(() {
@@ -150,7 +182,6 @@ class _ShopViewState extends State<ShopView> {
         await iap.queryProductDetails({productId}.toSet());
 
     if (response.notFoundIDs.isNotEmpty) {
-      _addTokens(amount);
       return showOkAlertDialogWidget(
           context, ConstantTexts.product_not_found.tr());
     }
@@ -163,6 +194,7 @@ class _ShopViewState extends State<ShopView> {
         .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
         .then((_) {
       showOkAlertDialogWidget(context, ConstantTexts.purchase_initiated.tr());
+      _addTokens(amount);
       //
     }).catchError((error) {
       showOkAlertDialogWidget(
@@ -311,14 +343,19 @@ class _ShopViewState extends State<ShopView> {
             ),
             const SizedBox(height: 10),
             Text(
-              'Get MysTokens to unlock exclusive content and features',
+              'Get Mystokens to unlock exclusive content',
               style: TextStyle(
                 color: Colors.amber[50],
                 fontSize: 16,
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 15),
+            /*  TextButton(
+                onPressed: () async {
+                  await restorePurchases();
+                },
+                child: const Text("Restore Purchase")), */
             GridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

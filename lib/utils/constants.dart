@@ -20,6 +20,7 @@ class ConstantPaths {
 }
 
 class ConstantTexts {
+  static const String MurderDescription = "murder_description";
   static const String GAPSEC = "GAPSEC";
   static const String NEW_GAME = "new_game_button";
   static const String CONTINUE = "load_game_button";
@@ -31,7 +32,7 @@ class ConstantTexts {
   static const String Contributors = "contributors";
   static const String devast = "DEVAST";
   static const String developersnames = "TAHA YASIN BIKE   EREN BAL";
-  static const String contributorsnames = "TAHA YASIN BIKE   EREN BAL";
+  static const String contributorsnames = "-";
   static const String Version = "Version 1.0.0";
   static const String murdertitle = "murderTitle";
   static const String yourChoices = "your_choices";

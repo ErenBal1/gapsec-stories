@@ -1,5 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
+import 'package:gapsec/utils/constants.dart';
 
 class StoryModel {
   final String name;
@@ -15,7 +18,7 @@ class StoryModel {
 
 StoryModel murder = StoryModel(
     name: "Murder",
-    description: "Discipline is the best tool",
+    description: ConstantTexts.MurderDescription.tr(),
     isLock: false,
     whichRepo: DatabaseService().murderRepo);
 StoryModel dontLookBack = StoryModel(

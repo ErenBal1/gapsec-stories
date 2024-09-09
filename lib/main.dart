@@ -25,6 +25,7 @@ Future<void> main() async {
       LanguageConstants.trLocale,
     ],
     fallbackLocale: LanguageConstants.enLocale,
+    startLocale: LanguageConstants.enLocale,
     path: LanguageConstants.langPath,
     child: const MainApp(),
   ));
