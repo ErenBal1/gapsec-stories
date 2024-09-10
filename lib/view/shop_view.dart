@@ -63,8 +63,7 @@ class _ShopViewState extends State<ShopView> {
       print("User earned reward");
       _rewardedAd = null;
     } else {
-      showOkAlertDialogWidget(
-          context, "Advertising is not active in test mode.");
+      showOkAlertDialogWidget(context, "Please try  again later.");
     }
   }
 
