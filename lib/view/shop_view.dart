@@ -99,7 +99,9 @@ class _ShopViewState extends State<ShopView> {
       if (purchase.status == PurchaseStatus.purchased) {
         if (purchase.pendingCompletePurchase) {
           iap.completePurchase(purchase);
-          _updateTokenBalance(purchase.productID);
+          //_updateTokenBalance(purchase.productID);
+          int tokensToAdd = _tokensFromProductId(purchase.productID);
+          _addTokens(tokensToAdd);
         }
       } else if (purchase.status == PurchaseStatus.error) {
         showOkAlertDialogWidget(context,
@@ -193,7 +195,6 @@ class _ShopViewState extends State<ShopView> {
         .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
         .then((_) {
       showOkAlertDialogWidget(context, ConstantTexts.purchase_initiated.tr());
-      _addTokens(amount);
       //
     }).catchError((error) {
       showOkAlertDialogWidget(
