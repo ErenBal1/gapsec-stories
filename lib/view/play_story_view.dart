@@ -2,6 +2,7 @@ import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/utils/app_font.dart';
+import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
@@ -369,8 +370,12 @@ class _ChatViewState extends State<ChatView> {
     _scrollToBottom();
 
     if (storyMapId >= 900) {
-      print("hikaye sona geldi");
-      _showOkAlertDialogWidget(context, ConstantTexts.you_have_reached_the_end);
+      AlertWidgets().showOkAlert(
+          context,
+          ConstantTexts.you_have_reached_the_end.tr(),
+          "GAPSEC Ends...",
+          "Cancel",
+          () {});
       setState(() {
         isEnable = false;
       });

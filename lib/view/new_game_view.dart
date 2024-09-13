@@ -173,14 +173,12 @@ class _NewGameViewState extends State<NewGameView> {
             child: SafeArea(
               child: Align(
                 alignment: Alignment.topLeft,
-                child: Observer(
-                  builder: (_) => IconButton(
-                      onPressed: () async {
-                        hs.goToPageRemoveUntilPush(
-                            context: context, page: HomeView());
-                      },
-                      icon: AppFonts.homeButtonIcon),
-                ),
+                child: IconButton(
+                    onPressed: () async {
+                      hs.goToPageRemoveUntilPush(
+                          context: context, page: HomeView());
+                    },
+                    icon: AppFonts.homeButtonIcon),
               ),
             ),
           ),
@@ -261,9 +259,9 @@ class _NewGameViewState extends State<NewGameView> {
                       } else {
                         AlertWidgets().showOkAlert(
                             context,
-                            ConstantTexts.active_when_app_published,
-                            ConstantTexts.test_mode,
-                            ConstantTexts.okay,
+                            ConstantTexts.active_when_app_published.tr(),
+                            ConstantTexts.test_mode.tr(),
+                            ConstantTexts.okay.tr(),
                             () => print("hell"));
                       }
                     },

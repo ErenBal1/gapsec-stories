@@ -29,6 +29,26 @@ mixin _$StoriesState on _StoriesStateBase, Store {
     });
   }
 
+  late final _$carouselControllerAtom =
+      Atom(name: '_StoriesStateBase.carouselController', context: context);
+
+  @override
+  CarouselSliderController get carouselController {
+    _$carouselControllerAtom.reportRead();
+    return super.carouselController;
+  }
+
+  bool _carouselControllerIsInitialized = false;
+
+  @override
+  set carouselController(CarouselSliderController value) {
+    _$carouselControllerAtom.reportWrite(value,
+        _carouselControllerIsInitialized ? super.carouselController : null, () {
+      super.carouselController = value;
+      _carouselControllerIsInitialized = true;
+    });
+  }
+
   late final _$activeIndexAtom =
       Atom(name: '_StoriesStateBase.activeIndex', context: context);
 
@@ -150,6 +170,24 @@ mixin _$StoriesState on _StoriesStateBase, Store {
         .run(() => super.deleteAllStories(type: type));
   }
 
+  late final _$updateIndexAsyncAction =
+      AsyncAction('_StoriesStateBase.updateIndex', context: context);
+
+  @override
+  Future<void> updateIndex(int index, String title, String description) {
+    return _$updateIndexAsyncAction
+        .run(() => super.updateIndex(index, title, description));
+  }
+
+  late final _$playNewTrackAsyncAction =
+      AsyncAction('_StoriesStateBase.playNewTrack', context: context);
+
+  @override
+  Future<void> playNewTrack({required String mp4Path}) {
+    return _$playNewTrackAsyncAction
+        .run(() => super.playNewTrack(mp4Path: mp4Path));
+  }
+
   late final _$_StoriesStateBaseActionController =
       ActionController(name: '_StoriesStateBase', context: context);
 
@@ -246,6 +284,7 @@ mixin _$StoriesState on _StoriesStateBase, Store {
   String toString() {
     return '''
 mp4controller: ${mp4controller},
+carouselController: ${carouselController},
 activeIndex: ${activeIndex},
 iconSelectedIndex: ${iconSelectedIndex},
 price: ${price},

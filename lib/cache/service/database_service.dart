@@ -1,10 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/model/token_isLock_model/bool_model.dart';
-import 'package:gapsec/main.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
-import 'package:gapsec/utils/constants.dart';
 
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -54,8 +51,6 @@ class DatabaseService {
     smile.isLock = smileIsLockDefault!;
     behind.isLock = behindIsLockDefault!;
     lucky.isLock = luckyIsLockDefault!;
-    print("dlb => $dontLookBackIsLockDefault");
-    print("updated default values");
   }
 
   Future<void> addTokens(int amount) async {

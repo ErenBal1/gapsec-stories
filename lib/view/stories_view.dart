@@ -684,8 +684,6 @@ class _StoriesViewState extends State<StoriesView>
     with TickerProviderStateMixin {
   final StoriesState vm = StoriesState();
   final HomeState hs = HomeState();
-  late CarouselSliderController carouselController;
-  late TextTheme textTheme;
   final _databaseService = DatabaseService();
 
   @override
@@ -700,7 +698,7 @@ class _StoriesViewState extends State<StoriesView>
               : vm.mp4controller.play();
         });
       });
-    carouselController = CarouselSliderController();
+    vm.carouselController = CarouselSliderController();
   }
 
   @override
@@ -709,7 +707,7 @@ class _StoriesViewState extends State<StoriesView>
     super.dispose();
   }
 
-  void playNewTrack({required String mp4Path}) {
+  /* void playNewTrack({required String mp4Path}) {
     vm.mp4controller.pause(); // Mevcut müziği durdur
     vm.mp4controller.dispose(); // Kaynakları serbest bırak
 
@@ -726,14 +724,14 @@ class _StoriesViewState extends State<StoriesView>
         // Hata oluşursa konsola yaz
         print("Error initializing new track: $error");
       });
-  }
+  } */
 
   Future<void> _addTokens(int amount) async {
     await _databaseService.addTokens(amount);
     setState(() {});
   }
 
-  Future<void> updateIndex(int index, String title, String description) async {
+  /* Future<void> updateIndex(int index, String title, String description) async {
     await DatabaseService().updateDefaultValues();
     vm.updateIconSelectedIndex(newIconSelectedIndex: index);
     vm.updateTitle(newTitle: title);
@@ -816,13 +814,7 @@ class _StoriesViewState extends State<StoriesView>
         default:
       }
     });
-  }
-
-  @override
-  void didChangeDependencies() {
-    textTheme = Theme.of(context).textTheme;
-    super.didChangeDependencies();
-  }
+  } */
 
   Future<void> showOkAlertDialogWidget(
       BuildContext context, String message) async {
@@ -1034,25 +1026,22 @@ class _StoriesViewState extends State<StoriesView>
   Widget _buildStoryCarousel() {
     return Column(
       children: [
-        Observer(builder: (_) {
-          return CarouselSlider.builder(
-            itemCount: games().historiesGames.length,
-            options: CarouselOptions(
-              height: MediaQuery.of(context).size.height * 0.70,
-              enlargeCenterPage: true,
-              onPageChanged: (index, reason) {
-                vm.updateActiveIndex(newIndex: index);
-                setState(() {
-                  updateIndex(index, games().historiesGames[index].name,
-                      games().historiesGames[index].description);
-                });
-              },
-            ),
-            itemBuilder: (context, index, realIndex) {
-              return _buildStoryCard(games().historiesGames[index]);
+        CarouselSlider.builder(
+          itemCount: games().historiesGames.length,
+          options: CarouselOptions(
+            height: MediaQuery.of(context).size.height * 0.70,
+            enlargeCenterPage: true,
+            onPageChanged: (index, reason) {
+              vm.updateActiveIndex(newIndex: index);
+
+              vm.updateIndex(index, games().historiesGames[index].name,
+                  games().historiesGames[index].description);
             },
-          );
-        }),
+          ),
+          itemBuilder: (context, index, realIndex) {
+            return _buildStoryCard(games().historiesGames[index]);
+          },
+        ),
         const SizedBox(height: 20),
         buildIndicator(),
       ],
@@ -1078,8 +1067,11 @@ class _StoriesViewState extends State<StoriesView>
         child: Stack(
           children: [
             // Video arka planı
+            // ignore: avoid_unnecessary_containers
             Container(
-              child: VideoPlayer(vm.mp4controller),
+              child: Observer(builder: (_) {
+                return VideoPlayer(vm.mp4controller);
+              }),
             ),
             // Hikaye içeriği
             Container(
@@ -1155,14 +1147,16 @@ class _StoriesViewState extends State<StoriesView>
                                 ),
                                 child: Row(
                                   children: [
-                                    Text(
-                                      '${vm.price}',
-                                      style: const TextStyle(
-                                        color: Colors.amber,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
+                                    Observer(builder: (_) {
+                                      return Text(
+                                        '${vm.price}',
+                                        style: const TextStyle(
+                                          color: Colors.amber,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      );
+                                    }),
                                     const SizedBox(width: 5),
                                     Image.asset(ConstantPaths.tokenImagePath,
                                         height: 24, width: 24),

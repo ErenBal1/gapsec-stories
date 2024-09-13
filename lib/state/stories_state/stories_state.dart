@@ -1,8 +1,8 @@
+import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/stories/model/story_model.dart';
-import 'package:gapsec/view/stories_view.dart';
 import 'package:mobx/mobx.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:video_player/video_player.dart';
@@ -16,6 +16,9 @@ abstract class _StoriesStateBase with Store {
 
   @observable
   late VideoPlayerController mp4controller;
+
+  @observable
+  late CarouselSliderController carouselController;
 
   @observable
   int activeIndex = 0;
@@ -79,7 +82,7 @@ abstract class _StoriesStateBase with Store {
     await databaseService.selectedStoryDelete(type: type);
   }
 
-/*   @action
+  @action
   Future<void> updateIndex(int index, String title, String description) async {
     await _databaseService.updateDefaultValues();
     updateIconSelectedIndex(newIconSelectedIndex: index);
@@ -138,7 +141,25 @@ abstract class _StoriesStateBase with Store {
       default:
     }
   }
- */
+
+  @action
+  Future<void> playNewTrack({required String mp4Path}) async {
+    mp4controller.pause(); // Mevcut müziği durdur
+    mp4controller.dispose(); // Kaynakları serbest bırak
+
+    // Yeni controller ile yeni dosya yükleniyor
+    mp4controller = VideoPlayerController.asset(mp4Path)
+      ..initialize().then((_) {
+        mp4controller.setLooping(true);
+
+        mp4controller.value.isPlaying
+            ? mp4controller.pause()
+            : mp4controller.play();
+      }).catchError((error) {
+        // Hata oluşursa konsola yaz
+        print("Error initializing new track: $error");
+      });
+  }
 
   @action
   void goBack({required BuildContext context}) {
