@@ -115,7 +115,7 @@ class _ShopViewState extends State<ShopView> {
 
   if (available) {
     final List<PurchaseDetails> pastPurchases =
-        await InAppPurchase.instance.restorePurchases(); // Updated method
+        await InAppPurchase.instance.restorePurchases();// Updated method
 
     for (PurchaseDetails purchase in pastPurchases) {
       if (purchase.status == PurchaseStatus.purchased) {
@@ -241,10 +241,15 @@ class _ShopViewState extends State<ShopView> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () => buyToken(
-                  productId: productId,
-                  context: context,
-                  amount: _tokensFromProductId(productId)),
+              onPressed: () => AlertWidgets().showOkAlert(
+                  context,
+                  "Alıcağınız tokenler ve yapılan harcamalar daha sonra tekrar geri getirelemez.",
+                  "Restore purchase alert",
+                  "Okey",
+                  () => buyToken(
+                      productId: productId,
+                      context: context,
+                      amount: _tokensFromProductId(productId))),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.amber,
                 foregroundColor: Colors.black,
