@@ -12,9 +12,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*  appBar: AppBar(
-        title: Observer(builder: (_) => Text(ss.amount.toString())),
-      ), */
       body: MainMenuView(
         shops: ss,
         vm: vm,

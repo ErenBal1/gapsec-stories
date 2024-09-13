@@ -659,7 +659,7 @@ class _StoriesViewState extends State<StoriesView>
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:gapsec/cache/games_storage/games_storage.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
@@ -683,63 +683,44 @@ class StoriesView extends StatefulWidget {
 class _StoriesViewState extends State<StoriesView>
     with TickerProviderStateMixin {
   final StoriesState vm = StoriesState();
-  late VideoPlayerController mp4controller;
-  late VideoPlayerController mp3controller;
   final HomeState hs = HomeState();
   late CarouselSliderController carouselController;
   late TextTheme textTheme;
   final _databaseService = DatabaseService();
-  int iconSelectedIndex = 0;
-  bool itsFree = true;
-  String selectedTitle = murder.name;
-  String selectedDescription = murder.description;
-  int activeIndex = 0;
-  int price = 0;
-  String mp4Path = "assets/videos/new-game-background-sounds.mp4";
-  String mp3Path = "assets/sounds/murder.mp3";
 
   @override
   void initState() {
     super.initState();
-    mp4controller = VideoPlayerController.asset(mp4Path)
+    vm.mp4controller = VideoPlayerController.asset(vm.mp4Path)
       ..initialize().then((_) {
-        mp4controller.setLooping(true);
+        vm.mp4controller.setLooping(true);
         setState(() {
-          mp4controller.value.isPlaying
-              ? mp4controller.pause()
-              : mp4controller.play();
+          vm.mp4controller.value.isPlaying
+              ? vm.mp4controller.pause()
+              : vm.mp4controller.play();
         });
       });
-    /* mp3controller = VideoPlayerController.asset(mp3Path)
-      ..initialize().then((_) {
-        mp3controller.setLooping(true);
-        setState(() {
-          mp3controller.value.isPlaying
-              ? mp3controller.pause()
-              : mp3controller.play();
-        });
-      }); */
     carouselController = CarouselSliderController();
   }
 
   @override
   void dispose() {
-    mp4controller.dispose();
+    vm.mp4controller.dispose();
     super.dispose();
   }
 
   void playNewTrack({required String mp4Path}) {
-    mp4controller.pause(); // Mevcut müziği durdur
-    mp4controller.dispose(); // Kaynakları serbest bırak
+    vm.mp4controller.pause(); // Mevcut müziği durdur
+    vm.mp4controller.dispose(); // Kaynakları serbest bırak
 
     // Yeni controller ile yeni dosya yükleniyor
-    mp4controller = VideoPlayerController.asset(mp4Path)
+    vm.mp4controller = VideoPlayerController.asset(mp4Path)
       ..initialize().then((_) {
-        mp4controller.setLooping(true);
+        vm.mp4controller.setLooping(true);
         setState(() {
-          mp4controller.value.isPlaying
-              ? mp4controller.pause()
-              : mp4controller.play();
+          vm.mp4controller.value.isPlaying
+              ? vm.mp4controller.pause()
+              : vm.mp4controller.play();
         });
       }).catchError((error) {
         // Hata oluşursa konsola yaz
@@ -754,76 +735,83 @@ class _StoriesViewState extends State<StoriesView>
 
   Future<void> updateIndex(int index, String title, String description) async {
     await DatabaseService().updateDefaultValues();
+    vm.updateIconSelectedIndex(newIconSelectedIndex: index);
+    vm.updateTitle(newTitle: title);
+    vm.updateDescription(newDescription: description);
     setState(() {
-      iconSelectedIndex = index;
-      selectedTitle = title;
-      selectedDescription = description;
-      switch (iconSelectedIndex) {
+      switch (vm.iconSelectedIndex) {
         case 0:
+          vm.updatePrice(newPrice: 0);
+          vm.updateItsFree(newItsFree: !murder.isLock);
+          vm.updateMp4Path(
+              newPath: "assets/videos/new-game-background-sounds.mp4");
           setState(() {
-            price = 0;
-            itsFree = !murder.isLock;
-            mp4Path = "assets/videos/new-game-background-sounds.mp4";
-            playNewTrack(mp4Path: mp4Path);
+            playNewTrack(mp4Path: vm.mp4Path);
           });
           break;
         case 1:
+          vm.updatePrice(newPrice: 80);
+          vm.updateItsFree(newItsFree: !dontLookBack.isLock);
+          vm.updateMp4Path(
+              newPath: "assets/videos/continue-background-video.mp4");
           setState(() {
-            price = 80;
-            itsFree = !dontLookBack.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
+            playNewTrack(mp4Path: vm.mp4Path);
           });
           break;
         case 2:
+          vm.updatePrice(newPrice: 120);
+          vm.updateItsFree(newItsFree: !lostLucy.isLock);
+          vm.updateMp4Path(
+              newPath: "assets/videos/continue-background-video.mp4");
           setState(() {
-            price = 120;
-            itsFree = !lostLucy.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
+            playNewTrack(mp4Path: vm.mp4Path);
           });
           break;
         case 3:
+          vm.updatePrice(newPrice: 100);
+          vm.updateItsFree(newItsFree: !nightGame.isLock);
+          vm.updateMp4Path(
+              newPath: "assets/videos/continue-background-video.mp4");
           setState(() {
-            itsFree = !nightGame.isLock;
-            price = 100;
-            mp4Path = "assets/videos/continue-background-video.mp4";
             playNewTrack(
-              mp4Path: mp4Path,
+              mp4Path: vm.mp4Path,
             );
           });
           break;
         case 4:
+          vm.updatePrice(newPrice: 110);
+          vm.updateItsFree(newItsFree: !runKaity.isLock);
+          vm.updateMp4Path(
+              newPath: "assets/videos/continue-background-video.mp4");
           setState(() {
-            price = 110;
-            itsFree = !runKaity.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
+            playNewTrack(mp4Path: vm.mp4Path);
           });
           break;
         case 5:
+          vm.updatePrice(newPrice: 150);
+          vm.updateItsFree(newItsFree: !smile.isLock);
+          vm.updateMp4Path(
+              newPath: "assets/videos/continue-background-video.mp4");
           setState(() {
-            price = 150;
-            itsFree = !smile.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
+            playNewTrack(mp4Path: vm.mp4Path);
           });
           break;
         case 6:
+          vm.updatePrice(newPrice: 180);
+          vm.updateItsFree(newItsFree: !behind.isLock);
+          vm.updateMp4Path(
+              newPath: "assets/videos/continue-background-video.mp4");
           setState(() {
-            price = 180;
-            itsFree = !behind.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            mp3Path = "assets/sounds/behind.mp3";
-            playNewTrack(mp4Path: mp4Path);
+            playNewTrack(mp4Path: vm.mp4Path);
           });
           break;
         case 7:
+          vm.updatePrice(newPrice: 300);
+          vm.updateItsFree(newItsFree: !lucky.isLock);
+          vm.updateMp4Path(
+              newPath: "assets/videos/continue-background-video.mp4");
           setState(() {
-            price = 300;
-            itsFree = !lucky.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
+            playNewTrack(mp4Path: vm.mp4Path);
           });
         default:
       }
@@ -840,7 +828,7 @@ class _StoriesViewState extends State<StoriesView>
       BuildContext context, String message) async {
     final result = await showOkAlertDialog(
       context: context,
-      title: 'Yetersiz bakiye :( ',
+      title: 'Yetersiz Mystoken',
       message: message,
       okLabel: 'OK',
     );
@@ -853,7 +841,7 @@ class _StoriesViewState extends State<StoriesView>
     final result = await showOkCancelAlertDialog(
       context: context,
       title: 'Hikaye Kilidi Aç',
-      message: '$price Mystoken ile alınsın mı?',
+      message: '${vm.price} Mystoken ile alınsın mı?',
       okLabel: 'Evet',
       cancelLabel: 'Hayır',
     );
@@ -867,7 +855,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.dontLookBackType,
                 storyIsLock: dontLookBack.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, "Daha fazla Mystoken'e ihtiyacın var.");
           }
 
           break;
@@ -878,7 +867,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.lostLucyType,
                 storyIsLock: lostLucy.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, "Daha fazla Mystoken'e ihtiyacın var.");
           }
 
           break;
@@ -950,9 +940,7 @@ class _StoriesViewState extends State<StoriesView>
           .changeDefaultValue(type: type, newValue: false)
           .then(
         (value) {
-          setState(() {
-            itsFree = storyIsLock;
-          });
+          vm.updateItsFree(newItsFree: storyIsLock);
         },
       ),
     );
@@ -961,6 +949,7 @@ class _StoriesViewState extends State<StoriesView>
   @override
   Widget build(BuildContext context) {
     Config().init(context);
+
     return PopScope(
       canPop: false,
       child: Scaffold(
@@ -1045,23 +1034,25 @@ class _StoriesViewState extends State<StoriesView>
   Widget _buildStoryCarousel() {
     return Column(
       children: [
-        CarouselSlider.builder(
-          itemCount: games().historiesGames.length,
-          options: CarouselOptions(
-            height: MediaQuery.of(context).size.height * 0.70,
-            enlargeCenterPage: true,
-            onPageChanged: (index, reason) {
-              setState(() {
-                activeIndex = index;
-                updateIndex(index, games().historiesGames[index].name,
-                    games().historiesGames[index].description);
-              });
+        Observer(builder: (_) {
+          return CarouselSlider.builder(
+            itemCount: games().historiesGames.length,
+            options: CarouselOptions(
+              height: MediaQuery.of(context).size.height * 0.70,
+              enlargeCenterPage: true,
+              onPageChanged: (index, reason) {
+                vm.updateActiveIndex(newIndex: index);
+                setState(() {
+                  updateIndex(index, games().historiesGames[index].name,
+                      games().historiesGames[index].description);
+                });
+              },
+            ),
+            itemBuilder: (context, index, realIndex) {
+              return _buildStoryCard(games().historiesGames[index]);
             },
-          ),
-          itemBuilder: (context, index, realIndex) {
-            return _buildStoryCard(games().historiesGames[index]);
-          },
-        ),
+          );
+        }),
         const SizedBox(height: 20),
         buildIndicator(),
       ],
@@ -1088,7 +1079,7 @@ class _StoriesViewState extends State<StoriesView>
           children: [
             // Video arka planı
             Container(
-              child: VideoPlayer(mp4controller),
+              child: VideoPlayer(vm.mp4controller),
             ),
             // Hikaye içeriği
             Container(
@@ -1141,7 +1132,7 @@ class _StoriesViewState extends State<StoriesView>
                             children: [
                               ElevatedButton(
                                 onPressed: () =>
-                                    showOkCancelAlert(context, price),
+                                    showOkCancelAlert(context, vm.price),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.green[700],
                                   padding: const EdgeInsets.symmetric(
@@ -1165,7 +1156,7 @@ class _StoriesViewState extends State<StoriesView>
                                 child: Row(
                                   children: [
                                     Text(
-                                      '$price',
+                                      '${vm.price}',
                                       style: const TextStyle(
                                         color: Colors.amber,
                                         fontSize: 18,
@@ -1183,8 +1174,7 @@ class _StoriesViewState extends State<StoriesView>
                         : ElevatedButton(
                             onPressed: () async {
                               // Hikayeye başlama işlemi
-                              await mp3controller.dispose();
-                              await mp4controller.dispose();
+                              await vm.mp4controller.dispose();
 
                               hs.goToPage(
                                   context: context, page: const NewGameView());
@@ -1213,24 +1203,26 @@ class _StoriesViewState extends State<StoriesView>
   }
 
   Widget buildIndicator() {
-    return AnimatedSmoothIndicator(
-      activeIndex: activeIndex,
-      count: games().historiesGames.length,
-      effect: CustomizableEffect(
-        spacing: 8,
-        dotDecoration: DotDecoration(
-          width: 10,
-          height: 10,
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
+    return Observer(builder: (_) {
+      return AnimatedSmoothIndicator(
+        activeIndex: vm.activeIndex,
+        count: games().historiesGames.length,
+        effect: CustomizableEffect(
+          spacing: 8,
+          dotDecoration: DotDecoration(
+            width: 10,
+            height: 10,
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          activeDotDecoration: DotDecoration(
+            width: 20,
+            height: 10,
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(5),
+          ),
         ),
-        activeDotDecoration: DotDecoration(
-          width: 20,
-          height: 10,
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(5),
-        ),
-      ),
-    );
+      );
+    });
   }
 }

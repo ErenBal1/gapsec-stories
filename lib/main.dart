@@ -60,3 +60,7 @@ class _MainAppState extends State<MainApp> {
     );
   }
 }
+//purchase initialize dialogu sil <
+//play story fonksiyonuna bak <
+//Her şeyi state e taşı
+//Store listingi düzelt <

@@ -63,7 +63,7 @@ class _ShopViewState extends State<ShopView> {
       print("User earned reward");
       _rewardedAd = null;
     } else {
-      showOkAlertDialogWidget(context, "Please try  again later.");
+      // showOkAlertDialogWidget(context, "Please try  again later.");
     }
   }
 
@@ -194,7 +194,7 @@ class _ShopViewState extends State<ShopView> {
     iap
         .buyConsumable(purchaseParam: purchaseParam, autoConsume: true)
         .then((_) {
-      showOkAlertDialogWidget(context, ConstantTexts.purchase_initiated.tr());
+      //showOkAlertDialogWidget(context, ConstantTexts.purchase_initiated.tr());
       //
     }).catchError((error) {
       showOkAlertDialogWidget(

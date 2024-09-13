@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
+import 'package:gapsec/stories/model/story_model.dart';
+import 'package:gapsec/view/stories_view.dart';
 import 'package:mobx/mobx.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:video_player/video_player.dart';
@@ -10,28 +12,65 @@ part 'stories_state.g.dart';
 class StoriesState = _StoriesStateBase with _$StoriesState;
 
 abstract class _StoriesStateBase with Store {
-  @observable
-  late VideoPlayerController? controller;
+  final DatabaseService _databaseService = DatabaseService();
 
   @observable
-  bool isVideoInitialized = false;
+  late VideoPlayerController mp4controller;
+
+  @observable
+  int activeIndex = 0;
+
+  @observable
+  int iconSelectedIndex = 0;
+
+  @observable
+  int price = 0;
+
+  @observable
+  bool itsFree = true;
+
+  @observable
+  String selectedTitle = murder.name;
+
+  @observable
+  String selectedDescription = murder.description;
+
+  @observable
+  String mp4Path = "assets/videos/new-game-background-sounds.mp4";
 
   @action
-  void printIndexs(int pageIndex, int tabIndex) {
-    print("page index : $pageIndex, tab index: $tabIndex");
+  void updateMp4Path({required String newPath}) {
+    mp4Path = newPath;
   }
 
   @action
-  Future<void> initializeVideo() async {
-    controller = VideoPlayerController.asset('assets/videos/thunder.mp4')
-      ..setLooping(true);
-    try {
-      await controller?.initialize();
-      isVideoInitialized = true;
-      controller?.play();
-    } catch (e) {
-      debugPrint('Video initialization failed: $e');
-    }
+  void updateTitle({required String newTitle}) {
+    selectedTitle = newTitle;
+  }
+
+  @action
+  void updateDescription({required String newDescription}) {
+    selectedDescription = newDescription;
+  }
+
+  @action
+  void updateIconSelectedIndex({required int newIconSelectedIndex}) {
+    iconSelectedIndex = newIconSelectedIndex;
+  }
+
+  @action
+  void updateItsFree({required bool newItsFree}) {
+    itsFree = newItsFree;
+  }
+
+  @action
+  void updatePrice({required int newPrice}) {
+    price = newPrice;
+  }
+
+  @action
+  void updateActiveIndex({required int newIndex}) {
+    activeIndex = newIndex;
   }
 
   @action
@@ -40,31 +79,76 @@ abstract class _StoriesStateBase with Store {
     await databaseService.selectedStoryDelete(type: type);
   }
 
-  @action
-  Future<void> closeVideo() async {
-    controller?.pause();
-    controller?.dispose();
-    controller = null;
-    isVideoInitialized = false;
+/*   @action
+  Future<void> updateIndex(int index, String title, String description) async {
+    await _databaseService.updateDefaultValues();
+    updateIconSelectedIndex(newIconSelectedIndex: index);
+    updateTitle(newTitle: title);
+    updateDescription(newDescription: description);
+
+    switch (iconSelectedIndex) {
+      case 0:
+        updatePrice(newPrice: 0);
+        updateItsFree(newItsFree: !murder.isLock);
+        updateMp4Path(newPath: "assets/videos/new-game-background-sounds.mp4");
+        playNewTrack(mp4Path: mp4Path);
+        break;
+      case 1:
+        updatePrice(newPrice: 80);
+        updateItsFree(newItsFree: !dontLookBack.isLock);
+        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        playNewTrack(mp4Path: mp4Path);
+        break;
+      case 2:
+        updatePrice(newPrice: 120);
+        updateItsFree(newItsFree: !lostLucy.isLock);
+        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        playNewTrack(mp4Path: mp4Path);
+        break;
+      case 3:
+        updatePrice(newPrice: 100);
+        updateItsFree(newItsFree: !nightGame.isLock);
+        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        playNewTrack(mp4Path: mp4Path);
+        break;
+      case 4:
+        updatePrice(newPrice: 110);
+        updateItsFree(newItsFree: !runKaity.isLock);
+        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        playNewTrack(mp4Path: mp4Path);
+        break;
+      case 5:
+        updatePrice(newPrice: 150);
+        updateItsFree(newItsFree: !smile.isLock);
+        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        playNewTrack(mp4Path: mp4Path);
+        break;
+      case 6:
+        updatePrice(newPrice: 180);
+        updateItsFree(newItsFree: !behind.isLock);
+        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        playNewTrack(mp4Path: mp4Path);
+        break;
+      case 7:
+        updatePrice(newPrice: 300);
+        updateItsFree(newItsFree: !lucky.isLock);
+        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        playNewTrack(mp4Path: mp4Path);
+        break;
+      default:
+    }
   }
+ */
 
   @action
   void goBack({required BuildContext context}) {
+    mp4controller.pause();
+    mp4controller.dispose();
     Navigator.pop(
         context,
         PageTransition(
           child: Container(),
           type: PageTransitionType.fade,
         ));
-  }
-
-  @action
-  void dispose() {
-    if (controller != null) {
-      controller!.pause();
-      controller!.dispose();
-      controller = null;
-    }
-    isVideoInitialized = false;
   }
 }
