@@ -20,6 +20,7 @@ class ConstantPaths {
 }
 
 class ConstantTexts {
+  static const String RestoreAlert = "restore_alert";
   static const String GapsecEnds = "gapsec_ends";
   static const String GetMystoken = "get_mystoken";
   static const String BoostYourExperince = "boost_your_experience";

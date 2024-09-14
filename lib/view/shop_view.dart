@@ -203,9 +203,9 @@ class _ShopViewState extends State<ShopView> {
             ElevatedButton(
               onPressed: () => AlertWidgets().showOkAlert(
                   context,
-                  "Alıcağınız tokenler ve yapılan harcamalar daha sonra tekrar geri getirelemez.",
+                  ConstantTexts.RestoreAlert.tr(),
                   "Restore purchase alert",
-                  "Okey",
+                  ConstantTexts.okay.tr(),
                   () => buyToken(
                       productId: productId,
                       context: context,

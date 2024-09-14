@@ -1,4 +1,5 @@
 {
+        "restore_alert" : "Alıcağınız tokenler ve yapılan harcamalar daha sonra tekrar geri getirelemez.",
         "gapsec_ends" : "Gapsec sonları",
         "get_mystoken" : "Özel içeriklerin kilidini açmak için Mystokens alın",
         "boost_your_experience" : "Deneyiminizi Arttırın!",
