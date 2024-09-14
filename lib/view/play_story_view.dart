@@ -4,7 +4,7 @@ import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import 'package:gapsec/cache/games_storage/games_storage.dart';
+import 'package:gapsec/stories/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/utils/constants.dart';
