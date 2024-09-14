@@ -51,4 +51,10 @@ abstract class _PlayStoryViewStateBase with Store {
   void updateStoryMapId(int newId) {
     storyMapId = newId;
   }
+
+  @action
+  //istediğimiz id ye sahip mapi getirir
+  Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
+    return list.firstWhere((element) => element["id"] == id);
+  }
 }

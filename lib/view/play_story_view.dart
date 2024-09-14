@@ -46,15 +46,10 @@ class _ChatViewState extends State<ChatView> {
     _updateScreen();
   }
 
-  //istediğimiz id ye sahip mapi getirir
-  Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
-    return list.firstWhere((element) => element["id"] == id);
-  }
-
   //Animated textin tamamlandığı hakkında info
 
   Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
-    var item = getMapWithId(list, id);
+    var item = vm.getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
 
@@ -75,7 +70,7 @@ class _ChatViewState extends State<ChatView> {
   }
 
   Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
-    var item = getMapWithId(list, id);
+    var item = vm.getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
 
@@ -115,7 +110,7 @@ class _ChatViewState extends State<ChatView> {
 
             await _selectedStoryAddItem(
                 eklencekText:
-                    getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
                 type: TextType.murderType);
             vm.left = assignToOdd(vm.selectedList, vm.storyMapId)!;
             vm.right = assignToEven(vm.selectedList, vm.storyMapId)!;
@@ -300,7 +295,7 @@ class _ChatViewState extends State<ChatView> {
     vm.left = assignToOdd(vm.selectedList, vm.storyMapId)!;
     vm.right = assignToEven(vm.selectedList, vm.storyMapId)!;
     await _selectedStoryAddItem(
-      eklencekText: getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+      eklencekText: vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
       type: widget.selectedTextType,
     );
     await _selectedStoryUpdate(type: widget.selectedTextType);

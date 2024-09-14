@@ -218,6 +218,17 @@ mixin _$PlayStoryViewState on _PlayStoryViewStateBase, Store {
   }
 
   @override
+  Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
+    final _$actionInfo = _$_PlayStoryViewStateBaseActionController.startAction(
+        name: '_PlayStoryViewStateBase.getMapWithId');
+    try {
+      return super.getMapWithId(list, id);
+    } finally {
+      _$_PlayStoryViewStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 isEnable: ${isEnable},
