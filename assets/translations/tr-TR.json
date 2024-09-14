@@ -1,4 +1,9 @@
 {
+        "gapsec_ends" : "Gapsec sonları",
+        "get_mystoken" : "Özel içeriklerin kilidini açmak için Mystokens alın",
+        "boost_your_experience" : "Deneyiminizi Arttırın!",
+        "stories" : "HİKAYELER",
+        "inadequate_mystoken" : "Yetersiz Mystoken",
         "start_story" : "Hikayeye başla",
         "murder_description" : "Karanlık sokakların gizemi, çözülmeyi bekleyen bir cinayetin izleriyle dolu. Gerçeği ortaya çıkarabilicek misin?",
         "new_game_button" : "Yeni Oyun",

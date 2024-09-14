@@ -75,7 +75,7 @@ class TokenCounter extends StatelessWidget {
                           );
                         }),
                         const SizedBox(width: 6),
-                        GlowingToken(ConstantPaths.tokenImagePath, Colors.red),
+                        glowingToken(ConstantPaths.tokenImagePath, Colors.red),
                       ],
                     ),
                   ),
@@ -108,7 +108,7 @@ class TokenCounter extends StatelessWidget {
     );
   }
 
-  Widget GlowingToken(String assetPath, Color color) {
+  Widget glowingToken(String assetPath, Color color) {
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,

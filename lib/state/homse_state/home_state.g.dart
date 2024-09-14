@@ -36,6 +36,17 @@ mixin _$HomeState on _HomeStateBase, Store {
   }
 
   @override
+  void goBackDefault({required BuildContext context}) {
+    final _$actionInfo = _$_HomeStateBaseActionController.startAction(
+        name: '_HomeStateBase.goBackDefault');
+    try {
+      return super.goBackDefault(context: context);
+    } finally {
+      _$_HomeStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void goToPageBottomToTop(
       {required BuildContext context, required Widget page}) {
     final _$actionInfo = _$_HomeStateBaseActionController.startAction(

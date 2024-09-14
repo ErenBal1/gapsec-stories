@@ -18,25 +18,25 @@ class tabsClass {
     required StoriesState vm,
   }) =>
       <Widget>[
-        customCardWidgets().customIcon(
+        CustomCardWidgets().customIcon(
           icon: Icons.star,
           color: CustomColors.white,
           context: context,
           vm: vm,
         ),
-        customCardWidgets().customIcon(
+        CustomCardWidgets().customIcon(
           icon: Icons.star,
           color: CustomColors.white,
           context: context,
           vm: vm,
         ),
-        customCardWidgets().customIcon(
+        CustomCardWidgets().customIcon(
           icon: Icons.star,
           color: CustomColors.white,
           context: context,
           vm: vm,
         ),
-        customCardWidgets().customIcon(
+        CustomCardWidgets().customIcon(
           icon: Icons.star,
           color: CustomColors.white,
           context: context,
@@ -48,25 +48,25 @@ class tabsClass {
     required StoriesState vm,
   }) =>
       <Widget>[
-        customCardWidgets().customIcon(
+        CustomCardWidgets().customIcon(
           icon: Icons.lock,
           color: CustomColors.red,
           context: context,
           vm: vm,
         ),
-        customCardWidgets().customIcon(
+        CustomCardWidgets().customIcon(
           icon: Icons.lock,
           color: CustomColors.red,
           context: context,
           vm: vm,
         ),
-        customCardWidgets().customIcon(
+        CustomCardWidgets().customIcon(
           icon: Icons.lock,
           color: CustomColors.red,
           context: context,
           vm: vm,
         ),
-        customCardWidgets().customIcon(
+        CustomCardWidgets().customIcon(
           icon: Icons.lock,
           color: CustomColors.red,
           context: context,

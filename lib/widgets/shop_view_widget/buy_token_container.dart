@@ -4,14 +4,14 @@ import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 
-class mystokenBuyContainer extends StatelessWidget {
+class MystokenBuyContainer extends StatelessWidget {
   final Color cardColor = CustomColors.storyCardColor;
   final cardTitleColor = const Color.fromARGB(255, 218, 204, 204);
   final String productID;
   final String amountOfToken;
 
   final Function buyToken;
-  const mystokenBuyContainer(
+  const MystokenBuyContainer(
       {super.key,
       required this.buyToken,
       required this.productID,

@@ -29,6 +29,16 @@ abstract class _HomeStateBase with Store {
   }
 
   @action
+  void goBackDefault({required BuildContext context}) {
+    Navigator.pop(
+        context,
+        PageTransition(
+          child: Container(),
+          type: PageTransitionType.fade,
+        ));
+  }
+
+  @action
   void goToPageBottomToTop(
       {required BuildContext context, required Widget page}) {
     Navigator.push(

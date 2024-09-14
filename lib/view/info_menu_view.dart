@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:page_transition/page_transition.dart';
@@ -27,17 +25,15 @@ class InfoMenuView extends StatelessWidget {
                       horizontal: 16.0, vertical: 16.0),
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: Observer(
-                      builder: (_) => IconButton(
-                          onPressed: () => Navigator.pop(
-                                context,
-                                PageTransition(
-                                  child: Container(),
-                                  type: PageTransitionType.fade,
-                                ),
+                    child: IconButton(
+                        onPressed: () => Navigator.pop(
+                              context,
+                              PageTransition(
+                                child: Container(),
+                                type: PageTransitionType.fade,
                               ),
-                          icon: AppFonts.backButtonIcon),
-                    ),
+                            ),
+                        icon: AppFonts.backButtonIcon),
                   ),
                 ),
                 const Spacer(flex: 7),

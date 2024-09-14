@@ -9,6 +9,7 @@ import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/continue_play_view.dart';
+import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:video_player/video_player.dart';
 
@@ -139,7 +140,8 @@ class _ContinueViewState extends State<ContinueView> {
                 alignment: Alignment.topLeft,
                 child: IconButton(
                     onPressed: () async {
-                      vm.goBack(context: context);
+                      hs.goToPageRemoveUntilPush(
+                          context: context, page: HomeView());
                     },
                     icon: AppFonts.backButtonIcon),
               ),
