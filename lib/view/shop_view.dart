@@ -110,46 +110,6 @@ class _ShopViewState extends State<ShopView> {
     }
   }
 
-/*   Future<void> restorePurchases() async {
-  final bool available = await InAppPurchase.instance.isAvailable();
-
-  if (available) {
-    final List<PurchaseDetails> pastPurchases =
-        await InAppPurchase.instance.restorePurchases();// Updated method
-
-    for (PurchaseDetails purchase in pastPurchases) {
-      if (purchase.status == PurchaseStatus.purchased) {
-        // Handle each purchase accordingly
-        if (purchase.productID == 'mystoken_100') {
-          _addTokens(100);
-        } else if (purchase.productID == 'mystoken_200') {
-          _addTokens(200);
-        } else if (purchase.productID == 'mystoken_300') {
-          _addTokens(300);
-        } else if (purchase.productID == 'mystoken_500') {
-          _addTokens(500);
-        } else if (purchase.productID == 'mystoken_600') {
-          _addTokens(600);
-        } else if (purchase.productID == 'mystoken_750') {
-          _addTokens(750);
-        }
-        // Handle more product IDs as needed
-      }
-    }
-  } else {
-    print('Store is not available');
-  }
-} */
-
-  void _updateTokenBalance(String productId) {
-    int tokensToAdd = _tokensFromProductId(productId);
-    setState(() {
-      ss.amount += tokensToAdd;
-    });
-    showOkAlertDialogWidget(
-        context, ConstantTexts.tokens_added.tr(args: [tokensToAdd.toString()]));
-  }
-
   int _tokensFromProductId(String productId) {
     switch (productId) {
       case ConstantTexts.mystoken_100_id:
@@ -256,8 +216,8 @@ class _ShopViewState extends State<ShopView> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
               ),
-              child: const Text('Buy Now',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+              child: Text(ConstantTexts.BuyNow.tr(),
+                  style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
           ],
         ),
@@ -338,7 +298,7 @@ class _ShopViewState extends State<ShopView> {
           children: [
             const SizedBox(height: 20),
             Text(
-              'Boost Your Experience!',
+              ConstantTexts.BoostYourExperince.tr(),
               style: TextStyle(
                 color: Colors.amber[100],
                 fontSize: 22,
@@ -348,7 +308,7 @@ class _ShopViewState extends State<ShopView> {
             ),
             const SizedBox(height: 10),
             Text(
-              'Get Mystokens to unlock exclusive content',
+              ConstantTexts.GetMystoken.tr(),
               style: TextStyle(
                 color: Colors.amber[50],
                 fontSize: 16,
@@ -356,11 +316,6 @@ class _ShopViewState extends State<ShopView> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 15),
-            /*  TextButton(
-                onPressed: () async {
-                  await restorePurchases();
-                },
-                child: const Text("Restore Purchase")), */
             GridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

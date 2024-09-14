@@ -281,6 +281,17 @@ mixin _$StoriesState on _StoriesStateBase, Store {
   }
 
   @override
+  void goToPage({required BuildContext context, required Widget page}) {
+    final _$actionInfo = _$_StoriesStateBaseActionController.startAction(
+        name: '_StoriesStateBase.goToPage');
+    try {
+      return super.goToPage(context: context, page: page);
+    } finally {
+      _$_StoriesStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 mp4controller: ${mp4controller},

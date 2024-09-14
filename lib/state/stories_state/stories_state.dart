@@ -172,4 +172,10 @@ abstract class _StoriesStateBase with Store {
           type: PageTransitionType.fade,
         ));
   }
+
+  @action
+  void goToPage({required BuildContext context, required Widget page}) {
+    Navigator.push(
+        context, PageTransition(type: PageTransitionType.fade, child: page));
+  }
 }
