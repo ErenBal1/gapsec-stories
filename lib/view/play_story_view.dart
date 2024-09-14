@@ -46,49 +46,6 @@ class _ChatViewState extends State<ChatView> {
     _updateScreen();
   }
 
-  //Animated textin tamamlandığı hakkında info
-
-  Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
-    var item = vm.getMapWithId(list, id);
-    if (item != null) {
-      var answers = item['answers'] as List<Map<String, dynamic>>;
-
-      // Eğer her iki aId de aynı ise solda tek olmasını istediğimiz için ilk elemanı döndürdüm
-      if (answers[0]['aId'] == answers[1]['aId']) {
-        return answers[0];
-      }
-      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
-        return answers[0];
-      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
-        return answers[0];
-      }
-
-      // aId tek olanı seçiyoruz
-      return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
-    }
-    return null;
-  }
-
-  Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
-    var item = vm.getMapWithId(list, id);
-    if (item != null) {
-      var answers = item['answers'] as List<Map<String, dynamic>>;
-
-      // Eğer her iki aId de aynı ise sağdaki çift olmasını istediğimiz için ilk elemanı döndürdüm
-      if (answers[0]['aId'] == answers[1]['aId']) {
-        return answers[1];
-      }
-      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
-        return answers[1];
-      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
-        return answers[1];
-      }
-      // aId çift olanı seçiyoruz
-      return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
-    }
-    return null;
-  }
-
   @override
   void initState() {
     vm.mp3controller =
@@ -112,8 +69,8 @@ class _ChatViewState extends State<ChatView> {
                 eklencekText:
                     vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
                 type: TextType.murderType);
-            vm.left = assignToOdd(vm.selectedList, vm.storyMapId)!;
-            vm.right = assignToEven(vm.selectedList, vm.storyMapId)!;
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
             await _selectedStoryUpdate(type: TextType.murderType);
             vm.repo = _databaseService.murderRepo;
             break;
@@ -218,7 +175,7 @@ class _ChatViewState extends State<ChatView> {
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
                           ),
-                          child: Text(assignToOdd(
+                          child: Text(vm.assignToOdd(
                               vm.selectedList, vm.storyMapId)!["title"]),
                           onPressed: () async {
                             await _handleChoice(vm.left);
@@ -233,7 +190,7 @@ class _ChatViewState extends State<ChatView> {
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
                           ),
-                          child: Text(assignToEven(
+                          child: Text(vm.assignToEven(
                               vm.selectedList, vm.storyMapId)!["title"]),
                           onPressed: () async {
                             await _handleChoice(vm.right);
@@ -292,8 +249,8 @@ class _ChatViewState extends State<ChatView> {
 
     await Future.delayed(const Duration(seconds: 3));
 
-    vm.left = assignToOdd(vm.selectedList, vm.storyMapId)!;
-    vm.right = assignToEven(vm.selectedList, vm.storyMapId)!;
+    vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+    vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
     await _selectedStoryAddItem(
       eklencekText: vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
       type: widget.selectedTextType,
