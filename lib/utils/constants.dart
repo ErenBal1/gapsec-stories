@@ -22,7 +22,7 @@ class ConstantPaths {
 class ConstantTexts {
   static const String GapsecEnds = "gapsec_ends";
   static const String GetMystoken = "get_mystoken";
-  static const String BoostYourExperince = "boost_your_experince";
+  static const String BoostYourExperince = "boost_your_experience";
   static const String Stories = "stories";
   static const String InadequateMystoken = "inadequate_mystoken";
   static const String StartStory = "start_story";

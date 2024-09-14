@@ -8,6 +8,7 @@ import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/new_game_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:gapsec/utils/constants.dart';
@@ -212,7 +213,8 @@ class _StoriesViewState extends State<StoriesView>
         children: [
           IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () => vm.goBack(context: context),
+            onPressed: () =>
+                vm.goToPageRemoveUntilPush(context: context, page: HomeView()),
           ),
           Text(
             ConstantTexts.Stories.tr(),

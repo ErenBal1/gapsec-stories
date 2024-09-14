@@ -192,6 +192,18 @@ mixin _$StoriesState on _StoriesStateBase, Store {
       ActionController(name: '_StoriesStateBase', context: context);
 
   @override
+  void goToPageRemoveUntilPush(
+      {required BuildContext context, required Widget page}) {
+    final _$actionInfo = _$_StoriesStateBaseActionController.startAction(
+        name: '_StoriesStateBase.goToPageRemoveUntilPush');
+    try {
+      return super.goToPageRemoveUntilPush(context: context, page: page);
+    } finally {
+      _$_StoriesStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void updateMp4Path({required String newPath}) {
     final _$actionInfo = _$_StoriesStateBaseActionController.startAction(
         name: '_StoriesStateBase.updateMp4Path');
