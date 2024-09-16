@@ -234,6 +234,28 @@ mixin _$ContinuePlayState on _ContinuePlayStateBase, Store {
   }
 
   @override
+  Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
+    final _$actionInfo = _$_ContinuePlayStateBaseActionController.startAction(
+        name: '_ContinuePlayStateBase.assignToOdd');
+    try {
+      return super.assignToOdd(list, id);
+    } finally {
+      _$_ContinuePlayStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
+    final _$actionInfo = _$_ContinuePlayStateBaseActionController.startAction(
+        name: '_ContinuePlayStateBase.assignToEven');
+    try {
+      return super.assignToEven(list, id);
+    } finally {
+      _$_ContinuePlayStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 mp3controller: ${mp3controller},

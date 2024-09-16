@@ -112,49 +112,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     return null;
   }
 
-  //answer mapini getiren tek için fonksiyon
-  Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
-    var item = cs.getMapWithId(list, id);
-    if (item != null) {
-      var answers = item['answers'] as List<Map<String, dynamic>>;
-
-      // Eğer her iki aId de aynı ise solda tek olmasını istediğimiz için ilk elemanı döndürdüm
-      if (answers[0]['aId'] == answers[1]['aId']) {
-        return answers[0];
-      }
-      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
-        return answers[0];
-      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
-        return answers[0];
-      }
-
-      // aId tek olanı seçiyoruz
-      return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
-    }
-    return null;
-  }
-
-  //Answer mapi sağ için
-  Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
-    var item = cs.getMapWithId(list, id);
-    if (item != null) {
-      var answers = item['answers'] as List<Map<String, dynamic>>;
-
-      // Eğer her iki aId de aynı ise sağdaki çift olmasını istediğimiz için ilk elemanı döndürdüm
-      if (answers[0]['aId'] == answers[1]['aId']) {
-        return answers[1];
-      }
-      if (answers[0]['aId'] % 2 == 0 && answers[1]['aId'] % 2 == 0) {
-        return answers[1];
-      } else if (answers[0]['aId'] % 2 != 0 && answers[1]['aId'] % 2 != 0) {
-        return answers[1];
-      }
-      // aId çift olanı seçiyoruz
-      return answers.firstWhere((answer) => answer['aId'] % 2 == 0);
-    }
-    return null;
-  }
-
   @override
   void initState() {
     cs.mp3controller =
@@ -369,8 +326,8 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
     await Future.delayed(const Duration(seconds: 3));
 
-    cs.left = assignToOdd(cs.selectedList, cs.storyMapId)!;
-    cs.right = assignToEven(cs.selectedList, cs.storyMapId)!;
+    cs.left = cs.assignToOdd(cs.selectedList, cs.storyMapId)!;
+    cs.right = cs.assignToEven(cs.selectedList, cs.storyMapId)!;
     await _selectedStoryAddItem(
       eklencekText: cs.getMapWithId(cs.selectedList, cs.storyMapId)!["history"],
       type: widget.selectedTextType,
