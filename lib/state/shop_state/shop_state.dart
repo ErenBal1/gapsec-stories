@@ -22,7 +22,7 @@ abstract class _ShopStateBase with Store {
   @action
   Future<void> updateAmount(int newAmount) async {
     amount = newAmount;
-    print("updatedAmount shopstate => $amount");
+    //print("updatedAmount shopstate => $amount");
   }
 
   @action

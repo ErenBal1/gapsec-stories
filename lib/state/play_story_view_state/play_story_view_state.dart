@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gapsec/cache/service/database_service.dart';
 import 'package:mobx/mobx.dart';
 import 'package:video_player/video_player.dart';
 part 'play_story_view_state.g.dart';
@@ -7,8 +6,6 @@ part 'play_story_view_state.g.dart';
 class PlayStoryViewState = _PlayStoryViewStateBase with _$PlayStoryViewState;
 
 abstract class _PlayStoryViewStateBase with Store {
-  final DatabaseService _databaseService = DatabaseService();
-
   @observable
   bool isEnable = true;
 

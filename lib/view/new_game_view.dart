@@ -3,8 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
-import 'package:gapsec/state/homse_state/home_state.dart';
-import 'package:gapsec/state/stories_state/stories_state.dart';
+import 'package:gapsec/state/new_game_view_state/new_game_view_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
@@ -23,36 +22,29 @@ class NewGameView extends StatefulWidget {
 }
 
 class _NewGameViewState extends State<NewGameView> {
-  final StoriesState vm = StoriesState();
-  final HomeState hs = HomeState();
+  final NewGameViewState nv = NewGameViewState();
   final _databaseService = DatabaseService();
-  int storyMapId = 0;
-  late VideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-    _updateDefaultValues();
-    _controller =
+    nv.updateDefaultValues();
+    nv.controller =
         VideoPlayerController.asset(ConstantPaths.newGameBackgroundVideo)
           ..initialize().then((_) {
-            _controller.setLooping(true);
+            nv.controller.setLooping(true);
             setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
+              nv.controller.value.isPlaying
+                  ? nv.controller.pause()
+                  : nv.controller.play();
             });
           });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    nv.controller.dispose();
     super.dispose();
-  }
-
-  Future<void> _updateDefaultValues() async {
-    await _databaseService.updateDefaultValues();
   }
 
   void _updateScreen() {
@@ -83,7 +75,7 @@ class _NewGameViewState extends State<NewGameView> {
       switch (type) {
         case TextType.murderType:
           await _selectedHistoryDelete(type: TextType.murderType);
-          hs.goToPage(
+          nv.goToPage(
               page: ChatView(
                 selectedRepo: _databaseService.murderRepo,
                 story: gameName,
@@ -96,16 +88,9 @@ class _NewGameViewState extends State<NewGameView> {
     }
   }
 
+  // ignore: unused_element
   Future<void> _deleteListElements() async {
     await _databaseService.deleteListElements(type: TextType.murderType);
-  }
-
-  //Animated textin tamamlandığı hakkında info
-
-  void updateStoryMapId(int newId) {
-    setState(() {
-      storyMapId = newId;
-    });
   }
 
   @override
@@ -118,10 +103,10 @@ class _NewGameViewState extends State<NewGameView> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          _controller.value.isInitialized
+          nv.controller.value.isInitialized
               ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
+                  aspectRatio: nv.controller.value.aspectRatio,
+                  child: VideoPlayer(nv.controller),
                 )
               : Container(),
           Padding(
@@ -134,7 +119,7 @@ class _NewGameViewState extends State<NewGameView> {
                   return Padding(
                     padding:
                         const EdgeInsets.only(top: 8.0, right: 70, left: 70),
-                    child: UnlockMoreButton(hs: hs),
+                    child: UnlockMoreButton(nv: nv),
                   );
                 }
 
@@ -172,7 +157,7 @@ class _NewGameViewState extends State<NewGameView> {
                 alignment: Alignment.topLeft,
                 child: IconButton(
                     onPressed: () async {
-                      hs.goToPageRemoveUntilPush(
+                      nv.goToPageRemoveUntilPush(
                           context: context, page: HomeView());
                     },
                     icon: AppFonts.homeButtonIcon),
@@ -239,7 +224,7 @@ class _NewGameViewState extends State<NewGameView> {
                             await _selectedStoryUpdate(
                                 type: TextType.murderType);
                             if (_databaseService.murderRepo.isEmpty) {
-                              hs.goToPage(
+                              nv.goToPage(
                                   page: ChatView(
                                     selectedRepo: _databaseService.murderRepo,
                                     story: gameName,
@@ -294,17 +279,17 @@ class _NewGameViewState extends State<NewGameView> {
 class UnlockMoreButton extends StatelessWidget {
   const UnlockMoreButton({
     super.key,
-    required this.hs,
+    required this.nv,
   });
 
-  final HomeState hs;
+  final NewGameViewState nv;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
           backgroundColor: WidgetStatePropertyAll(CustomColors.storyCardColor)),
-      onPressed: () => hs.goToPage(page: const StoriesView(), context: context),
+      onPressed: () => nv.goToPage(page: const StoriesView(), context: context),
       child: FittedBox(
         child: Text(ConstantTexts.unlockMore.tr(),
             style: AppFonts.unlockMoreButtonTextStyle),

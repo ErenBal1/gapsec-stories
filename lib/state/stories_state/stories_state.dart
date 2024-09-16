@@ -170,7 +170,7 @@ abstract class _StoriesStateBase with Store {
             : mp4controller.play();
       }).catchError((error) {
         // Hata oluşursa konsola yaz
-        print("Error initializing new track: $error");
+        // print("Error initializing new track: $error");
       });
   }
 
