@@ -1,4 +1,7 @@
 {
+        "should_buy" : "Mystoken ile satın alınsın mı?",
+        "unlock_this" : "Hikayenin kilidini aç",
+        "get_more_mystoken" : "Daha fazla Mystoken'e ihtiyacın var.",
         "restore_alert" : "Alıcağınız tokenler ve yapılan harcamalar daha sonra tekrar geri getirelemez.",
         "gapsec_ends" : "Gapsec sonları",
         "get_mystoken" : "Özel içeriklerin kilidini açmak için Mystokens alın",

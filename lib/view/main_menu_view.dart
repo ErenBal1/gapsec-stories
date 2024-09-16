@@ -54,7 +54,7 @@ class MainMenuView extends StatelessWidget {
               ),
             ],
           ),
-          const SettingsButtons(),
+          SettingsButtons(),
         ],
       ),
     );

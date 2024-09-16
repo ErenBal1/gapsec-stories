@@ -65,7 +65,7 @@ class _ContinueViewState extends State<ContinueView> {
   Widget build(BuildContext context) {
     Config().init(context);
     final gameList =
-        games().historiesGames.where((game) => !game.isLock).toList();
+        Games().historiesGames.where((game) => !game.isLock).toList();
 
     return Scaffold(
       body: Stack(

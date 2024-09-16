@@ -1,15 +1,12 @@
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:gapsec/state/continue_play_state/continue_play_state.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:gapsec/stories/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
-import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:video_player/video_player.dart';
 
@@ -30,28 +27,8 @@ class ContinueChatView extends StatefulWidget {
 }
 
 class _ContinueChatViewState extends State<ContinueChatView> {
-  late VideoPlayerController mp3controller;
-  late Map<String, dynamic> left = {}; // tek olan map
-  late Map<String, dynamic> right = {}; //çift olan map
-  late List<Map<String, dynamic>> selectedList = [];
-  bool textCompleted = true;
-  bool isEnable = true;
-  int attempt = 0;
+  final ContinuePlayState cs = ContinuePlayState();
   final _databaseService = DatabaseService();
-  int storyMapId = 0;
-  late List repo = [];
-  String selectedTexts = "";
-  final ScrollController _scrollController = ScrollController();
-
-  void _scrollToBottom() {
-    Future.delayed(const Duration(milliseconds: 100), () {
-      _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      );
-    });
-  }
 
   //Ekranı güncellemek için short fonk.
   void _updateScreen() {
@@ -97,14 +74,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     return null;
   }
 
-  //Animated textin tamamlandığı hakkında info
-  void _changeComplete() {
-    textCompleted = !textCompleted;
-  }
-
   void updateStoryMapId(int newId) {
     setState(() {
-      storyMapId = newId;
+      cs.storyMapId = newId;
     });
   }
 
@@ -143,19 +115,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
       return answers.firstWhere((answer) => answer['aId'] % 2 != 0);
     }
     return null;
-  }
-
-  Future<void> _showOkAlertDialogWidget(
-      BuildContext context, String message) async {
-    final result = await showOkAlertDialog(
-      context: context,
-      title: 'GAPSEC Ends...',
-      message: message,
-      okLabel: 'OK',
-    );
-    if (result == OkCancelResult.ok) {
-      print("okey");
-    }
   }
 
   //answer mapini getiren tek için fonksiyon
@@ -203,36 +162,36 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
   @override
   void initState() {
-    mp3controller =
+    cs.mp3controller =
         VideoPlayerController.asset(ConstantPaths.murderBackgroundMusicPath)
           ..initialize().then((_) {
-            mp3controller.setLooping(true);
+            cs.mp3controller.setLooping(true);
             setState(() {
-              mp3controller.value.isPlaying
-                  ? mp3controller.pause()
-                  : mp3controller.play();
+              cs.mp3controller.value.isPlaying
+                  ? cs.mp3controller.pause()
+                  : cs.mp3controller.play();
             });
           });
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       switch (widget.selectedTextType) {
         case TextType.murderType:
-          selectedList = murderDetail;
+          cs.selectedList = murderDetail;
           await _selectedStoryUpdate(type: TextType.murderType);
-          left = initToOdd(
-            selectedList,
+          cs.left = initToOdd(
+            cs.selectedList,
             TextType.murderType,
           )!;
-          right = initToEven(
-            selectedList,
+          cs.right = initToEven(
+            cs.selectedList,
             TextType.murderType,
           )!;
           await _selectedStoryUpdate(type: TextType.murderType);
           setState(() {
-            repo = _databaseService.murderRepo;
+            cs.repo = _databaseService.murderRepo;
           });
 
-          _scrollToBottom();
+          cs.scrollToBottom();
           break;
         default:
       }
@@ -243,7 +202,8 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
   @override
   void dispose() {
-    mp3controller.dispose();
+    cs.mp3controller.dispose();
+    cs.scrollController.dispose();
     super.dispose();
   }
 
@@ -251,13 +211,8 @@ class _ContinueChatViewState extends State<ContinueChatView> {
   Widget build(BuildContext context) {
     Config().init(context);
     return Scaffold(
+      // ignore: avoid_unnecessary_containers
       body: Container(
-        // decoration: const BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage("assets/images/cpp.png"),
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
         child: SafeArea(
           child: Column(
             children: [
@@ -286,16 +241,17 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                     color: Colors.black.withOpacity(0.5),
                   ),
                   child: ListView.builder(
-                    controller: _scrollController,
-                    itemCount: repo.length,
+                    controller: cs.scrollController,
+                    itemCount: cs.repo.length,
                     itemBuilder: (context, index) {
-                      final NewGame newGame = repo[index];
+                      final NewGame newGame = cs.repo[index];
                       switch (widget.selectedTextType) {
                         case TextType.murderType:
-                          selectedTexts = newGame.murderTexts.toString();
+                          cs.selectedTexts = newGame.murderTexts.toString();
                           break;
                         case TextType.dontLookBackType:
-                          selectedTexts = newGame.dontLookBackTexts.toString();
+                          cs.selectedTexts =
+                              newGame.dontLookBackTexts.toString();
                           break;
                         default:
                       }
@@ -315,7 +271,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             border: Border.all(color: Colors.green, width: 1),
                           ),
                           child: Text(
-                            selectedTexts.tr(),
+                            cs.selectedTexts.tr(),
                             style: const TextStyle(
                                 color: Colors.green, fontSize: 14),
                           ),
@@ -326,7 +282,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                 ),
               ),
               // Choices area
-              if (textCompleted)
+              if (cs.textCompleted)
                 Container(
                   padding: const EdgeInsets.all(16),
                   color: Colors.black.withOpacity(0.7),
@@ -339,10 +295,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
                           ),
-                          child: Text(left["title"]),
+                          child: Text(cs.left["title"]),
                           onPressed: () async {
-                            await _handleChoice(left);
-                            attempt++;
+                            await _handleChoice(cs.left);
+                            cs.attempt++;
                           },
                         ),
                       ),
@@ -354,17 +310,17 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
                           ),
-                          child: Text(right["title"]),
+                          child: Text(cs.right["title"]),
                           onPressed: () async {
-                            await _handleChoice(right);
-                            attempt++;
+                            await _handleChoice(cs.right);
+                            cs.attempt++;
                           },
                         ),
                       ),
                     ],
                   ),
                 ),
-              if (!textCompleted)
+              if (!cs.textCompleted)
                 Container(
                   padding: const EdgeInsets.all(16),
                   color: Colors.black.withOpacity(0.7),
@@ -397,8 +353,8 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
   Future<void> _handleChoice(Map<String, dynamic> choice) async {
     setState(() {
-      textCompleted = false;
-      isEnable = false;
+      cs.textCompleted = false;
+      cs.isEnable = false;
     });
 
     await _selectedStoryAddItem(
@@ -409,37 +365,41 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
     await _selectedStoryUpdate(type: widget.selectedTextType);
     setState(() {
-      repo = widget.selectedTextType == TextType.murderType
+      cs.repo = widget.selectedTextType == TextType.murderType
           ? _databaseService.murderRepo
           : _databaseService.dontLookBackRepo;
     });
-    _scrollToBottom();
+    cs.scrollToBottom();
 
     await Future.delayed(const Duration(seconds: 3));
 
-    left = assignToOdd(selectedList, storyMapId)!;
-    right = assignToEven(selectedList, storyMapId)!;
+    cs.left = assignToOdd(cs.selectedList, cs.storyMapId)!;
+    cs.right = assignToEven(cs.selectedList, cs.storyMapId)!;
     await _selectedStoryAddItem(
-      eklencekText: getMapWithId(selectedList, storyMapId)!["history"],
+      eklencekText: getMapWithId(cs.selectedList, cs.storyMapId)!["history"],
       type: widget.selectedTextType,
     );
     await _selectedStoryUpdate(type: widget.selectedTextType);
     setState(() {
-      repo = widget.selectedTextType == TextType.murderType
+      cs.repo = widget.selectedTextType == TextType.murderType
           ? _databaseService.murderRepo
           : _databaseService.dontLookBackRepo;
     });
-    _scrollToBottom();
+    cs.scrollToBottom();
 
-    if (storyMapId >= 900) {
-      print("hikaye sona geldi");
-      _showOkAlertDialogWidget(context, ConstantTexts.you_have_reached_the_end);
+    if (cs.storyMapId >= 900) {
+      AlertWidgets().showOkAlert(
+          context,
+          ConstantTexts.you_have_reached_the_end.tr(),
+          ConstantTexts.GapsecEnds.tr(),
+          ConstantTexts.okay.tr(),
+          () {});
       setState(() {
-        isEnable = false;
+        cs.isEnable = false;
       });
     } else {
       setState(() {
-        textCompleted = true;
+        cs.textCompleted = true;
       });
     }
   }

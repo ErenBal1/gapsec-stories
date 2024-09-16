@@ -1,7 +1,6 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/homse_state/home_state.dart';
@@ -83,7 +82,6 @@ class _NewGameViewState extends State<NewGameView> {
     if (result == OkCancelResult.ok) {
       switch (type) {
         case TextType.murderType:
-          //silincek
           await _selectedHistoryDelete(type: TextType.murderType);
           hs.goToPage(
               page: ChatView(
@@ -92,7 +90,6 @@ class _NewGameViewState extends State<NewGameView> {
                 selectedTextType: TextType.murderType,
               ),
               context: context);
-          print('pressed Murder');
           break;
         default:
       }
@@ -115,7 +112,7 @@ class _NewGameViewState extends State<NewGameView> {
   Widget build(BuildContext context) {
     Config().init(context);
     final gameList =
-        games().historiesGames.where((game) => !game.isLock).toList();
+        Games().historiesGames.where((game) => !game.isLock).toList();
 
     return Scaffold(
       body: Stack(
@@ -137,7 +134,7 @@ class _NewGameViewState extends State<NewGameView> {
                   return Padding(
                     padding:
                         const EdgeInsets.only(top: 8.0, right: 70, left: 70),
-                    child: unlockMoreButton(hs: hs),
+                    child: UnlockMoreButton(hs: hs),
                   );
                 }
 
@@ -262,7 +259,7 @@ class _NewGameViewState extends State<NewGameView> {
                             ConstantTexts.active_when_app_published.tr(),
                             ConstantTexts.test_mode.tr(),
                             ConstantTexts.okay.tr(),
-                            () => print("hell"));
+                            () {});
                       }
                     },
                     child: SizedBox(
@@ -294,8 +291,8 @@ class _NewGameViewState extends State<NewGameView> {
   }
 }
 
-class unlockMoreButton extends StatelessWidget {
-  const unlockMoreButton({
+class UnlockMoreButton extends StatelessWidget {
+  const UnlockMoreButton({
     super.key,
     required this.hs,
   });

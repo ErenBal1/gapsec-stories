@@ -65,13 +65,13 @@ class DatabaseService {
       // Eğer kayıt varsa, tokenAmount null değilse ekle, null ise önce 0 olarak ayarla
       boolValues.tokenAmount = (boolValues.tokenAmount ?? 0) + amount;
       tokenAmountDefault = boolValues.tokenAmount;
-      print("tokenAmountDefault = $tokenAmountDefault");
+      //print("tokenAmountDefault = $tokenAmountDefault");
       await isar.writeTxn(() async {
         await isar.boolModels.put(boolValues);
       });
     }
     final updatedBoolModel = await isar.boolModels.where().findFirst();
-    print("Güncellenmiş token miktarı: ${updatedBoolModel?.tokenAmount}");
+    //print("Güncellenmiş token miktarı: ${updatedBoolModel?.tokenAmount}");
     ShopState().updateAmount(updatedBoolModel?.tokenAmount ?? 0);
     await updateDefaultValues();
   }
@@ -314,8 +314,8 @@ class DatabaseService {
             .where((item) =>
                 item.murderTexts != null && item.murderTexts!.isNotEmpty)
             .toList();
-        print("murderRepo => $murderRepo");
-        print("murder story updated");
+        //print("murderRepo => $murderRepo");
+        //print("murder story updated");
         break;
       case TextType.dontLookBackType:
         dontLookBackRepo = newGames
@@ -323,56 +323,56 @@ class DatabaseService {
                 item.dontLookBackTexts != null &&
                 item.dontLookBackTexts!.isNotEmpty)
             .toList();
-        print("dontLookBackRepo => $dontLookBackRepo");
-        print("dontlookback story updated");
+        //print("dontLookBackRepo => $dontLookBackRepo");
+        //print("dontlookback story updated");
         break;
       case TextType.lostLucyType:
         lostLucyRepo = newGames
             .where((item) =>
                 item.lostLucyTexts != null && item.lostLucyTexts!.isNotEmpty)
             .toList();
-        print("lostLucyRepo => $lostLucyRepo");
-        print("lostLucy story updated");
+        //print("lostLucyRepo => $lostLucyRepo");
+        //print("lostLucy story updated");
         break;
       case TextType.nightGameType:
         nightGameRepo = newGames
             .where((item) =>
                 item.nightGameTexts != null && item.nightGameTexts!.isNotEmpty)
             .toList();
-        print("nighGameRepo => $nightGameRepo");
-        print("nighGame story updated");
+        //print("nighGameRepo => $nightGameRepo");
+        //print("nighGame story updated");
         break;
       case TextType.runKaityType:
         runKaityRepo = newGames
             .where((item) =>
                 item.runKaityTexts != null && item.runKaityTexts!.isNotEmpty)
             .toList();
-        print("runKaityRepo => $runKaityRepo");
-        print("runKaity story updated");
+        //print("runKaityRepo => $runKaityRepo");
+        //print("runKaity story updated");
         break;
       case TextType.smileType:
         smileRepo = newGames
             .where((item) =>
                 item.smileTexts != null && item.smileTexts!.isNotEmpty)
             .toList();
-        print("smileRepo => $smileRepo");
-        print("smile story updated");
+        //print("smileRepo => $smileRepo");
+        //print("smile story updated");
         break;
       case TextType.behindType:
         behindRepo = newGames
             .where((item) =>
                 item.behindTexts != null && item.behindTexts!.isNotEmpty)
             .toList();
-        print("behindRepo => $behindRepo");
-        print("behind story updated");
+        //print("behindRepo => $behindRepo");
+        //print("behind story updated");
         break;
       case TextType.luckyType:
         luckyRepo = newGames
             .where((item) =>
                 item.luckyTexts != null && item.luckyTexts!.isNotEmpty)
             .toList();
-        print("luckyRepo => $luckyRepo");
-        print("lucky story updated");
+        //print("luckyRepo => $luckyRepo");
+        //print("lucky story updated");
         break;
       default:
     }

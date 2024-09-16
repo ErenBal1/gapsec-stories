@@ -20,6 +20,9 @@ class ConstantPaths {
 }
 
 class ConstantTexts {
+  static const String ShouldBuy = "should_buy";
+  static const String UnlockThis = "unlock_this";
+  static const String GetMoreMystoken = "get_more_mystoken";
   static const String RestoreAlert = "restore_alert";
   static const String GapsecEnds = "gapsec_ends";
   static const String GetMystoken = "get_mystoken";
