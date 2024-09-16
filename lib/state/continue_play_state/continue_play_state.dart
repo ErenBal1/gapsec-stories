@@ -40,6 +40,11 @@ abstract class _ContinuePlayStateBase with Store {
   late ScrollController scrollController;
 
   @action
+  void updateStoryMapId(int newId) {
+    storyMapId = newId;
+  }
+
+  @action
   void scrollToBottom() {
     Future.delayed(const Duration(milliseconds: 100), () {
       scrollController.animateTo(

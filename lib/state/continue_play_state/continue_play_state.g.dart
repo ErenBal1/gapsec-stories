@@ -212,6 +212,17 @@ mixin _$ContinuePlayState on _ContinuePlayStateBase, Store {
       ActionController(name: '_ContinuePlayStateBase', context: context);
 
   @override
+  void updateStoryMapId(int newId) {
+    final _$actionInfo = _$_ContinuePlayStateBaseActionController.startAction(
+        name: '_ContinuePlayStateBase.updateStoryMapId');
+    try {
+      return super.updateStoryMapId(newId);
+    } finally {
+      _$_ContinuePlayStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void scrollToBottom() {
     final _$actionInfo = _$_ContinuePlayStateBaseActionController.startAction(
         name: '_ContinuePlayStateBase.scrollToBottom');

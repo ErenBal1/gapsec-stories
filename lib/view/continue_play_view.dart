@@ -69,12 +69,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     return null;
   }
 
-  void updateStoryMapId(int newId) {
-    setState(() {
-      cs.storyMapId = newId;
-    });
-  }
-
   Map<String, dynamic>? initToEven(
       List<Map<String, dynamic>> list, TextType type) {
     var item = getMapWithName(list, type);
@@ -314,7 +308,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
       eklencekText: choice["title"],
       type: widget.selectedTextType,
     );
-    updateStoryMapId(choice["aId"]);
+    cs.updateStoryMapId(choice["aId"]);
 
     await _selectedStoryUpdate(type: widget.selectedTextType);
     setState(() {
