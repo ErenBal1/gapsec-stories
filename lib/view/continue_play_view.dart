@@ -47,11 +47,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     _updateScreen();
   }
 
-  //istediğimiz id ye sahip mapi getirir
-  Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
-    return list.firstWhere((element) => element["id"] == id);
-  }
-
   //istediğimiz son metne göre mapi getirir
   Map<String, dynamic>? getMapWithName(
       List<Map<String, dynamic>> list, TextType type) {
@@ -119,7 +114,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
   //answer mapini getiren tek için fonksiyon
   Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
-    var item = getMapWithId(list, id);
+    var item = cs.getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
 
@@ -141,7 +136,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
   //Answer mapi sağ için
   Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
-    var item = getMapWithId(list, id);
+    var item = cs.getMapWithId(list, id);
     if (item != null) {
       var answers = item['answers'] as List<Map<String, dynamic>>;
 
@@ -377,7 +372,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     cs.left = assignToOdd(cs.selectedList, cs.storyMapId)!;
     cs.right = assignToEven(cs.selectedList, cs.storyMapId)!;
     await _selectedStoryAddItem(
-      eklencekText: getMapWithId(cs.selectedList, cs.storyMapId)!["history"],
+      eklencekText: cs.getMapWithId(cs.selectedList, cs.storyMapId)!["history"],
       type: widget.selectedTextType,
     );
     await _selectedStoryUpdate(type: widget.selectedTextType);

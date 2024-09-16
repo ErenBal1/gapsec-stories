@@ -49,4 +49,10 @@ abstract class _ContinuePlayStateBase with Store {
       );
     });
   }
+
+  @action
+  //istediğimiz id ye sahip mapi getirir
+  Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
+    return list.firstWhere((element) => element["id"] == id);
+  }
 }

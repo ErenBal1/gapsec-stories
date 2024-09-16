@@ -223,6 +223,17 @@ mixin _$ContinuePlayState on _ContinuePlayStateBase, Store {
   }
 
   @override
+  Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
+    final _$actionInfo = _$_ContinuePlayStateBaseActionController.startAction(
+        name: '_ContinuePlayStateBase.getMapWithId');
+    try {
+      return super.getMapWithId(list, id);
+    } finally {
+      _$_ContinuePlayStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 mp3controller: ${mp3controller},
