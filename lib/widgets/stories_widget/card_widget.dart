@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/utils/app_font.dart';
 
-class customCardWidgets {
+class CustomCardWidgets {
   Widget customCard(
       {required BuildContext context,
       required String name,
       required String description}) {
+    // ignore: avoid_unnecessary_containers
     return Container(
       //color: CustomColors.white,
       child: Column(

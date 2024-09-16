@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
-import 'package:gapsec/widgets/language_settings_widget/flag_button.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});

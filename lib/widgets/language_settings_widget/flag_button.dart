@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/utils/constants.dart';
-import 'package:gapsec/utils/restart_app.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 
+// ignore: must_be_immutable
 class FlagButton extends StatelessWidget {
   String path;
 

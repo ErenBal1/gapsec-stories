@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:gapsec/cache/games_storage/games_storage.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/utils/constants.dart';
@@ -74,7 +73,7 @@ StoryModel lucky = StoryModel(
     whichRepo: DatabaseService().luckyRepo,
     price: 100);
 
-class games {
+class Games {
   List historiesGames = [
     murder,
     dontLookBack,

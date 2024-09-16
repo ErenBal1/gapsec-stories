@@ -1,4 +1,13 @@
 {
+        "should_buy" : "Buy it with Mystoken",
+        "unlock_this" : "Unlock the Story",
+        "get_more_mystoken" : "You need more Mystoken.",
+        "restore_alert" : "The tokens you receive and the expenditures you make cannot be redeemed later",
+        "gapsec_ends" : "Gapsec ends",
+        "get_mystoken" : "Get Mystokens to unlock exclusive content",
+        "boost_your_experience" : "Boost Your Experience!",
+        "stories": "STORIES",
+        "inadequate_mystoken" : "Inadequate Mystoken",
         "start_story" : "Start story",
         "murder_description": "The mystery of the dark alleys is full of traces of a murder waiting to be solved. Can you uncover the truth?",
         "new_game_button" : "New Game",

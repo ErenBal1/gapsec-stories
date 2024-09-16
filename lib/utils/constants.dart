@@ -20,6 +20,15 @@ class ConstantPaths {
 }
 
 class ConstantTexts {
+  static const String ShouldBuy = "should_buy";
+  static const String UnlockThis = "unlock_this";
+  static const String GetMoreMystoken = "get_more_mystoken";
+  static const String RestoreAlert = "restore_alert";
+  static const String GapsecEnds = "gapsec_ends";
+  static const String GetMystoken = "get_mystoken";
+  static const String BoostYourExperince = "boost_your_experience";
+  static const String Stories = "stories";
+  static const String InadequateMystoken = "inadequate_mystoken";
   static const String StartStory = "start_story";
   static const String MurderDescription = "murder_description";
   static const String GAPSEC = "GAPSEC";

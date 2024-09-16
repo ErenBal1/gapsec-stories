@@ -1,679 +1,14 @@
-/* import 'package:adaptive_dialog/adaptive_dialog.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/material.dart';
-import 'package:gapsec/cache/games_storage/games_storage.dart';
-import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
-import 'package:gapsec/cache/service/database_service.dart';
-import 'package:gapsec/state/homse_state/home_state.dart';
-import 'package:gapsec/state/shop_state/shop_state.dart';
-import 'package:gapsec/state/stories_state/stories_state.dart';
-import 'package:gapsec/stories/model/story_model.dart';
-import 'package:gapsec/utils/app_font.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:video_player/video_player.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:gapsec/utils/constants.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:video_player/video_player.dart';
-
-class StoriesView extends StatefulWidget {
-  const StoriesView({super.key});
-
-  @override
-  _StoriesViewState createState() => _StoriesViewState();
-}
-
-class _StoriesViewState extends State<StoriesView>
-    with TickerProviderStateMixin {
-  final StoriesState vm = StoriesState();
-  late VideoPlayerController controller;
-  late VideoPlayerController mp3controller;
-  late TabController tab1Controller;
-  late TabController tab2Controller;
-  late CarouselSliderController carouselController;
-  late TextTheme textTheme;
-  final _databaseService = DatabaseService();
-  int iconSelectedIndex = 0;
-  bool itsFree = true;
-  String selectedTitle = murder.name;
-  String selectedDescription = murder.description;
-  int activeIndex = 0;
-  int price = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    mp3controller = VideoPlayerController.asset(mp3Path)
-      ..initialize().then((_) {
-        mp3controller.setLooping(true);
-        setState(() {
-          mp3controller.value.isPlaying
-              ? mp3controller.pause()
-              : mp3controller.play();
-        });
-      });
-    controller = VideoPlayerController.asset("assets/videos/thunder.mp4")
-      ..initialize().then(
-        (_) {
-          controller.setLooping(true);
-          setState(() {
-            controller.value.isPlaying ? controller.pause() : controller.play();
-          });
-        },
-      );
-    carouselController = CarouselSliderController();
-  }
-
-  @override
-  void dispose() {
-    mp4controller.dispose();
-    super.dispose();
-  }
-
-  void playNewTrack({required String mp4Path}) {
-    mp4controller.pause(); // Mevcut müziği durdur
-    mp4controller.dispose(); // Kaynakları serbest bırak
-
-    // Yeni controller ile yeni dosya yükleniyor
-    mp4controller = VideoPlayerController.asset(mp4Path)
-      ..initialize().then((_) {
-        mp4controller.setLooping(true);
-        setState(() {
-          mp4controller.value.isPlaying
-              ? mp4controller.pause()
-              : mp4controller.play();
-        });
-      }).catchError((error) {
-        // Hata oluşursa konsola yaz
-        print("Error initializing new track: $error");
-      });
-  }
-
-  Future<void> _addTokens(int amount) async {
-    await _databaseService.addTokens(amount);
-    setState(() {});
-  }
-
-  Future<void> updateIndex(int index, String title, String description) async {
-    await DatabaseService().updateDefaultValues();
-    setState(() {
-      iconSelectedIndex = index;
-      selectedTitle = title;
-      selectedDescription = description;
-      switch (iconSelectedIndex) {
-        case 0:
-          setState(() {
-            price = 0;
-            itsFree = !murder.isLock;
-            mp4Path = "assets/videos/new-game-background-sounds.mp4";
-            playNewTrack(mp4Path: mp4Path);
-          });
-          break;
-        case 1:
-          setState(() {
-            price = 80;
-            itsFree = !dontLookBack.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
-          });
-          break;
-        case 2:
-          itsFree = !lostLucy.isLock;
-          setState(() {
-            price = 120;
-          });
-          break;
-        case 3:
-          itsFree = !nightGame.isLock;
-          setState(() {
-            price = 100;
-          });
-          break;
-        case 4:
-          itsFree = !runKaity.isLock;
-          setState(() {
-            price = 110;
-          });
-          break;
-        case 5:
-          itsFree = !smile.isLock;
-          setState(() {
-            price = 150;
-          });
-          break;
-        case 6:
-          itsFree = !behind.isLock;
-          setState(() {
-            price = 180;
-          });
-          break;
-        case 7:
-          itsFree = !lucky.isLock;
-          setState(() {
-            price = 300;
-          });
-        default:
-      }
-    });
-  }
-
-  @override
-  void didChangeDependencies() {
-    textTheme = Theme.of(context).textTheme;
-    super.didChangeDependencies();
-  }
-
-  @override
-  void dispose() {
-    mp3controller.dispose();
-    controller.dispose();
-    super.dispose();
-  }
-
-  void playNewTrack(String newPath) {
-    mp3controller.pause(); // Mevcut müziği durdur
-    mp3controller.dispose(); // Kaynakları serbest bırak
-
-    // Yeni controller ile yeni dosya yükleniyor
-    mp3controller = VideoPlayerController.asset(newPath)
-      ..initialize().then((_) {
-        setState(() {
-          mp3controller.play(); // Yeni dosyayı oynat
-          mp3controller.setLooping(true); // Müziği döngüye al
-        });
-      }).catchError((error) {
-        // Hata oluşursa konsola yaz
-        print("Error initializing new track: $error");
-      });
-  }
-
-  Future<void> showOkAlertDialogWidget(
-      BuildContext context, String message) async {
-    final result = await showOkAlertDialog(
-      context: context,
-      title: 'Yetersiz bakiye :( ',
-      message: message,
-      okLabel: 'OK',
-    );
-    if (result == OkCancelResult.ok) {
-      print("Yetersiz bakiye onaylandı");
-    }
-  }
-
-  Future<void> showOkCancelAlert(BuildContext context, int storyPrice) async {
-    final result = await showOkCancelAlertDialog(
-      context: context,
-      title: 'Hikaye Kilidi Aç',
-      message: '$price Mystoken ile alınsın mı?',
-      okLabel: 'Evet',
-      cancelLabel: 'Hayır',
-    );
-
-    if (result == OkCancelResult.ok) {
-      switch (storyPrice) {
-        case 80:
-          if (ShopState().amount >= 80) {
-            buySteps(
-                minusAmount: -80,
-                type: TextType.dontLookBackType,
-                storyIsLock: dontLookBack.isLock);
-          } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
-          }
-
-          break;
-        case 120:
-          if (ShopState().amount >= 120) {
-            buySteps(
-                minusAmount: -120,
-                type: TextType.lostLucyType,
-                storyIsLock: lostLucy.isLock);
-          } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
-          }
-
-          break;
-        case 100:
-          if (ShopState().amount >= 100) {
-            buySteps(
-                minusAmount: -100,
-                type: TextType.nightGameType,
-                storyIsLock: nightGame.isLock);
-          } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
-          }
-          break;
-        case 110:
-          if (ShopState().amount >= 110) {
-            buySteps(
-                minusAmount: -110,
-                type: TextType.runKaityType,
-                storyIsLock: runKaity.isLock);
-          } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
-          }
-          break;
-
-        case 150:
-          if (ShopState().amount >= 150) {
-            buySteps(
-                minusAmount: -150,
-                type: TextType.smileType,
-                storyIsLock: smile.isLock);
-          } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
-          }
-
-          break;
-        case 180:
-          if (ShopState().amount >= 180) {
-            buySteps(
-                minusAmount: -180,
-                type: TextType.behindType,
-                storyIsLock: behind.isLock);
-          } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
-          }
-
-          break;
-        case 300:
-          if (ShopState().amount >= 300) {
-            buySteps(
-                minusAmount: -300,
-                type: TextType.luckyType,
-                storyIsLock: lucky.isLock);
-          } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
-          }
-
-          break;
-        default:
-      }
-    }
-  }
-
-  void buySteps(
-      {required int minusAmount,
-      required TextType type,
-      required bool storyIsLock}) {
-    _addTokens(minusAmount).then(
-      (value) async => await _databaseService
-          .changeDefaultValue(type: type, newValue: false)
-          .then(
-        (value) {
-          setState(() {
-            itsFree = storyIsLock;
-          });
-        },
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    Config().init(context);
-    return PopScope(
-      canPop: false,
-      child: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Colors.black, Color(0xFF3D0000)],
-            ),
-          ),
-          child: SafeArea(
-            child: Column(
-              children: [
-                _buildHeader(),
-                Expanded(
-                  child: _buildStoryCarousel(),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildHeader() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () => vm.goBack(context: context),
-          ),
-          Text(
-            "STORIES",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'HorrorFont',
-              letterSpacing: 2,
-              shadows: [
-                Shadow(
-                  blurRadius: 5.0,
-                  color: Colors.red.withOpacity(0.5),
-                  offset: const Offset(0, 3),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.6),
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.amber, width: 1),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  "${ShopState().amount}",
-                  style: const TextStyle(
-                    color: Colors.amber,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 5),
-                Image.asset(ConstantPaths.tokenImagePath,
-                    height: 24, width: 24),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  List pages() => <Widget>[
-        SizedBox(
-          width: Config.screenWidth! * 0.7,
-          height: 400,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              color: CustomColors.transparent,
-              width: Config.screenWidth! * 0.7,
-              height: 400,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            height: 400,
-                            decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              color: CustomColors.storyCardColor,
-                            ),
-                            //width: double.infinity,
-
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(selectedTitle,
-                                      style: AppFonts.storyTitle),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 8.0),
-                                    child: DefaultTextStyle(
-                                      style: const TextStyle(
-                                        fontSize: 15.0,
-                                        fontFamily: 'HorrorFont',
-                                      ),
-                                      child: AnimatedTextKit(
-                                        key: ValueKey(selectedDescription),
-                                        isRepeatingAnimation: false,
-                                        animatedTexts: [
-                                          TyperAnimatedText(selectedDescription,
-                                              speed: const Duration(
-                                                  milliseconds: 50)),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  itsFree
-                                      ? Text(
-                                          "UNLOCKED",
-                                          style: AppFonts.freeTitle,
-                                        )
-                                      : buyIcon(context: context, price: price)
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            // width: double.infinity,
-                            height: 400,
-                            color: CustomColors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                storySelectButton(
-                                    storyName: murder.name,
-                                    storyDescription: murder.description,
-                                    storyIsLock: murder.isLock,
-                                    selectedIndex: 0,
-                                    musicName: "murder"),
-                                storySelectButton(
-                                    storyName: dontLookBack.name,
-                                    storyDescription: dontLookBack.description,
-                                    storyIsLock: dontLookBack.isLock,
-                                    selectedIndex: 1,
-                                    musicName: "dontLookBack"),
-                                storySelectButton(
-                                    storyName: lostLucy.name,
-                                    storyDescription: lostLucy.description,
-                                    storyIsLock: lostLucy.isLock,
-                                    selectedIndex: 2,
-                                    musicName: "lostLucy"),
-                                storySelectButton(
-                                    storyName: nightGame.name,
-                                    storyDescription: nightGame.description,
-                                    storyIsLock: nightGame.isLock,
-                                    selectedIndex: 3,
-                                    musicName: "nightGame"),
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          width: Config.screenWidth! * 0.7,
-          height: 400,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              color: CustomColors.transparent,
-              width: Config.screenWidth! * 0.7,
-              height: 400,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            height: 400,
-                            decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              color: CustomColors.storyCardColor,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(selectedTitle,
-                                      style: AppFonts.storyTitle),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 8.0),
-                                    child: DefaultTextStyle(
-                                      style: const TextStyle(
-                                        fontSize: 15.0,
-                                        fontFamily: 'HorrorFont',
-                                      ),
-                                      child: AnimatedTextKit(
-                                        key: ValueKey(selectedDescription),
-                                        isRepeatingAnimation: false,
-                                        animatedTexts: [
-                                          TyperAnimatedText(selectedDescription,
-                                              speed: const Duration(
-                                                  milliseconds: 50)),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  itsFree
-                                      ? Text(
-                                          "UNLOCKED",
-                                          style: AppFonts.freeTitle,
-                                        )
-                                      : buyIcon(context: context, price: price)
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            // width: double.infinity,
-                            height: 400,
-                            color: CustomColors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                storySelectButton(
-                                    storyName: runKaity.name,
-                                    storyDescription: runKaity.description,
-                                    storyIsLock: runKaity.isLock,
-                                    selectedIndex: 4,
-                                    musicName: "runKaity"),
-                                storySelectButton(
-                                    storyName: smile.name,
-                                    storyDescription: smile.description,
-                                    storyIsLock: smile.isLock,
-                                    selectedIndex: 5,
-                                    musicName: "smile"),
-                                storySelectButton(
-                                    storyName: behind.name,
-                                    storyDescription: behind.description,
-                                    storyIsLock: behind.isLock,
-                                    selectedIndex: 6,
-                                    musicName: "behind"),
-                                storySelectButton(
-                                    storyName: lucky.name,
-                                    storyDescription: lucky.description,
-                                    storyIsLock: lucky.isLock,
-                                    selectedIndex: 7,
-                                    musicName: "lucky")
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        )
-      ];
-
-  InkWell buyIcon({required int price, required BuildContext context}) {
-    return InkWell(
-      onTap: () {
-        showOkCancelAlert(context, price);
-      },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            price.toString(),
-            style: const TextStyle(
-                color: CustomColors.white,
-                fontFamily: "PixelFont",
-                fontSize: 15),
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          CircleAvatar(
-            radius: 20,
-            child: Image.asset(
-              "assets/images/mystoken.png",
-              fit: BoxFit.cover,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildIndicator() {
-    return AnimatedSmoothIndicator(
-      activeIndex: activeIndex,
-      count: games().historiesGames.length,
-      effect: CustomizableEffect(
-        spacing: 8,
-        dotDecoration: DotDecoration(
-          width: 10,
-          height: 10,
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
-        ),
-        activeDotDecoration: DotDecoration(
-          width: 20,
-          height: 10,
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(5),
-        ),
-      ),
-    );
-  }
-}
- */
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:gapsec/cache/games_storage/games_storage.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
-import 'package:gapsec/state/homse_state/home_state.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/new_game_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:gapsec/utils/constants.dart';
@@ -690,68 +25,27 @@ class StoriesView extends StatefulWidget {
 class _StoriesViewState extends State<StoriesView>
     with TickerProviderStateMixin {
   final StoriesState vm = StoriesState();
-  late VideoPlayerController mp4controller;
-  late VideoPlayerController mp3controller;
-  final HomeState hs = HomeState();
-  late CarouselSliderController carouselController;
-  late TextTheme textTheme;
   final _databaseService = DatabaseService();
-  int iconSelectedIndex = 0;
-  bool itsFree = true;
-  String selectedTitle = murder.name;
-  String selectedDescription = murder.description;
-  int activeIndex = 0;
-  int price = 0;
-  String mp4Path = "assets/videos/new-game-background-sounds.mp4";
-  String mp3Path = "assets/sounds/murder.mp3";
 
   @override
   void initState() {
     super.initState();
-    mp4controller = VideoPlayerController.asset(mp4Path)
+    vm.mp4controller = VideoPlayerController.asset(vm.mp4Path)
       ..initialize().then((_) {
-        mp4controller.setLooping(true);
+        vm.mp4controller.setLooping(true);
         setState(() {
-          mp4controller.value.isPlaying
-              ? mp4controller.pause()
-              : mp4controller.play();
+          vm.mp4controller.value.isPlaying
+              ? vm.mp4controller.pause()
+              : vm.mp4controller.play();
         });
       });
-    /* mp3controller = VideoPlayerController.asset(mp3Path)
-      ..initialize().then((_) {
-        mp3controller.setLooping(true);
-        setState(() {
-          mp3controller.value.isPlaying
-              ? mp3controller.pause()
-              : mp3controller.play();
-        });
-      }); */
-    carouselController = CarouselSliderController();
+    vm.carouselController = CarouselSliderController();
   }
 
   @override
   void dispose() {
-    mp4controller.dispose();
+    vm.mp4controller.dispose();
     super.dispose();
-  }
-
-  void playNewTrack({required String mp4Path}) {
-    mp4controller.pause(); // Mevcut müziği durdur
-    mp4controller.dispose(); // Kaynakları serbest bırak
-
-    // Yeni controller ile yeni dosya yükleniyor
-    mp4controller = VideoPlayerController.asset(mp4Path)
-      ..initialize().then((_) {
-        mp4controller.setLooping(true);
-        setState(() {
-          mp4controller.value.isPlaying
-              ? mp4controller.pause()
-              : mp4controller.play();
-        });
-      }).catchError((error) {
-        // Hata oluşursa konsola yaz
-        print("Error initializing new track: $error");
-      });
   }
 
   Future<void> _addTokens(int amount) async {
@@ -759,110 +53,26 @@ class _StoriesViewState extends State<StoriesView>
     setState(() {});
   }
 
-  Future<void> updateIndex(int index, String title, String description) async {
-    await DatabaseService().updateDefaultValues();
-    setState(() {
-      iconSelectedIndex = index;
-      selectedTitle = title;
-      selectedDescription = description;
-      switch (iconSelectedIndex) {
-        case 0:
-          setState(() {
-            price = 0;
-            itsFree = !murder.isLock;
-            mp4Path = "assets/videos/new-game-background-sounds.mp4";
-            playNewTrack(mp4Path: mp4Path);
-          });
-          break;
-        case 1:
-          setState(() {
-            price = 80;
-            itsFree = !dontLookBack.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
-          });
-          break;
-        case 2:
-          setState(() {
-            price = 120;
-            itsFree = !lostLucy.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
-          });
-          break;
-        case 3:
-          setState(() {
-            itsFree = !nightGame.isLock;
-            price = 100;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(
-              mp4Path: mp4Path,
-            );
-          });
-          break;
-        case 4:
-          setState(() {
-            price = 110;
-            itsFree = !runKaity.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
-          });
-          break;
-        case 5:
-          setState(() {
-            price = 150;
-            itsFree = !smile.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
-          });
-          break;
-        case 6:
-          setState(() {
-            price = 180;
-            itsFree = !behind.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            mp3Path = "assets/sounds/behind.mp3";
-            playNewTrack(mp4Path: mp4Path);
-          });
-          break;
-        case 7:
-          setState(() {
-            price = 300;
-            itsFree = !lucky.isLock;
-            mp4Path = "assets/videos/continue-background-video.mp4";
-            playNewTrack(mp4Path: mp4Path);
-          });
-        default:
-      }
-    });
-  }
-
-  @override
-  void didChangeDependencies() {
-    textTheme = Theme.of(context).textTheme;
-    super.didChangeDependencies();
-  }
-
   Future<void> showOkAlertDialogWidget(
       BuildContext context, String message) async {
     final result = await showOkAlertDialog(
       context: context,
-      title: 'Yetersiz bakiye :( ',
+      title: ConstantTexts.InadequateMystoken.tr(),
       message: message,
-      okLabel: 'OK',
+      okLabel: ConstantTexts.okay,
     );
     if (result == OkCancelResult.ok) {
-      print("Yetersiz bakiye onaylandı");
+      //  print("Yetersiz bakiye onaylandı");
     }
   }
 
   Future<void> showOkCancelAlert(BuildContext context, int storyPrice) async {
     final result = await showOkCancelAlertDialog(
       context: context,
-      title: 'Hikaye Kilidi Aç',
-      message: '$price Mystoken ile alınsın mı?',
-      okLabel: 'Evet',
-      cancelLabel: 'Hayır',
+      title: ConstantTexts.UnlockThis.tr(),
+      message: '${vm.price} ${ConstantTexts.ShouldBuy.tr()}',
+      okLabel: ConstantTexts.yes.tr(),
+      cancelLabel: ConstantTexts.no.tr(),
     );
 
     if (result == OkCancelResult.ok) {
@@ -874,7 +84,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.dontLookBackType,
                 storyIsLock: dontLookBack.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -885,7 +96,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.lostLucyType,
                 storyIsLock: lostLucy.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -896,7 +108,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.nightGameType,
                 storyIsLock: nightGame.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
           break;
         case 110:
@@ -906,7 +119,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.runKaityType,
                 storyIsLock: runKaity.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
           break;
 
@@ -917,7 +131,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.smileType,
                 storyIsLock: smile.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -928,7 +143,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.behindType,
                 storyIsLock: behind.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -939,7 +155,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.luckyType,
                 storyIsLock: lucky.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -957,9 +174,7 @@ class _StoriesViewState extends State<StoriesView>
           .changeDefaultValue(type: type, newValue: false)
           .then(
         (value) {
-          setState(() {
-            itsFree = storyIsLock;
-          });
+          vm.updateItsFree(newItsFree: storyIsLock);
         },
       ),
     );
@@ -968,6 +183,7 @@ class _StoriesViewState extends State<StoriesView>
   @override
   Widget build(BuildContext context) {
     Config().init(context);
+
     return PopScope(
       canPop: false,
       child: Scaffold(
@@ -1002,10 +218,11 @@ class _StoriesViewState extends State<StoriesView>
         children: [
           IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () => vm.goBack(context: context),
+            onPressed: () =>
+                vm.goToPageRemoveUntilPush(context: context, page: HomeView()),
           ),
           Text(
-            "STORIES",
+            ConstantTexts.Stories.tr(),
             style: TextStyle(
               color: Colors.white,
               fontSize: 28,
@@ -1053,20 +270,19 @@ class _StoriesViewState extends State<StoriesView>
     return Column(
       children: [
         CarouselSlider.builder(
-          itemCount: games().historiesGames.length,
+          itemCount: Games().historiesGames.length,
           options: CarouselOptions(
             height: MediaQuery.of(context).size.height * 0.70,
             enlargeCenterPage: true,
             onPageChanged: (index, reason) {
-              setState(() {
-                activeIndex = index;
-                updateIndex(index, games().historiesGames[index].name,
-                    games().historiesGames[index].description);
-              });
+              vm.updateActiveIndex(newIndex: index);
+
+              vm.updateIndex(index, Games().historiesGames[index].name,
+                  Games().historiesGames[index].description);
             },
           ),
           itemBuilder: (context, index, realIndex) {
-            return _buildStoryCard(games().historiesGames[index]);
+            return _buildStoryCard(Games().historiesGames[index]);
           },
         ),
         const SizedBox(height: 20),
@@ -1094,8 +310,11 @@ class _StoriesViewState extends State<StoriesView>
         child: Stack(
           children: [
             // Video arka planı
+            // ignore: avoid_unnecessary_containers
             Container(
-              child: VideoPlayer(mp4controller),
+              child: Observer(builder: (_) {
+                return VideoPlayer(vm.mp4controller);
+              }),
             ),
             // Hikaye içeriği
             Container(
@@ -1148,7 +367,7 @@ class _StoriesViewState extends State<StoriesView>
                             children: [
                               ElevatedButton(
                                 onPressed: () =>
-                                    showOkCancelAlert(context, price),
+                                    showOkCancelAlert(context, vm.price),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.green[700],
                                   padding: const EdgeInsets.symmetric(
@@ -1171,14 +390,16 @@ class _StoriesViewState extends State<StoriesView>
                                 ),
                                 child: Row(
                                   children: [
-                                    Text(
-                                      '$price',
-                                      style: const TextStyle(
-                                        color: Colors.amber,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
+                                    Observer(builder: (_) {
+                                      return Text(
+                                        '${vm.price}',
+                                        style: const TextStyle(
+                                          color: Colors.amber,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      );
+                                    }),
                                     const SizedBox(width: 5),
                                     Image.asset(ConstantPaths.tokenImagePath,
                                         height: 24, width: 24),
@@ -1190,10 +411,9 @@ class _StoriesViewState extends State<StoriesView>
                         : ElevatedButton(
                             onPressed: () async {
                               // Hikayeye başlama işlemi
-                              await mp3controller.dispose();
-                              await mp4controller.dispose();
+                              await vm.mp4controller.dispose();
 
-                              hs.goToPage(
+                              vm.goToPage(
                                   context: context, page: const NewGameView());
                             },
                             style: ElevatedButton.styleFrom(
@@ -1220,24 +440,26 @@ class _StoriesViewState extends State<StoriesView>
   }
 
   Widget buildIndicator() {
-    return AnimatedSmoothIndicator(
-      activeIndex: activeIndex,
-      count: games().historiesGames.length,
-      effect: CustomizableEffect(
-        spacing: 8,
-        dotDecoration: DotDecoration(
-          width: 10,
-          height: 10,
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
+    return Observer(builder: (_) {
+      return AnimatedSmoothIndicator(
+        activeIndex: vm.activeIndex,
+        count: Games().historiesGames.length,
+        effect: CustomizableEffect(
+          spacing: 8,
+          dotDecoration: DotDecoration(
+            width: 10,
+            height: 10,
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          activeDotDecoration: DotDecoration(
+            width: 20,
+            height: 10,
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(5),
+          ),
         ),
-        activeDotDecoration: DotDecoration(
-          width: 20,
-          height: 10,
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(5),
-        ),
-      ),
-    );
+      );
+    });
   }
 }

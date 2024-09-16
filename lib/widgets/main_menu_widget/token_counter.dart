@@ -55,7 +55,7 @@ class TokenCounter extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        GlowingIcon(Icons.add, Colors.red),
+                        glowingIcon(Icons.add, Colors.red),
                         const SizedBox(width: 30),
                         Observer(builder: (_) {
                           return Text(
@@ -75,7 +75,7 @@ class TokenCounter extends StatelessWidget {
                           );
                         }),
                         const SizedBox(width: 6),
-                        GlowingToken(ConstantPaths.tokenImagePath, Colors.red),
+                        glowingToken(ConstantPaths.tokenImagePath, Colors.red),
                       ],
                     ),
                   ),
@@ -88,7 +88,7 @@ class TokenCounter extends StatelessWidget {
     );
   }
 
-  Widget GlowingIcon(IconData icon, Color color) {
+  Widget glowingIcon(IconData icon, Color color) {
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
@@ -108,7 +108,7 @@ class TokenCounter extends StatelessWidget {
     );
   }
 
-  Widget GlowingToken(String assetPath, Color color) {
+  Widget glowingToken(String assetPath, Color color) {
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,

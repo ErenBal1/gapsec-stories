@@ -9,6 +9,14 @@ part 'home_state.g.dart';
 class HomeState = _HomeStateBase with _$HomeState;
 
 abstract class _HomeStateBase with Store {
+  @observable
+  bool isLanguageExpanded = false;
+
+  @action
+  void toggleLanguageMenu() {
+    isLanguageExpanded = !isLanguageExpanded;
+  }
+
   @action
   void goToPage({required BuildContext context, required Widget page}) {
     Navigator.push(
@@ -26,6 +34,16 @@ abstract class _HomeStateBase with Store {
       ),
       (route) => false,
     );
+  }
+
+  @action
+  void goBackDefault({required BuildContext context}) {
+    Navigator.pop(
+        context,
+        PageTransition(
+          child: Container(),
+          type: PageTransitionType.fade,
+        ));
   }
 
   @action

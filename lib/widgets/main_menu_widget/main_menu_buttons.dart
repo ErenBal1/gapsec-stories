@@ -8,23 +8,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:gapsec/utils/app_font.dart';
 
-class MenuButtons extends StatefulWidget {
+class MenuButtons extends StatelessWidget {
   final HomeState vm;
   const MenuButtons({super.key, required this.vm});
 
-  @override
-  _MenuButtonsState createState() => _MenuButtonsState();
-}
-
-class _MenuButtonsState extends State<MenuButtons> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AnimatedTextKit(
-          onTap: () =>
-              widget.vm.goToPage(context: context, page: const NewGameView()),
+          onTap: () => vm.goToPage(context: context, page: const NewGameView()),
           animatedTexts: [
             TyperAnimatedText(
               ConstantTexts.NEW_GAME.tr(),
@@ -39,7 +33,7 @@ class _MenuButtonsState extends State<MenuButtons> {
         const SizedBox(height: 20),
         AnimatedTextKit(
           onTap: () =>
-              widget.vm.goToPage(context: context, page: const ContinueView()),
+              vm.goToPage(context: context, page: const ContinueView()),
           animatedTexts: [
             TyperAnimatedText(
               ConstantTexts.CONTINUE.tr(),
@@ -53,8 +47,7 @@ class _MenuButtonsState extends State<MenuButtons> {
         ),
         const SizedBox(height: 20),
         AnimatedTextKit(
-          onTap: () =>
-              widget.vm.goToPage(context: context, page: const StoriesView()),
+          onTap: () => vm.goToPage(context: context, page: const StoriesView()),
           animatedTexts: [
             TyperAnimatedText(
               ConstantTexts.STORIES.tr(),
