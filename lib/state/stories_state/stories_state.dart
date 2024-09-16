@@ -42,6 +42,19 @@ abstract class _StoriesStateBase with Store {
   String mp4Path = "assets/videos/new-game-background-sounds.mp4";
 
   @action
+  void goToPageRemoveUntilPush(
+      {required BuildContext context, required Widget page}) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      PageTransition(
+        type: PageTransitionType.fade,
+        child: page,
+      ),
+      (route) => false,
+    );
+  }
+
+  @action
   void updateMp4Path({required String newPath}) {
     mp4Path = newPath;
   }
@@ -157,7 +170,7 @@ abstract class _StoriesStateBase with Store {
             : mp4controller.play();
       }).catchError((error) {
         // Hata oluşursa konsola yaz
-        print("Error initializing new track: $error");
+        // print("Error initializing new track: $error");
       });
   }
 

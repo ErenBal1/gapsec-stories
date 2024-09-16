@@ -32,7 +32,7 @@ class _ShopViewState extends State<ShopView> {
       ConstantTexts.error.tr(),
       ConstantTexts.okay.tr(),
       () {
-        print("okay");
+        //print("okay");
       },
     );
   }
@@ -48,19 +48,19 @@ class _ShopViewState extends State<ShopView> {
         onAdDismissedFullScreenContent: (ad) {
           ad.dispose();
           _createRewardedAd();
-          print("Ad closed");
+          //print("Ad closed");
         },
         onAdFailedToShowFullScreenContent: (ad, error) {
           ad.dispose();
           _createRewardedAd();
-          print('Failed to show ad: $error');
+          //print('Failed to show ad: $error');
         },
       );
       _rewardedAd!.show(
           onUserEarnedReward: (ad, reward) => setState(() {
                 _addTokens(2);
               }));
-      print("User earned reward");
+      //print("User earned reward");
       _rewardedAd = null;
     } else {
       // showOkAlertDialogWidget(context, "Please try  again later.");
@@ -74,11 +74,11 @@ class _ShopViewState extends State<ShopView> {
         rewardedAdLoadCallback: RewardedAdLoadCallback(
             onAdLoaded: (ad) => setState(() {
                   _rewardedAd = ad;
-                  print("Ad loaded successfully");
+                  //print("Ad loaded successfully");
                 }),
             onAdFailedToLoad: (error) => setState(() {
                   _rewardedAd = null;
-                  print('Failed to load ad: $error');
+                  //print('Failed to load ad: $error');
                 })));
   }
 
@@ -203,9 +203,9 @@ class _ShopViewState extends State<ShopView> {
             ElevatedButton(
               onPressed: () => AlertWidgets().showOkAlert(
                   context,
-                  "Alıcağınız tokenler ve yapılan harcamalar daha sonra tekrar geri getirelemez.",
+                  ConstantTexts.RestoreAlert.tr(),
                   "Restore purchase alert",
-                  "Okey",
+                  ConstantTexts.okay.tr(),
                   () => buyToken(
                       productId: productId,
                       context: context,

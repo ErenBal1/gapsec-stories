@@ -10,7 +10,7 @@ class CustomColors {
   static const selectedIconColor = Colors.yellow;
   static const cyanBlue = Colors.cyan;
   static const yellow = selectedIconColor;
-  static final GAPSECtitleColors = [Colors.red, Colors.black];
+  static final gapsecTitleColors = [Colors.red, Colors.black];
 }
 
 class ListColors {

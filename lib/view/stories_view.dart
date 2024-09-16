@@ -8,6 +8,7 @@ import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/state/stories_state/stories_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/new_game_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:gapsec/utils/constants.dart';
@@ -61,17 +62,17 @@ class _StoriesViewState extends State<StoriesView>
       okLabel: ConstantTexts.okay,
     );
     if (result == OkCancelResult.ok) {
-      print("Yetersiz bakiye onaylandı");
+      //  print("Yetersiz bakiye onaylandı");
     }
   }
 
   Future<void> showOkCancelAlert(BuildContext context, int storyPrice) async {
     final result = await showOkCancelAlertDialog(
       context: context,
-      title: 'Hikaye Kilidi Aç',
-      message: '${vm.price} Mystoken ile alınsın mı?',
-      okLabel: 'Evet',
-      cancelLabel: 'Hayır',
+      title: ConstantTexts.UnlockThis.tr(),
+      message: '${vm.price} ${ConstantTexts.ShouldBuy.tr()}',
+      okLabel: ConstantTexts.yes.tr(),
+      cancelLabel: ConstantTexts.no.tr(),
     );
 
     if (result == OkCancelResult.ok) {
@@ -84,7 +85,7 @@ class _StoriesViewState extends State<StoriesView>
                 storyIsLock: dontLookBack.isLock);
           } else {
             showOkAlertDialogWidget(
-                context, "Daha fazla Mystoken'e ihtiyacın var.");
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -96,7 +97,7 @@ class _StoriesViewState extends State<StoriesView>
                 storyIsLock: lostLucy.isLock);
           } else {
             showOkAlertDialogWidget(
-                context, "Daha fazla Mystoken'e ihtiyacın var.");
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -107,7 +108,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.nightGameType,
                 storyIsLock: nightGame.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
           break;
         case 110:
@@ -117,7 +119,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.runKaityType,
                 storyIsLock: runKaity.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
           break;
 
@@ -128,7 +131,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.smileType,
                 storyIsLock: smile.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -139,7 +143,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.behindType,
                 storyIsLock: behind.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -150,7 +155,8 @@ class _StoriesViewState extends State<StoriesView>
                 type: TextType.luckyType,
                 storyIsLock: lucky.isLock);
           } else {
-            showOkAlertDialogWidget(context, "Marketten Mystoken al");
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
           }
 
           break;
@@ -212,7 +218,8 @@ class _StoriesViewState extends State<StoriesView>
         children: [
           IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () => vm.goBack(context: context),
+            onPressed: () =>
+                vm.goToPageRemoveUntilPush(context: context, page: HomeView()),
           ),
           Text(
             ConstantTexts.Stories.tr(),
@@ -263,19 +270,19 @@ class _StoriesViewState extends State<StoriesView>
     return Column(
       children: [
         CarouselSlider.builder(
-          itemCount: games().historiesGames.length,
+          itemCount: Games().historiesGames.length,
           options: CarouselOptions(
             height: MediaQuery.of(context).size.height * 0.70,
             enlargeCenterPage: true,
             onPageChanged: (index, reason) {
               vm.updateActiveIndex(newIndex: index);
 
-              vm.updateIndex(index, games().historiesGames[index].name,
-                  games().historiesGames[index].description);
+              vm.updateIndex(index, Games().historiesGames[index].name,
+                  Games().historiesGames[index].description);
             },
           ),
           itemBuilder: (context, index, realIndex) {
-            return _buildStoryCard(games().historiesGames[index]);
+            return _buildStoryCard(Games().historiesGames[index]);
           },
         ),
         const SizedBox(height: 20),
@@ -436,7 +443,7 @@ class _StoriesViewState extends State<StoriesView>
     return Observer(builder: (_) {
       return AnimatedSmoothIndicator(
         activeIndex: vm.activeIndex,
-        count: games().historiesGames.length,
+        count: Games().historiesGames.length,
         effect: CustomizableEffect(
           spacing: 8,
           dotDecoration: DotDecoration(

@@ -2,8 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/cache/model/new_game_model/newgame_model.dart';
 import 'package:gapsec/cache/service/database_service.dart';
-import 'package:gapsec/state/homse_state/home_state.dart';
-import 'package:gapsec/state/stories_state/stories_state.dart';
+import 'package:gapsec/state/continue_view_state/continue_view_state.dart';
 import 'package:gapsec/stories/model/story_model.dart';
 import 'package:gapsec/utils/app_colors.dart';
 import 'package:gapsec/utils/app_font.dart';
@@ -21,10 +20,8 @@ class ContinueView extends StatefulWidget {
 }
 
 class _ContinueViewState extends State<ContinueView> {
+  final ContinueViewState cv = ContinueViewState();
   final _databaseService = DatabaseService();
-  final HomeState hs = HomeState();
-  final StoriesState vm = StoriesState();
-  late VideoPlayerController _controller;
 
   void _updateScreen() {
     setState(() {});
@@ -38,16 +35,17 @@ class _ContinueViewState extends State<ContinueView> {
   @override
   void initState() {
     super.initState();
-    _controller =
+    cv.controller =
         VideoPlayerController.asset(ConstantPaths.continueBackgroundVideo)
           ..initialize().then((_) {
-            _controller.setLooping(true);
+            cv.controller.setLooping(true);
             setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
+              cv.controller.value.isPlaying
+                  ? cv.controller.pause()
+                  : cv.controller.play();
             });
           });
+
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
       await _selectedStoryUpdate(type: TextType.dontLookBackType);
@@ -57,7 +55,7 @@ class _ContinueViewState extends State<ContinueView> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    cv.controller.dispose();
     super.dispose();
   }
 
@@ -65,16 +63,16 @@ class _ContinueViewState extends State<ContinueView> {
   Widget build(BuildContext context) {
     Config().init(context);
     final gameList =
-        games().historiesGames.where((game) => !game.isLock).toList();
+        Games().historiesGames.where((game) => !game.isLock).toList();
 
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-          _controller.value.isInitialized
+          cv.controller.value.isInitialized
               ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
+                  aspectRatio: cv.controller.value.aspectRatio,
+                  child: VideoPlayer(cv.controller),
                 )
               : Container(),
           Padding(
@@ -87,7 +85,7 @@ class _ContinueViewState extends State<ContinueView> {
                   return Padding(
                     padding:
                         const EdgeInsets.only(top: 8.0, right: 70, left: 70),
-                    child: unlockMoreButton(hs: hs),
+                    child: UnlockMoreButton(cv: cv),
                   );
                 }
                 Widget content = Container();
@@ -140,7 +138,7 @@ class _ContinueViewState extends State<ContinueView> {
                 alignment: Alignment.topLeft,
                 child: IconButton(
                     onPressed: () async {
-                      hs.goToPageRemoveUntilPush(
+                      cv.goToPageRemoveUntilPush(
                           context: context, page: HomeView());
                     },
                     icon: AppFonts.backButtonIcon),
@@ -193,7 +191,7 @@ class _ContinueViewState extends State<ContinueView> {
                         case "Murder":
                           await _selectedStoryUpdate(type: TextType.murderType);
                           if (_databaseService.murderRepo.isNotEmpty) {
-                            hs.goToPage(
+                            cv.goToPage(
                                 page: ContinueChatView(
                                   selectedRepo: _databaseService.murderRepo,
                                   story: gameName,
@@ -209,7 +207,7 @@ class _ContinueViewState extends State<ContinueView> {
                           await _selectedStoryUpdate(
                               type: TextType.dontLookBackType);
                           if (_databaseService.dontLookBackRepo.isNotEmpty) {
-                            hs.goToPage(
+                            cv.goToPage(
                                 page: ContinueChatView(
                                   selectedRepo:
                                       _databaseService.dontLookBackRepo,
@@ -254,18 +252,18 @@ class _ContinueViewState extends State<ContinueView> {
   }
 }
 
-class unlockMoreButton extends StatelessWidget {
-  const unlockMoreButton({
+class UnlockMoreButton extends StatelessWidget {
+  const UnlockMoreButton({
     super.key,
-    required this.hs,
+    required this.cv,
   });
-  final HomeState hs;
+  final ContinueViewState cv;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
           backgroundColor: WidgetStatePropertyAll(CustomColors.storyCardColor)),
-      onPressed: () => hs.goToPage(page: const StoriesView(), context: context),
+      onPressed: () => cv.goToPage(page: const StoriesView(), context: context),
       child: FittedBox(
         child: Text(ConstantTexts.unlockMore.tr(),
             style: AppFonts.unlockMoreButtonTextStyle),

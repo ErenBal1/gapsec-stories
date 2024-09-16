@@ -56,7 +56,7 @@ StoryModel lucky = StoryModel(
     isLock: DatabaseService().luckyIsLockDefault ?? true,
     whichRepo: DatabaseService().luckyRepo);
 
-class games {
+class Games {
   List historiesGames = [
     murder,
     dontLookBack,

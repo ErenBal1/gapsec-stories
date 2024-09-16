@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:video_player/video_player.dart';
-part 'play_story_view_state.g.dart';
+part 'continue_play_state.g.dart';
 
-class PlayStoryViewState = _PlayStoryViewStateBase with _$PlayStoryViewState;
+class ContinuePlayState = _ContinuePlayStateBase with _$ContinuePlayState;
 
-abstract class _PlayStoryViewStateBase with Store {
+abstract class _ContinuePlayStateBase with Store {
+  @observable
+  late VideoPlayerController mp3controller;
+
+  @observable
+  late Map<String, dynamic> left = {}; // tek olan map
+
+  @observable
+  late Map<String, dynamic> right = {}; //çift olan map
+
+  @observable
+  late List<Map<String, dynamic>> selectedList = [];
+
+  @observable
+  bool textCompleted = true;
+
   @observable
   bool isEnable = true;
 
   @observable
-  String selectedTexts = "";
-
-  @observable
-  bool textCompleted = false;
-
-  @observable
-  late VideoPlayerController mp3controller;
+  int attempt = 0;
 
   @observable
   int storyMapId = 0;
@@ -25,16 +34,15 @@ abstract class _PlayStoryViewStateBase with Store {
   late List repo = [];
 
   @observable
+  String selectedTexts = "";
+
+  @observable
   late ScrollController scrollController;
 
-  @observable
-  late List<Map<String, dynamic>> selectedList = [];
-
-  @observable
-  late Map<String, dynamic> left = {}; // tek olan map
-
-  @observable
-  late Map<String, dynamic> right = {}; //çift olan map
+  @action
+  void updateStoryMapId(int newId) {
+    storyMapId = newId;
+  }
 
   @action
   void scrollToBottom() {
@@ -48,17 +56,13 @@ abstract class _PlayStoryViewStateBase with Store {
   }
 
   @action
-  void updateStoryMapId(int newId) {
-    storyMapId = newId;
-  }
-
-  @action
   //istediğimiz id ye sahip mapi getirir
   Map<String, dynamic>? getMapWithId(List<Map<String, dynamic>> list, int id) {
     return list.firstWhere((element) => element["id"] == id);
   }
 
   @action
+  //answer mapini getiren tek için fonksiyon
   Map<String, dynamic>? assignToOdd(List<Map<String, dynamic>> list, int id) {
     var item = getMapWithId(list, id);
     if (item != null) {
@@ -81,6 +85,7 @@ abstract class _PlayStoryViewStateBase with Store {
   }
 
   @action
+  //Answer mapi sağ için
   Map<String, dynamic>? assignToEven(List<Map<String, dynamic>> list, int id) {
     var item = getMapWithId(list, id);
     if (item != null) {
