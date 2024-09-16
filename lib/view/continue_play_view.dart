@@ -172,6 +172,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                   : cs.mp3controller.play();
             });
           });
+    cs.scrollController = ScrollController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       switch (widget.selectedTextType) {
