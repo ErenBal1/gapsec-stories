@@ -2,7 +2,7 @@
         "should_buy" : "Buy it with Mystoken",
         "unlock_this" : "Unlock the Story",
         "get_more_mystoken" : "You need more Mystoken.",
-        "restore_alert" : "The tokens you receive and the expenditures you make cannot be redeemed later",
+        "restore_alert" : " If you delete the app, you will not be able to recover your purchases.",
         "gapsec_ends" : "Gapsec ends",
         "get_mystoken" : "Get Mystokens to unlock exclusive content",
         "boost_your_experience" : "Boost Your Experience!",

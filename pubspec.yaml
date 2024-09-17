@@ -53,6 +53,8 @@ dependencies:
   neon: ^0.1.0
   #Rename
   rename: ^3.0.2
+  #Kayan yazı
+  flutter_infinite_marquee: ^1.0.0
 
 
  
