@@ -1,10 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_infinite_marquee/flutter_infinite_marquee.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:gapsec/adMobService/ad_mob_service.dart';
 import 'package:gapsec/cache/service/database_service.dart';
 import 'package:gapsec/state/shop_state/shop_state.dart';
 import 'package:gapsec/utils/app_colors.dart';
+import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -201,15 +203,10 @@ class _ShopViewState extends State<ShopView> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () => AlertWidgets().showOkAlert(
-                  context,
-                  ConstantTexts.RestoreAlert.tr(),
-                  "Restore purchase alert",
-                  ConstantTexts.okay.tr(),
-                  () => buyToken(
-                      productId: productId,
-                      context: context,
-                      amount: _tokensFromProductId(productId))),
+              onPressed: () => buyToken(
+                  productId: productId,
+                  context: context,
+                  amount: _tokensFromProductId(productId)),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.amber,
                 foregroundColor: Colors.black,
@@ -296,6 +293,20 @@ class _ShopViewState extends State<ShopView> {
         body: ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            SizedBox(
+              height: 25,
+              width: double.infinity,
+              child: InfiniteMarquee(
+                initialScrollOffset: -70,
+                frequency: const Duration(milliseconds: 35),
+                itemBuilder: (BuildContext context, int index) {
+                  return Text(
+                    ConstantTexts.RestoreAlert.tr(),
+                    style: AppFonts.marqueeStyle,
+                  );
+                },
+              ),
+            ),
             const SizedBox(height: 20),
             Text(
               ConstantTexts.BoostYourExperince.tr(),
