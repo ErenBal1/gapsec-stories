@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 
-List<Map<String, dynamic>> murderDetail = [
+List<Map<String, dynamic>> gravehurstDetail = [
   {
     "history":
         "Profesör, dediğiniz yere vardık. Gravehurst Akıl Hastanesi. Kapanmayan dosyayı ekibimle kapatmayı hedefliyoruz. Hastanenin kapatılma nedeninin teknik birkaç sebepten olmadığını sizler de biliyorsunuz."
