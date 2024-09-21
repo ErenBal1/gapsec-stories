@@ -8,75 +8,58 @@ class StoryModel {
   final String description;
   bool isLock;
   final List<NewGame?> whichRepo;
-  final int price;
   StoryModel(
       {required this.name,
       required this.description,
       required this.isLock,
-      required this.whichRepo,
-      required this.price});
+      required this.whichRepo});
 }
 
 StoryModel murder = StoryModel(
     name: "Murder",
     description: ConstantTexts.MurderDescription.tr(),
     isLock: false,
-    whichRepo: DatabaseService().murderRepo,
-    price: 100);
-StoryModel dontLookBack = StoryModel(
-    name: "Don't Look Back",
-    description:
-        "Geçmişin gölgeleri peşini bırakmıyor. Arkana bakmadan kaçabilecek misin, yoksa geçmişinle yüzleşmek zorunda mı kalacaksın?",
-    isLock: DatabaseService().dontLookBackIsLockDefault ?? true,
-    whichRepo: DatabaseService().dontLookBackRepo,
-    price: 0);
+    whichRepo: DatabaseService().murderRepo);
+StoryModel gravehurst = StoryModel(
+    name: "Gravehurst",
+    description: "Don't Look Back best tool",
+    isLock: DatabaseService().gravehurstIsLockDefault ?? true,
+    whichRepo: DatabaseService().gravehurstRepo);
 StoryModel lostLucy = StoryModel(
     name: "Lost Lucy",
-    description:
-        "Kayıp bir kızın hikayesi, labirent gibi bir ormanda saklı. Lucy'yi bulabilecek misin, yoksa sen de mi kaybolacaksın?",
+    description: "Lost Lucy best tool",
     isLock: DatabaseService().lostLucyIsLockDefault ?? true,
-    whichRepo: DatabaseService().lostLucyRepo,
-    price: 0);
+    whichRepo: DatabaseService().lostLucyRepo);
 StoryModel nightGame = StoryModel(
     name: "Night Game",
-    description:
-        "Gece yarısı başlayan ölümcül bir oyun. Kuralları çöz, hayatta kal. Şafak sökmeden oyunu bitirebilecek misin?",
+    description: "Night Game best tool",
     isLock: DatabaseService().nightGameIsLockDefault ?? true,
-    whichRepo: DatabaseService().nightGameRepo,
-    price: 100);
+    whichRepo: DatabaseService().nightGameRepo);
 StoryModel runKaity = StoryModel(
     name: "Run Kaity",
-    description:
-        "Kaity için zaman daralıyor. Onu kurtarmak için koş, saklan ve savaş. Ama dikkatli ol, her köşede yeni bir tehlike seni bekliyor.",
+    description: "Run Kaity best tool",
     isLock: DatabaseService().runKaityIsLockDefault ?? true,
-    whichRepo: DatabaseService().runKaityRepo,
-    price: 100);
+    whichRepo: DatabaseService().runKaityRepo);
 StoryModel smile = StoryModel(
     name: "Smile",
-    description:
-        "Gülümsemeler her zaman mutluluk belirtisi değildir. Bu kasabadaki ürkütücü gülümsemelerin ardındaki karanlık sırrı keşfet.",
+    description: "Smile best tool",
     isLock: DatabaseService().smileIsLockDefault ?? true,
-    whichRepo: DatabaseService().smileRepo,
-    price: 100);
+    whichRepo: DatabaseService().smileRepo);
 StoryModel behind = StoryModel(
     name: "Behind",
-    description:
-        "Arkanda ne var bilmiyorsun, ama onun orada olduğunu hissediyorsun. Dönüp bakmaya cesaretin var mı?",
+    description: "Behind best tool",
     isLock: true,
-    whichRepo: DatabaseService().behindRepo,
-    price: 100);
+    whichRepo: DatabaseService().behindRepo);
 StoryModel lucky = StoryModel(
     name: "Lucky",
-    description:
-        "Şans mı, yoksa lanet mi? Her seçimin seni ya kurtuluşa ya da yıkıma götürecek. Ne kadar şanslı olduğunu görelim.",
+    description: "Lucky best tool",
     isLock: DatabaseService().luckyIsLockDefault ?? true,
-    whichRepo: DatabaseService().luckyRepo,
-    price: 100);
+    whichRepo: DatabaseService().luckyRepo);
 
 class Games {
   List historiesGames = [
     murder,
-    dontLookBack,
+    gravehurst,
     lostLucy,
     nightGame,
     runKaity,

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
+import 'package:gapsec/stories/games_storage/gravehurst.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
@@ -74,6 +75,18 @@ class _ChatViewState extends State<ChatView> {
             await _selectedStoryUpdate(type: TextType.murderType);
             vm.repo = _databaseService.murderRepo;
             break;
+          case TextType.gravehurstType:
+            vm.selectedList = gravehurstDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.gravehurstType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.gravehurstType);
+            vm.repo = _databaseService.gravehurstRepo;
+            break;
           default:
         }
       });
@@ -108,7 +121,7 @@ class _ChatViewState extends State<ChatView> {
                           const Icon(Icons.arrow_back_ios, color: Colors.green),
                       onPressed: () => Navigator.pop(context),
                     ),
-                    const Text(ConstantTexts.murder,
+                    Text(widget.story,
                         style: AppFonts.storyTitleInGameTextStyle),
                   ],
                 ),
@@ -129,9 +142,8 @@ class _ChatViewState extends State<ChatView> {
                         case TextType.murderType:
                           vm.selectedTexts = newGame.murderTexts.toString();
                           break;
-                        case TextType.dontLookBackType:
-                          vm.selectedTexts =
-                              newGame.dontLookBackTexts.toString();
+                        case TextType.gravehurstType:
+                          vm.selectedTexts = newGame.gravehurstTexts.toString();
                           break;
                         default:
                       }
@@ -171,6 +183,10 @@ class _ChatViewState extends State<ChatView> {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10)), // Köşeleri dikleştir
+                            ),
                             foregroundColor: Colors.green,
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
@@ -186,6 +202,10 @@ class _ChatViewState extends State<ChatView> {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10)), // Köşeleri dikleştir
+                            ),
                             foregroundColor: Colors.green,
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
@@ -244,7 +264,7 @@ class _ChatViewState extends State<ChatView> {
     await _selectedStoryUpdate(type: widget.selectedTextType);
     vm.repo = widget.selectedTextType == TextType.murderType
         ? _databaseService.murderRepo
-        : _databaseService.dontLookBackRepo;
+        : _databaseService.gravehurstRepo;
     vm.scrollToBottom();
 
     await Future.delayed(const Duration(seconds: 3));
@@ -258,7 +278,7 @@ class _ChatViewState extends State<ChatView> {
     await _selectedStoryUpdate(type: widget.selectedTextType);
     vm.repo = widget.selectedTextType == TextType.murderType
         ? _databaseService.murderRepo
-        : _databaseService.dontLookBackRepo;
+        : _databaseService.gravehurstRepo;
     vm.scrollToBottom();
 
     if (vm.storyMapId >= 900) {

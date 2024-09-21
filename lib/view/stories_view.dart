@@ -81,8 +81,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 80) {
             buySteps(
                 minusAmount: -80,
-                type: TextType.dontLookBackType,
-                storyIsLock: dontLookBack.isLock);
+                type: TextType.gravehurstType,
+                storyIsLock: gravehurst.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());

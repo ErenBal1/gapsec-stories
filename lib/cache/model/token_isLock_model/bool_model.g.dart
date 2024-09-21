@@ -22,9 +22,9 @@ const BoolModelSchema = CollectionSchema(
       name: r'behindIsLock',
       type: IsarType.bool,
     ),
-    r'dontLookBackIsLock': PropertySchema(
+    r'gravehurstIsLock': PropertySchema(
       id: 1,
-      name: r'dontLookBackIsLock',
+      name: r'gravehurstIsLock',
       type: IsarType.bool,
     ),
     r'lostLucyIsLock': PropertySchema(
@@ -93,7 +93,7 @@ void _boolModelSerialize(
   Map<Type, List<int>> allOffsets,
 ) {
   writer.writeBool(offsets[0], object.behindIsLock);
-  writer.writeBool(offsets[1], object.dontLookBackIsLock);
+  writer.writeBool(offsets[1], object.gravehurstIsLock);
   writer.writeBool(offsets[2], object.lostLucyIsLock);
   writer.writeBool(offsets[3], object.luckyIsLock);
   writer.writeBool(offsets[4], object.murderIsLock);
@@ -111,7 +111,7 @@ BoolModel _boolModelDeserialize(
 ) {
   final object = BoolModel();
   object.behindIsLock = reader.readBoolOrNull(offsets[0]);
-  object.dontLookBackIsLock = reader.readBoolOrNull(offsets[1]);
+  object.gravehurstIsLock = reader.readBoolOrNull(offsets[1]);
   object.id = id;
   object.lostLucyIsLock = reader.readBoolOrNull(offsets[2]);
   object.luckyIsLock = reader.readBoolOrNull(offsets[3]);
@@ -273,28 +273,28 @@ extension BoolModelQueryFilter
   }
 
   QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      dontLookBackIsLockIsNull() {
+      gravehurstIsLockIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'dontLookBackIsLock',
+        property: r'gravehurstIsLock',
       ));
     });
   }
 
   QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      dontLookBackIsLockIsNotNull() {
+      gravehurstIsLockIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'dontLookBackIsLock',
+        property: r'gravehurstIsLock',
       ));
     });
   }
 
   QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      dontLookBackIsLockEqualTo(bool? value) {
+      gravehurstIsLockEqualTo(bool? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'dontLookBackIsLock',
+        property: r'gravehurstIsLock',
         value: value,
       ));
     });
@@ -613,16 +613,16 @@ extension BoolModelQuerySortBy on QueryBuilder<BoolModel, BoolModel, QSortBy> {
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByDontLookBackIsLock() {
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByGravehurstIsLock() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'dontLookBackIsLock', Sort.asc);
+      return query.addSortBy(r'gravehurstIsLock', Sort.asc);
     });
   }
 
   QueryBuilder<BoolModel, BoolModel, QAfterSortBy>
-      sortByDontLookBackIsLockDesc() {
+      sortByGravehurstIsLockDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'dontLookBackIsLock', Sort.desc);
+      return query.addSortBy(r'gravehurstIsLock', Sort.desc);
     });
   }
 
@@ -725,16 +725,16 @@ extension BoolModelQuerySortThenBy
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByDontLookBackIsLock() {
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByGravehurstIsLock() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'dontLookBackIsLock', Sort.asc);
+      return query.addSortBy(r'gravehurstIsLock', Sort.asc);
     });
   }
 
   QueryBuilder<BoolModel, BoolModel, QAfterSortBy>
-      thenByDontLookBackIsLockDesc() {
+      thenByGravehurstIsLockDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'dontLookBackIsLock', Sort.desc);
+      return query.addSortBy(r'gravehurstIsLock', Sort.desc);
     });
   }
 
@@ -843,9 +843,9 @@ extension BoolModelQueryWhereDistinct
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByDontLookBackIsLock() {
+  QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByGravehurstIsLock() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'dontLookBackIsLock');
+      return query.addDistinctBy(r'gravehurstIsLock');
     });
   }
 
@@ -906,10 +906,9 @@ extension BoolModelQueryProperty
     });
   }
 
-  QueryBuilder<BoolModel, bool?, QQueryOperations>
-      dontLookBackIsLockProperty() {
+  QueryBuilder<BoolModel, bool?, QQueryOperations> gravehurstIsLockProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'dontLookBackIsLock');
+      return query.addPropertyName(r'gravehurstIsLock');
     });
   }
 

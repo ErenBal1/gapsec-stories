@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/continue_play_state/continue_play_state.dart';
+import 'package:gapsec/stories/games_storage/gravehurst.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
@@ -58,11 +59,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
               _databaseService.murderRepo.last!.murderTexts.toString(),
         );
 
-      case TextType.dontLookBackType:
+      case TextType.gravehurstType:
         return list.firstWhere((element) =>
             element["history"] ==
-            _databaseService.dontLookBackRepo.last!.dontLookBackTexts
-                .toString());
+            _databaseService.gravehurstRepo.last!.gravehurstTexts.toString());
 
       default:
     }
@@ -140,6 +140,24 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
           cs.scrollToBottom();
           break;
+        case TextType.gravehurstType:
+          cs.selectedList = gravehurstDetail;
+          await _selectedStoryUpdate(type: TextType.gravehurstType);
+          cs.left = initToOdd(
+            cs.selectedList,
+            TextType.gravehurstType,
+          )!;
+          cs.right = initToEven(
+            cs.selectedList,
+            TextType.gravehurstType,
+          )!;
+          await _selectedStoryUpdate(type: TextType.gravehurstType);
+          setState(() {
+            cs.repo = _databaseService.gravehurstRepo;
+          });
+
+          cs.scrollToBottom();
+          break;
         default:
       }
     });
@@ -175,7 +193,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                           color: Colors.green, size: 20),
                       onPressed: () => Navigator.pop(context),
                     ),
-                    const Text(ConstantTexts.murder,
+                    Text(widget.story,
                         style: AppFonts.storyTitleInGameTextStyle),
                   ],
                 ),
@@ -196,9 +214,8 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         case TextType.murderType:
                           cs.selectedTexts = newGame.murderTexts.toString();
                           break;
-                        case TextType.dontLookBackType:
-                          cs.selectedTexts =
-                              newGame.dontLookBackTexts.toString();
+                        case TextType.gravehurstType:
+                          cs.selectedTexts = newGame.gravehurstTexts.toString();
                           break;
                         default:
                       }
@@ -312,9 +329,15 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
     await _selectedStoryUpdate(type: widget.selectedTextType);
     setState(() {
-      cs.repo = widget.selectedTextType == TextType.murderType
-          ? _databaseService.murderRepo
-          : _databaseService.dontLookBackRepo;
+      switch (widget.selectedTextType) {
+        case TextType.murderType:
+          cs.repo = _databaseService.murderRepo;
+          break;
+        case TextType.gravehurstType:
+          cs.repo = _databaseService.gravehurstRepo;
+          break;
+        default:
+      }
     });
     cs.scrollToBottom();
 
@@ -328,9 +351,15 @@ class _ContinueChatViewState extends State<ContinueChatView> {
     );
     await _selectedStoryUpdate(type: widget.selectedTextType);
     setState(() {
-      cs.repo = widget.selectedTextType == TextType.murderType
-          ? _databaseService.murderRepo
-          : _databaseService.dontLookBackRepo;
+      switch (widget.selectedTextType) {
+        case TextType.murderType:
+          cs.repo = _databaseService.murderRepo;
+          break;
+        case TextType.gravehurstType:
+          cs.repo = _databaseService.gravehurstRepo;
+          break;
+        default:
+      }
     });
     cs.scrollToBottom();
 

@@ -22,9 +22,9 @@ const NewGameSchema = CollectionSchema(
       name: r'behindTexts',
       type: IsarType.string,
     ),
-    r'dontLookBackTexts': PropertySchema(
+    r'gravehurstTexts': PropertySchema(
       id: 1,
-      name: r'dontLookBackTexts',
+      name: r'gravehurstTexts',
       type: IsarType.string,
     ),
     r'lostLucyTexts': PropertySchema(
@@ -85,7 +85,7 @@ int _newGameEstimateSize(
     }
   }
   {
-    final value = object.dontLookBackTexts;
+    final value = object.gravehurstTexts;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
     }
@@ -136,7 +136,7 @@ void _newGameSerialize(
   Map<Type, List<int>> allOffsets,
 ) {
   writer.writeString(offsets[0], object.behindTexts);
-  writer.writeString(offsets[1], object.dontLookBackTexts);
+  writer.writeString(offsets[1], object.gravehurstTexts);
   writer.writeString(offsets[2], object.lostLucyTexts);
   writer.writeString(offsets[3], object.luckyTexts);
   writer.writeString(offsets[4], object.murderTexts);
@@ -153,7 +153,7 @@ NewGame _newGameDeserialize(
 ) {
   final object = NewGame();
   object.behindTexts = reader.readStringOrNull(offsets[0]);
-  object.dontLookBackTexts = reader.readStringOrNull(offsets[1]);
+  object.gravehurstTexts = reader.readStringOrNull(offsets[1]);
   object.id = id;
   object.lostLucyTexts = reader.readStringOrNull(offsets[2]);
   object.luckyTexts = reader.readStringOrNull(offsets[3]);
@@ -429,31 +429,30 @@ extension NewGameQueryFilter
   }
 
   QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsIsNull() {
+      gravehurstTextsIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
       ));
     });
   }
 
   QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsIsNotNull() {
+      gravehurstTextsIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsEqualTo(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> gravehurstTextsEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -461,7 +460,7 @@ extension NewGameQueryFilter
   }
 
   QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsGreaterThan(
+      gravehurstTextsGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -469,15 +468,14 @@ extension NewGameQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsLessThan(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> gravehurstTextsLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -485,15 +483,14 @@ extension NewGameQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsBetween(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> gravehurstTextsBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -502,7 +499,7 @@ extension NewGameQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -513,49 +510,50 @@ extension NewGameQueryFilter
   }
 
   QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsStartsWith(
+      gravehurstTextsStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsEndsWith(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> gravehurstTextsEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsContains(String value, {bool caseSensitive = true}) {
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> gravehurstTextsContains(
+      String value,
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsMatches(String pattern, {bool caseSensitive = true}) {
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> gravehurstTextsMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         wildcard: pattern,
         caseSensitive: caseSensitive,
       ));
@@ -563,20 +561,20 @@ extension NewGameQueryFilter
   }
 
   QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsIsEmpty() {
+      gravehurstTextsIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         value: '',
       ));
     });
   }
 
   QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      dontLookBackTextsIsNotEmpty() {
+      gravehurstTextsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'dontLookBackTexts',
+        property: r'gravehurstTexts',
         value: '',
       ));
     });
@@ -1542,15 +1540,15 @@ extension NewGameQuerySortBy on QueryBuilder<NewGame, NewGame, QSortBy> {
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByDontLookBackTexts() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByGravehurstTexts() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'dontLookBackTexts', Sort.asc);
+      return query.addSortBy(r'gravehurstTexts', Sort.asc);
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByDontLookBackTextsDesc() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByGravehurstTextsDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'dontLookBackTexts', Sort.desc);
+      return query.addSortBy(r'gravehurstTexts', Sort.desc);
     });
   }
 
@@ -1641,15 +1639,15 @@ extension NewGameQuerySortThenBy
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByDontLookBackTexts() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByGravehurstTexts() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'dontLookBackTexts', Sort.asc);
+      return query.addSortBy(r'gravehurstTexts', Sort.asc);
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByDontLookBackTextsDesc() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByGravehurstTextsDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'dontLookBackTexts', Sort.desc);
+      return query.addSortBy(r'gravehurstTexts', Sort.desc);
     });
   }
 
@@ -1747,10 +1745,10 @@ extension NewGameQueryWhereDistinct
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QDistinct> distinctByDontLookBackTexts(
+  QueryBuilder<NewGame, NewGame, QDistinct> distinctByGravehurstTexts(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'dontLookBackTexts',
+      return query.addDistinctBy(r'gravehurstTexts',
           caseSensitive: caseSensitive);
     });
   }
@@ -1815,9 +1813,9 @@ extension NewGameQueryProperty
     });
   }
 
-  QueryBuilder<NewGame, String?, QQueryOperations> dontLookBackTextsProperty() {
+  QueryBuilder<NewGame, String?, QQueryOperations> gravehurstTextsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'dontLookBackTexts');
+      return query.addPropertyName(r'gravehurstTexts');
     });
   }
 
