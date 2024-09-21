@@ -382,6 +382,784 @@
 
         "murder_story_1000_history": "Signal Lost! No further signal received.",
         "murder_story_1000_answer_1": "Restart the story.",
-        "murder_story_1000_answer_2": "Restart the story."
+        "murder_story_1000_answer_2": "Restart the story.",
 
+
+
+
+        "gravehurst_story_0_history": "Professor, we've arrived at the place you mentioned. Gravehurst Mental Hospital. We aim to close this unsolved case with my team. You know that the hospital's closure wasn't due to just a few technical reasons.",
+        "gravehurst_story_0_answer_1": "Of course, Edwin. I couldn't be there with you due to my illness, but I'm always here listening to you.",
+        "gravehurst_story_0_answer_2": "You're right, Edwin. I can't be there with you to uncover the truth due to my health, but I'm always here.",
+        
+        "gravehurst_story_1_history": "Professor, your health is more important than being here right now. You can help us remotely. It's time for us to enter.",
+        "gravehurst_story_1_answer_1": "Edwin, solve this mystery without anyone getting hurt.",
+        "gravehurst_story_1_answer_2": "Children, please be careful. Anything can happen at any moment.",
+        
+        "gravehurst_story_2_history": "Professor, your health is more important to us. We have no doubt that you can help us even from a distance. It's time for my team and I to enter.",
+        "gravehurst_story_2_answer_1": "I'm here. Please be careful.",
+        "gravehurst_story_2_answer_2": "Don't worry, children, I'm listening to you.",
+        
+        "gravehurst_story_3_history": "Professor, we're at the entrance of Gravehurst Mental Hospital. The air is heavy and silent, we have a strong feeling that something is waiting for us inside. It's risky to step in without you, but we trust your guidance. We're waiting for your final instructions before entering. What do you want us to do?",
+        "gravehurst_story_3_answer_1": "Be careful, if you notice anything strange, report it immediately.",
+        "gravehurst_story_3_answer_2": "Trust each other. First target is the reception, proceed cautiously.",
+        
+        "gravehurst_story_4_history": "Understood, Professor. We're starting to move forward. We'll inform you if we see any abnormalities. The inside is really disturbing. We'll move carefully.",
+        "gravehurst_story_4_answer_1": "Understood. Report the first thing you find immediately.",
+        "gravehurst_story_4_answer_2": "Report when you reach the reception.",
+        
+        "gravehurst_story_5_history": "We're carefully moving towards the reception. The inside is really very disturbing.",
+        "gravehurst_story_5_answer_1": "Report when you reach the reception.",
+        "gravehurst_story_5_answer_2": "Continue moving. Keep your eyes wide open.",
+        
+        "gravehurst_story_6_history": "Understood. We've entered a corridor, there are dark rooms here. Where do you suggest we proceed?",
+        "gravehurst_story_6_answer_1": "Be careful of the dark rooms. First follow the main corridor.",
+        "gravehurst_story_6_answer_2": "Don't enter the dark rooms. Proceed through the main corridor.",
+        
+        "gravehurst_story_7_history": "Understood, we're following the main corridor. There's a door ahead, we're going in. It's completely dark inside, our flashlights are ready. We're moving forward.",
+        "gravehurst_story_7_answer_1": "Don't turn off your flashlights, keep your eyes open.",
+        "gravehurst_story_7_answer_2": "Quickly check the inside.",
+        
+        "gravehurst_story_8_history": "We opened the door, there are old medical equipment and used drugs inside. Experiments might have been conducted here. There seems to be something moving in the dark. We don't want to lose our field of vision.",
+        "gravehurst_story_8_answer_1": "Don't lose your field of vision, something might suddenly appear around.",
+        "gravehurst_story_8_answer_2": "Examine the equipment you found. It's important for us to understand the results of these experiments.",
+        
+        "gravehurst_story_9_history": "We noticed something moving in the dark. We're trying to maintain our field of vision.",
+        "gravehurst_story_9_answer_1": "Cancel the exploration and get out of there!",
+        "gravehurst_story_9_answer_2": "Try to observe the moving thing, but don't get too close. Don't intervene without understanding what it is.",
+        
+        "gravehurst_story_10_history": "Most of the equipment is broken. But we found some notes, they provide information about the condition of the subjects.",
+        "gravehurst_story_10_answer_1": "Share the information with me, Edwin.",
+        "gravehurst_story_10_answer_2": "What kind of information, ED?",
+        
+        "gravehurst_story_11_history": "I think it mentions a substance. It says the subjects disappeared inexplicably.",
+        "gravehurst_story_11_answer_1": "Things are getting more interesting. What else do you see?",
+        "gravehurst_story_11_answer_2": "Very strange. We need more clues.",
+        
+        "gravehurst_story_12_history": "We're leaving the room for more clues. There's a door we didn't notice when we came here and it has no handle. Should we break in?",
+        "gravehurst_story_12_answer_1": "Let's proceed with easier options.",
+        "gravehurst_story_12_answer_2": "There might be something useful inside.",
+        
+        "gravehurst_story_13_history": "You're right, Professor. It's time for us to go to other floors.",
+        "gravehurst_story_13_answer_1": "Let's start from the upper floor.",
+        "gravehurst_story_13_answer_2": "Let's start from the lower floor.",
+        
+        "gravehurst_story_14_history": "You're right, Professor. We started breaking the door. We can't see anything useful inside. But while breaking the door, we heard sounds from the lower floor, it seemed like someone was running, should we go down?",
+        "gravehurst_story_14_answer_1": "Whatever it is, we need to find it, go down quickly.",
+        "gravehurst_story_14_answer_2": "This could be dangerous.",
+        
+        "gravehurst_story_15_history": "We've examined the upper floor, Professor. The patient rooms look normal, as if they've never been used. We're going down to the basement.",
+        "gravehurst_story_15_answer_1": "Don't get separated from each other.",
+        "gravehurst_story_15_answer_2": "Okay, Team.",
+        
+        "gravehurst_story_16_history": "The future of the entire file depends on our exploration, Professor. We have to do this.",
+        "gravehurst_story_16_answer_1": "Alright ED. Please be careful.",
+        "gravehurst_story_16_answer_2": "Proceed cautiously.",
+        
+        "gravehurst_story_17_history": "We're going down the stairs next to the reception.",
+        "gravehurst_story_17_answer_1": "I'm listening to you.",
+        "gravehurst_story_17_answer_2": "What's the situation?",
+        
+        "gravehurst_story_18_history": "Everything seems normal. This is an empty corridor, not even a single room. There seems to be something on the floor at the end of the corridor. We're going there.",
+        "gravehurst_story_18_answer_1": "I'm listening, Ed?",
+        "gravehurst_story_18_answer_2": "What did you find?",
+        
+        "gravehurst_story_19_history": "There's a hole here and a wooden ladder inside. It seems endless and very deep. Should we go down?",
+        "gravehurst_story_19_answer_1": "The phone might not work, the team should go down",
+        "gravehurst_story_19_answer_2": "You wait outside Edwin, let the team check.",
+        
+        "gravehurst_story_20_history": "I sent the team, Professor. I'm waiting for them to come back.",
+        "gravehurst_story_20_answer_1": "Don't keep me in suspense.",
+        "gravehurst_story_20_answer_2": "Alright Ed. I'm waiting for news.",
+        
+        "gravehurst_story_21_history": "Professor, it's been 2 full hours and there's no one coming back nor any sound. Do you think I should go down?",
+        "gravehurst_story_21_answer_1": "Go down and find the team.",
+        "gravehurst_story_21_answer_2": "Quickly get out of that hospital and wait for the incoming support team.",
+        
+        "gravehurst_story_22_history": "I'm going down, Professor. If I don't return for a long time, don't come looking for us or you'll also-",
+        "gravehurst_story_22_answer_1": "You'll also what?",
+        "gravehurst_story_22_answer_2": "Edwin, are you there?",
+        
+        "gravehurst_story_23_history": "Understood. I returned to the hospital garden and started waiting for the incoming team.",
+        "gravehurst_story_23_answer_1": "Has the support arrived?",
+        "gravehurst_story_23_answer_2": "Did they reach?",
+        
+        "gravehurst_story_24_history": "Yes, Professor. I can see them. We entered together, we're going down together. Wait a minute! The corridor is very different, how is this possible?",
+        "gravehurst_story_24_answer_1": "Are you sure you're in the right place?",
+        "gravehurst_story_24_answer_2": "What do you mean? Where's the tunnel?",
+        
+        "gravehurst_story_25_history": "When we went down, there were rooms in the corridor and the door at the end of the corridor was sealed. According to what the police said, this place has been like this for years",
+        "gravehurst_story_25_answer_1": "This is impossible!",
+        "gravehurst_story_25_answer_2": "Where's the team, Ed?",
+        
+        "gravehurst_story_26_history": "Professor, you won't believe it but the lights in the corridor started flickering dimly, we can make out the surroundings but I'm sure we're not alone. Oh my God, what's that!",
+        "gravehurst_story_26_answer_1": "What did you see??",
+        "gravehurst_story_26_answer_2": "ED! Are you okay?",
+        
+        "gravehurst_story_27_history": "The elevator! The elevator door opened. Professor, what's going on here! It seems like something is trying to pull us where it wants.",
+        "gravehurst_story_27_answer_1": "Edwin, this could be a trap.",
+        "gravehurst_story_27_answer_2": "Kids, this doesn't bode well at all. I want you to come back.",
+        
+        "gravehurst_story_28_history": "I think so, Professor. It's trying to drag us deeper or we're going crazy!",
+        "gravehurst_story_28_answer_1": "Go down using the stairs.",
+        "gravehurst_story_28_answer_2": "Don't use the elevator.",
+        
+        "gravehurst_story_29_history": "I think the events here are much deeper than we thought. We're going down to the basement. The door is very old, but we managed to open it. Oh my God! There's an old military laboratory here. The details of the experiments are written on the walls, all the equipment is in place. It's as if this place hasn't been abandoned.",
+        "gravehurst_story_29_answer_1": "Kids, be quick and look for useful things.",
+        "gravehurst_story_29_answer_2": "Find something before anyone comes.",
+        
+        "gravehurst_story_30_history": "Professor! There's not just a laboratory here, but also military documents and maps. The documents mention a project called 'Experiment-042'. It seems that experiments on the human body were conducted here. We found another door, but we don't know what's behind this door. It feels like something is watching us. What should we do, Professor?",
+        "gravehurst_story_30_answer_1": "Continue, Edwin.",
+        "gravehurst_story_30_answer_2": "I'm canceling the mission, leave there immediately!",
+        
+        "gravehurst_story_31_history": "Professor, we don't want to stay here but it doesn't feel right to retreat without knowing what's behind the door. The documents mention something: 'Final stage'. It seems like the final stage of something very dangerous was carried out here.",
+        "gravehurst_story_31_answer_1": "Learn about the experiment.",
+        "gravehurst_story_31_answer_2": "Find the details.",
+        
+        "gravehurst_story_32_history": "Professor, we opened the door. There's a huge control room inside. Everywhere is full of monitors and images of experiments are playing on the screen. All the experiments were conducted on humans! Could some of the subjects still be alive? The thing called 'Final stage' in the records looks like a combination of human consciousness and machines. What should we do?",
+        "gravehurst_story_32_answer_1": "We needed smarter ones than the mentally ill :).",
+        "gravehurst_story_32_answer_2": "Welcome, kids :).",
+        
+        "gravehurst_story_33_history": "The eyes of the whole team couldn't have been deceived, right Professor?",
+        "gravehurst_story_33_answer_1": "Maybe you could be right. I want to know everything.",
+        "gravehurst_story_33_answer_2": "I don't know kids, just don't panic.",
+        
+        "gravehurst_story_34_history": "How is this possible? The lights behind us started to turn on. Is this real or is it really the old phone at the reception we heard earlier ringing!?",
+        "gravehurst_story_34_answer_1": "Edwin, this can't be real!",
+        "gravehurst_story_34_answer_2": "What's this!",
+        
+        "gravehurst_story_35_history": "We're running there right away. I have important news, Professor. It was the phone ringing and it stopped when we arrived. The interesting thing is, there's not even a cable connected to the phone!",
+        "gravehurst_story_35_answer_1": "You can't be serious ED!",
+        "gravehurst_story_35_answer_2": "Something is trying to draw you to it.",
+        
+        "gravehurst_story_36_history": "Professor, you won't believe this because the dates show today. How is this possible? It talks about dark matter being tried to be contained but the plan backfired. The rest is too worn out to read.",
+        "gravehurst_story_36_answer_1": "It seems like this substance caused everything.",
+        "gravehurst_story_36_answer_2": "They must know our future.",
+        
+        "gravehurst_story_37_history": "The clues we've found so far indicate that, Professor. We continue to search the area for more clues.",
+        "gravehurst_story_37_answer_1": "It's time for you to go down",
+        "gravehurst_story_37_answer_2": "The file says the main event is in the basement.",
+        
+        "gravehurst_story_38_history": "Yes. Something is trying to play games with us. I'm starting to get scared, Professor! What should we do?",
+        "gravehurst_story_38_answer_1": "The file says the main event is in the basement.",
+        "gravehurst_story_38_answer_2": "Kids, I can't put you in danger. I'm getting scared.",
+        
+        "gravehurst_story_39_history": "We think so too, Professor. We're going down with the team. The edges of the walls are covered in moss. Even though the stairs have almost turned into ruins, we managed to go down successfully.",
+        "gravehurst_story_39_answer_1": "You need to find the recording device mentioned in the file.",
+        "gravehurst_story_39_answer_2": "There should be a recording device in the room where the experiments were conducted.",
+        
+        "gravehurst_story_40_history": "We agree with you, Professor. I'm sure that substance is down there. We've gone down.",
+        "gravehurst_story_40_answer_1": "You need to find the recording device mentioned in the file.",
+        "gravehurst_story_40_answer_2": "There should be a recording device in the room where the experiments were conducted.",
+        
+        "gravehurst_story_41_history": "Professor, there's a very heavy smell here. We don't see any rooms, just an iron wall and door ahead, just like in prisons. My team and I are trying to open the door.",
+        "gravehurst_story_41_answer_1": "Were you able to break it?",
+        "gravehurst_story_41_answer_2": "What's the latest situation, Edwin?",
+        
+        "gravehurst_story_42_history": "It took a long time, Professor. We finally opened it! Oh my god! This place is full of bodies hanging from the ceiling along the corridor. My team members started vomiting. God, how could no one find this place?",
+        "gravehurst_story_42_answer_1": "This is truly unbelievable!",
+        "gravehurst_story_42_answer_2": "Put on your masks immediately.",
+        
+        "gravehurst_story_43_history": "We've taken our precautions, Professor. We're moving forward. It's obvious that the corpses are the mental patients from the hospital. All of their hands are tied behind their backs, they have white gowns, and the same thing is written on all of them! (Don't look back)",
+        "gravehurst_story_43_answer_1": "What do you see?",
+        "gravehurst_story_43_answer_2": "Ed! Answer! What's happening?",
+        
+        "gravehurst_story_44_history": "Professor, I feel the blood flow in my veins stopping. When we read the writing and turned around, there was a mirror where the door behind us was. Professor! None of us have reflections in the mirror!!!",
+        "gravehurst_story_44_answer_1": "Get out of there immediately! Mission aborted!",
+        "gravehurst_story_44_answer_2": "How is this possible? Quickly check your surroundings.",
+        
+        "gravehurst_story_45_history": "We couldn't find a way out, Professor. We can't go back! Please help us!",
+        "gravehurst_story_45_answer_1": "I can't call the police, Edwin. They'll put us all in jail.",
+        "gravehurst_story_45_answer_2": "Glass?",
+        
+        "gravehurst_story_46_history": "We broke the mirror thinking the door might be behind it, Professor. There was no door but we found a note",
+        "gravehurst_story_46_answer_1": "What does the note say?",
+        "gravehurst_story_46_answer_2": "Read the note, Edwin!",
+        
+        "gravehurst_story_47_history": "(System: Signal lost.)",
+        "gravehurst_story_47_answer_1": "Can't you see my messages?",
+        "gravehurst_story_47_answer_2": "ED! Are you there?",
+        
+        "gravehurst_story_48_history": "Note: Don't look back invisible dead, look back and the mad will come alive!",
+        "gravehurst_story_48_answer_1": "What does this mean? What's this now?",
+        "gravehurst_story_48_answer_2": "Please tell me you didn't look EDD!!",
+        
+        "gravehurst_story_49_history": "Professor! We're hearing sounds from the ventilation! I think a gas is being released!",
+        "gravehurst_story_49_answer_1": "Your masks!!!",
+        "gravehurst_story_49_answer_2": "Don't breathe it in!",
+        
+        "gravehurst_story_50_history": "I think we have a problem, Professor. They-",
+        "gravehurst_story_50_answer_1": "They what? What happened?",
+        "gravehurst_story_50_answer_2": "Did they come alive?",
+        
+        "gravehurst_story_51_history": "No, there's nothing on the ceiling. All the bodies have disappeared.",
+        "gravehurst_story_51_answer_1": "Is the problem with you?",
+        "gravehurst_story_51_answer_2": "This is impossible!",
+        
+        "gravehurst_story_52_history": "Professor, I don't know if we're hallucinating but we're about to go crazy right now. I think this smell is some kind of gas and we're seeing these things because of it, I'm not sure. Professor, I think there's something in the corner. Yes, a camera and its light is flashing, it's looking right at us!",
+        "gravehurst_story_52_answer_1": "So they knew from the beginning.",
+        "gravehurst_story_52_answer_2": "I knew we weren't alone.",
+        
+        "gravehurst_story_53_history": "Professor, we examined the camera. There's an image watching us on the screen but the one watching is you! You're on the screen! It's as if you knew our every move long before. Professor, how is this possible? We can't quite make sense of it, but are you working with us here or against us? Are you behind all these experiments?",
+        "gravehurst_story_53_answer_1": "It was nice to meet you.",
+        "gravehurst_story_53_answer_2": "I'm sorry, kids.",
+        
+        "gravehurst_story_54_history": "We saw a dark shadow in a room, it suddenly disappeared. This might have something to do with the entity.",
+        "gravehurst_story_54_answer_1": "Try to stay calm. Your eyes might be playing tricks on you.",
+        "gravehurst_story_54_answer_2": "You're in danger Ed! Cancel the exploration.",
+        
+        "gravehurst_story_55_history": "We found an old notebook. It contains notes about some experiments conducted on the entity.",
+        "gravehurst_story_55_answer_1": "We need to understand when the events related to the entity started.",
+        "gravehurst_story_55_answer_2": "Are there any traps or points we should avoid mentioned in the notes?",
+        
+        "gravehurst_story_56_history": "There's no other information about this entity. I think it might be imaginary, but we'll still be careful. We'll collect and analyze the other clues we've found as well.",
+        "gravehurst_story_56_answer_1": "Look for more information about the entity.",
+        "gravehurst_story_56_answer_2": "Check the other rooms, there might be traces related to the entity.",
+
+        "gravehurst_story_57_history": "The last entry in the diary mentions a 'dark entity' inside. No further details.",
+        "gravehurst_story_57_answer_1": "A dark entity? Be prepared for danger.",
+        "gravehurst_story_57_answer_2": "We don't know what the entity is, be careful.",
+
+        "gravehurst_story_58_history": "Professor, the reception looks safe. There's a strange diary here, we're starting to read it.",
+        "gravehurst_story_58_answer_1": "Quickly examine the diary. We don't want to waste time.",
+        "gravehurst_story_58_answer_2": "The details in the diary could be dangerous. Be ready.",
+
+        "gravehurst_story_59_history": "The diary says experiments were conducted to worsen the patients' mental states. A few patients mentioned hearing strange sounds.",
+        "gravehurst_story_59_answer_1": "This information is important. I'm taking notes.",
+        "gravehurst_story_59_answer_2": "Be careful of strange sounds. They could mislead you.",
+
+        "gravehurst_story_60_history": "Professor, we've reached the reception. We found some old files and a key here.",
+        "gravehurst_story_60_answer_1": "Keep the key. Quickly examine the files.",
+        "gravehurst_story_60_answer_2": "If there's a map or plan in the files, forward it to me.",
+
+        "gravehurst_story_61_history": "We found a map. It mentions a secret passage leading to the basement. The entrance point seems to be at the end of the corridor.",
+        "gravehurst_story_61_answer_1": "Carefully examine the passage, but don't enter immediately.",
+        "gravehurst_story_61_answer_2": "The basement could be dangerous. Be prepared.",
+
+        "gravehurst_story_62_history": "We're hearing strange whispers, as if from far away. The team's morale is starting to drop.",
+        "gravehurst_story_62_answer_1": "Keep your morale high, continue moving forward.",
+        "gravehurst_story_62_answer_2": "Try to find the source of the whispers.",
+
+        "gravehurst_story_63_history": "We're trying to reach the source of the whispers. The team is tightly bound together. The whispers seem to be focusing on a room at the end of the corridor. We'll be careful as we approach there.",
+        "gravehurst_story_63_answer_1": "Are the whispers like human whispers?",
+        "gravehurst_story_63_answer_2": "Can the whispers be understood?",
+
+        "gravehurst_story_64_history": "More like a genderless hum. I think some words are being said. But we can't understand the sound because we're still far away. What should we do?",
+        "gravehurst_story_64_answer_1": "Move towards the sound.",
+        "gravehurst_story_64_answer_2": "That's enough. Go back.",
+
+        "gravehurst_story_65_history": "Understood, Professor. We're approaching the room at the end of the corridor. But, wait a minute. There's something strange here. There's a large metal cover on the floor. It says 'Warning: Unauthorized Entry Prohibited'. There's also a military symbol.",
+        "gravehurst_story_65_answer_1": "Interesting. A military entrance in a mental hospital?",
+        "gravehurst_story_65_answer_2": "Can you open the cover?",
+
+        "gravehurst_story_66_history": "Very interesting indeed, Professor. What do you want us to do?",
+        "gravehurst_story_66_answer_1": "Can you analyze the cover?",
+        "gravehurst_story_66_answer_2": "Can you open the cover?",
+
+        "gravehurst_story_67_history": "We're trying, but it's a very heavy material. We'll try to force it a bit. Good, the cover is starting to open!",
+        "gravehurst_story_67_answer_1": "What do you see?",
+        "gravehurst_story_67_answer_2": "What's inside?",
+
+        "gravehurst_story_68_history": "There's a metal ladder going down. It seems to go deep. And there's a faint hum coming from below.",
+        "gravehurst_story_68_answer_1": "Be very careful.",
+        "gravehurst_story_68_answer_2": "Check your necessary equipment before going down.",
+
+        "gravehurst_story_69_history": "Alright, we're down. Wow! This is a massive underground military facility!",
+        "gravehurst_story_69_answer_1": "What do you see?",
+        "gravehurst_story_69_answer_2": "Describe in detail.",
+
+        "gravehurst_story_70_history": "A large hall, computers and medical equipment everywhere. But these don't look like normal hospital equipment. They look much more advanced.\n\nThere's a large sign on the wall: 'Project DeVast - Limited Access'. Professor, what could this be?",
+        "gravehurst_story_70_answer_1": "Project DeVast... This name rings a bell.",
+        "gravehurst_story_70_answer_2": "It could be a secret military project. What else do you see around?",
+
+        "gravehurst_story_71_history": "Professor, this is definitely a military facility. There are military symbols and equipment everywhere. The walls say 'Ministry of Defense Secret Project'.",
+        "gravehurst_story_71_answer_1": "What else is there?",
+        "gravehurst_story_71_answer_2": "These types of facilities are usually equipped with strict security measures.",
+
+        "gravehurst_story_72_history": "Yes, we see security cameras and sensors everywhere. But most of them seem to be deactivated. Could the facility be abandoned?",
+        "gravehurst_story_72_answer_1": "Possible, but stay alert.",
+        "gravehurst_story_72_answer_2": "What kind of military equipment do you see?",
+
+        "gravehurst_story_73_history": "Alright, Professor. What do you want us to do now?",
+        "gravehurst_story_73_answer_1": "What's there militarily?",
+        "gravehurst_story_73_answer_2": "Write down what's around you.",
+
+        "gravehurst_story_74_history": "There are a few closed containers here. They say 'Caution: Biological Material' on them. Wow! We're seeing things that look like a series of high-tech weapon prototypes.",
+        "gravehurst_story_74_answer_1": "Let's look inside.",
+        "gravehurst_story_74_answer_2": "Stay away. Is there any document or computer?",
+
+        "gravehurst_story_75_history": "Yes, we found a place that looks like a control room. There's an active computer inside.",
+        "gravehurst_story_75_answer_1": "Take the computer and end the operation.",
+        "gravehurst_story_75_answer_2": "Try to access it.",
+
+        "gravehurst_story_76_history": "We've gained access to the computer. There's a file here called 'Operation DeVast'. I'm opening it.\n\nProfessor, something's happening! I think the facility is waking up!",
+        "gravehurst_story_76_answer_1": "Quickly get important information from the Operation DeVast file.",
+        "gravehurst_story_76_answer_2": "Get out of there immediately. The investigation is over.",
+
+        "gravehurst_story_77_history": "Okay, we're scanning the file. This looks like a DARPA project. They've been working on advanced prosthetics and exoskeleton development. It was designed for the rehabilitation of injured soldiers. Apparently, Gravehurst Mental Hospital provided a perfect cover for this. The project was stopped 5 years ago. Due to budget cuts and ethical concerns. According to the last records, all equipment and data were safely transported and the facility was closed.",
+        "gravehurst_story_77_answer_1": "So that's why the facility was closed.",
+        "gravehurst_story_77_answer_2": "Again, due to the government's secret operations.",
+
+        "gravehurst_story_78_history": "Yes, unfortunately. By the way, there's a creaking sound coming from afar, Professor. What should we do!?",
+        "gravehurst_story_78_answer_1": "Do you remember the way out?",
+        "gravehurst_story_78_answer_2": "Don't worry. It's probably an old ventilation grate.",
+
+        "gravehurst_story_79_history": "Yes, that's what it was. I think it's just old generators and ventilation systems, Professor. Because the facility has been closed for a long time, these sounds might be coming out as the systems start working again.",
+        "gravehurst_story_79_answer_1": "You need to get out of there.",
+        "gravehurst_story_79_answer_2": "Move towards the exit.",
+
+        "gravehurst_story_80_history": "Yes. We're leaving here. We're gathering a bit more information and photographing these before we leave. But they're not very clear due to the low light.",
+        "gravehurst_story_80_answer_1": "No problem. Leave the place quietly.",
+        "gravehurst_story_80_answer_2": "We're doing our best. Leave the facility.",
+
+        "gravehurst_story_81_history": "We're moving towards the exit. There's a staircase here. Professor, we're hearing a sound now. It's like footsteps! It's coming from above!",
+        "gravehurst_story_81_answer_1": "It must be a security guard.",
+        "gravehurst_story_81_answer_2": "Stay calm. It could be a cat.",
+
+        "gravehurst_story_82_history": "We're at the top of the stairs now. There are two people here. They're in civilian clothes.",
+        "gravehurst_story_82_answer_1": "Attack them!",
+        "gravehurst_story_82_answer_2": "Ask who they are.",
+
+        "gravehurst_story_83_history": "Okay. I'll send you an audio recording while this is happening. Wait.\n\nTeam: Excuse us, who are you?\n\nUnknown Persons: We were about to ask you the same question. How did you get in here?\n\nTeam: We're a research team. And you?\n\nUnknown Persons: We're historians examining old military facilities. Do you have permission to enter here?",
+        "gravehurst_story_83_answer_1": "Show your IDs and explain the situation.",
+        "gravehurst_story_83_answer_2": "These aren't historians. Open fire!",
+
+        "gravehurst_story_84_history": "Alright, Professor. They showed their IDs too. They really do look like historians.",
+        "gravehurst_story_84_answer_1": "Tell them BRIEFLY what you saw.",
+        "gravehurst_story_84_answer_2": "Tell them IN DETAIL what you saw.",
+
+        "gravehurst_story_85_history": "Alright, Professor. I'm recording audio again.\n\nTeam: We found an old military research facility downstairs. There are some documents related to DARPA.\n\nHistorian: Yes, that's what we were after. We're here to document this facility. How much did you see down there?\n\nThe men are looking at me. What should I say, Professor?",
+        "gravehurst_story_85_answer_1": "Give them general information.",
+        "gravehurst_story_85_answer_2": "Tell them everything.",
+
+        "gravehurst_story_86_history": "Okay. I'm recording audio again.\n\nTeam: We found some information about prosthetics and exoskeleton research. The project was shut down about 5 years ago.\n\nHistorian: This is very interesting. Would you consider sharing your findings with us?\n\nProfessor, what should we do? Should we share our findings?",
+        "gravehurst_story_86_answer_1": "No. General information only.",
+        "gravehurst_story_86_answer_2": "Yes, share.",
+
+        "gravehurst_story_87_history": "[Audio Recording]\n\nTeam: Understood. Of course, we can share the general information with you. However, we need to present our detailed report to our own institution first.\n\nHistorian: We understand. So, what else did you see down there? Any interesting equipment or documents?\n\nTeam: We mostly saw empty rooms and old computers. We found a few documents, but most seemed like routine reports.\n\nHistorian: Interesting. We also know there are things similar to these. Do you know exactly what this facility was used for?",
+        "gravehurst_story_87_answer_1": "Be careful, don't give too much information.",
+        "gravehurst_story_87_answer_2": "Don't give detailed information about the documents.",
+
+        "gravehurst_story_88_history": "[Audio Recording]\n\nTeam: We're not exactly sure. We saw that they were working on prosthetic technologies, but the details are unclear.\n\nHistorian: I see. Do you plan to do more research on this topic?\n\nProfessor, what should I say?",
+        "gravehurst_story_88_answer_1": "Continue with general answers.",
+        "gravehurst_story_88_answer_2": "Don't give a definite answer.",
+
+        "gravehurst_story_89_history": "[Audio Recording]\n\nTeam: Our plans are uncertain for now. We'll evaluate our findings and then decide.\n\nHistorian: Alright, thank you. Maybe we can exchange information in the future. Here's my business card.\n\nTeam: Thank you. We'll contact you if needed.",
+        "gravehurst_story_89_answer_1": "Now politely leave there.",
+        "gravehurst_story_89_answer_2": "Leave the facility.",
+
+        "gravehurst_story_90_history": "We found the entrance to the passage, but a cold wind is coming from inside. We don't know what's inside. The passage is deeper than we expected. We're checking our equipment before going down to the basement.",
+        "gravehurst_story_90_answer_1": "Determine the depth of the passage. Check if there's anything abnormal.",
+        "gravehurst_story_90_answer_2": "If your equipment is complete, enter the passage.",
+
+        "gravehurst_story_91_history": "We entered the passage. We see scratches on the walls and old medical equipment. It's as if something was hidden here. There's a large metal door at the end of the passage. There are strange markings on it.",
+        "gravehurst_story_91_answer_1": "Do the markings remind you of anything?",
+        "gravehurst_story_91_answer_2": "Markings?",
+
+        "gravehurst_story_92_history": "Yes, but the markings on the door are faint. We can only see that its color is red. It's not clear exactly what it is. The door is locked, we tried to force it but it didn't open. What should we do?",
+        "gravehurst_story_92_answer_1": "There must be another mechanism around.",
+        "gravehurst_story_92_answer_2": "Is there anything abnormal on the walls or floor?",
+
+        "gravehurst_story_93_history": "Yes there is, Professor. Here, next to the door, there's a small panel. It has five colored buttons on it: red, blue, green, yellow, and white.",
+        "gravehurst_story_93_answer_1": "Interesting. Is there any clue about these colors around?",
+        "gravehurst_story_93_answer_2": "It could be some kind of code mechanism.",
+
+        "gravehurst_story_94_history": "We checked the surroundings, Professor. There's a faint writing on the opposite wall. It says 'The secret of the rainbow must be solved'.",
+        "gravehurst_story_94_answer_1": "Rainbow? Nonsense.",
+        "gravehurst_story_94_answer_2": "The color order must be important.",
+
+        "gravehurst_story_95_history": "Yes, Professor. There's a faint writing on the wall directly opposite us. It says 'The secret of the rainbow must be solved'.",
+        "gravehurst_story_95_answer_1": "Rainbow? Nonsense.",
+        "gravehurst_story_95_answer_2": "The color order must be important.",
+
+        "gravehurst_story_96_history": "I think there's a mechanism related to the order of colors, Professor.",
+        "gravehurst_story_96_answer_1": "I don't think so. Press a random button.",
+        "gravehurst_story_96_answer_2": "First press the red one.",
+
+        "gravehurst_story_97_history": "I think so, Professor. We'll press the buttons according to the color order in the rainbow. Red, orange, yellow, green, blue, purple... But there's no orange and purple on the panel.",
+        "gravehurst_story_97_answer_1": "Press according to the order of existing colors.",
+        "gravehurst_story_97_answer_2": "Press blue.",
+
+        "gravehurst_story_98_history": "Okay, we're trying. Red, yellow, green, blue... But where should we put white?",
+        "gravehurst_story_98_answer_1": "Press it first.",
+        "gravehurst_story_98_answer_2": "White contains all colors. Put it at the end.",
+
+        "gravehurst_story_99_history": "Understood. We pressed the red, yellow, green, blue, and white buttons in order. The door opened!",
+        "gravehurst_story_99_answer_1": "What do you see?",
+        "gravehurst_story_99_answer_2": "Examine the inside.",
+
+        "gravehurst_story_100_history": "It's dark inside. We turned on our flashlights. This is a large room, Professor. There are mirrors everywhere! Walls, ceiling, even the floor is covered with mirrors.",
+        "gravehurst_story_100_answer_1": "Just mirrors?",
+        "gravehurst_story_100_answer_2": "Is there anything else in the room?",
+
+        "gravehurst_story_101_history": "No. There's also a big table here. There's a projection device on it and a note next to it.",
+        "gravehurst_story_101_answer_1": "What does the note say?",
+        "gravehurst_story_101_answer_2": "Read it.",
+
+        "gravehurst_story_102_history": "Yes, there's a big table in the middle. There's a projection device on it. And a note next to it.",
+        "gravehurst_story_102_answer_1": "What does the note say?",
+        "gravehurst_story_102_answer_2": "Read it.",
+
+        "gravehurst_story_103_history": "I'm reading: 'Mind Mirror Experiment - Day 23. Results are progressing in unexpected directions. Patients are confronting their subconscious, but some can't return. We should terminate the experiment, but... it might be too late.'",
+        "gravehurst_story_103_answer_1": "This is very concerning.",
+        "gravehurst_story_103_answer_2": "Are there any other details?",
+
+        "gravehurst_story_104_history": "Yes it is, Professor. There's also another note added here in handwriting: 'If you're reading this, please save us. Don't look at the mirrors!'",
+        "gravehurst_story_104_answer_1": "This has gotten even deeper now.",
+        "gravehurst_story_104_answer_2": "What does this mean?",
+
+        "gravehurst_story_105_history": "Yes, there's another note added below in handwriting: 'If you're reading this, please save us. Don't look at the mirrors!'",
+        "gravehurst_story_105_answer_1": "This has gotten even deeper now.",
+        "gravehurst_story_105_answer_2": "What does this mean?",
+
+        "gravehurst_story_106_history": "Professor! The mirrors! The mirrors seem to be moving! What should we do?",
+        "gravehurst_story_106_answer_1": "Close your eyes and try to get out of the room!",
+        "gravehurst_story_106_answer_2": "Turn on the projection device immediately!",
+
+        "gravehurst_story_107_history": "Understood! We're closing our eyes but it's very hard to find our way! Mirrors everywhere!\n\nProfessor something is happen-",
+        "gravehurst_story_107_answer_1": "Team?",
+        "gravehurst_story_107_answer_2": "Can you see what I'm writing?",
+
+        "gravehurst_story_108_history": "Professor, the connection was lost. We can communicate again now.",
+        "gravehurst_story_108_answer_1": "What happened?",
+        "gravehurst_story_108_answer_2": "Are you all okay?",
+
+        "gravehurst_story_109_history": "We don't know. Something is very wrong. The mirrors stopped but our reflections! They're very different! I see myself older. Sarah is in a hospital bed. This is impossible!",
+        "gravehurst_story_109_answer_1": "Stay calm. It could be a hallucination.",
+        "gravehurst_story_109_answer_2": "Stay calm. Can you get out of the room?",
+
+        "gravehurst_story_110_history": "We're okay but something is very wrong. The mirrors stopped but our reflections! They're very different! I see myself older. Sarah is in a hospital bed. This is impossible!",
+        "gravehurst_story_110_answer_1": "Stay calm. It could be a hallucination.",
+        "gravehurst_story_110_answer_2": "Stay calm. Can you get out of the room?",
+
+        "gravehurst_story_111_history": "No! We can't see the door.\n\nProfessor! Our reflections! Our reflections are looking at us and smiling.",
+        "gravehurst_story_111_answer_1": "Close your eyes immediately! Don't open them until this effect passes.",
+        "gravehurst_story_111_answer_2": "No problem. Find the door immediately!",
+
+        "gravehurst_story_112_history": "It's very hard to write with my eyes squinted. We're hearing voices. Our own voices started whispering to us.",
+        "gravehurst_story_112_answer_1": "What do you hear?",
+        "gravehurst_story_112_answer_2": "What are they saying?",
+
+        "gravehurst_story_113_history": "'Are you ready to see the truth? they say.' Professor! Is this experiment about you?",
+        "gravehurst_story_113_answer_1": "...",
+        "gravehurst_story_113_answer_2": "...",
+
+        "gravehurst_story_114_history": "Professor? Are you there?",
+        "gravehurst_story_114_answer_1": "Yes. It's time for a confession.",
+        "gravehurst_story_114_answer_2": "...",
+
+        "gravehurst_story_115_history": "WHAT? WHAT DOES THIS MEAN?",
+        "gravehurst_story_115_answer_1": "Okay. I'm explaining everything.",
+        "gravehurst_story_115_answer_2": "It's confession time.",
+
+        "gravehurst_story_116_history": "DAMN YOU! I KNOW YOU'RE THERE! ANSWER! WHAT'S GOING ON!",
+        "gravehurst_story_116_answer_1": "Okay. I'm explaining everything.",
+        "gravehurst_story_116_answer_2": "It's confession time.",
+
+        "gravehurst_story_117_history": "HURRY UP!!! YOU DAMN!",
+        "gravehurst_story_117_answer_1": "This experiment is mine. I thought I could fix everything by sending you there.",
+        "gravehurst_story_117_answer_2": "This experiment is mine. I thought I could fix everything by sending you there.",
+
+        "gravehurst_story_118_history": "WHAT? WHAT DO YOU MEAN? ARE WE SUBJECTS?\n\nSystem Message: ATTENTION! MIND MIRROR PROTOCOL ACTIVATED. ALL PARTICIPANTS PREPARED.",
+        "gravehurst_story_118_answer_1": "Start the Experiment.",
+        "gravehurst_story_118_answer_2": "Start the Experiment.",
+
+        "gravehurst_story_119_history": "Professor, we examined the files. There's a patient list inside. Some have strange symbols next to them.",
+        "gravehurst_story_119_answer_1": "Take note of the symbols. This could be related to their past experiments.",
+        "gravehurst_story_119_answer_2": "Carefully examine the symbols and the patients listed.",
+
+        "gravehurst_story_120_history": "We recorded the symbols, professor. It seems these symbols point to patients in certain cells. Some of the patients on the list are noted as 'lost'. This situation looks strange.",
+        "gravehurst_story_120_answer_1": "Go to the patients' cells, there might be clues matching the symbols.",
+        "gravehurst_story_120_answer_2": "Look for any traces related to the symbols in the patients' cells.",
+
+        "gravehurst_story_121_history": "We found notes related to the symbols in the patient cells. Some have drawings on their walls.",
+        "gravehurst_story_121_answer_1": "Does it contain any information that could help us?",
+        "gravehurst_story_121_answer_2": "Is there anything important?",
+
+        "gravehurst_story_122_history": "There's something common in the drawings and notes on the wall that we can't make sense of.\n\n'ADIĞAŞA'\n\nDoes this remind you of anything, Professor?",
+        "gravehurst_story_122_answer_1": "READ IT BACKWARDS!",
+        "gravehurst_story_122_answer_2": "Not for now. Continue researching.",
+
+        "gravehurst_story_125_history": "Correct! It says 'Aşağıda' (Below). While looking at the floors, we found a bed covered with piles. When we lifted it to examine what's underneath, we encountered a round wooden piece. Professor! There's a secret passage door here.",
+        "gravehurst_story_125_answer_1": "Examine the passage carefully, but don't enter immediately.",
+        "gravehurst_story_125_answer_2": "It could be dangerous but enter.",
+
+        "gravehurst_story_124_history": "Okay. There's a bed here. I think there's something underneath. We're starting to examine it, Professor.",
+        "gravehurst_story_124_answer_1": "Examine everything and report back to me.",
+        "gravehurst_story_124_answer_2": "I don't think anything will come out from under the bed.",
+
+        "gravehurst_story_126_history": "When we lifted it to examine what's underneath the bed, we encountered a round wooden piece. Professor! There's a secret passage door here.",
+        "gravehurst_story_126_answer_1": "Examine the passage carefully, but don't enter immediately.",
+        "gravehurst_story_126_answer_2": "It could be dangerous but enter.",
+
+        "gravehurst_story_127_history": "Professor, we opened the passage. A dark staircase goes down. There's a slight breeze and a strange smell.",
+        "gravehurst_story_127_answer_1": "This is getting weirder. Let's look down.",
+        "gravehurst_story_127_answer_2": "Okay, now go down the stairs.",
+
+        "gravehurst_story_128_history": "We're down. There's an iron door but it's locked. My friends are trying to break the lock. I see some calculations and medicine boxes on the walls. Professor, this is a very strange place.",
+        "gravehurst_story_128_answer_1": "Report to me immediately when you open the door.",
+        "gravehurst_story_128_answer_2": "The medicines could be very old, don't touch them.",
+
+        "gravehurst_story_129_history": "Okay. We're opening the door. Oh god! Professor, this is a laboratory! It smells terrible in here. Some of my friends started vomiting. There's medical equipment everywhere and gurneys! There are people on the gurneys!",
+        "gravehurst_story_129_answer_1": "Calm down. How many gurneys do you see?",
+        "gravehurst_story_129_answer_2": "What's their condition?",
+
+        "gravehurst_story_130_history": "I count five gurneys. Three people are lying motionless. Two are moving. Professor, these people look very bad. They're thin and pale. They have needle marks on their arms and necks.",
+        "gravehurst_story_130_answer_1": "Report on the surroundings before approaching the people.",
+        "gravehurst_story_130_answer_2": "Is there any sign of danger?",
+
+        "gravehurst_story_131_history": "Three people are lying motionless. Two are moving. Professor, these people look very bad. They're thin and pale. They have needle marks on their arms and necks.",
+        "gravehurst_story_131_answer_1": "Report on the surroundings before approaching the people.",
+        "gravehurst_story_131_answer_2": "Is there any sign of danger?",
+
+        "gravehurst_story_132_history": "There's no one in the room but a computer is working. Some data is flowing on the screen and a note is open on the computer. There's also an audio recording device here, its light is flashing.",
+        "gravehurst_story_132_answer_1": "Listen to the audio recording.",
+        "gravehurst_story_132_answer_2": "Read the note on the computer.",
+
+        "gravehurst_story_133_history": "Okay, I'm starting the recording.\n\n'Experiment day 23. The new serum tests on the subjects gave unexpected results. Hallucination and paranoia levels are increasing. Two subjects... became uncontrollable. They were quarantined. The others are still under observation. We should terminate this experiment but our superiors insist we continue. God help us.'",
+        "gravehurst_story_133_answer_1": "So illegal experiments were conducted there.",
+        "gravehurst_story_133_answer_2": "Go to the patients.",
+
+        "gravehurst_story_134_history": "Okay, I'm starting to read the note.\n\n'Experiment day 23. The new serum tests on the subjects gave unexpected results. Hallucination and paranoia levels are increasing. Two subjects... became uncontrollable. They were quarantined. The others are still under observation. We should terminate this experiment but our superiors insist we continue. God help us.'",
+        "gravehurst_story_134_answer_1": "So illegal experiments were conducted there.",
+        "gravehurst_story_134_answer_2": "Go to the patients.",
+
+        "gravehurst_story_135_history": "Yes, it seems so, Professor. We're approaching the gurneys now. Two patients opened their eyes but they're not responding. Their pupils are extremely dilated. Their pulses are very high, Professor. Their bodies are shaking.",
+        "gravehurst_story_135_answer_1": "Don't touch them. They might have been exposed to an unknown substance.",
+        "gravehurst_story_135_answer_2": "Do you see anything else around them? Medicine bottles, notes?",
+
+        "gravehurst_story_136_history": "Alright, Professor. We're approaching the gurneys. Two patients opened their eyes but they're not responding. Their pupils are extremely dilated. Their pulses are very high, Professor. Their bodies are shaking.",
+        "gravehurst_story_136_answer_1": "Don't touch them. They might have been exposed to an unknown substance.",
+        "gravehurst_story_136_answer_2": "Do you see anything else around them? Medicine bottles, notes?",
+
+        "gravehurst_story_137_history": "We're definitely not touching them. Understood. What do you want us to do? Oh my God! One of my friends wanted to take a closer look at the patient. There's chaos here. THE OTHER PATIENT IS COMING TOWARDS ME-",
+        "gravehurst_story_137_answer_1": "Report!",
+        "gravehurst_story_137_answer_2": "What's happening??",
+
+        "gravehurst_story_138_history": "Yes, there's a small table next to each gurney. There are syringes and medicine bottles on them. Their labels say 'Project DeVast - Phase 3'. There's also a recording device on this table.",
+        "gravehurst_story_138_answer_1": "Listen and report.",
+        "gravehurst_story_138_answer_2": "Listen. Pay attention to clues.",
+
+        "gravehurst_story_139_history": "Okay, I'm listening.\n\n[AUDIO RECORDING]\n\n'Project DeVast failed. The serum affected the subjects' nervous systems in unexpected ways. Hypersensitivity, hallucinations, and then catatonia (catatonia: a psychiatric condition characterized by a significant slowing or complete stoppage of a person's motor movements). Two subjects became aggressive. God, they killed three security guards. We locked them in a separate cell-'\n\nProfessor, the sound cuts off here!",
+        "gravehurst_story_139_answer_1": "Let me think.",
+        "gravehurst_story_139_answer_2": "You need to get out of there immediately.",
+
+        "gravehurst_story_140_history": "[AUDIO RECORDING]\n\nProf- Professor!! Someone's coming. We hear footsteps from the corridor!!!",
+        "gravehurst_story_140_answer_1": "Lock the door immediately!",
+        "gravehurst_story_140_answer_2": "Hide immediately!",
+
+        "gravehurst_story_141_history": "PROFESSOR! WE COULDN'T MAKE IT, THEY CAUGHT US. I'M DESTROYING THE PHONE! I CAN'T LET THEM CATCH YOU.",
+        "gravehurst_story_141_answer_1": "STOP!",
+        "gravehurst_story_141_answer_2": "WAIT! WHO ARE THEY?",
+
+        "gravehurst_story_142_history": "Understood! We hid behind a large cabinet. Someone's opening the door, Professor! STOP. Two people entered. They're wearing white coats. One is a woman, the other is a man. They're moving towards the patients.",
+        "gravehurst_story_142_answer_1": "Stay quiet.",
+        "gravehurst_story_142_answer_2": "Listen to their conversation. Report.",
+
+        "gravehurst_story_143_history": "Okay. I'll send you an audio recording.\n\n[AUDIO RECORDING]\n\nWoman: Damn it, the situation is getting worse. The third phase was a complete fiasco!\n\nMan: Calm down. We just need to hold on for a few more days. Then we'll delete all the data.\n\nWoman: What about the patients? What will we do with them?\n\nMan: There's nothing we can do for them anymore. You know the protocol.\n\nTeam: Professor, I think they're planning to kill the patients! What should we do?",
+        "gravehurst_story_143_answer_1": "Intervene immediately and stop them!",
+        "gravehurst_story_143_answer_2": "Wait and try to gather more information.",
+
+        "gravehurst_story_144_history": "Okay. We're coming out to intervene immediately!",
+        "gravehurst_story_144_answer_1": "What happened?",
+        "gravehurst_story_144_answer_2": "What's the latest situation?",
+
+        "gravehurst_story_145_history": "We're trying to gather information immediately, Professor. Professor, emergency! The man is preparing a syringe! They had this conversation.\n\n[AUDIO RECORDING]\n\nWoman: Are you really going to do this? There must be another way.\n\nMan: We have no other choice. If these get out, we'll all end up in jail. Or worse.\n\nTeam: Professor, the man is approaching one of the patients! We need to do something!",
+        "gravehurst_story_145_answer_1": "Intervene immediately!",
+        "gravehurst_story_145_answer_2": "Wait until the last moment.",
+
+        "gravehurst_story_146_history": "We're leaving our hiding place to intervene immediately!",
+        "gravehurst_story_146_answer_1": "What happened?",
+        "gravehurst_story_146_answer_2": "What's the latest situation?",
+
+        "gravehurst_story_147_history": "Understood, Professor. The man approached the patient. He raised the syringe and.. My God! Just as he was about to inject, the patient opened their eyes! The conversation between them:\n\n[AUDIO RECORDING]\n\nWoman: John, stop! It moved!\n\nJohn: Impossible! How can it still at this dose...?\n\nPatient: [In a hoarse voice] 'Please... help us...'\n\nTeam: Professor, the patient spoke! What should we do?",
+        "gravehurst_story_147_answer_1": "They're distracted. Take action now!",
+        "gravehurst_story_147_answer_2": "Reveal yourselves and stop them!",
+
+        "gravehurst_story_148_history": "Professor, after a long struggle, we've brought the situation under control. We've neutralized the two suspects.",
+        "gravehurst_story_148_answer_1": "Good job. Secure the patients.",
+        "gravehurst_story_148_answer_2": "Great. Now call for medical help.",
+
+        "gravehurst_story_149_history": "Understood. We're calling for an ambulance and backup team. The patients... they're still in critical condition but alive.",
+        "gravehurst_story_149_answer_1": "Collect all the evidence in the laboratory.",
+        "gravehurst_story_149_answer_2": "Interrogate the suspects first.",
+
+        "gravehurst_story_150_history": "We're starting right away, Professor. By the way, the man called John wanted to speak.\n\n[AUDIO RECORDING]\n\nJohn: [Panicking] You don't understand! This wasn't just an experiment. There are much bigger things behind it. If I talk, we'll all be in danger!",
+        "gravehurst_story_150_answer_1": "Is that all?",
+        "gravehurst_story_150_answer_2": "What does the other suspect, the woman, say?",
+
+        "gravehurst_story_151_history": "We're starting right away, Professor. By the way, the man called John wanted to speak.\n\n[AUDIO RECORDING]\n\nJohn: [Panicking] You don't understand! This wasn't just an experiment. There are much bigger things behind it. If I talk, we'll all be in danger!",
+        "gravehurst_story_151_answer_1": "Is that all?",
+        "gravehurst_story_151_answer_2": "What does the other suspect, the woman, say?",
+
+        "gravehurst_story_152_history": "That's all for now. Professor, what is this man talking about? Is there a bigger conspiracy?",
+        "gravehurst_story_152_answer_1": "Listen to John but don't immediately accept what he says.",
+        "gravehurst_story_152_answer_2": "I don't know. Continue to collect evidence and listen.",
+
+        "gravehurst_story_153_history": "She didn't speak. Very strange. Professor, what is this man talking about? Is there a bigger conspiracy?",
+        "gravehurst_story_153_answer_1": "Listen to John but don't immediately accept what he says.",
+        "gravehurst_story_153_answer_2": "I don't know. Continue to collect evidence and listen.",
+
+        "gravehurst_story_154_history": "Understood, Professor.\n\n[AUDIO RECORDING]\n\nJohn, what are you talking about? Who's behind it?\n\nJohn: [In an anxious voice] This wasn't just a research. It's a secret government project. They're using mental patients to control the human mind and create super soldiers! But it got out of control. Some subjects developed unexpected abilities.\n\nTeam: What kind of abilities?\n\nJohn: Telekinesis, mind reading... But the side effects were terrible. Most subjects' minds shattered. Others became dangerous.\n\nWoman: John, shut up! They'll kill us!\n\nProfessor, these claims are very serious. What should we do?",
+        "gravehurst_story_154_answer_1": "So the government is involved.",
+        "gravehurst_story_154_answer_2": "These are just claims. Stay skeptical.",
+
+        "gravehurst_story_155_history": "Professor! The electricity here has been cut off! Something's happening! We hear explosion sounds!\n\n[AUDIO RECORDING]\n\nJohn: Here they come! They've come to silence us!\n\nProfessor, what should we do now? Should we evacuate the building or stay here?",
+        "gravehurst_story_155_answer_1": "Evacuate the building immediately with the patients and suspects!",
+        "gravehurst_story_155_answer_2": "Stay where you are and take a defensive position.",
+
+        "gravehurst_story_156_history": "Understood! We're starting to carry the patients. John and the other suspect are coming with us. But Professor, we hear sounds from the corridor!\n\n[AUDIO RECORDING]\n\nJohn: It's too late, they've found us.",
+        "gravehurst_story_156_answer_1": "Just run.",
+        "gravehurst_story_156_answer_2": "Find an alternative escape route.",
+
+        "gravehurst_story_157_history": "Okay, Professor. We'll do as you say.",
+        "gravehurst_story_157_answer_1": "What happened?",
+        "gravehurst_story_157_answer_2": "Report the latest situation!",
+
+        "gravehurst_story_158_history": "[AUDIO RECORDING]\n\nTeam: John! Is there another way out?\n\nJohn: Yes, the emergency tunnel! There's a secret passage behind the laboratory.\n\nTeam: Understood. We're moving quickly. We're taking the patients and the evidence.\n\nWe found the passage, Professor. It opens into a dark tunnel. We hear gunshots behind us!",
+        "gravehurst_story_158_answer_1": "Get in immediately!",
+        "gravehurst_story_158_answer_2": "Your pursuers are approaching! HURRY UP!",
+
+        "gravehurst_story_159_history": "We entered the tunnel. We're barely moving forward. It's very narrow inside. I'll write again when we get out.",
+        "gravehurst_story_159_answer_1": "I'm waiting.",
+        "gravehurst_story_159_answer_2": "Be quick.",
+
+        "gravehurst_story_160_history": "We're out. We're in a forest, Professor. It's very quiet around.",
+        "gravehurst_story_160_answer_1": "Stay alert. Move away from there.",
+        "gravehurst_story_160_answer_2": "Get to a safe area immediately.",
+
+        "gravehurst_story_161_history": "[AUDIO RECORDING]\n\nProfessor! There are helicopters above us. Armed men have started to surround us!",
+        "gravehurst_story_161_answer_1": "You have to surrender.",
+        "gravehurst_story_161_answer_2": "Protect the evidence.",
+
+        "gravehurst_story_901_history": "Government Soldier: You're all under arrest. This event never happened. Do you understand, Professor?\n\n(6 Months Later)\n\nNews Anchor: 'A shocking development occurred today. Members of a research team that had been missing for months unexpectedly reappeared. The team members claim to remember nothing about the events they experienced. However, documents leaked from an anonymous source point to a major scandal. Government officials deny all allegations...'\n\nAnonymous: 'Our work isn't over yet, Professor. The truth will soon come out :)'",
+        "gravehurst_story_901_answer_1": "Restart the Story.",
+        "gravehurst_story_901_answer_2": "Restart the Story.",
+
+        "gravehurst_story_902_history": "(The team was caught by the government. The government that saw the messages also caught you.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_902_answer_1": "Restart the Story.",
+        "gravehurst_story_902_answer_2": "Restart the Story.",
+
+        "gravehurst_story_903_history": "(The soldiers who entered neutralized the team.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_903_answer_1": "Restart the Story.",
+        "gravehurst_story_903_answer_2": "Restart the Story.",
+
+        "gravehurst_story_904_history": "(Because the man was facing them, they were neutralized with a gun.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_904_answer_1": "Restart the Story.",
+        "gravehurst_story_904_answer_2": "Restart the Story.",
+
+        "gravehurst_story_905_history": "(Because the man was facing them, they were neutralized with a gun.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_905_answer_1": "Restart the Story.",
+        "gravehurst_story_905_answer_2": "Restart the Story.",
+
+        "gravehurst_story_906_history": "(CONNECTION LOST...)",
+        "gravehurst_story_906_answer_1": "Restart the Story.",
+        "gravehurst_story_906_answer_2": "Restart the Story.",
+
+        "gravehurst_story_907_history": "(THE PATIENTS NEUTRALIZED THE TEAM.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_907_answer_1": "Restart the Story.",
+        "gravehurst_story_907_answer_2": "Restart the Story.",
+
+        "gravehurst_story_908_history": "[END]\n\n(The Professor checked the findings and reported to the press. Although the government was not pleased with the revelation of this event, the Professor received praise from abroad for uncovering the truth.)",
+        "gravehurst_story_908_answer_1": "Restart the Story.",
+        "gravehurst_story_908_answer_2": "Restart the Story.",
+
+        "gravehurst_story_909_history": "(CONNECTION LOST.)\n\n(MIND MIRROR EXPERIMENT INITIATED...)",
+        "gravehurst_story_909_answer_1": "Restart the Story.",
+        "gravehurst_story_909_answer_2": "Restart the Story.",
+
+        "gravehurst_story_910_history": "(The historians who got everything they wanted from the team neutralized the team.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_910_answer_1": "Restart the Story.",
+        "gravehurst_story_910_answer_2": "Restart the Story.",
+
+        "gravehurst_story_911_history": "(The historians who got everything they wanted from the team neutralized the team.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_911_answer_1": "Restart the Story.",
+        "gravehurst_story_911_answer_2": "Restart the Story.",
+
+        "gravehurst_story_912_history": "(The historians who got everything they wanted from the team neutralized the team.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_912_answer_1": "Restart the Story.",
+        "gravehurst_story_912_answer_2": "Restart the Story.",
+
+        "gravehurst_story_913_history": "(The team didn't write after that time.)\n\n(They were neutralized.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_913_answer_1": "Restart the Story.",
+        "gravehurst_story_913_answer_2": "Restart the Story.",
+
+        "gravehurst_story_914_history": "(The team lost their sanity due to hypnosis.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_914_answer_1": "Restart the Story.",
+        "gravehurst_story_914_answer_2": "Restart the Story.",
+
+        "gravehurst_story_915_history": "(The team didn't write after that time.)\n\n(They were neutralized.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_915_answer_1": "Restart the Story.",
+        "gravehurst_story_915_answer_2": "Restart the Story.",
+
+        "gravehurst_story_916_history": "(Both the light of the projection device and the movement of the mirrors made the team dizzy and they hit everywhere. They all died from blood loss due to broken mirrors.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_916_answer_1": "Restart the Story.",
+        "gravehurst_story_916_answer_2": "Restart the Story.",
+
+        "gravehurst_story_917_history": "(You pulled the team back.\n\n(You couldn't solve the case.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_917_answer_1": "Restart the Story.",
+        "gravehurst_story_917_answer_2": "Restart the Story.",
+
+        "gravehurst_story_918_history": "(You pulled the team back.)\n\n(You couldn't solve the case.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_918_answer_1": "Restart the Story.",
+        "gravehurst_story_918_answer_2": "Restart the Story.",
+
+        "gravehurst_story_919_history": "(The team died due to radiation.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_919_answer_1": "Restart the Story.",
+        "gravehurst_story_919_answer_2": "Restart the Story.",
+
+        "gravehurst_story_920_history": "(Wrong button was pressed! The explosive behind the mechanism exploded.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_920_answer_1": "Restart the Story.",
+        "gravehurst_story_920_answer_2": "Restart the Story.",
+
+        "gravehurst_story_921_history": "(Wrong button was pressed! The explosive behind the mechanism exploded.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_921_answer_1": "Restart the Story.",
+        "gravehurst_story_921_answer_2": "Restart the Story.",
+
+        "gravehurst_story_922_history": "(Wrong button was pressed! The explosive behind the mechanism exploded.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_922_answer_1": "Restart the Story.",
+        "gravehurst_story_922_answer_2": "Restart the Story.",
+
+        "gravehurst_story_923_history": "(The team returned.)\n\n(You couldn't solve the case.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_923_answer_1": "Restart the Story.",
+        "gravehurst_story_923_answer_2": "Restart the Story.",
+
+        "gravehurst_story_924_history": "(You cancelled the exploration.)\n\n(The team returned, the file closed with its mystery.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_924_answer_1": "Restart the Story.",
+        "gravehurst_story_924_answer_2": "Restart the Story.",
+
+        "gravehurst_story_925_history": "(You cancelled the mission.)\n\n(You withdrew the team from the forbidden area. The paranormal events remain a mystery.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_925_answer_1": "Restart the Story.",
+        "gravehurst_story_925_answer_2": "Restart the Story.",
+
+        "gravehurst_story_926_history": "Too late! Before I could tell my team, they all collapsed, professor. THERE! Right in front of me is a masked soldier...\n\n(No further communication was possible, probably shot by the soldier.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_926_answer_1": "Restart the Story.",
+        "gravehurst_story_926_answer_2": "Restart the Story.",
+
+        "gravehurst_story_927_history": "Professor... is this real? Did you really bring us here for an experiment? Were we just pawns? Is there no way out of here? It seems there's no escape from the cameras... What are we going to do? This gas... our heads are starting to spin... Professor, please help us!\n\n(CONNECTION LOST...)",
+        "gravehurst_story_927_answer_1": "Restart the Story.",
+        "gravehurst_story_927_answer_2": "Restart the Story.",
+
+        "gravehurst_story_928_history": " Professor, something's going wrong... Gas is being released! There's a strong chemical smell in the air. Our eyes are getting heavy, we can't move. Was this... a trap? A message just appeared on the screen: 'Experiments starting.' NOW I UNDERSTAND. We were just pawns. We realized too late that we were here for dark matter experiments. You deliberately lured us here!\n\n(CONNECTION LOST...)",
+        "gravehurst_story_928_answer_1": "Restart the Story.",
+        "gravehurst_story_928_answer_2": "Restart the Story.",
+
+        "gravehurst_story_929_history": "(Because you were the director of the secret military laboratory, you used your team as new subjects and the soldiers neutralized your team.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_929_answer_1": "Restart the Story.",
+        "gravehurst_story_929_answer_2": "Restart the Story.",
+
+        "gravehurst_story_930_history": "(You left the details that could solve the mystery of the file and cancelled the mission. Your team's mental health deteriorated and you had to close the file.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_930_answer_1": "Restart the Story.",
+        "gravehurst_story_930_answer_2": "Restart the Story.",
+
+        "gravehurst_story_931_history": "(You cancelled the exploration. The file still remains a mystery but you were removed from duty and lost your competence.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_931_answer_1": "Restart the Story.",
+        "gravehurst_story_931_answer_2": "Restart the Story.",
+
+        "gravehurst_story_932_history": "Professor! The police are taking me away! Please find my team before anyone comes after you. I'm deleting the chat or they'll catch you too!\n\n(CONNECTION LOST...)",
+        "gravehurst_story_932_answer_1": "Restart the Story.",
+        "gravehurst_story_932_answer_2": "Restart the Story.",
+
+        "gravehurst_story_933_history": "(A sudden interference in the network prevented you from seeing an important message and you couldn't reach the team again.)\n\n(CONNECTION LOST...)",
+        "gravehurst_story_933_answer_1": "Restart the Story.",
+        "gravehurst_story_933_answer_2": "Restart the Story."
 }

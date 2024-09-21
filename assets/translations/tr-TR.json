@@ -379,7 +379,790 @@
 
         "murder_story_1000_history": "Sinyal Koptu! Bir daha sinyal alınamadı..",
         "murder_story_1000_answer_1": "Hikayeyi yeniden başlat.",
-        "murder_story_1000_answer_2": "Hikayeyi yeniden başlat."
+        "murder_story_1000_answer_2": "Hikayeyi yeniden başlat.",
+
+
+
+
+
+        "gravehurst_story_0_history": "Profesör, dediğiniz yere vardık. Gravehurst Akıl Hastanesi. Kapanmayan dosyayı ekibimle kapatmayı hedefliyoruz. Hastanenin kapatılma nedeninin teknik birkaç sebepten olmadığını sizler de biliyorsunuz.",
+        "gravehurst_story_0_answer_1": "Elbette Edwin. Hastalığımdan dolayı yanınızda olamadım ama hep burda sizi dinliyorum.",
+        "gravehurst_story_0_answer_2": "Haklısın Edwin. Gerçekleri ortaya çıkarmanızda sağlığımdan dolayı yanınızda bulunamayacağım ama her zaman buradayım.",
+        
+        "gravehurst_story_1_history": "Profesör, sizin sağlığınız şu an burada olmanızdan daha önemli. Bize uzaktan da yardım edebilirsiniz. Artık içeri girmemizin vakti geldi.",
+        "gravehurst_story_1_answer_1": "Edwin, bu gizemi kimseye bir şey olmadan çözün.",
+        "gravehurst_story_1_answer_2": "Çocuklar lütfen dikkatli olun. Her an her şey olabilir.",
+        
+        "gravehurst_story_2_history": "Profesör, sağlığınız bizim için daha önemli. Bize uzaktan bile yardım edebileceğinize hiç şüphemiz yok. Ekibimle içeri girmemizin vakti geldi.",
+        "gravehurst_story_2_answer_1": "Ben buradayım. Lütfen dikkatli olun.",
+        "gravehurst_story_2_answer_2": "Merak etmeyin çocuklar, sizi dinliyorum.",
+        
+        "gravehurst_story_3_history": "Profesör, Gravehurst Akıl Hastanesi'nin girişindeyiz. Hava ağır ve sessiz, içeride bir şeylerin bizi beklediğine dair içimizde güçlü bir his var. Siz olmadan buraya adım atmak riskli ancak rehberliğinize güveniyoruz. İçeri girmeden önce son bir kez talimatlarınızı bekliyoruz. Ne yapmamızı istersiniz?",
+        "gravehurst_story_3_answer_1": "Dikkatli olun, tuhaf bir şey fark ederseniz hemen bildirin.",
+        "gravehurst_story_3_answer_2": "Birbirinize güvenin. İlk hedef resepsiyon, dikkatli ilerleyin.",
+        
+        "gravehurst_story_4_history": "Anlaşıldı, Profesör. İlerlemeye başlıyoruz. Herhangi bir anormallik gördüğümüzde sizi bilgilendireceğiz. İçerisi gerçekten rahatsız edici. Dikkatle hareket edeceğiz.",
+        "gravehurst_story_4_answer_1": "Anlaşıldı. İlk bulduğunuz şeyi hemen raporlayın.",
+        "gravehurst_story_4_answer_2": "Resepsiyona vardığınızda rapor verin.",
+        
+        "gravehurst_story_5_history": "Dikkatli bir şekilde resepsiyona doğru ilerliyoruz. İçerisi gerçekten çok rahatsız edici.",
+        "gravehurst_story_5_answer_1": "Resepsiyona vardığınızda rapor verin.",
+        "gravehurst_story_5_answer_2": "İlerlemeye devam edin. Gözlerinizi dört açın.",
+        
+        "gravehurst_story_6_history": "Anlaşıldı. Bir koridora girdik, burada karanlık odalar var. Nereye ilerlememizi önerirsiniz?",
+        "gravehurst_story_6_answer_1": "Karanlık odalara dikkat edin. İlk önce ana koridoru takip edin.",
+        "gravehurst_story_6_answer_2": "Karanlık odalara girmeyin. Ana koridordan ilerleyin.",
+        
+        "gravehurst_story_7_history": "Anlaşıldı, ana koridoru takip ediyoruz. İleride bir kapı var, içeri giriyoruz. İçerisi tamamen karanlık, el fenerlerimiz hazır. İlerliyoruz.",
+        "gravehurst_story_7_answer_1": "Fenerlerinizi kapatmayın, gözünüzü dört açın.",
+        "gravehurst_story_7_answer_2": "İçeriyi hızlıca kontrol edin.",
+        
+        "gravehurst_story_8_history": "Kapıyı açtık, içeride eski tıbbi ekipmanlar ve kullanılmış ilaçlar var. Burada deneyler yapılmış olabilir. Karanlıkta hareket eden bir şey var gibi. Görüş alanımızı kaybetmek istemiyoruz.",
+        "gravehurst_story_8_answer_1": "Görüş alanınızı kaybetmeyin, etrafta aniden belirebilecek bir şey olabilir.",
+        "gravehurst_story_8_answer_2": "Bulduğunuz ekipmanları inceleyin. Bu deneylerin sonuçlarını anlamamız önemli.",
+        
+        "gravehurst_story_9_history": "Karanlıkta hareket eden bir şey fark ettik. Görüş alanımızı korumaya çalışıyoruz.",
+        "gravehurst_story_9_answer_1": "Keşifi iptal edin ve çıkın oradan!",
+        "gravehurst_story_9_answer_2": "Hareket eden şeyi gözlemlemeye çalışın, ancak çok yaklaşmayın. O şeyin ne olduğunu anlamadan müdahale etmeyin.",
+        
+        "gravehurst_story_10_history": "Ekipmanların çoğu bozulmuş. Ancak birkaç not bulduk, deneklerin durumu hakkında bilgi veriyor.",
+        "gravehurst_story_10_answer_1": "Bilgileri benimle paylaşın Edwin.",
+        "gravehurst_story_10_answer_2": "Ne tür bilgiler ED?",
+        
+        "gravehurst_story_11_history": "Bir maddeden bahsediyor sanırım. Deneklerin açıklanamayan bir şekilde kaybolduklarını söylüyor.",
+        "gravehurst_story_11_answer_1": "İşler gittikçe ilginçleşiyor. Başka ne görüyorsunuz?",
+        "gravehurst_story_11_answer_2": "Çok garip. Bize daha fazla ipucu lazım.",
+        
+        "gravehurst_story_12_history": "Daha fazla ipucu için odadan ayrılıyoruz. Buraya gelirken fark etmediğimiz bir kapı varmış ve kapı kolu yok. Kırıp içeriye girelim mi?",
+        "gravehurst_story_12_answer_1": "Daha kolay seçeneklerden ilerleyelim.",
+        "gravehurst_story_12_answer_2": "İçeride işimize yarayan bir şey olabilir.",
+        
+        "gravehurst_story_13_history": "Haklısınız, Profesör. Diğer katlara çıkmamızın zamanı geldi.",
+        "gravehurst_story_13_answer_1": "Üst kattan başlayalım.",
+        "gravehurst_story_13_answer_2": "Alt kattan başlayalım.",
+        
+        "gravehurst_story_14_history": "Haklısınız, Profesör. Kapıyı kırmaya başladık. İçeride işe yarar bir şey göremiyoruz. Ama kapıyı kırarken aşağıdaki kattan sesler duyduk birisi koşuyor gibiydi, inelim mi?",
+        "gravehurst_story_14_answer_1": "Her ne ise onu bulmalıyız, hızlıca inin.",
+        "gravehurst_story_14_answer_2": "Bu tehlikeli olabilir.",
+        
+        "gravehurst_story_15_history": "Üst katı inceledik, Profesör. Hasta odaları normal gözüküyor, sanki hiç kullanılmamış gibi. Bodruma iniyoruz.",
+        "gravehurst_story_15_answer_1": "Birbirinizden uzaklaşmayın.",
+        "gravehurst_story_15_answer_2": "Tamam, Ekip.",
+        
+        "gravehurst_story_16_history": "Bütün dosyanın geleceği bizim keşfimize bağlı, Profesör. Bunu yapmak zorundayız.",
+        "gravehurst_story_16_answer_1": "Peki ED. Lütfen dikkatli olun.",
+        "gravehurst_story_16_answer_2": "Temkinli ilerleyin.",
+        
+        "gravehurst_story_17_history": "Resepsiyonun yanındaki merdivenlerden aşağı iniyoruz.",
+        "gravehurst_story_17_answer_1": "Sizi dinliyorum.",
+        "gravehurst_story_17_answer_2": "Durum nedir?",
+        
+        "gravehurst_story_18_history": "Her şey normal gözüküyor gibi. Burası bomboş bir koridor, tek bir tane oda bile yok. Koridorun sonunda yerde bir şey var gibi. Oraya gidiyoruz.",
+        "gravehurst_story_18_answer_1": "Sizi dinliyorum Ed?",
+        "gravehurst_story_18_answer_2": "Ne buldunuz?",
+        
+        "gravehurst_story_19_history": "Burada bir delik var ve içinde de tahtadan bir merdiven var. Sonu gözükmüyor ve çok derin duruyor. İnmeli miyiz?",
+        "gravehurst_story_19_answer_1": "Telefon çekmeyebilir, ekip insin",
+        "gravehurst_story_19_answer_2": "Sen dışarıda bekle Edwin, ekip kontrol etsin.",
+        
+        "gravehurst_story_20_history": "Ekibi gönderdim, Profesör. Gelmelerini bekliyorum.",
+        "gravehurst_story_20_answer_1": "Beni meraklandırma.",
+        "gravehurst_story_20_answer_2": "Tamamdır Ed. Haber bekliyorum.",
+        
+        "gravehurst_story_21_history": "Profesör, tam 2 saat oldu ve ne gelen var ne de bir ses. Sizce inmeli miyim?",
+        "gravehurst_story_21_answer_1": "Aşağıya in ve ekibi bul.",
+        "gravehurst_story_21_answer_2": "Çabuk o hastaneden çık ve gelen destek ekibini bekle.",
+        
+        "gravehurst_story_22_history": "İniyorum, Profesör. Eğer uzun süre içinde dönmezsem sakın bizi aramaya gelmeyin yoksa siz de-",
+        "gravehurst_story_22_answer_1": "Sizde ne?",
+        "gravehurst_story_22_answer_2": "Edwin orda mısın?",
+        
+        "gravehurst_story_23_history": "Anlaşıldı. Hastanenin bahçesine geri döndüm ve gelecek olan ekibi beklemeye başladım.",
+        "gravehurst_story_23_answer_1": "Destek geldi mi?",
+        "gravehurst_story_23_answer_2": "Ulaştılar mı?",
+        
+        "gravehurst_story_24_history": "Evet, Profesör. Onları görebiliyorum. Birlikte içeri girdik, beraber aşağı iniyoruz. Bekleyin bir dakika! Koridor çok farklı bu nasıl olur?",
+        "gravehurst_story_24_answer_1": "Doğru yere gittiğinden emin misin?",
+        "gravehurst_story_24_answer_2": "Nasıl yani? Tünel nerede?",
+        
+        "gravehurst_story_25_history": "Aşağıya indiğimizde koridorda odalar vardı ve koridorun sonundaki kapı mühürlüydü. Polislerin söylediğine göre burası yıllardır bu şekildeymiş",
+        "gravehurst_story_25_answer_1": "Bu mümkün değil!",
+        "gravehurst_story_25_answer_2": "Ekip nerede Ed?",
+        
+        "gravehurst_story_26_history": "Profesör, inanmayacaksınız ama koridorun ışıkları soluk bir şekilde yanıp sönmeye başladı, etrafı seçebiliyoruz ama yalnız olmadığımızdan eminim. Tanrım o da ne!",
+        "gravehurst_story_26_answer_1": "Ne gördün??",
+        "gravehurst_story_26_answer_2": "ED! İyi misiniz?",
+        
+        "gravehurst_story_27_history": "Asansör! Asansörün kapısı açıldı. Profesör burada neler oluyor! Bir şey bizi istediği yere çekmeye çalışıyor gibi.",
+        "gravehurst_story_27_answer_1": "Edwin bu bir tuzak olabilir.",
+        "gravehurst_story_27_answer_2": "Çocuklar bu hiç de iyiye işaret değil. Geri dönmenizi istiyorum.",
+        
+        "gravehurst_story_28_history": "Sanırım öyle, Profesör. Bizi daha derinlere sürüklemek istiyor ya da biz artık deliriyoruz!",
+        "gravehurst_story_28_answer_1": "Merdivenle inin.",
+        "gravehurst_story_28_answer_2": "Asansörü kullanmayın.",
+
+        "gravehurst_story_29_history": "Sanırım buradaki olaylar, düşündüğümüzden çok daha derin. Bodrum kata iniyoruz. Kapı çok eski, ama açmayı başardık. Tanrım! Burada eski bir askeri laboratuvar var. Duvarlarda deneylerin detayları yazılı, tüm ekipmanlar yerinde duruyor. Sanki burası terk edilmemiş gibi.",
+        "gravehurst_story_29_answer_1": "Çocuklar hızlı olun ve işe yarar şeyler arayın.",
+        "gravehurst_story_29_answer_2": "Kimse gelmeden bir şeyler bulun.",
+        
+        "gravehurst_story_30_history": "Profesör! Burada sadece bir laboratuvar değil, aynı zamanda askeri belgeler ve haritalar da var. Belgelerde 'Deney-042' kod adlı bir projeden bahsediliyor. Görünüşe göre burada, insan vücudu üzerinde deneyler yapılmış. Bir kapı daha bulduk, ama bu kapının ardında ne olduğunu bilmiyoruz. Sanki bir şey bizi izliyor. Ne yapalım, Profesör?",
+        "gravehurst_story_30_answer_1": "Devam edin, Edwin.",
+        "gravehurst_story_30_answer_2": "Görevi iptal ediyorum hemen orayı terk edin!",
+        
+        "gravehurst_story_31_history": "Profesör, burada durmak istemiyoruz ancak kapının ardında ne olduğunu bilmeden geri çekilmek de doğru gelmiyor. Belgelerde bir şeyden bahsediliyor: 'Son aşama'. Sanki burada çok tehlikeli bir şeyin son aşaması gerçekleştirilmiş.",
+        "gravehurst_story_31_answer_1": "Deneyi öğrenin.",
+        "gravehurst_story_31_answer_2": "Detayları bulun.",
+        
+        "gravehurst_story_32_history": "Profesör, kapıyı açtık. İçeride devasa bir kontrol odası var. Her yer monitörlerle dolu ve ekranda deneylerin görüntüleri oynuyor. Deneylerin hepsi insanlar üzerinde yapılmış! Deneklerin bazıları hâlâ yaşıyor olabilir mi? Kayıtlarda 'Son aşama' denilen şey, insan bilinci ve makinelerin birleşimi gibi görünüyor. Ne yapmamız gerekiyor?",
+        "gravehurst_story_32_answer_1": "Akıl hastalarından daha zekilerine ihtiyacımız vardı :).",
+        "gravehurst_story_32_answer_2": "Hoş geldiniz çocuklar :).",
+        
+        "gravehurst_story_33_history": "Bütün ekibin gözleri yanılmış olamaz değil mi, Profesör?",
+        "gravehurst_story_33_answer_1": "Belki de haklı olabilirsiniz. Her şeyi bilmek istiyorum.",
+        "gravehurst_story_33_answer_2": "Bilemiyorum çocuklar, sadece paniğe kapılmayın.",
+        
+        "gravehurst_story_34_history": "Bu nasıl olabilir? Arkamızdaki ışıklar yanmaya başladı. Bu duyduğum gerçek mi yoksa gerçekten de az önceki resepsiyondaki eski telefon mu çalıyor!?",
+        "gravehurst_story_34_answer_1": "Edwin, bu gerçek olamaz!",
+        "gravehurst_story_34_answer_2": "Bu da ne!",
+        
+        "gravehurst_story_35_history": "Hemen koşarak oraya gidiyoruz. Önemli bir haberim var, Profesör. Çalan telefondu ve biz gelince çalması durdu. İlginç olan şey, telefona bağlı bir kablo bile yok!",
+        "gravehurst_story_35_answer_1": "Ciddi olamazsın ED!",
+        "gravehurst_story_35_answer_2": "Bir şey sizi yanına çekmeye çalışıyor.",
+        
+        "gravehurst_story_36_history": "Profesör buna inanmayacaksınız çünkü tarihler bugünü gösteriyor. Bu nasıl mümkün olabilir? Karanlık maddenin hapsedilmeye çalışıldığı ama planın ters gittiğinden bahsediyor. Devamı okunamayacak şekilde yıpranmış.",
+        "gravehurst_story_36_answer_1": "Her şeye bu madde sebep olmuş gibi.",
+        "gravehurst_story_36_answer_2": "Geleceğimizi biliyor olmalılar.",
+        
+        "gravehurst_story_37_history": "Şu anki bulduğumuz ipuçları öyle gösteriyor, Profesör. Daha fazla ipucu için etrafı araştırmaya devam ediyoruz.",
+        "gravehurst_story_37_answer_1": "Aşağıya inmenizin vakti geldi",
+        "gravehurst_story_37_answer_2": "Dosyada asıl olayın bodrumda olduğu yazıyor.",
+        
+        "gravehurst_story_38_history": "Evet. Bir şeyler bizimle oyun oynamak istiyor. Artık korkmaya başladım, Profesör! Ne yapmalıyız?",
+        "gravehurst_story_38_answer_1": "Dosyada asıl olayın bodrumda olduğu yazıyor.",
+        "gravehurst_story_38_answer_2": "Çocuklar sizi tehlikeye atamam. Korkmaya başladım.",
+        
+        "gravehurst_story_39_history": "Biz de öyle düşünüyoruz, Profesör. Ekiple birlikte aşağıya iniyoruz. Duvarların kenarları yosun tutmuş. Merdiven de neredeyse harabeye dönmüş olsa da başarılı bir şekilde aşağı indik.",
+        "gravehurst_story_39_answer_1": "Dosyada geçen kayıt cihazını bulmalısınız.",
+        "gravehurst_story_39_answer_2": "Deneylerin yapıldığı odada kayıt cihazı olmalı.",
+        
+        "gravehurst_story_40_history": "Sizlerle hemfikiriz, Profesör. O maddenin aşağıda olduğundan eminim. Aşağıya indik.",
+        "gravehurst_story_40_answer_1": "Dosyada geçen kayıt cihazını bulmalısınız.",
+        "gravehurst_story_40_answer_2": "Deneylerin yapıldığı odada kayıt cihazı olmalı.",
+        
+        "gravehurst_story_41_history": "Profesör, burada çok ağır bir koku var. Herhangi bir oda görmüyoruz sadece ileride demir bir duvar ve kapı görüyoruz, tıpkı hapishanelerdeki gibi. Ekibimle kapıyı açmaya çalışıyoruz.",
+        "gravehurst_story_41_answer_1": "Kırabildiniz mi?",
+        "gravehurst_story_41_answer_2": "Son durum ne Edwin?",
+        
+        "gravehurst_story_42_history": "Çok uzun sürdü, Profesör. Sonunda açtık! Aman tanrım! Koridor boyunca tavandan asılmış cesetlerle dolu burası. Ekip arkadaşlarım kusmaya başladı. Tanrım burayı nasıl olur da kimse bulamaz?",
+        "gravehurst_story_42_answer_1": "Bu gerçekten inanılmaz!",
+        "gravehurst_story_42_answer_2": "Maskelerinizi takın hemen.",
+        
+        "gravehurst_story_43_history": "Önlemlerimizi aldık, Profesör. İlerliyoruz. Cesetlerin hastanedeki akıl hastaları olduğu aşikar. Hepsinin elleri arkadan bağlı, beyaz önlükleri var ve üstlerinde aynı şey yazıyor! (Arkana bakma)",
+        "gravehurst_story_43_answer_1": "Ne görüyorsunuz?",
+        "gravehurst_story_43_answer_2": "Ed! Cevap ver! Neler oluyor?",
+        
+        "gravehurst_story_44_history": "Profesör, damarlarımdaki kan akışının durduğunu hissediyorum. Yazıyı okuyup arkamızı döndüğümüzde arkamızdaki kapının yerinde ayna vardı. Profesör! Aynada hiçbirimizin yansıması yok!!!",
+        "gravehurst_story_44_answer_1": "Oradan hemen çıkın! Görev iptal!",
+        "gravehurst_story_44_answer_2": "Bu nasıl olur? Etrafı hızlıca kontrol edin.",
+        
+        "gravehurst_story_45_history": "Çıkabiliceğimiz bir yer bulamadık, Profesör. Geri dönemiyoruz! Lütfen bize yardım edin!",
+        "gravehurst_story_45_answer_1": "Polisi çağıramam, Edwin. Hepimizi hapise alırlar.",
+        "gravehurst_story_45_answer_2": "Cam?",
+        
+        "gravehurst_story_46_history": "Kapı aynanın arkasındadır diye aynayı kırdık, Profesör. Kapı yoktu ama bir not bulduk",
+        "gravehurst_story_46_answer_1": "Ne yazıyor notta?",
+        "gravehurst_story_46_answer_2": "Notu oku Edwin!",
+        
+        "gravehurst_story_47_history": "(System: Sinyal kesildi.)",
+        "gravehurst_story_47_answer_1": "Mesajlarımı görmüyor musunuz?",
+        "gravehurst_story_47_answer_2": "ED! Orada mısın?",
+        
+        "gravehurst_story_48_history": "Not: Bakma arkana görünmez ölüler, bak arkana dirilsin deliler!",
+        "gravehurst_story_48_answer_1": "Nasıl yani? Bu ne şimdi?",
+        "gravehurst_story_48_answer_2": "Lütfen bakmadık diyin EDD!!",
+        
+        "gravehurst_story_49_history": "Profesör! Havalandırmadan sesler geliyor! Sanırım bir gaz yayılıyor!",
+        "gravehurst_story_49_answer_1": "Maskeleriniz!!!",
+        "gravehurst_story_49_answer_2": "Sakın solumayın!",
+        
+        "gravehurst_story_50_history": "Galiba bir sorunumuz var, Profesör. Onlar-",
+        "gravehurst_story_50_answer_1": "Onlar ne? Neler oldu?",
+        "gravehurst_story_50_answer_2": "Canlandılar mı yoksa?",
+        
+        "gravehurst_story_51_history": "Hayır, tavanda hiçbir şey yok. Bütün cesetler kaybolmuş.",
+        "gravehurst_story_51_answer_1": "Yoksa sorun sizde mi?",
+        "gravehurst_story_51_answer_2": "Bu mümkün değil!",
+        
+        "gravehurst_story_52_history": "Profesör, biz hayal görüyor olabilir miyiz bilmiyorum ama şu an delirmek üzereyiz. Galiba bu koku bir tür gaz ve biz bundan dolayı böyle şeyler görüyoruz emin değilim. Profesör, sanırım köşede bir şey var. Evet bir kamera ve ışığı yanıp sönüyor, tam da bize bakıyor!",
+        "gravehurst_story_52_answer_1": "Demek başından beri biliyorlardı.",
+        "gravehurst_story_52_answer_2": "Yalnız olmadığımızı biliyordum.",
+        
+        "gravehurst_story_53_history": "Profesör, kamerayı inceledik. Ekranda bizi izleyen bir görüntü var ama izleyen sizsiniz! Ekranda siz varsınız! Sanki her hareketimizi çok önceden biliyormuşsunuz gibi. Profesör, bu nasıl mümkün olabilir? Tam anlam veremiyoruz ama burada bizimle mi yoksa bize karşı mı çalışıyorsunuz? Tüm bu deneylerin ardında siz mi varsınız?",
+        "gravehurst_story_53_answer_1": "Sizi tanımak güzeldi.",
+        "gravehurst_story_53_answer_2": "Üzgünüm çocuklar.",
+        
+        "gravehurst_story_54_history": "Bir odada karanlık bir gölge gördük, aniden kayboldu. Bunun varlıkla bir ilgisi olabilir.",
+        "gravehurst_story_54_answer_1": "Sakin kalmaya çalışın. Gözünüz yanılmış olabilir.",
+        "gravehurst_story_54_answer_2": "Tehlikedesiniz Ed! Keşfi iptal edin.",
+        
+        "gravehurst_story_55_history": "Bir eski not defteri bulduk. İçinde, varlıkla ilgili yapılan bazı deneylerin notları var.",
+        "gravehurst_story_55_answer_1": "Varlıkla ilgili olayların ne zaman başladığını anlamamız gerek.",
+        "gravehurst_story_55_answer_2": "Notlarda tuzaklar veya sakınmamız gereken noktalar belirtilmiş mi?",
+        
+        "gravehurst_story_56_history": "Bu varlıkla ilgili başka hiçbir bilgi yok. Sanırım hayal ürünü olabilir ama yine de dikkatli olacağız. Bulduğumuz diğer ipuçlarını da toplayıp analiz edeceğiz.",
+        "gravehurst_story_56_answer_1": "Varlıkla ilgili daha fazla bilgi arayın.",
+        "gravehurst_story_56_answer_2": "Diğer odaları kontrol edin, varlıkla ilgili izler olabilir.",
+
+        "gravehurst_story_57_history": "Günlükteki son yazı, içeride 'karanlık bir varlık' olduğundan bahsediyor. Daha fazla detay yok.",
+        "gravehurst_story_57_answer_1": "Karanlık varlık mı? Tehlikeye karşı hazırlıklı olun.",
+        "gravehurst_story_57_answer_2": "Varlığın ne olduğunu bilmiyoruz, dikkatli olun.",
+
+        "gravehurst_story_58_history": "Profesör, resepsiyon güvenli görünüyor. Burada garip bir günlük var, okumaya başlıyoruz.",
+        "gravehurst_story_58_answer_1": "Günlüğü hızlıca inceleyin. Vakit kaybetmek istemiyoruz.",
+        "gravehurst_story_58_answer_2": "Günlükteki detaylar tehlikeli olabilir. Hazır olun.",
+
+        "gravehurst_story_59_history": "Günlükte, hastaların zihinsel durumlarını daha da kötüleştirmek için deneyler yapıldığı yazıyor. Birkaç hasta tuhaf sesler duyduğundan bahsetmiş.",
+        "gravehurst_story_59_answer_1": "Bu bilgiler önemli. Not ediyorum.",
+        "gravehurst_story_59_answer_2": "Tuhaf seslere dikkat edin. Sizi yanıltabilirler.",
+
+        "gravehurst_story_60_history": "Profesör, resepsiyona ulaştık. Burada bazı eski dosyalar ve bir anahtar bulduk.",
+        "gravehurst_story_60_answer_1": "Anahtarı saklayın. Dosyaları hızlıca inceleyin.",
+        "gravehurst_story_60_answer_2": "Dosyalarda bir harita veya plan varsa bana iletin.",
+
+        "gravehurst_story_61_history": "Bir harita bulduk. Bodrum katına inen gizli bir geçitten bahsediyor. Giriş noktası koridorun sonunda gibi görünüyor.",
+        "gravehurst_story_61_answer_1": "Geçidi dikkatlice inceleyin, ancak hemen girmeyin.",
+        "gravehurst_story_61_answer_2": "Bodrum tehlikeli olabilir. Hazırlıklı olun.",
+
+        "gravehurst_story_62_history": "Kulağımıza garip fısıltılar geliyor, sanki uzak bir yerden. Ekibin morali düşmeye başladı.",
+        "gravehurst_story_62_answer_1": "Moralinizi yüksek tutun, ilerlemeye devam edin.",
+        "gravehurst_story_62_answer_2": "Fısıltıların kaynağını bulmaya çalışın.",
+
+        "gravehurst_story_63_history": "Fısıltıların kaynağına ulaşmaya çalışıyoruz. Ekip sıkı bir şekilde birbirine bağlı. Fısıltılar, koridorun sonundaki bir odaya odaklanıyor gibi. Oraya yaklaşırken dikkatli olacağız.",
+        "gravehurst_story_63_answer_1": "Fısıltılar bir insan fısıltısı gibi mi?",
+        "gravehurst_story_63_answer_2": "Fısıltılar anlaşılabiliyor mu?",
+
+        "gravehurst_story_64_history": "Daha çok cinsiyeti olmayan bir uğultu gibi. Sanırım bazı kelimeler söyleniyor. Ama hala uzak olduğumuz için sesi anlayamıyoruz. Ne yapalım?",
+        "gravehurst_story_64_answer_1": "Sese doğru ilerleyin.",
+        "gravehurst_story_64_answer_2": "Bu kadar yeter. Geri dönün.",
+
+        "gravehurst_story_65_history": "Anlaşıldı, Profesör. Koridorun sonundaki odaya yaklaşıyoruz. Fakat, bir dakika. Burada garip bir şey var. Zeminde büyük bir metal kapak var. Üzerinde 'Dikkat: Yetkisiz Giriş Yasaktır' yazıyor. Askeri bir sembol de var.",
+        "gravehurst_story_65_answer_1": "İlginç. Akıl hastanesinde askeri bir giriş?",
+        "gravehurst_story_65_answer_2": "Kapağı açabilir misiniz?",
+
+        "gravehurst_story_66_history": "Hem de çok ilginç, Profesör. Ne yapmamızı istersiniz?",
+        "gravehurst_story_66_answer_1": "Kapağı analiz edebilir misiniz?",
+        "gravehurst_story_66_answer_2": "Kapağı açabilir misiniz?",
+
+        "gravehurst_story_67_history": "Deniyoruz ama oldukça ağır bir malzeme. Biraz zorlamayı deneyeceğiz. Güzel, kapak açılmaya başladı!",
+        "gravehurst_story_67_answer_1": "Ne görüyorsunuz?",
+        "gravehurst_story_67_answer_2": "İçeride ne var?",
+
+        "gravehurst_story_68_history": "Aşağı doğru inen metal bir merdiven var. Derinlere gidiyor gibi görünüyor. Ve aşağıdan hafif bir uğultu geliyor.",
+        "gravehurst_story_68_answer_1": "Çok dikkatli olun.",
+        "gravehurst_story_68_answer_2": "İnmeden önce gerekli ekipmanlarınızı kontrol edin.",
+
+        "gravehurst_story_69_history": "Tamamdır, indik. Vay canına! Burası devasa bir askeri yeraltı tesisi!",
+        "gravehurst_story_69_answer_1": "Neler görüyorsunuz?",
+        "gravehurst_story_69_answer_2": "Detaylı anlatın.",
+
+        "gravehurst_story_70_history": "Geniş bir salon, her yerde bilgisayarlar ve tıbbi ekipmanlar var. Ama bunlar normal hastane ekipmanlarına benzemiyor. Çok daha gelişmiş görünüyorlar.\n\nDuvarda büyük bir levha var: 'Proje DeVast - Sınırlı Erişim'. Profesör, bu ne olabilir?",
+        "gravehurst_story_70_answer_1": "Proje DeVast... Bu isim bana bir şeyler çağrıştırıyor.",
+        "gravehurst_story_70_answer_2": "Gizli bir askeri proje olabilir. Etrafta başka ne görüyorsunuz?",
+
+        "gravehurst_story_71_history": "Profesör, burası kesinlikle bir askeri tesis. Her yerde askeri semboller ve teçhizat var. Duvarlarda 'Savunma Bakanlığı Gizli Projesi' yazıyor.",
+        "gravehurst_story_71_answer_1": "Başka ne var?",
+        "gravehurst_story_71_answer_2": "Bu tür tesisler genellikle sıkı güvenlik önlemleriyle donatılmıştır.",
+
+        "gravehurst_story_72_history": "Evet, her yerde güvenlik kameraları ve sensörler görüyoruz. Ama çoğu devre dışı gibi görünüyor. Tesis terk edilmiş olabilir mi?",
+        "gravehurst_story_72_answer_1": "Olabilir ama tetikte olun.",
+        "gravehurst_story_72_answer_2": "Ne tür askeri ekipmanlar görüyorsunuz?",
+
+        "gravehurst_story_73_history": "Tamamdır, Profesör. Şimdi ne yapmamızı istersiniz?",
+        "gravehurst_story_73_answer_1": "Askeri olarak ne var?",
+        "gravehurst_story_73_answer_2": "Etrafınızdakileri yaz.",
+
+        "gravehurst_story_74_history": "Burada birkaç kapalı konteyner var. Üzerlerinde 'Dikkat: Biyolojik Materyal' yazıyor. Vay canına! Bir dizi yüksek teknolojili silah prototipini andıran şeyler görüyoruz.",
+        "gravehurst_story_74_answer_1": "İçine bakın bakalım.",
+        "gravehurst_story_74_answer_2": "Uzak durun. Herhangi bir belge veya bilgisayar var mı?",
+
+        "gravehurst_story_75_history": "Evet, bir kontrol odasına benzer bir yer bulduk. İçeride aktif bir bilgisayar var.",
+        "gravehurst_story_75_answer_1": "Bilgisayarı alın ve operasyonu bitirin.",
+        "gravehurst_story_75_answer_2": "İçerisine erişmeye çalışın.",
+
+        "gravehurst_story_76_history": "Bilgisayara erişim sağladık. Burada 'Operasyon DeVast' adlı bir dosya var. Açıyorum.\n\nProfesör, bir şey oluyor! Sanırım tesis uyanıyor!",
+        "gravehurst_story_76_answer_1": "Hızlıca Operasyon DeVast dosyasından önemli bilgileri alın.",
+        "gravehurst_story_76_answer_2": "Hemen ordan çıkın. Araştırma bitti.",
+
+        "gravehurst_story_77_history": "Tamam, dosyayı tarıyoruz. Bu bir DARPA projesi gibi görünüyor. İleri düzey protez ve eksoskeleton geliştirme üzerine çalışmışlar. Yaralı askerlerin rehabilitasyonu için tasarlanmış. Anlaşılan o ki Gravehurst Akıl Hastanesi bunun için mükemmel bir örtü sağlamış. Proje 5 yıl önce durdurulmuş. Bütçe kesintileri ve etik kaygılar nedeniyle. Son kayıtlara göre, tüm ekipmanlar ve veriler güvenli bir şekilde taşınmış ve tesis kapatılmış.",
+        "gravehurst_story_77_answer_1": "Demek ki bu yüzden kapatılmış tesis.",
+        "gravehurst_story_77_answer_2": "Yine hükümetin gizli işleri yüzünden.",
+
+        "gravehurst_story_78_history": "Evet, maalesef. Bu arada uzaktan bir gıcırtı sesi geliyor, Profesör. Ne yapacağız!?",
+        "gravehurst_story_78_answer_1": "Çıkış yolunu hatırlıyor musunuz?",
+        "gravehurst_story_78_answer_2": "Endişelenmeyin. Muhtemelen eski bir havalandırma ızgarasıdır.",
+
+        "gravehurst_story_79_history": "Evet, öyleymiş. Sanırım sadece eski jeneratörler ve havalandırma sistemleri, Profesör. Tesis uzun zamandır kapalı olduğu için, sistemler tekrar çalışmaya başlayınca bu sesleri çıkarıyor olabilir.",
+        "gravehurst_story_79_answer_1": "Oradan çıkmanız gerek.",
+        "gravehurst_story_79_answer_2": "Çıkışa doğru ilerleyin.",
+
+        "gravehurst_story_80_history": "Evet. Buradan çıkıyoruz. Biraz daha bilgi toplayıp ve bunları fotoğraflayıp çıkıyoruz. Ama ışık az olduğu için çok net değiller. ",
+        "gravehurst_story_80_answer_1": "Sorun yok. Orayı sessiz bir şekilde terk edin.",
+        "gravehurst_story_80_answer_2": "Elimizden geleni yapıyoruz. Tesisten ayrılın.",
+
+        "gravehurst_story_81_history": "Çıkışa doğru ilerliyoruz. Burada bir merdiven var. Profesör, şu an bir ses duyuyoruz. Ayak sesleri gibi! Yukarıdan geliyor!",
+        "gravehurst_story_81_answer_1": "Güvenlik görevlisidir.",
+        "gravehurst_story_81_answer_2": "Sakin. Kedi olabilir.",
+
+        "gravehurst_story_82_history": "Şu an merdivenin tepesindeyiz. Burada iki kişi var. Sivil kıyafetli.",
+        "gravehurst_story_82_answer_1": "Saldırın onlara!",
+        "gravehurst_story_82_answer_2": "Kim olduklarını sorun.",
+
+        "gravehurst_story_83_history": "Tamam. Bunlar olurken size ses kaydı atacağım. Bekleyin.\n\nEkip: Özür dileriz, siz kimsiniz?\n\nBilinmeyen Kişiler: Biz de size aynı soruyu soracaktık. Buraya nasıl girdiniz?\n\nEkip: Biz bir araştırma ekibiyiz. Peki siz?\n\nBilinmeyen Kişiler: Biz de eski askeri tesisleri inceleyen tarihçileriz. Buraya giriş izniniz var mı?",
+        "gravehurst_story_83_answer_1": "Kimliklerinizi gösterin ve durumu açıklayın.",
+        "gravehurst_story_83_answer_2": "Bunlar tarihçi değil. Ateş edin!",
+
+        "gravehurst_story_84_history": "Tamamdır, Profesör. Onlar da kimliklerini gösterdiler. Gerçekten de tarihçi gibi görünüyorlar.",
+        "gravehurst_story_84_answer_1": "Onlara ne gördüğünüzü KISACA anlatın.",
+        "gravehurst_story_84_answer_2": "Onlara ne gördüğünüzü DETAYLICA anlatın.",
+
+        "gravehurst_story_85_history": "Tamamdır, Profesör. Tekrar ses kaydı alıyorum.\n\nEkip: Aşağıda eski bir askeri araştırma tesisi bulduk. DARPA ile ilgili bazı belgeler var.\n\nTarihçi: Evet, biz de bunun peşindeydik. Bu tesisi belgelemek için buradayız. Siz ne kadarını gördünüz aşağıda?\n\nAdamlar bana bakıyor. Ne diyeyim Profesör?",
+        "gravehurst_story_85_answer_1": "Onlara genel bilgiler verin.",
+        "gravehurst_story_85_answer_2": "Onlara her şeyi anlatın.",
+
+        "gravehurst_story_86_history": "Tamam. Tekrar ses kaydı alıyorum.\n\nEkip: Protez ve eksoskeleton araştırmaları hakkında bazı bilgiler bulduk. Proje yaklaşık 5 yıl önce kapatılmış.\n\nTarihçi: Bu çok ilginç. Acaba bulgularınızı bizimle paylaşmayı düşünür müsünüz?\n\nProfesör, ne yapalım? Bulgularımızı paylaşalım mı?",
+        "gravehurst_story_86_answer_1": "Hayır. Genel bilgiler sadece.",
+        "gravehurst_story_86_answer_2": "Evet, paylaşın.",
+
+        "gravehurst_story_87_history": "[Ses Kaydı]\n\nEkip: Anlaşıldı. Elbette, genel bilgileri sizinle paylaşabiliriz. Ancak, detaylı raporumuzu önce kendi kurumumuza sunmamız gerekiyor.\n\nTarihçi: Anlıyoruz. Peki, aşağıda başka ne gördünüz? Herhangi bir ilginç ekipman veya belge?\n\nEkip: Çoğunlukla boş odalar ve eski bilgisayarlar gördük. Birkaç belge bulduk, ama çoğu rutin raporlar gibiydi.\n\nTarihçi: İlginç. Biz de bunlara benzer şeyler olduğunu biliyoruz. Bu tesisin tam olarak ne için kullanıldığını biliyor musunuz?",
+        "gravehurst_story_87_answer_1": "Dikkatli olun, çok fazla bilgi vermeyin.",
+        "gravehurst_story_87_answer_2": "Belgelerle ilgili detaylı bilgileri vermeyin.",
+
+        "gravehurst_story_88_history": "[Ses Kaydı]\n\nEkip: Tam olarak emin değiliz. Protez teknolojileri üzerine çalışıldığını gördük, ama detaylar belirsiz.\n\nTarihçi: Anlıyorum. Bu konu hakkında daha fazla araştırma yapmayı düşünüyor musunuz?\n\nProfesör, ne diyeyim?",
+        "gravehurst_story_88_answer_1": "Genel yanıtlara devam.",
+        "gravehurst_story_88_answer_2": "Kesin bir cevap vermeyin.",
+
+        "gravehurst_story_89_history": "[Ses Kaydı]\n\nEkip: Şu an için planlarımız belirsiz. Bulgularımızı değerlendireceğiz ve sonra karar vereceğiz.\n\nTarihçi: Peki, teşekkür ederiz. Belki ileride bilgi alışverişinde bulunabiliriz. İşte kartvizitim.\n\nEkip: Teşekkürler. Biz de lazım oldukça size ulaşırız.",
+        "gravehurst_story_89_answer_1": "Şimdi nazikçe ayrılın oradan.",
+        "gravehurst_story_89_answer_2": "Tesisi terk edin.",
+
+        "gravehurst_story_90_history": "Geçidin girişini bulduk, ancak içeriden soğuk bir rüzgar geliyor. İçeride neler olduğunu bilmiyoruz. Geçit beklediğimizden daha derin. Bodruma inmeden önce ekipmanlarımızı kontrol ediyoruz.",
+        "gravehurst_story_90_answer_1": "Geçidin derinliğini belirleyin. Anormal bir şey var mı kontrol edin.",
+        "gravehurst_story_90_answer_2": "Ekipmanlarınız tamamsa geçide girin.",
+
+        "gravehurst_story_91_history": "Geçide girdik. Duvarlarda çizikler ve eski tıbbi ekipmanlar görüyoruz. Sanki burada bir şeyler saklanmış. Geçidin sonunda büyük bir metal kapı var. Üzerinde tuhaf işaretler var.",
+        "gravehurst_story_91_answer_1": "İşaretler size bir şeyler çağrıştırıyor mu? ",
+        "gravehurst_story_91_answer_2": "İşaretler mi?.",
+
+        "gravehurst_story_92_history": "Evet fakat kapının üzerindeki işaretler silik. Sadece renginin kırmızı olduğunu görebiliyoruz. Tam ne olduğu anlaşılmıyor. Kapı kilitli, zorlamayı denedik ama açılmadı. Ne yapalım?",
+        "gravehurst_story_92_answer_1": "Etrafta başka bir mekanizma olmalı.",
+        "gravehurst_story_92_answer_2": "Duvarlarda veya zeminde anormal bir şey var mı?",
+
+        "gravehurst_story_93_history": "Evet var, Profesör. Burada, kapının yanında küçük bir panel var. Üzerinde beş adet renkli düğme bulunuyor: kırmızı, mavi, yeşil, sarı ve beyaz.",
+        "gravehurst_story_93_answer_1": "İlginç. Etrafta bu renklerle ilgili bir ipucu var mı?",
+        "gravehurst_story_93_answer_2": "Bir tür şifre mekanizması olabilir.",
+
+        "gravehurst_story_94_history": "Çevreyi kontrol ettik, Profesör. Karşı duvarda soluk bir yazı var. 'Gökkuşağının sırrı çözülmeli' diyor.",
+        "gravehurst_story_94_answer_1": "Gökkuşağı mı? Saçma.",
+        "gravehurst_story_94_answer_2": "Renk sırası önemli olmalı.",
+
+        "gravehurst_story_95_history": "Evet, Profesör. Tam olarak karşı duvarımızda soluk bir yazı var. 'Gökkuşağının sırrı çözülmeli' diyor.",
+        "gravehurst_story_95_answer_1": "Gökkuşağı mı? Saçma.",
+        "gravehurst_story_95_answer_2": "Renk sırası önemli olmalı.",
+
+        "gravehurst_story_96_history": "Renklerin sırası ile alakalı bir mekanizma var sanırım, Profesör.",
+        "gravehurst_story_96_answer_1": "Sanmıyorum. Rastgele bir tuşa basın.",
+        "gravehurst_story_96_answer_2": "İlk olarak kırmızıya basın.",
+
+        "gravehurst_story_97_history": "Sanırım, Profesör. Düğmelere gökkuşağındaki renk sırasına göre basacağız. Kırmızı, turuncu, sarı, yeşil, mavi, mor... Ama panelde turuncu ve mor yok.",
+        "gravehurst_story_97_answer_1": "Var olan renklerin sırasına göre basın.",
+        "gravehurst_story_97_answer_2": "Maviye basın.",
+
+        "gravehurst_story_98_history": "Tamam, deniyoruz. Kırmızı, sarı, yeşil, mavi... Ama beyazı nereye koyacağız?",
+        "gravehurst_story_98_answer_1": "İlk önce ona basın.",
+        "gravehurst_story_98_answer_2": "Beyaz tüm renkleri içerir. En sona koyun.",
+
+        "gravehurst_story_99_history": "Anlaşıldı. Sırasıyla kırmızı, sarı, yeşil, mavi ve beyaz butonlara bastık. Kapı açıldı!",
+        "gravehurst_story_99_answer_1": "Ne görüyorsunuz?",
+        "gravehurst_story_99_answer_2": "İçeriyi inceleyin.",
+
+        "gravehurst_story_100_history": "İçerisi karanlık. Fenerlerimizi yaktık. Burası büyük bir oda, Profesör. Her yerde aynalar var! Duvarlar, tavan, hatta zemin bile aynalarla kaplı.",
+        "gravehurst_story_100_answer_1": "Sadece ayna mı?",
+        "gravehurst_story_100_answer_2": "Odada başka bir şey var mı?",
+
+        "gravehurst_story_101_history": "Hayır. Büyük bir masa da var burada. Üzerinde bir projeksiyon cihazı duruyor ve yanında bir not var.",
+        "gravehurst_story_101_answer_1": "Ne yazıyor notta?",
+        "gravehurst_story_101_answer_2": "Oku bakalım.",
+
+        "gravehurst_story_102_history": "Evet, ortada büyük bir masa var. Üzerinde bir projeksiyon cihazı duruyor. Ve yanında bir not.",
+        "gravehurst_story_102_answer_1": "Ne yazıyor notta?",
+        "gravehurst_story_102_answer_2": "Oku bakalım.",
+
+        "gravehurst_story_103_history": "Okuyorum: 'Zihin Aynası Deneyi - 23. Gün. Sonuçlar beklenmedik yönde ilerliyor. Hastalar kendi bilinçaltlarıyla yüzleşiyor, ancak bazıları geri dönemiyor. Deneyi sonlandırmalıyız, ama... çok geç olabilir.', yazıyor.",
+        "gravehurst_story_103_answer_1": "Bu çok endişe verici.",
+        "gravehurst_story_103_answer_2": "Başka detaylar var mı?",
+
+        "gravehurst_story_104_history": "Evet öyle, Profesör. Bir de burada el yazısıyla eklenmiş bir not daha var: 'Eğer bunu okuyorsanız, lütfen bizi kurtarın. Aynalara bakmayın!', yazıyor.",
+        "gravehurst_story_104_answer_1": "Bu iş daha da derinleşti şimdi.",
+        "gravehurst_story_104_answer_2": "Bu da ne demek?",
+
+        "gravehurst_story_105_history": "Evet, notun altında el yazısıyla eklenmiş bir not daha var: 'Eğer bunu okuyorsanız, lütfen bizi kurtarın. Aynalara bakmayın!, yazıyor.",
+        "gravehurst_story_105_answer_1": "Bu iş daha da derinleşti şimdi.",
+        "gravehurst_story_105_answer_2": "Bu da ne demek?",
+
+        "gravehurst_story_106_history": "Profesör! Aynalar! Aynalar hareket ediyor gibi! Ne yapacağız?",
+        "gravehurst_story_106_answer_1": "Gözlerinizi kapatın ve odadan çıkmaya çalışın!",
+        "gravehurst_story_106_answer_2": "Projeksiyon cihazını hemen çalıştırın!",
+
+        "gravehurst_story_107_history": "Anlaşıldı! Gözlerimizi kapatıyoruz ama yönümüzü bulmak çok zor! Her yer ayna!\n\nProfesör bir şey oluy-",
+        "gravehurst_story_107_answer_1": "Ekip?",
+        "gravehurst_story_107_answer_2": "Yazdıklarımı görüyor musunuz?",
+
+        "gravehurst_story_108_history": "Profesör, bağlantı kesildi. Şimdi tekrar iletişim kurabildik.",
+        "gravehurst_story_108_answer_1": "Neler oldu?",
+        "gravehurst_story_108_answer_2": "Hepiniz iyi misiniz?",
+
+        "gravehurst_story_109_history": "Bilmiyoruz. Bir şeyler çok yanlış. Aynalar durdu ama yansımalarımız! Çok farklılar! Ben kendimi daha yaşlı görüyorum. Sarah ise bir hastane yatağında. Bu imkansız!",
+        "gravehurst_story_109_answer_1": "Sakin olun. Halüsinasyon olabilir.",
+        "gravehurst_story_109_answer_2": "Sakin olun. Odadan çıkabilir misiniz?",
+
+        "gravehurst_story_110_history": "İyiyiz ancak bir şeyler çok yanlış. Aynalar durdu ama yansımalarımız! Çok farklılar! Ben kendimi daha yaşlı görüyorum. Sarah ise bir hastane yatağında. Bu imkansız!",
+        "gravehurst_story_110_answer_1": "Sakin olun. Halüsinasyon olabilir.",
+        "gravehurst_story_110_answer_2": "Sakin olun. Odadan çıkabilir misiniz?",
+
+        "gravehurst_story_111_history": "Hayır! Kapıyı göremiyoruz.\n\nProfesör! Yansımalarımız! Yansımalarımız bize bakıyor ve gülümsüyorlar.",
+        "gravehurst_story_111_answer_1": "Hemen gözlerinizi kapatın! Bu etki geçene kadar açmayın.",
+        "gravehurst_story_111_answer_2": "Sorun yok. Kapıyı bulun hemen!",
+
+        "gravehurst_story_112_history": "Gözlerim kısık şekilde yazmak çok zor. Sesler duyuyoruz. Kendi seslerimiz bize fısıldamaya başladı.",
+        "gravehurst_story_112_answer_1": "Ne duyuyorsunuz?",
+        "gravehurst_story_112_answer_2": "Ne diyorlar?",
+
+        "gravehurst_story_113_history": "'Gerçeği görmek için hazır mısın? diyorlar.' Profesör! bu deney sizinle mi ilgili?",
+        "gravehurst_story_113_answer_1": "...",
+        "gravehurst_story_113_answer_2": "...",
+
+        "gravehurst_story_114_history": "Profesör? Orada mısınız?",
+        "gravehurst_story_114_answer_1": "Evet. İtiraf vakti geldi.",
+        "gravehurst_story_114_answer_2": "...",
+
+        "gravehurst_story_115_history": "NE? NE DEMEK BU?",
+        "gravehurst_story_115_answer_1": "Tamam. Her şeyi açıklıyorum.",
+        "gravehurst_story_115_answer_2": "İtiraf vakti.",
+
+        "gravehurst_story_116_history": "LANET HERİF! ORADA OLDUĞUNU BİLİYORUM! CEVAP VER! NE OLUYOR!",
+        "gravehurst_story_116_answer_1": "Tamam. Her şeyi açıklıyorum.",
+        "gravehurst_story_116_answer_2": "İtiraf vakti.",
+
+        "gravehurst_story_117_history": "ÇABUK OL!!! SENİ LANET OLASI!",
+        "gravehurst_story_117_answer_1": "Bu deney benim. Sizi oraya göndererek her şeyi düzeltebileceğimi sandım.",
+        "gravehurst_story_117_answer_2": "Bu deney benim. Sizi oraya göndererek her şeyi düzeltebileceğimi sandım.",
+
+        "gravehurst_story_118_history": "NE? NASIL YANİ? BİZ DENEKLER MİYİZ?\n\nSistem Mesajı: DİKKAT! ZİHİN AYNASI PROTOKOLÜ AKTİVE EDİLDİ. TÜM KATILIMCILAR HAZIRLANDI.",
+        "gravehurst_story_118_answer_1": "Deneyi Başlat.",
+        "gravehurst_story_118_answer_2": "Deneyi Başlat.",
+
+        "gravehurst_story_119_history": "Profesör, dosyaları inceledik. İçeride bir hasta listesi var. Bazılarının yanında tuhaf semboller bulunuyor.",
+        "gravehurst_story_119_answer_1": "Sembolleri not alın. Bu, onların geçmiş deneylerle ilişkisi olabilir.",
+        "gravehurst_story_119_answer_2": "Sembolleri ve listede belirtilen hastaları dikkatle inceleyin.",
+
+        "gravehurst_story_120_history": "Sembolleri kaydettik, profesör. Görünüşe göre bu semboller belirli hücrelerdeki hastaları işaret ediyor. Listedeki hastalardan bazıları için 'kayboldu' notu düşülmüş. Bu durum tuhaf görünüyor.",
+        "gravehurst_story_120_answer_1": "Hastaların hücrelerine gidin, sembollerle eşleşen ipuçları olabilir.",
+        "gravehurst_story_120_answer_2": "Hastaların hücrelerinde sembollerle ilgili herhangi bir iz arayın.",
+
+        "gravehurst_story_121_history": "Hasta hücrelerinde sembollerle bağlantılı notlar bulduk. Bazılarının duvarlarında çizimler var.",
+        "gravehurst_story_121_answer_1": "Bize yardımcı olabilecek herhangi bir bilgi içeriyor mu?",
+        "gravehurst_story_121_answer_2": "Önemli bir şey var mı?",
+
+        "gravehurst_story_122_history": "Duvardaki çizimlerde ve notlarda ortak olan anlam veremediğimiz bir şey var.\n\n'ADIĞAŞA'\n\nBu sana bir şey çağırıştırıyor mu, Profesör?",
+        "gravehurst_story_122_answer_1": "TERSTEN OKUYUN!",
+        "gravehurst_story_122_answer_2": "Şimdilik hayır. Araştırmaya devam edin.",
+
+        "gravehurst_story_125_history": "Doğru! 'Aşağıda' yazıyor. Yerlere bakarken burda altı yığınla kaplı bir yatak bulduk. Yatağın altındakileri incelemek için kaldırdığımızda ise yuvarlak bir tahta parçasıyla karşılaştık. Profesör! Burada gizli bir geçit kapısı var.",
+        "gravehurst_story_125_answer_1": "Geçidi dikkatlice inceleyin, ancak hemen girmeyin.",
+        "gravehurst_story_125_answer_2": "Tehlikeli olabilir ama girin.",
+
+        "gravehurst_story_124_history": "Tamam. Burada bir yatak var. Sanırım altında bir şeyler var. İncelemeye başlıyoruz Profesör.",
+        "gravehurst_story_124_answer_1": "Hepsini inceleyin ve bana rapor verin.",
+        "gravehurst_story_124_answer_2": "Yatağın altından bir şey çıkacağını sanmıyorum.",
+
+        "gravehurst_story_126_history": "Yatağın altındakileri incelemek için kaldırdığımızda yuvarlak bir tahta parçasıyla karşılaştık. Profesör! Burada gizli bir geçit kapısı var.",
+        "gravehurst_story_126_answer_1": "Geçidi dikkatlice inceleyin, ancak hemen girmeyin.",
+        "gravehurst_story_126_answer_2": "Tehlikeli olabilir ama girin.",
+
+        "gravehurst_story_127_history": "Profesör, geçidi açtık. Karanlık bir merdiven aşağı iniyor. Hafif bir esinti ve garip bir koku var.",
+        "gravehurst_story_127_answer_1": "Bu iş iyice garipleşti. Aşağıya bakın bakalım.",
+        "gravehurst_story_127_answer_2": "Tamam, şimdi merdivenlerden aşağıya inin.",
+
+        "gravehurst_story_128_history": "Aşağıdayız. Demir bir kapı var fakat kilitli. Arkadaşlarım kilidi kırmaya çalışıyorlar. Duvarlarda bazı hesaplamalar ve ilaç kutuları görüyorum. Profesör burası çok garip bir yer.",
+        "gravehurst_story_128_answer_1": "Kapıyı açtığınızda bana hemen rapor verin.",
+        "gravehurst_story_128_answer_2": "İlaçlar çok eski olabilir, dokunmayın.",
+
+        "gravehurst_story_129_history": "Tamam. Kapıyı açıyoruz. Oh tanrım! Profesör, burası bir laboratuvar! İçerisi çok kötü kokuyor. Arkadaşlarımdan bazıları kusmaya başladı. Her yerde tıbbi ekipmanlar var ve sedyeler! Sedyelerde insanlar var!",
+        "gravehurst_story_129_answer_1": "Sakin. Kaç sedye görüyorsunuz?",
+        "gravehurst_story_129_answer_2": "Durumları nasıl?",
+
+        "gravehurst_story_130_history": "Beş sedye sayıyorum. Üç kişi hareketsiz yatıyor. İkisi kıpırdanıyor. Profesör, bu insanlar çok kötü görünüyor. Zayıf ve solgunlar. Kollarında ve boyunlarında iğne izleri var.",
+        "gravehurst_story_130_answer_1": "İnsanlara yaklaşmadan önce etrafı rapor edin.",
+        "gravehurst_story_130_answer_2": "Herhangi bir tehlike işareti var mı?",
+
+        "gravehurst_story_131_history": "Üç kişi hareketsiz yatıyor. İkisi kıpırdanıyor. Profesör, bu insanlar çok kötü görünüyor. Zayıf ve solgunlar. Kollarında ve boyunlarında iğne izleri var.",
+        "gravehurst_story_131_answer_1": "İnsanlara yaklaşmadan önce etrafı rapor edin.",
+        "gravehurst_story_131_answer_2": "Herhangi bir tehlike işareti var mı?",
+
+        "gravehurst_story_132_history": "Odada kimse yok ama bir bilgisayar çalışıyor. Ekranda bir takım veriler akıyor ve bilgisayarda bir not açık. Burada ayrıca bir sesli kayıt cihazı var, ışığı yanıp sönüyor.",
+        "gravehurst_story_132_answer_1": "Sesli kaydı dinleyin.",
+        "gravehurst_story_132_answer_2": "Bilgisayardaki notu okuyun.",
+
+        "gravehurst_story_133_history": "Tamam, kaydı başlatıyorum.\n\n'Deney günü 23. Denekler üzerindeki yeni serum testleri beklenmedik sonuçlar verdi. Halüsinasyonlar ve paranoya seviyeleri artıyor. İki denek... kontrol edilemez hale geldi. Karantinaya alındılar. Diğerleri hâlâ gözlem altında. Bu deneyi sonlandırmalıyız ama üstlerimiz devam etmemiz konusunda ısrarcı. Tanrı yardımcımız olsun.'",
+        "gravehurst_story_133_answer_1": "Orada yasadışı deneyler yapılmış demek ki.",
+        "gravehurst_story_133_answer_2": "Hastaların yanına gidin.",
+
+        "gravehurst_story_134_history": "Tamam, notu okumaya başlıyorum.\n\n'Deney günü 23. Denekler üzerindeki yeni serum testleri beklenmedik sonuçlar verdi. Halüsinasyonlar ve paranoya seviyeleri artıyor. İki denek... kontrol edilemez hale geldi. Karantinaya alındılar. Diğerleri hâlâ gözlem altında. Bu deneyi sonlandırmalıyız ama üstlerimiz devam etmemiz konusunda ısrarcı. Tanrı yardımcımız olsun.'",
+        "gravehurst_story_134_answer_1": "Orada yasadışı deneyler yapılmış demek ki.",
+        "gravehurst_story_134_answer_2": "Hastaların yanına gidin.",
+
+        "gravehurst_story_135_history": "Evet öyle görünüyor, Profesör. Sedyelere yaklaşıyoruz şimdi. İki hasta gözlerini açtı ama tepki vermiyorlar. Gözbebekleri aşırı genişlemiş. Nabızları çok yüksek, Profesör. Vücutları titriyor.",
+        "gravehurst_story_135_answer_1": "Onlara dokunmayın. Bilinmeyen bir maddeye maruz kalmış olabilirler.",
+        "gravehurst_story_135_answer_2": "Çevrelerinde başka bir şey görüyor musunuz? İlaç şişeleri, notlar?",
+
+        "gravehurst_story_136_history": "Tamamdır, Profesör. Sedyelere yaklaşıyoruz. İki hasta gözlerini açtı ama tepki vermiyorlar. Gözbebekleri aşırı genişlemiş. Nabızları çok yüksek, Profesör. vücutları titriyor.",
+        "gravehurst_story_136_answer_1": "Onlara dokunmayın. Bilinmeyen bir maddeye maruz kalmış olabilirler.",
+        "gravehurst_story_136_answer_2": "Çevrelerinde başka bir şey görüyor musunuz? İlaç şişeleri, notlar?",
+
+        "gravehurst_story_137_history": "Kesinlikle dokunmuyoruz. Anlaşıldı. Ne yapmamızı istersiniz? Aman Allahım! Arkadaşlarımdan biri hastaya yakından bakmak istemiş. Bir kargaşa var burada. DİĞER HASTA BANA DOĞRU KO-",
+        "gravehurst_story_137_answer_1": "Rapor ver!",
+        "gravehurst_story_137_answer_2": "Ne oluyor??",
+
+        "gravehurst_story_138_history": "Evet, her sedyenin yanında küçük bir masa var. Üzerlerinde şırıngalar ve ilaç şişeleri var. Etiketlerinde ise 'Proje DeVast - Faz 3' yazıyor. Bir de bu masanın üstünde bir kayıt cihazı var.",
+        "gravehurst_story_138_answer_1": "Dinleyin ve rapor verin.",
+        "gravehurst_story_138_answer_2": "Dinleyin. İpuçlarına dikkat edin.",
+
+        "gravehurst_story_139_history": "Tamam, dinliyorum.\n\n[SES KAYDI]\n\n'Proje DeVast başarısız oldu. Serum, deneklerin sinir sistemini beklenmedik şekilde etkiledi. Aşırı duyarlılık, halüsinasyonlar ve sonrasında katatoni (katatoni: kişinin motor hareketlerinin ciddi derecede yavaşlaması veya tamamen durması durumuyla karakterize edilen bir psikiyatrik durum.). İki denek saldırganlaştı. Tanrım, üç güvenlik görevlisini öldürdüler. Onları ayrı bir hücreye kilitled-'\n\nProfesör, ses burada kesiliyor!",
+        "gravehurst_story_139_answer_1": "Düşünmeme izin verin.",
+        "gravehurst_story_139_answer_2": "Hemen oradan çıkmanız gerek.",
+
+        "gravehurst_story_140_history": "[SES KAYDI]\n\nProf- Profesör!! Biri geliyor. Koridordan ayak sesleri duyuyoruz!!!",
+        "gravehurst_story_140_answer_1": "Kapıyı kilitleyin hemen!",
+        "gravehurst_story_140_answer_2": "Hemen saklanın!",
+
+        "gravehurst_story_141_history": "PROFESÖR! YETİŞEMEDİK BİZİ YAKALADILAR. TELEFONU KIRIYORUM! SİZİ YAKALAMALARINA MÜSAADE EDEMEM.",
+        "gravehurst_story_141_answer_1": "DUR!",
+        "gravehurst_story_141_answer_2": "BEKLE! KİM ONLAR?",
+
+        "gravehurst_story_142_history": "Anlaşıldı! Büyük bir dolabın arkasına geçtik. Biri kapıyı açıyor, Profesör! DURUN. İki kişi girdi içeri. Beyaz önlüklüler. Biri kadın, diğeri erkek. Hastalara doğru ilerliyorlar.",
+        "gravehurst_story_142_answer_1": "Sessiz kal.",
+        "gravehurst_story_142_answer_2": "Konuşmaları dinle. Rapor ver.",
+
+        "gravehurst_story_143_history": "Tamam. Size ses kaydı atacağım.\n\n[SES KAYDI]\n\nKadın: Lanet olsun, durum kötüye gidiyor. Üçüncü faz tam bir fiyasko oldu!\n\nErkek: Sakin ol. Sadece birkaç gün daha dayanmamız gerek. Sonra tüm verileri sileceğiz.\n\nKadın: Ya hastalar? Onları ne yapacağız?\n\nErkek: Onlar için yapabileceğimiz bir şey kalmadı. Protokolü biliyorsun.\n\nEkip: Profesör, sanırım hastaları öldürmeyi planlıyorlar! Ne yapacağız?",
+        "gravehurst_story_143_answer_1": "Hemen müdahale edin ve onları durdurun!",
+        "gravehurst_story_143_answer_2": "Bekleyin ve daha fazla bilgi toplamaya çalışın.",
+
+        "gravehurst_story_144_history": "Tamam. Dışarı çıkıp müdahale edeceğiz hemen!",
+        "gravehurst_story_144_answer_1": "Ne oldu?",
+        "gravehurst_story_144_answer_2": "Son durum ne?",
+
+        "gravehurst_story_145_history": "Hemen bilgi toplamaya çalışıyoruz Profesör. Profesör, acil durum! Erkek olan bir şırınga hazırlıyor! Aralarında şöyle bir konuşma geçti.\n\n[SES KAYDI]\n\nKadın: Gerçekten bunu yapacak mısın? Başka bir yol olmalı.\n\nErkek: Başka seçeneğimiz yok. Eğer bunlar dışarı çıkarsa, hepimiz hapsi boylarız. Hatta daha kötüsü.\n\nEkip: Profesör, adam hastalardan birine yaklaşıyor! Bir şey yapmalıyız!",
+        "gravehurst_story_145_answer_1": "Hemen müdahale edin!",
+        "gravehurst_story_145_answer_2": "Son ana kadar bekleyin.",
+
+        "gravehurst_story_146_history": "Hemen müdahale etmek için saklandığımız yerden ayrılıyoruz!",
+        "gravehurst_story_146_answer_1": "Ne oldu?",
+        "gravehurst_story_146_answer_2": "Son durum ne?",
+
+        "gravehurst_story_147_history": "Anlaşıldı, Profesör. Adam hastaya yaklaştı. Şırıngayı kaldırdı ve.. Tanrım! Tam enjekte edecekken hasta gözlerini açtı! Aralarındaki konuşma:\n\n[SES KAYDI]\n\nKadın: John, dur! Hareket etti!\n\nJohn:İmkansız! Bu dozda hâlâ nasıl...?\n\nHasta: [Boğuk bir sesle] 'Lütfen... yardım edin...'\n\nEkip: Profesör, hasta konuştu! Ne yapmalıyız?",
+        "gravehurst_story_147_answer_1": "Dikkatleri dağıldı. Şimdi harekete geçin!",
+        "gravehurst_story_147_answer_2": "Kendinizi belli edin ve onları durdurun!",
+
+        "gravehurst_story_148_history": "Profesör, uzun uğraşlar sonucu durumu kontrol altına aldık. İki şüpheliyi etkisiz hale getirdik.",
+        "gravehurst_story_148_answer_1": "İyi iş çıkardınız. Hastaları güvence altına alın.",
+        "gravehurst_story_148_answer_2": "Harikasınız. Şimdi tıbbi yardım çağırın.",
+
+        "gravehurst_story_149_history": "Anlaşıldı. Ambulans ve takviye ekip çağırıyoruz. Hastalar... hâlâ kritik durumda ama hayattalar.",
+        "gravehurst_story_149_answer_1": "Laboratuvardaki tüm kanıtları toplayın.",
+        "gravehurst_story_149_answer_2": "Önce şüphelileri sorgulayın.",
+
+        "gravehurst_story_150_history": "Hemen başlıyoruz, Profesör. Bu arada John denen adam konuşmak istedi.\n\n[SES KAYDI]\n\nJohn:[Panik içinde] Siz anlamıyorsunuz! Bu sadece bir deney değildi. Arkasında çok daha büyük şeyler var. Eğer konuşursam, hepimiz tehlikede oluruz!",
+        "gravehurst_story_150_answer_1": "Bu kadar mı?",
+        "gravehurst_story_150_answer_2": "Diğer şüpheli kadın ne diyor?",
+
+        "gravehurst_story_151_history": "Hemen başlıyoruz, Profesör. Bu arada John denen adam konuşmak istedi.\n\n[SES KAYDI]\n\nJohn:[Panik içinde] Siz anlamıyorsunuz! Bu sadece bir deney değildi. Arkasında çok daha büyük şeyler var. Eğer konuşursam, hepimiz tehlikede oluruz!",
+        "gravehurst_story_151_answer_1": "Bu kadar mı?",
+        "gravehurst_story_151_answer_2": "Diğer şüpheli kadın ne diyor?",
+
+        "gravehurst_story_152_history": "Şimdilik bu kadar. Profesör, bu adam neyden bahsediyor? Daha büyük bir komplo mu var?",
+        "gravehurst_story_152_answer_1": "John'u dinleyin ama söylediklerini hemen kabul etmeyin.",
+        "gravehurst_story_152_answer_2": "Bilmiyorum. Kanıt toplamaya ve dinlemeye devam edin.",
+
+        "gravehurst_story_153_history": "Konuşmadı. Çok garip. Profesör, bu adam neyden bahsediyor? Daha büyük bir komplo mu var?",
+        "gravehurst_story_153_answer_1": "John'u dinleyin ama söylediklerini hemen kabul etmeyin.",
+        "gravehurst_story_153_answer_2": "Bilmiyorum. Kanıt toplamaya ve dinlemeye devam edin.",
+
+        "gravehurst_story_154_history": "Anlaşıldı, Profesör.\n\n[SES KAYDI]\n\nJohn, neyden bahsediyorsun? Arkasında kim var?\n\nJohn: [Endişeli bir sesle] Sadece bir araştırma değildi bu. Hükümetin gizli bir projesi. İnsan zihnini kontrol etmek ve süper askerler yaratmak için akıl hastalarını kullanıyorlar! Ama kontrolden çıktı. Bazı denekler beklenmedik yetenekler geliştirdi.\n\nEkip: Ne tür yetenekler?\n\nJohn: Telekinezi, düşünce okuma... Ama yan etkileri korkunçtu. Çoğu deneğin zihni parçalandı. Diğerleri ise tehlikeli hale geldi.\n\nKadın: John, sus! Bizi öldürecekler!\n\nProfesör, bu iddialar çok ciddi. Ne yapmalıyız?",
+        "gravehurst_story_154_answer_1": "İşin içinde hükümet varmış demek.",
+        "gravehurst_story_154_answer_2": "Bunlar sadece iddia. Şüpheci kalın.",
+
+        "gravehurst_story_155_history": "Profesör! Burada elektrikler kesildi! Bir şey oluyor! Patlama sesleri geliyor!\n\n[SES KAYDI]\n\nJohn: İşte geldiler! Bizi susturmaya geldiler!\n\nProfesör, şimdi ne yapacağız? Binayı tahliye mi edelim yoksa burada mı kalalım?",
+        "gravehurst_story_155_answer_1": "Hemen binayı hastalar ve şüphelilerle tahliye edin!",
+        "gravehurst_story_155_answer_2": "Bulunduğunuz yerde kalın ve savunma pozisyonu alın.",
+
+        "gravehurst_story_156_history": "Anlaşıldı! Hastaları taşımaya başlıyoruz. John ve diğer şüpheli de bizimle geliyor. Ama Profesör, koridordan sesler geliyor!\n\n[SES KAYDI]\n\nJohn: Çok geç bizi buldular.",
+        "gravehurst_story_156_answer_1": "Sadece kaçın.",
+        "gravehurst_story_156_answer_2": "Alternatif bir çıkış yolu bulun.",
+
+        "gravehurst_story_157_history": "Tamam, Profesör. Söylediğinizi yapacağız.",
+        "gravehurst_story_157_answer_1": "Ne oldu?",
+        "gravehurst_story_157_answer_2": "Son durumu rapor verin!",
+
+        "gravehurst_story_158_history": "[SES KAYDI]\n\nEkip: John! Başka bir çıkış var mı?\n\nJohn: Evet, acil durum tüneli! Laboratuvarın arkasında gizli bir geçit var.\n\nEkip: Anlaşıldı. Hızlıca hareket ediyoruz. Hastaları ve kanıtları alıyoruz.\n\nGeçidi bulduk, Profesör. Karanlık bir tünele açılıyor. Arkamızdan silah sesleri duyuyoruz!",
+        "gravehurst_story_158_answer_1": "Hemen girin!",
+        "gravehurst_story_158_answer_2": "Peşinizdekiler yaklaşıyor! HIZLI OLUN!",
+
+        "gravehurst_story_159_history": "Tünele girdik. Zar zor ilerliyoruz. İçerisi çok dar. Çıktığımızda tekrar yazacağım.",
+        "gravehurst_story_159_answer_1": "Bekliyorum.",
+        "gravehurst_story_159_answer_2": "Çabuk olun.",
+
+        "gravehurst_story_160_history": "Dışarı çıktık. Ormandayız, Profesör. Etraf çok sessiz.",
+        "gravehurst_story_160_answer_1": "Tetikte olun. Uzaklaşın oradan.",
+        "gravehurst_story_160_answer_2": "Hemen güvenli bir bölgeye geçin.",
+
+        "gravehurst_story_161_history": "[SES KAYDI]\n\nProfesör! Üzerimizde helikopterler var. Silahlı adamlar bizi çevrelemeye başladı!",
+        "gravehurst_story_161_answer_1": "Teslim olmak zorundasınız.",
+        "gravehurst_story_161_answer_2": "Kanıtları koruyun.",
+
+        "gravehurst_story_901_history": "Hükümet Askeri: Hepiniz gözaltına alınıyorsunuz. Bu olay hiçbir zaman yaşanmadı. Anlıyor musun Profesör?\n\n(6 Ay Sonra)\n\nHaber Spikeri: 'Bugün şok edici bir gelişme yaşandı. Aylardır kayıp olan bir araştırma ekibinin üyeleri, beklenmedik bir şekilde ortaya çıktı. Ekip üyeleri, yaşadıkları olaylar hakkında hiçbir şey hatırlamadıklarını iddia ediyor. Ancak, anonim bir kaynaktan sızan belgeler, büyük bir skandalı işaret ediyor. Hükümet yetkilileri ise tüm iddiaları reddediyor...'\n\nAnonim: 'İşimiz henüz bitmedi, Profesör. Gerçek yakında ortaya çıkacak :)'",
+        "gravehurst_story_901_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_901_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_902_history": "(Ekip hükümet tarafından yakalandı. Mesajlaşmaları gören hükümet seni de yakaladı.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_902_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_902_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_903_history": "(İçeri giren askerler ekibi etkisiz hale getirdi.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_903_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_903_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_904_history": "(Erkek onlara dönük olduğu için silahla etkisiz hale getirildiler.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_904_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_904_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_905_history": "(Erkek onlara dönük olduğu için silahla etkisiz hale getirildiler.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_905_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_905_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_906_history": "(BAĞLANTI KOPTU...)",
+        "gravehurst_story_906_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_906_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_907_history": "(HASTALAR EKİBİ ETKİSİZ HÂLE GETİRDİ.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_907_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_907_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_908_history": "[SON]\n\n(Profesör, bulguları kontrol ederek basına bildirdi. Bu olayın açığa çıkması hükümetin hiç hoşuna gitmese de yurtdışından Profesöre gerçekleri ortaya çıkardığı için övgüler yağdı.)",
+        "gravehurst_story_908_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_908_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_909_history": "(BAĞLANTI KESİLDİ.)\n\n(ZİHİN AYNASI DENEYİ BAŞLATILDI...)",
+        "gravehurst_story_909_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_909_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_910_history": "(Ekipten bütün istediklerini alan tarihçiler ekibi etkisiz hale getirdiler.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_910_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_910_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_911_history": "(Ekipten bütün istediklerini alan tarihçiler ekibi etkisiz hale getirdiler.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_911_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_911_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_912_history": "(Ekipten bütün istediklerini alan tarihçiler ekibi etkisiz hale getirdiler.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_912_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_912_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_913_history": "(Ekip o saatten sonra yazmadı.)\n\n(Etkisiz hâle getirildiler.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_913_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_913_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_914_history": "(Ekip hipnozdan dolayı akli dengelerini kaybetti.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_914_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_914_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_915_history": "(Ekip o saatten sonra yazmadı.)\n\n(Etkisiz hâle getirildiler.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_915_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_915_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_916_history": "(Hem projeksiyon cihazının ışığı hem de aynaların hareketi ekibin başlarını döndürdü ve her yere çarptılar. Hepsi kırılan aynalardan dolayı kan kaybından öldüler.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_916_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_916_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_917_history": "(Ekibi geri çektiniz.\n\n(Olayı çözemediniz.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_917_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_917_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_918_history": "(Ekibi geri çektiniz.)\n\n(Olayı çözemediniz.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_918_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_918_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_919_history": "(Ekip radyasyondan dolayı öldü.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_919_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_919_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_920_history": "(Yanlış tuşa basıldı! Düzeneğin arkasında bulunan patlayıcı patladı.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_920_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_920_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_921_history": "(Yanlış tuşa basıldı! Düzeneğin arkasında bulunan patlayıcı patladı.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_921_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_921_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_922_history": "(Yanlış tuşa basıldı! Düzeneğin arkasında bulunan patlayıcı patladı.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_922_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_922_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_923_history": "(Ekip geri döndü.)\n\n(Olayı çözemediniz.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_923_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_923_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_924_history": "(Keşfi iptal ettiniz.)\n\n(Ekip geri döndü, dosya gizemiyle kapandı.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_924_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_924_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_925_history": "(Görevi iptal ettiniz.)\n\n(Ekibi yasaklı bölgeden çektiniz. Paranormal olaylar gizemini koruyor.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_925_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_925_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_926_history": "Çok geç! Ekibime söyleyemeden hepsi yere yığıldı profesör. ORDA! Tam karşımda maskeli bir asker var...\n\n(Bir daha iletişim kurulamadı muhtemelen asker tarafından vuruldu.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_926_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_926_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_927_history": "Profesör... bu gerçek mi? Gerçekten bizi buraya bir deney için mi getirdiniz? Sadece birer piyon muyduk? Buradan kurtulmanın bir yolu yok mu? Kameralardan kaçış yok gibi görünüyor... Ne yapacağız? Bu gaz... başımız dönmeye başladı... Profesör, lütfen bize yardım edin!\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_927_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_927_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_928_history": " Profesör, bir şeyler ters gidiyor... Gaz veriliyor! Havada yoğun bir kimyasal koku var. Gözlerimiz ağırlaşıyor, hareket edemiyoruz. Bu... bir tuzak mıydı? Ekranda bir mesaj belirdi şu an: 'Deneyler başlıyor.' ŞİMDİ ANLADIM. Biz sadece birer piyonduk. Karanlık madde deneyleri için burada olduğumuzu çok geç fark ettik. Bizi bilerek buraya çektin!\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_928_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_928_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_929_history": "(Gizli askeri laboratuvarın müdürü olduğunuz için yeni denekler olarak ekibinizi kullandınız ve askerler ekibinizi etkisiz hale getirdi.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_929_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_929_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_930_history": "(Dosyanın gizemini çözebilecek detayları bırakıp görevi iptal ettiniz. Ekibinizin ruh sağlığı bozuldu ve dosyayı kapatmak zorunda kaldınız.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_930_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_930_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_931_history": "(Keşfi iptal ettiniz. Dosya hala gizemini koruyor fakat görevden alındınız ve yetkinliğinizi kaybettiniz.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_931_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_931_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_932_history": "Profesör! Polisler beni götürüyorlar! Lütfen ekibimi bulun, kimse sizin peşinize düşmeden. Sohbeti siliyorum yoksa sizi de yakalayacaklar!\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_932_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_932_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "gravehurst_story_933_history": "(Bir anda parazitlenen şebeke önemli bir mesajı görmene engel oldu ve ekibe bir daha ulaşamadın.)\n\n(BAĞLANTI KOPTU...)",
+        "gravehurst_story_933_answer_1": "Hikayeyi Yeniden Başlat.",
+        "gravehurst_story_933_answer_2": "Hikayeyi Yeniden Başlat."
+
+
+
 
         
 
