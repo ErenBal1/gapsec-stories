@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/continue_play_state/continue_play_state.dart';
@@ -30,7 +31,7 @@ class ContinueChatView extends StatefulWidget {
 class _ContinueChatViewState extends State<ContinueChatView> {
   final ContinuePlayState cs = ContinuePlayState();
   final _databaseService = DatabaseService();
-
+  bool _isTyping = false;
   //Ekranı güncellemek için short fonk.
   void _updateScreen() {
     setState(() {});
@@ -234,11 +235,35 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(color: Colors.green, width: 1),
                           ),
-                          child: Text(
-                            cs.selectedTexts.tr(),
-                            style: const TextStyle(
-                                color: Colors.green, fontSize: 14),
-                          ),
+                          child: index == cs.repo.length - 1 && _isTyping
+                              ? Stack(children: [
+                                  Text(cs.selectedTexts.tr(),
+                                      style: const TextStyle(
+                                          color: Colors.transparent,
+                                          fontSize: 14)),
+                                  AnimatedTextKit(
+                                    animatedTexts: [
+                                      TypewriterAnimatedText(
+                                        cs.selectedTexts.tr(),
+                                        textStyle: const TextStyle(
+                                            color: Colors.green, fontSize: 14),
+                                        speed: const Duration(milliseconds: 50),
+                                      ),
+                                    ],
+                                    totalRepeatCount: 1,
+                                    onFinished: () {
+                                      setState(() {
+                                        _isTyping = false;
+                                        cs.textCompleted = true;
+                                      });
+                                    },
+                                  ),
+                                ])
+                              : Text(
+                                  cs.selectedTexts.tr(),
+                                  style: const TextStyle(
+                                      color: Colors.green, fontSize: 14),
+                                ),
                         ),
                       );
                     },
@@ -246,7 +271,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                 ),
               ),
               // Choices area
-              if (cs.textCompleted)
+              if (cs.textCompleted && !_isTyping)
                 Container(
                   padding: const EdgeInsets.all(16),
                   color: Colors.black.withOpacity(0.7),
@@ -255,6 +280,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                            ),
                             foregroundColor: Colors.green,
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
@@ -270,6 +299,10 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                            ),
                             foregroundColor: Colors.green,
                             backgroundColor: Colors.green.withOpacity(0.2),
                             side: const BorderSide(color: Colors.green),
@@ -284,7 +317,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                     ],
                   ),
                 ),
-              if (!cs.textCompleted)
+              if (!cs.textCompleted || _isTyping)
                 Container(
                   padding: const EdgeInsets.all(16),
                   color: Colors.black.withOpacity(0.7),
@@ -318,6 +351,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
   Future<void> _handleChoice(Map<String, dynamic> choice) async {
     setState(() {
       cs.textCompleted = false;
+      _isTyping = false;
       cs.isEnable = false;
     });
 
@@ -360,6 +394,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
           break;
         default:
       }
+    });
+    setState(() {
+      _isTyping = true;
     });
     cs.scrollToBottom();
 
