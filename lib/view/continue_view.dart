@@ -48,7 +48,7 @@ class _ContinueViewState extends State<ContinueView> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
-      await _selectedStoryUpdate(type: TextType.dontLookBackType);
+      await _selectedStoryUpdate(type: TextType.gravehurstType);
     });
     super.initState();
   }
@@ -97,8 +97,8 @@ class _ContinueViewState extends State<ContinueView> {
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
                     break;
-                  case "Don't Look Back":
-                    if (_databaseService.dontLookBackRepo.isNotEmpty) {
+                  case "Gravehurst":
+                    if (_databaseService.gravehurstRepo.isNotEmpty) {
                       content =
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
@@ -203,16 +203,15 @@ class _ContinueViewState extends State<ContinueView> {
                                 context, TextType.murderType, gameName); */
                           }
                           break;
-                        case "Don't Look Back":
+                        case "Gravehurst":
                           await _selectedStoryUpdate(
-                              type: TextType.dontLookBackType);
-                          if (_databaseService.dontLookBackRepo.isNotEmpty) {
+                              type: TextType.gravehurstType);
+                          if (_databaseService.gravehurstRepo.isNotEmpty) {
                             cv.goToPage(
                                 page: ContinueChatView(
-                                  selectedRepo:
-                                      _databaseService.dontLookBackRepo,
+                                  selectedRepo: _databaseService.gravehurstRepo,
                                   story: gameName,
-                                  selectedTextType: TextType.dontLookBackType,
+                                  selectedTextType: TextType.gravehurstType,
                                 ),
                                 context: context);
                           } else {

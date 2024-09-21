@@ -7,7 +7,7 @@ class NewGame {
   Id id = Isar.autoIncrement;
 
   String? murderTexts;
-  String? dontLookBackTexts;
+  String? gravehurstTexts;
   String? lostLucyTexts;
   String? nightGameTexts;
   String? runKaityTexts;
@@ -18,7 +18,7 @@ class NewGame {
 
 enum TextType {
   murderType,
-  dontLookBackType,
+  gravehurstType,
   lostLucyType,
   nightGameType,
   runKaityType,

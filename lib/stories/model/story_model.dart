@@ -20,11 +20,11 @@ StoryModel murder = StoryModel(
     description: ConstantTexts.MurderDescription.tr(),
     isLock: false,
     whichRepo: DatabaseService().murderRepo);
-StoryModel dontLookBack = StoryModel(
-    name: "Don't Look Back",
+StoryModel gravehurst = StoryModel(
+    name: "Gravehurst",
     description: "Don't Look Back best tool",
-    isLock: DatabaseService().dontLookBackIsLockDefault ?? true,
-    whichRepo: DatabaseService().dontLookBackRepo);
+    isLock: DatabaseService().gravehurstIsLockDefault ?? true,
+    whichRepo: DatabaseService().gravehurstRepo);
 StoryModel lostLucy = StoryModel(
     name: "Lost Lucy",
     description: "Lost Lucy best tool",
@@ -59,7 +59,7 @@ StoryModel lucky = StoryModel(
 class Games {
   List historiesGames = [
     murder,
-    dontLookBack,
+    gravehurst,
     lostLucy,
     nightGame,
     runKaity,

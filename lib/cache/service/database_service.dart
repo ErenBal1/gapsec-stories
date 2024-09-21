@@ -20,7 +20,7 @@ class DatabaseService {
   //ilk önce default uygulama kilit durumlarını tanımla
   int? tokenAmountDefault = 0;
   bool? murderIsLockDefault = false;
-  bool? dontLookBackIsLockDefault = true;
+  bool? gravehurstIsLockDefault = true;
   bool? lostLucyIsLockDefault = true;
   bool? nightGameIsLockDefault = true;
   bool? runKaityIsLockDefault = true;
@@ -35,7 +35,7 @@ class DatabaseService {
       // print("BoolModel bulunamadı, varsayılan değerler kullanılacak.");
       return;
     }
-    dontLookBackIsLockDefault = boolValues.dontLookBackIsLock ?? true;
+    gravehurstIsLockDefault = boolValues.gravehurstIsLock ?? true;
     lostLucyIsLockDefault = boolValues.lostLucyIsLock ?? true;
     nightGameIsLockDefault = boolValues.nightGameIsLock ?? true;
     runKaityIsLockDefault = boolValues.runKaityIsLock ?? true;
@@ -44,7 +44,7 @@ class DatabaseService {
     luckyIsLockDefault = boolValues.luckyIsLock ?? true;
 
     murder.isLock = murderIsLockDefault!;
-    dontLookBack.isLock = dontLookBackIsLockDefault!;
+    gravehurst.isLock = gravehurstIsLockDefault!;
     lostLucy.isLock = lostLucyIsLockDefault!;
     nightGame.isLock = nightGameIsLockDefault!;
     runKaity.isLock = runKaityIsLockDefault!;
@@ -81,15 +81,15 @@ class DatabaseService {
       {required bool newValue, required TextType type}) async {
     final boolValues = await isar.boolModels.where().findFirst();
     switch (type) {
-      case TextType.dontLookBackType:
+      case TextType.gravehurstType:
         if (boolValues != null) {
-          boolValues.dontLookBackIsLock = newValue;
+          boolValues.gravehurstIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..dontLookBackIsLock = newValue;
+          final newBoolModel = BoolModel()..gravehurstIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
@@ -188,7 +188,7 @@ class DatabaseService {
 
   //Her bir hikayenin depolanması için
   List<NewGame?> murderRepo = [];
-  List<NewGame?> dontLookBackRepo = [];
+  List<NewGame?> gravehurstRepo = [];
   List<NewGame?> lostLucyRepo = [];
   List<NewGame?> nightGameRepo = [];
   List<NewGame?> runKaityRepo = [];
@@ -222,18 +222,18 @@ class DatabaseService {
         murderRepo.clear();
         await selectedStoryUpdate(type: TextType.murderType);
         break;
-      case TextType.dontLookBackType:
+      case TextType.gravehurstType:
         await isar.writeTxn(() async {
           final items = await isar.newGames
               .filter()
-              .dontLookBackTextsIsNotEmpty()
+              .gravehurstTextsIsNotEmpty()
               .findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        dontLookBackRepo.clear();
-        await selectedStoryUpdate(type: TextType.dontLookBackType);
+        gravehurstRepo.clear();
+        await selectedStoryUpdate(type: TextType.gravehurstType);
         break;
       case TextType.lostLucyType:
         await isar.writeTxn(() async {
@@ -317,11 +317,11 @@ class DatabaseService {
         //print("murderRepo => $murderRepo");
         //print("murder story updated");
         break;
-      case TextType.dontLookBackType:
-        dontLookBackRepo = newGames
+      case TextType.gravehurstType:
+        gravehurstRepo = newGames
             .where((item) =>
-                item.dontLookBackTexts != null &&
-                item.dontLookBackTexts!.isNotEmpty)
+                item.gravehurstTexts != null &&
+                item.gravehurstTexts!.isNotEmpty)
             .toList();
         //print("dontLookBackRepo => $dontLookBackRepo");
         //print("dontlookback story updated");
@@ -390,13 +390,13 @@ class DatabaseService {
           selectedStoryUpdate(type: TextType.murderType);
         }
         break;
-      case TextType.dontLookBackType:
+      case TextType.gravehurstType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..dontLookBackTexts = eklenicekMetin;
+          final item = NewGame()..gravehurstTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.dontLookBackType);
+          selectedStoryUpdate(type: TextType.gravehurstType);
         }
         break;
       case TextType.lostLucyType:

@@ -83,6 +83,17 @@ class _NewGameViewState extends State<NewGameView> {
               ),
               context: context);
           break;
+        case TextType.gravehurstType:
+          await _selectedHistoryDelete(type: TextType.gravehurstType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.gravehurstRepo,
+                story: gameName,
+                selectedTextType: TextType.gravehurstType,
+              ),
+              context: context);
+          break;
+
         default:
       }
     }
@@ -234,6 +245,28 @@ class _NewGameViewState extends State<NewGameView> {
                             } else {
                               await showOkCancelAlert(
                                   context, TextType.murderType, gameName);
+                            }
+                            break;
+
+                          default:
+                        }
+                      } else if (gameName == "Gravehurst") {
+                        switch (gameName) {
+                          case "Gravehurst":
+                            await _selectedStoryUpdate(
+                                type: TextType.gravehurstType);
+                            if (_databaseService.gravehurstRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo:
+                                        _databaseService.gravehurstRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.gravehurstType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.gravehurstType, gameName);
                             }
                             break;
                           default:
