@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
@@ -30,6 +31,7 @@ class ChatView extends StatefulWidget {
 class _ChatViewState extends State<ChatView> {
   final PlayStoryViewState vm = PlayStoryViewState();
   final _databaseService = DatabaseService();
+  bool _isTyping = false;
   //Ekranı güncellemek için short fonk.
   void _updateScreen() {
     setState(() {});
@@ -105,154 +107,200 @@ class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     Config().init(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      vm.scrollToBottom();
+    });
     return Scaffold(
-      // ignore: avoid_unnecessary_containers
-      body: Container(
-        child: SafeArea(
-          child: Column(
-            children: [
-              // Header
-              Align(
-                alignment: Alignment.topLeft,
-                child: Row(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.cancel_outlined, color: Colors.green),
+        ),
+        title: Text(
+          widget.story,
+          style: AppFonts.storyTitleInGameTextStyle,
+        ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                ),
+                child: ListView.builder(
+                  controller: vm.scrollController,
+                  itemCount: vm.repo.length,
+                  itemBuilder: (context, index) {
+                    final NewGame newGame = vm.repo[index];
+                    switch (widget.selectedTextType) {
+                      case TextType.murderType:
+                        vm.selectedTexts = newGame.murderTexts.toString();
+                        break;
+                      case TextType.gravehurstType:
+                        vm.selectedTexts = newGame.gravehurstTexts.toString();
+                        break;
+                      default:
+                    }
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        left: index.isEven ? 10 : 50,
+                        right: index.isEven ? 50 : 10,
+                        bottom: 16,
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: index.isEven
+                              ? Colors.green.withOpacity(0.2)
+                              : Colors.grey.withOpacity(0.2),
+                          borderRadius: index.isEven
+                              ? const BorderRadiusDirectional.only(
+                                  bottomEnd: Radius.circular(10),
+                                  topEnd: Radius.circular(10),
+                                  topStart: Radius.circular(10))
+                              : const BorderRadiusDirectional.only(
+                                  bottomStart: Radius.circular(10),
+                                  topEnd: Radius.circular(10),
+                                  topStart: Radius.circular(10)),
+                          border: Border.all(color: Colors.green, width: 1),
+                        ),
+                        child: index == vm.repo.length - 1 && _isTyping
+                            ? Stack(children: [
+                                Text(vm.selectedTexts.tr(),
+                                    style: const TextStyle(
+                                        color: Colors.transparent,
+                                        fontSize: 14)),
+                                AnimatedTextKit(
+                                  animatedTexts: [
+                                    TypewriterAnimatedText(
+                                      vm.selectedTexts.tr(),
+                                      textStyle: const TextStyle(
+                                          color: Colors.green, fontSize: 14),
+                                      speed: const Duration(milliseconds: 50),
+                                    ),
+                                  ],
+                                  totalRepeatCount: 1,
+                                  onFinished: () {
+                                    setState(() {
+                                      _isTyping = false;
+                                      vm.textCompleted = true;
+                                    });
+                                  },
+                                ),
+                              ])
+                            : Text(
+                                vm.selectedTexts.tr(),
+                                style: const TextStyle(
+                                    color: Colors.green, fontSize: 14),
+                              ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+          // Choices area
+          if (vm.textCompleted && !_isTyping)
+            SafeArea(
+              child: Container(
+                color: Colors.black.withOpacity(0.7),
+                child: Column(
                   children: [
-                    IconButton(
-                      icon:
-                          const Icon(Icons.arrow_back_ios, color: Colors.green),
-                      onPressed: () => Navigator.pop(context),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, bottom: 8),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          foregroundColor: Colors.green,
+                          backgroundColor: Colors.green.withOpacity(0.2),
+                          side: const BorderSide(color: Colors.green),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12, bottom: 12),
+                          child: Text(vm.assignToOdd(
+                              vm.selectedList, vm.storyMapId)!["title"]),
+                        ),
+                        onPressed: () async {
+                          await _handleChoice(vm.left);
+                        },
+                      ),
                     ),
-                    Text(widget.story,
-                        style: AppFonts.storyTitleInGameTextStyle),
+                    Container(
+                      child: Text(
+                        ConstantTexts.ChooseYourAnswer.tr(),
+                        style: const TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, top: 8),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          foregroundColor: Colors.green,
+                          backgroundColor: Colors.green.withOpacity(0.2),
+                          side: const BorderSide(color: Colors.green),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12, bottom: 12),
+                          child: Text(vm.assignToEven(
+                              vm.selectedList, vm.storyMapId)!["title"]),
+                        ),
+                        onPressed: () async {
+                          await _handleChoice(vm.right);
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
-              // Chat area
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
-                  ),
-                  child: ListView.builder(
-                    controller: vm.scrollController,
-                    itemCount: vm.repo.length,
-                    itemBuilder: (context, index) {
-                      final NewGame newGame = vm.repo[index];
-                      switch (widget.selectedTextType) {
-                        case TextType.murderType:
-                          vm.selectedTexts = newGame.murderTexts.toString();
-                          break;
-                        case TextType.gravehurstType:
-                          vm.selectedTexts = newGame.gravehurstTexts.toString();
-                          break;
-                        default:
-                      }
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          left: index.isEven ? 0 : 50,
-                          right: index.isEven ? 50 : 0,
-                          bottom: 16,
-                        ),
-                        child: Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: index.isEven
-                                ? Colors.green.withOpacity(0.2)
-                                : Colors.grey.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.green, width: 1),
-                          ),
-                          child: Text(
-                            vm.selectedTexts.tr(),
-                            style: const TextStyle(
-                                color: Colors.green, fontSize: 14),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+            ),
+
+          if (!vm.textCompleted || _isTyping)
+            SafeArea(
+              child: Container(
+                color: Colors.black.withOpacity(0.7),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: LoadingIndicator(
+                        indicatorType: Indicator.ballPulse,
+                        colors: [Colors.green],
+                        strokeWidth: 2,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      ConstantTexts.waitingForMessage.tr(),
+                      style: AppFonts.waitingForMessageTextStyle,
+                    ),
+                  ],
                 ),
               ),
-              // Choices area
-              if (vm.textCompleted)
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  color: Colors.black.withOpacity(0.7),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                  Radius.circular(10)), // Köşeleri dikleştir
-                            ),
-                            foregroundColor: Colors.green,
-                            backgroundColor: Colors.green.withOpacity(0.2),
-                            side: const BorderSide(color: Colors.green),
-                          ),
-                          child: Text(vm.assignToOdd(
-                              vm.selectedList, vm.storyMapId)!["title"]),
-                          onPressed: () async {
-                            await _handleChoice(vm.left);
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                  Radius.circular(10)), // Köşeleri dikleştir
-                            ),
-                            foregroundColor: Colors.green,
-                            backgroundColor: Colors.green.withOpacity(0.2),
-                            side: const BorderSide(color: Colors.green),
-                          ),
-                          child: Text(vm.assignToEven(
-                              vm.selectedList, vm.storyMapId)!["title"]),
-                          onPressed: () async {
-                            await _handleChoice(vm.right);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              if (!vm.textCompleted)
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  color: Colors.black.withOpacity(0.7),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: LoadingIndicator(
-                          indicatorType: Indicator.ballPulse,
-                          colors: [Colors.green],
-                          strokeWidth: 2,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        ConstantTexts.waitingForMessage.tr(),
-                        style: AppFonts.waitingForMessageTextStyle,
-                      ),
-                    ],
-                  ),
-                ),
-            ],
-          ),
-        ),
+            ),
+        ],
       ),
     );
   }
 
   Future<void> _handleChoice(Map<String, dynamic> choice) async {
-    vm.textCompleted = false;
+    setState(() {
+      vm.textCompleted = false;
+      _isTyping = false;
+    });
 
     vm.isEnable = false;
     await _selectedStoryAddItem(
@@ -267,7 +315,7 @@ class _ChatViewState extends State<ChatView> {
         : _databaseService.gravehurstRepo;
     vm.scrollToBottom();
 
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
 
     vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
     vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
@@ -279,6 +327,11 @@ class _ChatViewState extends State<ChatView> {
     vm.repo = widget.selectedTextType == TextType.murderType
         ? _databaseService.murderRepo
         : _databaseService.gravehurstRepo;
+
+    setState(() {
+      _isTyping = true;
+    });
+
     vm.scrollToBottom();
 
     if (vm.storyMapId >= 900) {
@@ -289,8 +342,6 @@ class _ChatViewState extends State<ChatView> {
           ConstantTexts.okay.tr(),
           () {});
       vm.isEnable = false;
-    } else {
-      vm.textCompleted = true;
     }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/continue_play_state/continue_play_state.dart';
@@ -30,7 +31,7 @@ class ContinueChatView extends StatefulWidget {
 class _ContinueChatViewState extends State<ContinueChatView> {
   final ContinuePlayState cs = ContinuePlayState();
   final _databaseService = DatabaseService();
-
+  bool _isTyping = false;
   //Ekranı güncellemek için short fonk.
   void _updateScreen() {
     setState(() {});
@@ -175,142 +176,193 @@ class _ContinueChatViewState extends State<ContinueChatView> {
   @override
   Widget build(BuildContext context) {
     Config().init(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      cs.scrollToBottom();
+    });
     return Scaffold(
       // ignore: avoid_unnecessary_containers
-      body: Container(
-        child: SafeArea(
-          child: Column(
-            children: [
-              // Header
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.cancel_outlined, color: Colors.green),
+        ),
+        title: Text(
+          widget.story,
+          style: AppFonts.storyTitleInGameTextStyle,
+        ),
+      ),
+      body: Column(
+        children: [
+          // Chat area
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                ),
+                child: ListView.builder(
+                  controller: cs.scrollController,
+                  itemCount: cs.repo.length,
+                  itemBuilder: (context, index) {
+                    final NewGame newGame = cs.repo[index];
+                    switch (widget.selectedTextType) {
+                      case TextType.murderType:
+                        cs.selectedTexts = newGame.murderTexts.toString();
+                        break;
+                      case TextType.gravehurstType:
+                        cs.selectedTexts = newGame.gravehurstTexts.toString();
+                        break;
+                      default:
+                    }
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        left: index.isEven ? 10 : 50,
+                        right: index.isEven ? 50 : 10,
+                        bottom: 16,
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: index.isEven
+                              ? Colors.green.withOpacity(0.2)
+                              : Colors.grey.withOpacity(0.2),
+                          borderRadius: index.isEven
+                              ? const BorderRadiusDirectional.only(
+                                  bottomEnd: Radius.circular(10),
+                                  topEnd: Radius.circular(10),
+                                  topStart: Radius.circular(10))
+                              : const BorderRadiusDirectional.only(
+                                  bottomStart: Radius.circular(10),
+                                  topEnd: Radius.circular(10),
+                                  topStart: Radius.circular(10)),
+                          border: Border.all(color: Colors.green, width: 1),
+                        ),
+                        child: index == cs.repo.length - 1 && _isTyping
+                            ? Stack(children: [
+                                Text(cs.selectedTexts.tr(),
+                                    style: const TextStyle(
+                                        color: Colors.transparent,
+                                        fontSize: 14)),
+                                AnimatedTextKit(
+                                  animatedTexts: [
+                                    TypewriterAnimatedText(
+                                      cs.selectedTexts.tr(),
+                                      textStyle: const TextStyle(
+                                          color: Colors.green, fontSize: 14),
+                                      speed: const Duration(milliseconds: 50),
+                                    ),
+                                  ],
+                                  totalRepeatCount: 1,
+                                  onFinished: () {
+                                    setState(() {
+                                      _isTyping = false;
+                                      cs.textCompleted = true;
+                                    });
+                                  },
+                                ),
+                              ])
+                            : Text(
+                                cs.selectedTexts.tr(),
+                                style: const TextStyle(
+                                    color: Colors.green, fontSize: 14),
+                              ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+          // Choices area
+          if (cs.textCompleted && !_isTyping)
+            SafeArea(
+              child: Container(
                 color: Colors.black.withOpacity(0.7),
-                child: Row(
+                child: Column(
                   children: [
-                    IconButton(
-                      icon: const Icon(Icons.arrow_back_ios,
-                          color: Colors.green, size: 20),
-                      onPressed: () => Navigator.pop(context),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, bottom: 8),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          foregroundColor: Colors.green,
+                          backgroundColor: Colors.green.withOpacity(0.2),
+                          side: const BorderSide(color: Colors.green),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12, bottom: 12),
+                          child: Text(cs.left["title"]),
+                        ),
+                        onPressed: () async {
+                          await _handleChoice(cs.left);
+                          cs.attempt++;
+                        },
+                      ),
                     ),
-                    Text(widget.story,
-                        style: AppFonts.storyTitleInGameTextStyle),
+                    Container(
+                      child: Text(
+                        ConstantTexts.ChooseYourAnswer.tr(),
+                        style: const TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, top: 8),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          foregroundColor: Colors.green,
+                          backgroundColor: Colors.green.withOpacity(0.2),
+                          side: const BorderSide(color: Colors.green),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12, bottom: 12),
+                          child: Text(cs.right["title"]),
+                        ),
+                        onPressed: () async {
+                          await _handleChoice(cs.right);
+                          cs.attempt++;
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
-              // Chat area
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
-                  ),
-                  child: ListView.builder(
-                    controller: cs.scrollController,
-                    itemCount: cs.repo.length,
-                    itemBuilder: (context, index) {
-                      final NewGame newGame = cs.repo[index];
-                      switch (widget.selectedTextType) {
-                        case TextType.murderType:
-                          cs.selectedTexts = newGame.murderTexts.toString();
-                          break;
-                        case TextType.gravehurstType:
-                          cs.selectedTexts = newGame.gravehurstTexts.toString();
-                          break;
-                        default:
-                      }
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          left: index.isEven ? 0 : 50,
-                          right: index.isEven ? 50 : 0,
-                          bottom: 16,
-                        ),
-                        child: Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: index.isEven
-                                ? Colors.green.withOpacity(0.2)
-                                : Colors.grey.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.green, width: 1),
-                          ),
-                          child: Text(
-                            cs.selectedTexts.tr(),
-                            style: const TextStyle(
-                                color: Colors.green, fontSize: 14),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+            ),
+          if (!cs.textCompleted || _isTyping)
+            SafeArea(
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                color: Colors.black.withOpacity(0.7),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: LoadingIndicator(
+                        indicatorType: Indicator.ballPulse,
+                        colors: [Colors.green],
+                        strokeWidth: 2,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      ConstantTexts.waitingForMessage.tr(),
+                      style: AppFonts.waitingForMessageTextStyle,
+                    ),
+                  ],
                 ),
               ),
-              // Choices area
-              if (cs.textCompleted)
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  color: Colors.black.withOpacity(0.7),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.green,
-                            backgroundColor: Colors.green.withOpacity(0.2),
-                            side: const BorderSide(color: Colors.green),
-                          ),
-                          child: Text(cs.left["title"]),
-                          onPressed: () async {
-                            await _handleChoice(cs.left);
-                            cs.attempt++;
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.green,
-                            backgroundColor: Colors.green.withOpacity(0.2),
-                            side: const BorderSide(color: Colors.green),
-                          ),
-                          child: Text(cs.right["title"]),
-                          onPressed: () async {
-                            await _handleChoice(cs.right);
-                            cs.attempt++;
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              if (!cs.textCompleted)
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  color: Colors.black.withOpacity(0.7),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: LoadingIndicator(
-                          indicatorType: Indicator.ballPulse,
-                          colors: [Colors.green],
-                          strokeWidth: 2,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        ConstantTexts.waitingForMessage.tr(),
-                        style: AppFonts.waitingForMessageTextStyle,
-                      ),
-                    ],
-                  ),
-                ),
-            ],
-          ),
-        ),
+            ),
+        ],
       ),
     );
   }
@@ -318,6 +370,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
   Future<void> _handleChoice(Map<String, dynamic> choice) async {
     setState(() {
       cs.textCompleted = false;
+      _isTyping = false;
       cs.isEnable = false;
     });
 
@@ -360,6 +413,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
           break;
         default:
       }
+    });
+    setState(() {
+      _isTyping = true;
     });
     cs.scrollToBottom();
 

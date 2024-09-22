@@ -33,13 +33,16 @@ abstract class _StoriesStateBase with Store {
   bool itsFree = true;
 
   @observable
+  String newBackground = "murder.png";
+
+  @observable
   String selectedTitle = murder.name;
 
   @observable
   String selectedDescription = murder.description;
 
   @observable
-  String mp4Path = "assets/videos/new-game-background-sounds.mp4";
+  String mp4Path = "assets/sounds/murder.mp3";
 
   @action
   void goToPageRemoveUntilPush(
@@ -57,6 +60,11 @@ abstract class _StoriesStateBase with Store {
   @action
   void updateMp4Path({required String newPath}) {
     mp4Path = newPath;
+  }
+
+  @action
+  void updateBackground({required String newImagePath}) {
+    newBackground = newImagePath;
   }
 
   @action
@@ -106,48 +114,56 @@ abstract class _StoriesStateBase with Store {
       case 0:
         updatePrice(newPrice: 0);
         updateItsFree(newItsFree: !murder.isLock);
-        updateMp4Path(newPath: "assets/videos/new-game-background-sounds.mp4");
+        updateBackground(newImagePath: "murder.png");
+        updateMp4Path(newPath: "assets/sounds/murder.mp3");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 1:
         updatePrice(newPrice: 80);
         updateItsFree(newItsFree: !gravehurst.isLock);
-        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        updateBackground(newImagePath: "gravehurst.png");
+        updateMp4Path(newPath: "assets/sounds/gravehurst.mp3");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 2:
         updatePrice(newPrice: 120);
         updateItsFree(newItsFree: !lostLucy.isLock);
+        updateBackground(newImagePath: "gravehurst.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 3:
         updatePrice(newPrice: 100);
         updateItsFree(newItsFree: !nightGame.isLock);
+        updateBackground(newImagePath: "gravehurst.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 4:
         updatePrice(newPrice: 110);
         updateItsFree(newItsFree: !runKaity.isLock);
+        updateBackground(newImagePath: "gravehurst.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 5:
         updatePrice(newPrice: 150);
         updateItsFree(newItsFree: !smile.isLock);
+        updateBackground(newImagePath: "gravehurst.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 6:
         updatePrice(newPrice: 180);
         updateItsFree(newItsFree: !behind.isLock);
+        updateBackground(newImagePath: "gravehurst.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 7:
         updatePrice(newPrice: 300);
         updateItsFree(newItsFree: !lucky.isLock);
+        updateBackground(newImagePath: "gravehurst.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
         break;

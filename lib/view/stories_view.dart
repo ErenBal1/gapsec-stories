@@ -311,11 +311,14 @@ class _StoriesViewState extends State<StoriesView>
           children: [
             // Video arka planı
             // ignore: avoid_unnecessary_containers
-            Container(
+            /* Container(
               child: Observer(builder: (_) {
                 return VideoPlayer(vm.mp4controller);
               }),
-            ),
+            ), */
+            Observer(builder: (_) {
+              return Image.asset("assets/images/${vm.newBackground}");
+            }),
             // Hikaye içeriği
             Container(
               decoration: BoxDecoration(
