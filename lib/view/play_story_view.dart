@@ -107,27 +107,29 @@ class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     Config().init(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      vm.scrollToBottom();
+    });
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            // Header
-            Align(
-              alignment: Alignment.topLeft,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, color: Colors.green),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  Text(widget.story, style: AppFonts.storyTitleInGameTextStyle),
-                ],
-              ),
-            ),
-            // Chat area
-            Expanded(
+
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.cancel_outlined, color: Colors.green),
+        ),
+        title: Text(
+          widget.story,
+          style: AppFonts.storyTitleInGameTextStyle,
+        ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 30),
               child: Container(
-                padding: const EdgeInsets.all(16),
+
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.5),
                 ),
@@ -147,8 +149,10 @@ class _ChatViewState extends State<ChatView> {
                     }
                     return Padding(
                       padding: EdgeInsets.only(
-                        left: index.isEven ? 0 : 50,
-                        right: index.isEven ? 50 : 0,
+
+                        left: index.isEven ? 10 : 50,
+                        right: index.isEven ? 50 : 10,
+
                         bottom: 16,
                       ),
                       child: Container(
@@ -157,7 +161,17 @@ class _ChatViewState extends State<ChatView> {
                           color: index.isEven
                               ? Colors.green.withOpacity(0.2)
                               : Colors.grey.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(12),
+
+                          borderRadius: index.isEven
+                              ? const BorderRadiusDirectional.only(
+                                  bottomEnd: Radius.circular(10),
+                                  topEnd: Radius.circular(10),
+                                  topStart: Radius.circular(10))
+                              : const BorderRadiusDirectional.only(
+                                  bottomStart: Radius.circular(10),
+                                  topEnd: Radius.circular(10),
+                                  topStart: Radius.circular(10)),
+
                           border: Border.all(color: Colors.green, width: 1),
                         ),
                         child: index == vm.repo.length - 1 && _isTyping
@@ -195,14 +209,18 @@ class _ChatViewState extends State<ChatView> {
                 ),
               ),
             ),
-            // Choices area
-            if (vm.textCompleted && !_isTyping)
-              Container(
-                padding: const EdgeInsets.all(16),
+          ),
+          // Choices area
+          if (vm.textCompleted && !_isTyping)
+            SafeArea(
+              child: Container(
                 color: Colors.black.withOpacity(0.7),
-                child: Row(
+                child: Column(
                   children: [
-                    Expanded(
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, bottom: 8),
+
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
@@ -211,16 +229,30 @@ class _ChatViewState extends State<ChatView> {
                           foregroundColor: Colors.green,
                           backgroundColor: Colors.green.withOpacity(0.2),
                           side: const BorderSide(color: Colors.green),
+
                         ),
-                        child: Text(vm.assignToOdd(
-                            vm.selectedList, vm.storyMapId)!["title"]),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12, bottom: 12),
+                          child: Text(vm.assignToOdd(
+                              vm.selectedList, vm.storyMapId)!["title"]),
+                        ),
+
                         onPressed: () async {
                           await _handleChoice(vm.left);
                         },
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
+
+                    Container(
+                      child: Text(
+                        ConstantTexts.ChooseYourAnswer.tr(),
+                        style: const TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, top: 8),
+
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
@@ -230,8 +262,11 @@ class _ChatViewState extends State<ChatView> {
                           backgroundColor: Colors.green.withOpacity(0.2),
                           side: const BorderSide(color: Colors.green),
                         ),
-                        child: Text(vm.assignToEven(
-                            vm.selectedList, vm.storyMapId)!["title"]),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12, bottom: 12),
+                          child: Text(vm.assignToEven(
+                              vm.selectedList, vm.storyMapId)!["title"]),
+                        ),
                         onPressed: () async {
                           await _handleChoice(vm.right);
                         },
@@ -240,9 +275,12 @@ class _ChatViewState extends State<ChatView> {
                   ],
                 ),
               ),
-            if (!vm.textCompleted || _isTyping)
-              Container(
-                padding: const EdgeInsets.all(16),
+            ),
+
+          if (!vm.textCompleted || _isTyping)
+            SafeArea(
+              child: Container(
+
                 color: Colors.black.withOpacity(0.7),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -264,8 +302,9 @@ class _ChatViewState extends State<ChatView> {
                   ],
                 ),
               ),
-          ],
-        ),
+
+            ),
+        ],
       ),
     );
   }
