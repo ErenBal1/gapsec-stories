@@ -113,6 +113,22 @@ mixin _$StoriesState on _StoriesStateBase, Store {
     });
   }
 
+  late final _$newBackgroundAtom =
+      Atom(name: '_StoriesStateBase.newBackground', context: context);
+
+  @override
+  String get newBackground {
+    _$newBackgroundAtom.reportRead();
+    return super.newBackground;
+  }
+
+  @override
+  set newBackground(String value) {
+    _$newBackgroundAtom.reportWrite(value, super.newBackground, () {
+      super.newBackground = value;
+    });
+  }
+
   late final _$selectedTitleAtom =
       Atom(name: '_StoriesStateBase.selectedTitle', context: context);
 
@@ -209,6 +225,17 @@ mixin _$StoriesState on _StoriesStateBase, Store {
         name: '_StoriesStateBase.updateMp4Path');
     try {
       return super.updateMp4Path(newPath: newPath);
+    } finally {
+      _$_StoriesStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void updateBackground({required String newImagePath}) {
+    final _$actionInfo = _$_StoriesStateBaseActionController.startAction(
+        name: '_StoriesStateBase.updateBackground');
+    try {
+      return super.updateBackground(newImagePath: newImagePath);
     } finally {
       _$_StoriesStateBaseActionController.endAction(_$actionInfo);
     }
@@ -312,6 +339,7 @@ activeIndex: ${activeIndex},
 iconSelectedIndex: ${iconSelectedIndex},
 price: ${price},
 itsFree: ${itsFree},
+newBackground: ${newBackground},
 selectedTitle: ${selectedTitle},
 selectedDescription: ${selectedDescription},
 mp4Path: ${mp4Path}

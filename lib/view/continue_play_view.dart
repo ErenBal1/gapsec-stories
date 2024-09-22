@@ -305,9 +305,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                       ),
                     ),
                     Container(
-                      child: const Text(
-                        "- Choose Your Answer -",
-                        style: TextStyle(color: Colors.grey),
+                      child: Text(
+                        ConstantTexts.ChooseYourAnswer.tr(),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     ),
                     Padding(
