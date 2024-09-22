@@ -1161,5 +1161,357 @@
 
         "gravehurst_story_933_history": "(A sudden interference in the network prevented you from seeing an important message and you couldn't reach the team again.)\n\n(CONNECTION LOST...)",
         "gravehurst_story_933_answer_1": "Restart the Story.",
-        "gravehurst_story_933_answer_2": "Restart the Story."
+        "gravehurst_story_933_answer_2": "Restart the Story.",
+
+
+
+
+
+        "web_of_deceit_0_history": "Detective, I've positioned myself in Elvis's house as you instructed.",
+        "web_of_deceit_0_answer_1": "They will kill him no matter what.",
+        "web_of_deceit_0_answer_2": "You won't be able to save him.",
+
+        "web_of_deceit_1_history": "I know, detective, but I know something even better: We will bring down this gang.",
+        "web_of_deceit_1_answer_1": "Don't let your ambition get the better of you, Kendrick.",
+        "web_of_deceit_1_answer_2": "Everything is in your hands, Kendrick.",
+
+        "web_of_deceit_2_history": "I'm sorry, detective. I won't act without instructions.",
+        "web_of_deceit_2_answer_1": "I trust you.",
+        "web_of_deceit_2_answer_2": "I have no doubt, son.",
+
+        "web_of_deceit_3_history": "You can be sure that I will do my very best with all my being.",
+        "web_of_deceit_3_answer_1": "I trust you.",
+        "web_of_deceit_3_answer_2": "I have no doubt, son.",
+
+        "web_of_deceit_4_history": "Detective, I heard a gunshot from downstairs. Elvis must have been killed!",
+        "web_of_deceit_4_answer_1": "I declare the mission start!",
+        "web_of_deceit_4_answer_2": "You could be in danger, hide somewhere immediately!",
+
+        "web_of_deceit_5_history": "Alright, detective. I've put on my earpiece. The house is quiet now, I'm going downstairs.",
+        "web_of_deceit_5_answer_1": "Follow my instructions one by one.",
+        "web_of_deceit_5_answer_2": "I'll tell you step by step what you need to do.",
+
+        "web_of_deceit_7_history": "I'm going down to the lower floor, detective.",
+        "web_of_deceit_7_answer_1": "Catch him, Kendrick!",
+        "web_of_deceit_7_answer_2": "Deliberately give yourself away.",
+
+        "web_of_deceit_6_history": "I've put on my earpiece. I'm in the wardrobe, detective.",
+        "web_of_deceit_6_answer_1": "Take your gun with you.",
+        "web_of_deceit_6_answer_2": "Be careful, don't lose the connection.",
+
+        "web_of_deceit_8_history": "I'll open the door loudly and call out to Elvis as I go down the stairs.",
+        "web_of_deceit_8_answer_1": "I'll tell you what to do.",
+        "web_of_deceit_8_answer_2": "Drop your weapon.",
+
+        "web_of_deceit_9_history": "I've caught him, detective. Now he'll behave and talk! Otherwise, we'll hand him over to the police.",
+        "web_of_deceit_9_answer_1": "Be serious, Kendrick.",
+        "web_of_deceit_9_answer_2": "Hurry up.",
+
+        "web_of_deceit_10_history": "[AUDIO RECORDING]\n\nKendrick: Who are you? Why did you kill Elvis?\n\nKiller: Are you that curious?\n\nKendrick: No. I already know.",
+        "web_of_deceit_10_answer_1": "Ask about the gang.",
+        "web_of_deceit_10_answer_2": "Get to the point.",
+
+        "web_of_deceit_11_history": "[AUDIO RECORDING]\n\nKendrick: Now you're going to tell me about your gang.\n\nKiller: Never.\n\nKendrick: You don't want to die, do you?",
+        "web_of_deceit_11_answer_1": "Threaten him.",
+        "web_of_deceit_11_answer_2": "Point your gun at him.",
+
+        "web_of_deceit_12_history": "[AUDIO RECORDING]\n\nKendrick: I'm telling you for the last time. Either you give me good information or I'll kill you!\n\nKiller: Okay. There's going to be a job at the port at 3 AM tonight.",
+        "web_of_deceit_12_answer_1": "Okay, you get out.",
+        "web_of_deceit_12_answer_2": "Wait for the police.",
+
+        "web_of_deceit_15_history": "[AUDIO RECORDING]\n\nKendrick: Elvis! Elvis! What was that sound?\n\nKiller: Don't make a sound.",
+        "web_of_deceit_15_answer_1": "Don't make a sound.",
+        "web_of_deceit_15_answer_2": "Convince him you won't make a sound.",
+
+        "web_of_deceit_16_history": "[AUDIO RECORDING]\n\nKendrick: I promise! I won't make a sound.\n\nKiller: How close are you to Elvis?",
+        "web_of_deceit_16_answer_1": "Say you just met him.",
+        "web_of_deceit_16_answer_2": "Say you're very close.",
+
+        "web_of_deceit_17_history": "[AUDIO RECORDING]\n\nKiller: You're going to take the blame for this murder or I'll kill you too.",
+        "web_of_deceit_17_answer_1": "You have to.",
+        "web_of_deceit_17_answer_2": "Don't object.",
+
+        "web_of_deceit_18_history": "[AUDIO RECORDING]\n\nKendrick: Elvis is my very close friend. Did something happen to him?\n\nKiller: Is that so? Then he must tell you everything.",
+        "web_of_deceit_18_answer_1": "No.",
+        "web_of_deceit_18_answer_2": "Yes.",
+
+        "web_of_deceit_19_history": "[AUDIO RECORDING]\n\nKendrick: Okay! Okay! I'll take the blame. Just don't kill me.\n\nKiller: Good, if anything goes wrong-\n\nKendrick: It won't.",
+        "web_of_deceit_19_answer_1": "Kendrick, respond.",
+        "web_of_deceit_19_answer_2": "What's the latest situation?",
+
+        "web_of_deceit_20_history": "Detective! The killer escaped! The police are here now.",
+        "web_of_deceit_20_answer_1": "Okay Kendrick. You can leave there.",
+        "web_of_deceit_20_answer_2": "You'll have to go to prison for a while.",
+
+        "web_of_deceit_24_history": "[AUDIO RECORDING]\n\nKendrick: Yes, we don't hide anything from each other\n\nKiller: Then you're going to tell me all the despicable things he did!",
+        "web_of_deceit_24_answer_1": "Defend Elvis.",
+        "web_of_deceit_24_answer_2": "Ask if he's talking about the community.",
+
+        "web_of_deceit_25_history": "[AUDIO RECORDING]\n\nKendrick: Elvis didn't do anything intentionally.\n\nKiller: I told you to tell me!",
+        "web_of_deceit_25_answer_1": "Tell him, Kendrick.",
+        "web_of_deceit_25_answer_2": "Don't argue with him. He might pull the trigger!",
+
+        "web_of_deceit_26_history": "[AUDIO RECORDING]\n\nKendrick: Are you a member of that community?\n\nKiller: Bull's eye! Now spill it before I kill you.",
+        "web_of_deceit_26_answer_1": "Say you don't support him.",
+        "web_of_deceit_26_answer_2": "Secure your life.",
+
+        "web_of_deceit_27_history": "[AUDIO RECORDING]\n\nKendrick: I'm not going to defend what he did to you. He made a mistake but he was under the influence of others.\n\nKiller: Isn't that the problem?",
+        "web_of_deceit_27_answer_1": "Say he was threatened.",
+        "web_of_deceit_27_answer_2": "Stop defending him.",
+
+        "web_of_deceit_28_history": "[AUDIO RECORDING]\n\nKendrick: He had to. He was being threatened.\n\nKiller: Did he have a different end now?",
+        "web_of_deceit_28_answer_1": "Agree with him.",
+        "web_of_deceit_28_answer_2": "Take their side.",
+
+        "web_of_deceit_29_history": "[AUDIO RECORDING]\n\nKendrick: You're right. I warned him but he didn't listen to me. As much as he was my friend, he deserved this end.\n\nKiller: Unfortunately, your end will be similar.",
+        "web_of_deceit_29_answer_1": "Beg, say you have children.",
+        "web_of_deceit_29_answer_2": "Say you'll forget about this.",
+
+        "web_of_deceit_30_history": "[AUDIO RECORDING]\n\nKendrick: Please let me go. I have 2 children. Don't leave them fatherless. Even if I wanted to, I couldn't open my mouth.",
+        "web_of_deceit_30_answer_1": "Try to cry.",
+        "web_of_deceit_30_answer_2": "Say you'll forget about the incident.",
+
+        "web_of_deceit_32_history": "[AUDIO RECORDING]\n\nKendrick: I promise I didn't see anything.\n\nKiller: Get out of here quickly and disappear with your family. If I see you, I'll kill you.",
+        "web_of_deceit_32_answer_1": "Back off.",
+        "web_of_deceit_32_answer_2": "Get out of the house immediately.",
+
+        "web_of_deceit_31_history": "[AUDIO RECORDING]\n\nKendrick: I promise I'll act like this never happened.\n\nKiller: No killer leaves evidence behind. A living evidence? Never!",
+        "web_of_deceit_31_answer_1": "Say you know your end will be death if you make one mistake.",
+        "web_of_deceit_31_answer_2": "Kendrick, catch him!",
+
+        "web_of_deceit_35_history": "[AUDIO RECORDING]\n\nKendrick: Otherwise, I know you'll kill me anyway. Please forgive me. I'll be indebted to you for life. Killer: I'll take your life with my own hands if you make one mistake.",
+        "web_of_deceit_35_answer_1": "Is he gone?",
+        "web_of_deceit_35_answer_2": "Are you okay?",
+
+        "web_of_deceit_38_history": "I'm waiting silently with the gun, detective.",
+        "web_of_deceit_38_answer_1": "Kendrick! Kendrick! Can you hear me?",
+        "web_of_deceit_38_answer_2": "Damn it! The connection is lost.",
+
+        "web_of_deceit_39_history": "Someone's coming upstairs, detective.",
+        "web_of_deceit_39_answer_1": "Kendrick! Kendrick! Can you hear me?",
+        "web_of_deceit_39_answer_2": "Damn it! The connection is lost.",
+
+        "web_of_deceit_40_history": "[AUDIO RECORDING]\n\nKiller: I knew it. Put down what's in your hand, come out.\n\nKendrick: I'm putting it down. Stay calm.",
+        "web_of_deceit_40_answer_1": "Tell him what you know immediately.",
+        "web_of_deceit_40_answer_2": "Find a way to infiltrate them somehow.",
+
+        "web_of_deceit_42_history": "[AUDIO RECORDING]\n\nKendrick: I know who you are. Elvis had mentioned you before, and if these events hadn't happened, he would have introduced me to you. When Elvis told me about his betrayal to you, I informed you about this by letter. Because you were like a family and that traitor didn't deserve this.",
+        "web_of_deceit_42_answer_1": "Suggest leaving here without anyone noticing.",
+        "web_of_deceit_42_answer_2": "Continue, he's about to be convinced.",
+
+        "web_of_deceit_43_history": "[AUDIO RECORDING]\n\nKendrick: Someone might have heard the gunshot. We should get away from here.\n\nKiller: How will I know you're not trying to trick me into not killing you?",
+        "web_of_deceit_43_answer_1": "Say it's up to him whether he believes you or not.",
+        "web_of_deceit_43_answer_2": "Ask how he could know about the letter.",
+
+        "web_of_deceit_45_history": "[AUDIO RECORDING]\n\nKendrick: If my intention was to deceive you, I wouldn't have written to you about what Elvis did. I gave up my friend for my principles. I can give up everything for this cause.\n\nKiller: I'll take you to the community and they'll decide what to do with you there.",
+        "web_of_deceit_45_answer_1": "Stay silent throughout the journey.",
+        "web_of_deceit_45_answer_2": "Appear more sincere for him to believe you throughout the journey.",
+
+        "web_of_deceit_46_history": "[AUDIO RECORDING]\n\nKendrick: ...\n\nKendrick: Is this your place?\n\nKiller: Yes. Maybe it will be your home now too.\n\nKendrick: I'm sure it will be.",
+        "web_of_deceit_46_answer_1": "Draw attention with a humble and unassuming attitude.",
+        "web_of_deceit_46_answer_2": "Draw their attention by showing off your strength.",
+
+        "web_of_deceit_47_history": "[AUDIO RECORDING]\n\nKendrick: My name is Kendrick... I've been in this area for a long time but I've never encountered a group like this before, I'm grateful to be here.\n\nLeader: You said for a long time? Not long enough to stick your nose into our business here, I suppose.",
+        "web_of_deceit_47_answer_1": "Mention the letter.",
+        "web_of_deceit_47_answer_2": "Say you want to be a part of it, not stick your nose in.",
+
+        "web_of_deceit_48_history": "[AUDIO RECORDING]\n\nKendrick: If I tell you, will you let me go?\n\nKiller: Don't try to bargain with me.",
+        "web_of_deceit_48_answer_1": "Tell him, Kendrick.",
+        "web_of_deceit_48_answer_2": "Don't say anything they don't already know.",
+
+        "web_of_deceit_49_history": "[AUDIO RECORDING]\n\nKendrick: I know you're involved in smuggling. Elvis was saying he wasn't making enough money from what he was doing, he was going to turn you in this way.",
+        "web_of_deceit_49_answer_1": "Confess about tonight to them.",
+        "web_of_deceit_49_answer_2": "They learned he was going to turn them in today.",
+
+        "web_of_deceit_50_history": "[AUDIO RECORDING]\n\nKendrick: He reported your delivery tonight. I told him repeatedly not to do it.\n\nKiller: Why did you try to stop him?",
+        "web_of_deceit_50_answer_1": "Say that betrayal is unforgivable.",
+        "web_of_deceit_50_answer_2": "Say that what he did was wrong.",
+
+        "web_of_deceit_51_history": "[AUDIO RECORDING]\n\nKendrick: Someone who has earned the right to be in such a community shouldn't be so ungrateful. This is called biting the hand that feeds you.\n\nKiller: Absolutely. He's a big ingrate and traitor.",
+        "web_of_deceit_51_answer_1": "The police are here, protect yourself!",
+        "web_of_deceit_51_answer_2": "Try to infiltrate them.",
+
+        "web_of_deceit_52_history": "[AUDIO RECORDING]\n\nKendrick: You can't change a person's essence. That scum will definitely leave a trace somewhere.\n\nKiller: Just like your friend.\n\n(CONNECTION LOST...)",
+        "web_of_deceit_52_answer_1": "Kendrick! Are you okay? Respond!",
+        "web_of_deceit_52_answer_2": "What's the latest situation?",
+
+        "web_of_deceit_55_history": "[AUDIO RECORDING]\n\nKendrick: I would do anything to be able to do this job. He didn't deserve this. He betrayed a family.\n\nKiller: You seem like someone worthy of us. I'll introduce you to our leader.",
+        "web_of_deceit_55_answer_1": "Thank him.",
+        "web_of_deceit_55_answer_2": "Show your happiness.",
+
+        "web_of_deceit_56_history": "[AUDIO RECORDING]\n\nKendrick: Thank you very much. I'll be honored to be a part of your family.",
+        "web_of_deceit_56_answer_1": "It's the leader's turn.",
+        "web_of_deceit_56_answer_2": "You've taken the first step to infiltrate them.",
+
+        "web_of_deceit_57_history": "[AUDIO RECORDING]\n\nKendrick: Hello, sir. I'm Kendrick.\n\nLeader: Kendrick... So you want to join our family?\n\nKendrick: Yes. More than anything.\n\nLeader: Anything?",
+        "web_of_deceit_57_answer_1": "Mention Elvis.",
+        "web_of_deceit_57_answer_2": "Talk about the letter.",
+
+        "web_of_deceit_58_history": "[AUDIO RECORDING]\n\nKendrick: I gave up my close friend Elvis for this cause.\n\nLeader: How?\n\nKendrick: When Elvis told me what he did, I wrote that letter.\n\nLeader: Is that so? We never found who wrote the letter. We wanted to reward them. Now write something here. We need to be sure about you.",
+        "web_of_deceit_58_answer_1": "We never thought of this.",
+        "web_of_deceit_58_answer_2": "We didn't even see the writing.",
+
+        "web_of_deceit_60_history": "[AUDIO RECORDING]\n\nKendrick: Being here means prioritizing the community's interests over your own in every matter and working towards these interests... Elvis told me about you and I said I should join immediately, but right after that Elvis mentioned the unforgivable wrongs he did to you. He didn't deserve to be here. I informed you about this with a letter and created an opportunity for you to see the traitor among you. He didn't deserve to be here, but I deserve this to the fullest, I want to live and die for this cause.",
+        "web_of_deceit_60_answer_1": "Don't go any further.",
+        "web_of_deceit_60_answer_2": "Great job, Kendrick.",
+
+        "web_of_deceit_61_history": "[AUDIO RECORDING]\n\nLeader: So you're ready to join our family?\n\nKendrick: If I stay here, you'll play not only with your games but also with mine. I'm not just a soldier. I have plans.",
+        "web_of_deceit_61_answer_1": "He'll want to test your strength.",
+        "web_of_deceit_61_answer_2": "Stay silent and wait for their first move.",
+
+        "web_of_deceit_62_history": "[AUDIO RECORDING]\n\nMember: If he's so brave, let him prove himself immediately. Otherwise, he should know he won't get out of here alive.\n\nLeader: You're right. Let's prove it.",
+        "web_of_deceit_62_answer_1": "Don't get aggressive. Remember, be obedient but fearless.",
+        "web_of_deceit_62_answer_2": "You must gain their trust no matter what.",
+
+        "web_of_deceit_63_history": "[AUDIO RECORDING]\n\nLeader: Follow me. Kendrick: Yes, sir.\n\nLeader: Loyalty is not a simple word, Kendrick. True loyalty is proven with blood. This scum betrayed us, just like Elvis. Kill him or you can't be part of the community!",
+        "web_of_deceit_63_answer_1": "Make a plan to save the man.",
+        "web_of_deceit_63_answer_2": "Kill the man.",
+
+        "web_of_deceit_64_history": "[AUDIO RECORDING]\n\nKendrick: Instead of killing him, we can torture him more since we have him. Then he'll give us more information. Killing him now would just be a loss.\n\nLeader: I neither take advice from you nor let you question my decision!",
+        "web_of_deceit_64_answer_1": "That gunshot? Kendrick!",
+        "web_of_deceit_64_answer_2": "Respond, Kendrick!",
+
+        "web_of_deceit_66_history": "[AUDIO RECORDING]\n\nLeader: Now you're really one of us. Welcome to our family, son. Now go and rest a bit.\n\nKendrick: Thank you, sir.",
+        "web_of_deceit_66_answer_1": "Respond when you're alone.",
+        "web_of_deceit_66_answer_2": "Are you okay, Kendrick?",
+
+        "web_of_deceit_67_history": "Detective! I killed him! I fired without thinking anything! I was feeling terrible.",
+        "web_of_deceit_67_answer_1": "We had to do this.",
+        "web_of_deceit_67_answer_2": "Don't fight with your conscience, fight with them.",
+
+        "web_of_deceit_68_history": "Detective, I've completely gained their trust now. There must be a system room where they manage this intelligence. I learned about a special passage the leader uses. Everyone has retreated to their corners now and everywhere is calm. I'm taking action.",
+        "web_of_deceit_68_answer_1": "Understood. Be careful.",
+        "web_of_deceit_68_answer_2": "We can't afford to make mistakes at this stage.",
+
+        "web_of_deceit_69_history": "[AUDIO RECORDING]\n\nKendrick: I didn't come here to stick my nose in your business, but to be a part of it. If you accept me, I'll carry out every task with great gratitude.\n\nLeader: Alright Kendrick, you can be here but we have rules and mistakes are not forgiven. You should have learned this very well.\n\nKendrick: I know. I'll do more than my best.",
+        "web_of_deceit_69_answer_1": "Good, they're underestimating you.",
+        "web_of_deceit_69_answer_2": "Now it's time to infiltrate them.",
+
+        "web_of_deceit_70_history": "[AUDIO RECORDING]\n\nKendrick: I'm Kendrick. I'm sure I need to be a part of this community that doesn't belong to this disorderly order.\n\nLeader: Someone feeling they belong here is not enough to be here. They need to prove it.\n\nKendrick: I can prove it in every way.",
+        "web_of_deceit_70_answer_1": "They're going to torture you.",
+        "web_of_deceit_70_answer_2": "You have to show strong resistance.",
+
+        "web_of_deceit_71_history": "[AUDIO RECORDING]\n\nLeader: These metal rods are for you, Kendrick. Now let's see how tough you are.\n\nKendrick: ...\n\nLeader: Do you want to show that you're stronger?",
+        "web_of_deceit_71_answer_1": "You need to endure a bit more.",
+        "web_of_deceit_71_answer_2": "Say you can't take it.",
+
+        "web_of_deceit_72_history": "[AUDIO RECORDING]\n\nLeader: Okay. These cables are for you too. Feel the electricity between us deeply. Kendrick: ...\n\nLeader: You're a tough one, I'm surprised. No one here has ever reacted like this before. I liked your resistance. But if you try to oppose me, I'll burn you alive.",
+        "web_of_deceit_72_answer_1": "You did a good job, son.",
+        "web_of_deceit_72_answer_2": "The pain of these will be paid back.",
+
+        "web_of_deceit_73_history": "[AUDIO RECORDING]\n\nKendrick: I want to start my duties solidly.\n\nLeader: Real solidity is not taking a step back no matter what happens during torture. The one who takes a step back in front of us today will take a step back by selling us out in front of someone else tomorrow.",
+        "web_of_deceit_73_answer_1": "Damn it.",
+        "web_of_deceit_73_answer_2": "It didn't work.",
+
+        "web_of_deceit_75_history": "Detective, I'm in the leader's room now. I had carefully watched the leader, noticed he used a secret place and I used that passage. I've accessed the database with the code you sent now. Someone's coming, detective!",
+        "web_of_deceit_75_answer_1": "Be very careful.",
+        "web_of_deceit_75_answer_2": "Damn it!",
+
+        "web_of_deceit_76_history": "Detective, the gang's head of security has come! I hit him on the head with something. I'm continuing to download the files.",
+        "web_of_deceit_76_answer_1": "Hurry up.",
+        "web_of_deceit_76_answer_2": "Let me know when you get the data.",
+
+        "web_of_deceit_77_history": "Detective, I have the data. I need to get out of here.",
+        "web_of_deceit_77_answer_1": "Kill the man, Kendrick!",
+        "web_of_deceit_77_answer_2": "Get out quickly without anyone noticing.",
+
+        "web_of_deceit_79_history": "Detective, I killed him! Now I'll try to get out without getting caught by anyone.",
+        "web_of_deceit_79_answer_1": "We've come to the final plan now.",
+        "web_of_deceit_79_answer_2": "We're very close to the result, be ready.",
+
+        "web_of_deceit_80_history": "Detective, they still couldn't find out who killed the head of security. They've written their own scenarios. I've disabled the security systems at the main meeting point with the information I gathered. I learned the location of the secret sensors and uploaded a virus to take over the system.",
+        "web_of_deceit_80_answer_1": "Everything is under control.",
+        "web_of_deceit_80_answer_2": "Implement the next step.",
+
+        "web_of_deceit_81_history": "[AUDIO RECORDING]\n\nLeader: I see you've learned a lot lately, Kendrick. You've quickly become an indispensable part of our group.\n\nKendrick: Thank you, sir. I'm doing my best.\n\nLeader: But I ask, how solid is your loyalty?",
+        "web_of_deceit_81_answer_1": "Say you see no reason to question your loyalty.",
+        "web_of_deceit_81_answer_2": "Say they've become your family.",
+
+        "web_of_deceit_83_history": "[AUDIO RECORDING]\n\nKendrick: With everything I've learned from you, I feel more attached to you. You've become my family.\n\nLeader: We need solid men like you, son.",
+        "web_of_deceit_83_answer_1": "Send a signal to the police.",
+        "web_of_deceit_83_answer_2": "Turn on your phone's location.",
+
+        "web_of_deceit_84_history": "[AUDIO RECORDING]\n\nLeader: You... You're a mole! You've betrayed us!\n\nKendrick: This is as far as it goes.",
+        "web_of_deceit_84_answer_1": "He's going to shoot you! Shoot first!",
+        "web_of_deceit_84_answer_2": "We need him.",
+
+        "web_of_deceit_901_history": "(The killer managed to shake off his man.)\n\n(You couldn't solve the file.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_901_answer_1": "Restart the Story.",
+        "web_of_deceit_901_answer_2": "Restart the Story.",
+
+        "web_of_deceit_902_history": "(The police came and the killer was arrested. An operation was conducted at the port at night but it turned out that the killer had lied.)\n\n(The file couldn't be solved.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_902_answer_1": "Restart the Story.",
+        "web_of_deceit_902_answer_2": "Restart the Story.",
+
+        "web_of_deceit_903_history": "(The moment Kendrick stepped outside, he collapsed with a bullet in his chest. Because the killer saw that Kendrick wasn't arrested and realized he was from police intelligence. The killer vanished without a trace.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_903_answer_1": "Restart the Story.",
+        "web_of_deceit_903_answer_2": "Restart the Story.",
+
+        "web_of_deceit_904_history": "(Kendrick tried to convince them by going to prison for a while. This way, Kendrick's life safety was ensured but the file couldn't be solved.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_904_answer_1": "Restart the Story.",
+        "web_of_deceit_904_answer_2": "Restart the Story.",
+
+        "web_of_deceit_905_history": "(The moment the killer heard the answer, he fired his gun and killed Kendrick. The file couldn't be solved with two more murders added.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_905_answer_1": "Restart the Story.",
+        "web_of_deceit_905_answer_2": "Restart the Story.",
+
+        "web_of_deceit_906_history": "(The killer chose not to believe Kendrick and fired his gun. Kendrick collapsed and died. The killer disappeared without a trace.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_906_answer_1": "Restart the Story.",
+        "web_of_deceit_906_answer_2": "Restart the Story.",
+
+        "web_of_deceit_907_history": "(Kendrick was caught and killed. The file couldn't be solved.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_907_answer_1": "Restart the Story.",
+        "web_of_deceit_907_answer_2": "Restart the Story.",
+
+        "web_of_deceit_908_history": "(Then a gunshot echoed in the basement and Kendrick collapsed.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_908_answer_1": "Restart the Story.",
+        "web_of_deceit_908_answer_2": "Restart the Story.",
+
+        "web_of_deceit_909_history": "I'm outside, detective. Unfortunately, he escaped. Damn it, they won again!\n\n(CONNECTION LOST...)",
+        "web_of_deceit_909_answer_1": "Restart the Story.",
+        "web_of_deceit_909_answer_2": "Restart the Story.",
+
+        "web_of_deceit_910_history": "I got out, detective. The police surrounded the house. Detective, the police opened fire. Damn it, I think he's been shot. Yes... He's been shot, detective. We've lost everything we had again.\n\n(CONNECTION LOST...)",
+        "web_of_deceit_910_answer_1": "Restart the Story.",
+        "web_of_deceit_910_answer_2": "Restart the Story.",
+
+        "web_of_deceit_911_history": "He's gone, detective. I survived but our last chance just walked out the door. Another failed result.\n\n(CONNECTION LOST...)",
+        "web_of_deceit_911_answer_1": "Restart the Story.",
+        "web_of_deceit_911_answer_2": "Restart the Story.",
+
+        "web_of_deceit_912_history": "[AUDIO RECORDING]\n\nDetective, send an ambulance here! The killer stabbed me and escaped! An urgent ambulance... I'm having trouble speaking!\n\n(CONNECTION LOST...)",
+        "web_of_deceit_912_answer_1": "Restart the Story.",
+        "web_of_deceit_912_answer_2": "Restart the Story.",
+
+        "web_of_deceit_913_history": "(The police entered through the kitchen door. They circled around and told the killer to drop his weapon, but the killer, influenced by the trap, pointed the gun at Kendrick and immediately pulled the trigger. At the same moment, the police also shot the killer. Because of this, the file couldn't be solved.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_913_answer_1": "Restart the Story.",
+        "web_of_deceit_913_answer_2": "Restart the Story.",
+
+        "web_of_deceit_914_history": "Detective, I defended myself by taking his gun. The police came and took him away. Now it's the police's job to make him talk and bring down the gang.\n\n(CONNECTION LOST...)",
+        "web_of_deceit_914_answer_1": "Restart the Story.",
+        "web_of_deceit_914_answer_2": "Restart the Story.",
+
+        "web_of_deceit_915_history": "(Kendrick desperately wrote with a glimmer of hope. When they compared the letter with the writing, they saw it wasn't the same. They tortured Kendrick for hours and then killed him.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_915_answer_1": "Restart the Story.",
+        "web_of_deceit_915_answer_2": "Restart the Story.",
+
+        "web_of_deceit_916_history": "(Kendrick's plan didn't work. The leader, thinking he was a coward, killed him.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_916_answer_1": "Restart the Story.",
+        "web_of_deceit_916_answer_2": "Restart the Story.",
+
+        "web_of_deceit_917_history": "(The security guard woke up and pressed a button, and the alarms went off. Everyone immediately rushed to the room. When they looked at Kendrick, they met eyes with betrayal. The leader pulled out his gun and shot Kendrick.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_917_answer_1": "Restart the Story.",
+        "web_of_deceit_917_answer_2": "Restart the Story.",
+
+        "web_of_deceit_918_history": "[AUDIO RECORDING]\n\nLeader: I see! You traitor!\n\n(The leader pulled out his gun from his waist and shot Kendrick in the ear where his earpiece was. The leader, who had understood everything yesterday, hunted Kendrick while Kendrick thought he was going hunting.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_918_answer_1": "Restart the Story.",
+        "web_of_deceit_918_answer_2": "Restart the Story.",
+
+        "web_of_deceit_919_history": "(There was a deathly silence in the room the moment they made eye contact. Everything happened in seconds. At the moment the Leader pulled the trigger to kill Kendrick, Kendrick moved at the same time and the bullets got mixed up. As the Leader collapsed, Kendrick received a slight wound on his arm. The police raid was successful. The Leader and all members of the group were either killed or arrested. Kendrick had successfully completed his mission within the organization, but the challenging experiences he had lived through had deeply affected him. Thanks to your (detective's) instructions, the entire operation was carried out flawlessly, but Kendrick's conscience was heavily burdened with the moments of betrayal and death he had experienced. After the police cleared the building, Kendrick quietly walked out. There was a slight sadness in his eyes, but he also felt the satisfaction of a victory.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_919_answer_1": "Restart the Story.",
+        "web_of_deceit_919_answer_2": "Restart the Story.",
+
+        "web_of_deceit_920_history": "(The moment the Leader pulled the trigger without waiting for an explanation, Kendrick collapsed. While the raid was successful, Kendrick sacrificed himself for this cause.)\n\n(CONNECTION LOST...)",
+        "web_of_deceit_920_answer_1": "Restart the Story.",
+        "web_of_deceit_920_answer_2": "Restart the Story."
 }
