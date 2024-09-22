@@ -79,7 +79,7 @@ class AppFonts {
       TextStyle(color: Colors.green, fontSize: 14);
 
   static const storyTitleInGameTextStyle =
-      TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold);
+      TextStyle(color: Colors.green, fontSize: 18, fontWeight: FontWeight.bold);
 
   static const backButtonIcon = Icon(
     Icons.arrow_back_ios_new_outlined,

@@ -238,7 +238,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                                   topEnd: Radius.circular(10),
                                   topStart: Radius.circular(10)),
                           border: Border.all(color: Colors.green, width: 1),
-
                         ),
                         child: index == cs.repo.length - 1 && _isTyping
                             ? Stack(children: [
@@ -274,7 +273,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                   },
                 ),
               ),
-
             ),
           ),
           // Choices area
@@ -291,7 +289,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
-
                           ),
                           foregroundColor: Colors.green,
                           backgroundColor: Colors.green.withOpacity(0.2),
@@ -306,7 +303,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                           cs.attempt++;
                         },
                       ),
-
                     ),
                     Container(
                       child: Text(
@@ -321,7 +317,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
-
                           ),
                           foregroundColor: Colors.green,
                           backgroundColor: Colors.green.withOpacity(0.2),
@@ -339,7 +334,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                     ),
                   ],
                 ),
-
               ),
             ),
           if (!cs.textCompleted || _isTyping)
@@ -357,7 +351,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         indicatorType: Indicator.ballPulse,
                         colors: [Colors.green],
                         strokeWidth: 2,
-
                       ),
                     ),
                     const SizedBox(width: 10),
