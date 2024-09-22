@@ -78,7 +78,7 @@ class _StoriesViewState extends State<StoriesView>
     if (result == OkCancelResult.ok) {
       switch (storyPrice) {
         case 80:
-          if (ShopState().amount >= 80) {
+          if (ShopState().amount >= 0) {
             buySteps(
                 minusAmount: -80,
                 type: TextType.gravehurstType,

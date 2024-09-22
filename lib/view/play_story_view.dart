@@ -111,6 +111,7 @@ class _ChatViewState extends State<ChatView> {
       vm.scrollToBottom();
     });
     return Scaffold(
+
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
@@ -128,6 +129,7 @@ class _ChatViewState extends State<ChatView> {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 30),
               child: Container(
+
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.5),
                 ),
@@ -147,8 +149,10 @@ class _ChatViewState extends State<ChatView> {
                     }
                     return Padding(
                       padding: EdgeInsets.only(
+
                         left: index.isEven ? 10 : 50,
                         right: index.isEven ? 50 : 10,
+
                         bottom: 16,
                       ),
                       child: Container(
@@ -157,6 +161,7 @@ class _ChatViewState extends State<ChatView> {
                           color: index.isEven
                               ? Colors.green.withOpacity(0.2)
                               : Colors.grey.withOpacity(0.2),
+
                           borderRadius: index.isEven
                               ? const BorderRadiusDirectional.only(
                                   bottomEnd: Radius.circular(10),
@@ -166,6 +171,7 @@ class _ChatViewState extends State<ChatView> {
                                   bottomStart: Radius.circular(10),
                                   topEnd: Radius.circular(10),
                                   topStart: Radius.circular(10)),
+
                           border: Border.all(color: Colors.green, width: 1),
                         ),
                         child: index == vm.repo.length - 1 && _isTyping
@@ -214,6 +220,7 @@ class _ChatViewState extends State<ChatView> {
                     Padding(
                       padding:
                           const EdgeInsets.only(left: 8.0, right: 8, bottom: 8),
+
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
@@ -222,17 +229,20 @@ class _ChatViewState extends State<ChatView> {
                           foregroundColor: Colors.green,
                           backgroundColor: Colors.green.withOpacity(0.2),
                           side: const BorderSide(color: Colors.green),
+
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 12, bottom: 12),
                           child: Text(vm.assignToOdd(
                               vm.selectedList, vm.storyMapId)!["title"]),
                         ),
+
                         onPressed: () async {
                           await _handleChoice(vm.left);
                         },
                       ),
                     ),
+
                     Container(
                       child: Text(
                         ConstantTexts.ChooseYourAnswer.tr(),
@@ -242,6 +252,7 @@ class _ChatViewState extends State<ChatView> {
                     Padding(
                       padding:
                           const EdgeInsets.only(left: 8.0, right: 8, top: 8),
+
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
@@ -269,6 +280,7 @@ class _ChatViewState extends State<ChatView> {
           if (!vm.textCompleted || _isTyping)
             SafeArea(
               child: Container(
+
                 color: Colors.black.withOpacity(0.7),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -290,6 +302,7 @@ class _ChatViewState extends State<ChatView> {
                   ],
                 ),
               ),
+
             ),
         ],
       ),
