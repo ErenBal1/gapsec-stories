@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/continue_play_state/continue_play_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
+import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
@@ -59,11 +60,15 @@ class _ContinueChatViewState extends State<ContinueChatView> {
               element["history"] ==
               _databaseService.murderRepo.last!.murderTexts.toString(),
         );
-
       case TextType.gravehurstType:
         return list.firstWhere((element) =>
             element["history"] ==
             _databaseService.gravehurstRepo.last!.gravehurstTexts.toString());
+
+      case TextType.webOfDeceitType:
+        return list.firstWhere((element) =>
+            element["history"] ==
+            _databaseService.webOfDeceitRepo.last!.webOfDeceitTexts.toString());
 
       default:
     }
@@ -159,6 +164,24 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
           cs.scrollToBottom();
           break;
+        case TextType.webOfDeceitType:
+          cs.selectedList = webOfDeceitDetail;
+          await _selectedStoryUpdate(type: TextType.webOfDeceitType);
+          cs.left = initToOdd(
+            cs.selectedList,
+            TextType.webOfDeceitType,
+          )!;
+          cs.right = initToEven(
+            cs.selectedList,
+            TextType.webOfDeceitType,
+          )!;
+          await _selectedStoryUpdate(type: TextType.webOfDeceitType);
+          setState(() {
+            cs.repo = _databaseService.webOfDeceitRepo;
+          });
+
+          cs.scrollToBottom();
+          break;
         default:
       }
     });
@@ -214,6 +237,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                       case TextType.gravehurstType:
                         cs.selectedTexts = newGame.gravehurstTexts.toString();
                         break;
+                      case TextType.webOfDeceitType:
+                        cs.selectedTexts = newGame.webOfDeceitTexts.toString();
+                        break;
                       default:
                     }
                     return Padding(
@@ -238,7 +264,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                                   topEnd: Radius.circular(10),
                                   topStart: Radius.circular(10)),
                           border: Border.all(color: Colors.green, width: 1),
-
                         ),
                         child: index == cs.repo.length - 1 && _isTyping
                             ? Stack(children: [
@@ -274,7 +299,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                   },
                 ),
               ),
-
             ),
           ),
           // Choices area
@@ -291,7 +315,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
-
                           ),
                           foregroundColor: Colors.green,
                           backgroundColor: Colors.green.withOpacity(0.2),
@@ -306,7 +329,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                           cs.attempt++;
                         },
                       ),
-
                     ),
                     Container(
                       child: Text(
@@ -321,7 +343,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
-
                           ),
                           foregroundColor: Colors.green,
                           backgroundColor: Colors.green.withOpacity(0.2),
@@ -339,7 +360,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                     ),
                   ],
                 ),
-
               ),
             ),
           if (!cs.textCompleted || _isTyping)
@@ -357,7 +377,6 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         indicatorType: Indicator.ballPulse,
                         colors: [Colors.green],
                         strokeWidth: 2,
-
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -396,6 +415,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
         case TextType.gravehurstType:
           cs.repo = _databaseService.gravehurstRepo;
           break;
+        case TextType.webOfDeceitType:
+          cs.repo = _databaseService.webOfDeceitRepo;
+          break;
         default:
       }
     });
@@ -417,6 +439,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
           break;
         case TextType.gravehurstType:
           cs.repo = _databaseService.gravehurstRepo;
+          break;
+        case TextType.webOfDeceitType:
+          cs.repo = _databaseService.webOfDeceitRepo;
           break;
         default:
       }

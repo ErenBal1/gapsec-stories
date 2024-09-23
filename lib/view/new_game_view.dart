@@ -93,6 +93,16 @@ class _NewGameViewState extends State<NewGameView> {
               ),
               context: context);
           break;
+        case TextType.webOfDeceitType:
+          await _selectedHistoryDelete(type: TextType.webOfDeceitType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.webOfDeceitRepo,
+                story: gameName,
+                selectedTextType: TextType.webOfDeceitType,
+              ),
+              context: context);
+          break;
 
         default:
       }
@@ -262,6 +272,27 @@ class _NewGameViewState extends State<NewGameView> {
                                         _databaseService.gravehurstRepo,
                                     story: gameName,
                                     selectedTextType: TextType.gravehurstType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.gravehurstType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Web Of Deceit") {
+                        switch (gameName) {
+                          case "Web Of Deceit":
+                            await _selectedStoryUpdate(
+                                type: TextType.webOfDeceitType);
+                            if (_databaseService.webOfDeceitRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo:
+                                        _databaseService.webOfDeceitRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.webOfDeceitType,
                                   ),
                                   context: context);
                             } else {

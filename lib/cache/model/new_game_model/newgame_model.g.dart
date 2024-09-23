@@ -27,34 +27,34 @@ const NewGameSchema = CollectionSchema(
       name: r'gravehurstTexts',
       type: IsarType.string,
     ),
-    r'lostLucyTexts': PropertySchema(
-      id: 2,
-      name: r'lostLucyTexts',
-      type: IsarType.string,
-    ),
     r'luckyTexts': PropertySchema(
-      id: 3,
+      id: 2,
       name: r'luckyTexts',
       type: IsarType.string,
     ),
     r'murderTexts': PropertySchema(
-      id: 4,
+      id: 3,
       name: r'murderTexts',
       type: IsarType.string,
     ),
     r'nightGameTexts': PropertySchema(
-      id: 5,
+      id: 4,
       name: r'nightGameTexts',
       type: IsarType.string,
     ),
     r'runKaityTexts': PropertySchema(
-      id: 6,
+      id: 5,
       name: r'runKaityTexts',
       type: IsarType.string,
     ),
     r'smileTexts': PropertySchema(
-      id: 7,
+      id: 6,
       name: r'smileTexts',
+      type: IsarType.string,
+    ),
+    r'webOfDeceitTexts': PropertySchema(
+      id: 7,
+      name: r'webOfDeceitTexts',
       type: IsarType.string,
     )
   },
@@ -91,12 +91,6 @@ int _newGameEstimateSize(
     }
   }
   {
-    final value = object.lostLucyTexts;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
-    }
-  }
-  {
     final value = object.luckyTexts;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
@@ -126,6 +120,12 @@ int _newGameEstimateSize(
       bytesCount += 3 + value.length * 3;
     }
   }
+  {
+    final value = object.webOfDeceitTexts;
+    if (value != null) {
+      bytesCount += 3 + value.length * 3;
+    }
+  }
   return bytesCount;
 }
 
@@ -137,12 +137,12 @@ void _newGameSerialize(
 ) {
   writer.writeString(offsets[0], object.behindTexts);
   writer.writeString(offsets[1], object.gravehurstTexts);
-  writer.writeString(offsets[2], object.lostLucyTexts);
-  writer.writeString(offsets[3], object.luckyTexts);
-  writer.writeString(offsets[4], object.murderTexts);
-  writer.writeString(offsets[5], object.nightGameTexts);
-  writer.writeString(offsets[6], object.runKaityTexts);
-  writer.writeString(offsets[7], object.smileTexts);
+  writer.writeString(offsets[2], object.luckyTexts);
+  writer.writeString(offsets[3], object.murderTexts);
+  writer.writeString(offsets[4], object.nightGameTexts);
+  writer.writeString(offsets[5], object.runKaityTexts);
+  writer.writeString(offsets[6], object.smileTexts);
+  writer.writeString(offsets[7], object.webOfDeceitTexts);
 }
 
 NewGame _newGameDeserialize(
@@ -155,12 +155,12 @@ NewGame _newGameDeserialize(
   object.behindTexts = reader.readStringOrNull(offsets[0]);
   object.gravehurstTexts = reader.readStringOrNull(offsets[1]);
   object.id = id;
-  object.lostLucyTexts = reader.readStringOrNull(offsets[2]);
-  object.luckyTexts = reader.readStringOrNull(offsets[3]);
-  object.murderTexts = reader.readStringOrNull(offsets[4]);
-  object.nightGameTexts = reader.readStringOrNull(offsets[5]);
-  object.runKaityTexts = reader.readStringOrNull(offsets[6]);
-  object.smileTexts = reader.readStringOrNull(offsets[7]);
+  object.luckyTexts = reader.readStringOrNull(offsets[2]);
+  object.murderTexts = reader.readStringOrNull(offsets[3]);
+  object.nightGameTexts = reader.readStringOrNull(offsets[4]);
+  object.runKaityTexts = reader.readStringOrNull(offsets[5]);
+  object.smileTexts = reader.readStringOrNull(offsets[6]);
+  object.webOfDeceitTexts = reader.readStringOrNull(offsets[7]);
   return object;
 }
 
@@ -628,155 +628,6 @@ extension NewGameQueryFilter
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'lostLucyTexts',
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      lostLucyTextsIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'lostLucyTexts',
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'lostLucyTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      lostLucyTextsGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'lostLucyTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'lostLucyTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'lostLucyTexts',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'lostLucyTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'lostLucyTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'lostLucyTexts',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'lostLucyTexts',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> lostLucyTextsIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'lostLucyTexts',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
-      lostLucyTextsIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'lostLucyTexts',
-        value: '',
       ));
     });
   }
@@ -1519,6 +1370,159 @@ extension NewGameQueryFilter
       ));
     });
   }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'webOfDeceitTexts',
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'webOfDeceitTexts',
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> webOfDeceitTextsEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'webOfDeceitTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsGreaterThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'webOfDeceitTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsLessThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'webOfDeceitTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> webOfDeceitTextsBetween(
+    String? lower,
+    String? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'webOfDeceitTexts',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'webOfDeceitTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'webOfDeceitTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'webOfDeceitTexts',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> webOfDeceitTextsMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'webOfDeceitTexts',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'webOfDeceitTexts',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      webOfDeceitTextsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'webOfDeceitTexts',
+        value: '',
+      ));
+    });
+  }
 }
 
 extension NewGameQueryObject
@@ -1549,18 +1553,6 @@ extension NewGameQuerySortBy on QueryBuilder<NewGame, NewGame, QSortBy> {
   QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByGravehurstTextsDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'gravehurstTexts', Sort.desc);
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByLostLucyTexts() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'lostLucyTexts', Sort.asc);
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByLostLucyTextsDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'lostLucyTexts', Sort.desc);
     });
   }
 
@@ -1623,6 +1615,18 @@ extension NewGameQuerySortBy on QueryBuilder<NewGame, NewGame, QSortBy> {
       return query.addSortBy(r'smileTexts', Sort.desc);
     });
   }
+
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByWebOfDeceitTexts() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'webOfDeceitTexts', Sort.asc);
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByWebOfDeceitTextsDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'webOfDeceitTexts', Sort.desc);
+    });
+  }
 }
 
 extension NewGameQuerySortThenBy
@@ -1660,18 +1664,6 @@ extension NewGameQuerySortThenBy
   QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByLostLucyTexts() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'lostLucyTexts', Sort.asc);
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByLostLucyTextsDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'lostLucyTexts', Sort.desc);
     });
   }
 
@@ -1734,6 +1726,18 @@ extension NewGameQuerySortThenBy
       return query.addSortBy(r'smileTexts', Sort.desc);
     });
   }
+
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByWebOfDeceitTexts() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'webOfDeceitTexts', Sort.asc);
+    });
+  }
+
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByWebOfDeceitTextsDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'webOfDeceitTexts', Sort.desc);
+    });
+  }
 }
 
 extension NewGameQueryWhereDistinct
@@ -1749,14 +1753,6 @@ extension NewGameQueryWhereDistinct
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'gravehurstTexts',
-          caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<NewGame, NewGame, QDistinct> distinctByLostLucyTexts(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'lostLucyTexts',
           caseSensitive: caseSensitive);
     });
   }
@@ -1797,6 +1793,14 @@ extension NewGameQueryWhereDistinct
       return query.addDistinctBy(r'smileTexts', caseSensitive: caseSensitive);
     });
   }
+
+  QueryBuilder<NewGame, NewGame, QDistinct> distinctByWebOfDeceitTexts(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'webOfDeceitTexts',
+          caseSensitive: caseSensitive);
+    });
+  }
 }
 
 extension NewGameQueryProperty
@@ -1816,12 +1820,6 @@ extension NewGameQueryProperty
   QueryBuilder<NewGame, String?, QQueryOperations> gravehurstTextsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'gravehurstTexts');
-    });
-  }
-
-  QueryBuilder<NewGame, String?, QQueryOperations> lostLucyTextsProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'lostLucyTexts');
     });
   }
 
@@ -1852,6 +1850,12 @@ extension NewGameQueryProperty
   QueryBuilder<NewGame, String?, QQueryOperations> smileTextsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'smileTexts');
+    });
+  }
+
+  QueryBuilder<NewGame, String?, QQueryOperations> webOfDeceitTextsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'webOfDeceitTexts');
     });
   }
 }

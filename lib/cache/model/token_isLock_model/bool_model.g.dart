@@ -27,40 +27,40 @@ const BoolModelSchema = CollectionSchema(
       name: r'gravehurstIsLock',
       type: IsarType.bool,
     ),
-    r'lostLucyIsLock': PropertySchema(
-      id: 2,
-      name: r'lostLucyIsLock',
-      type: IsarType.bool,
-    ),
     r'luckyIsLock': PropertySchema(
-      id: 3,
+      id: 2,
       name: r'luckyIsLock',
       type: IsarType.bool,
     ),
     r'murderIsLock': PropertySchema(
-      id: 4,
+      id: 3,
       name: r'murderIsLock',
       type: IsarType.bool,
     ),
     r'nightGameIsLock': PropertySchema(
-      id: 5,
+      id: 4,
       name: r'nightGameIsLock',
       type: IsarType.bool,
     ),
     r'runKaityIsLock': PropertySchema(
-      id: 6,
+      id: 5,
       name: r'runKaityIsLock',
       type: IsarType.bool,
     ),
     r'smileIsLock': PropertySchema(
-      id: 7,
+      id: 6,
       name: r'smileIsLock',
       type: IsarType.bool,
     ),
     r'tokenAmount': PropertySchema(
-      id: 8,
+      id: 7,
       name: r'tokenAmount',
       type: IsarType.long,
+    ),
+    r'webOfDeceitIsLock': PropertySchema(
+      id: 8,
+      name: r'webOfDeceitIsLock',
+      type: IsarType.bool,
     )
   },
   estimateSize: _boolModelEstimateSize,
@@ -94,13 +94,13 @@ void _boolModelSerialize(
 ) {
   writer.writeBool(offsets[0], object.behindIsLock);
   writer.writeBool(offsets[1], object.gravehurstIsLock);
-  writer.writeBool(offsets[2], object.lostLucyIsLock);
-  writer.writeBool(offsets[3], object.luckyIsLock);
-  writer.writeBool(offsets[4], object.murderIsLock);
-  writer.writeBool(offsets[5], object.nightGameIsLock);
-  writer.writeBool(offsets[6], object.runKaityIsLock);
-  writer.writeBool(offsets[7], object.smileIsLock);
-  writer.writeLong(offsets[8], object.tokenAmount);
+  writer.writeBool(offsets[2], object.luckyIsLock);
+  writer.writeBool(offsets[3], object.murderIsLock);
+  writer.writeBool(offsets[4], object.nightGameIsLock);
+  writer.writeBool(offsets[5], object.runKaityIsLock);
+  writer.writeBool(offsets[6], object.smileIsLock);
+  writer.writeLong(offsets[7], object.tokenAmount);
+  writer.writeBool(offsets[8], object.webOfDeceitIsLock);
 }
 
 BoolModel _boolModelDeserialize(
@@ -113,13 +113,13 @@ BoolModel _boolModelDeserialize(
   object.behindIsLock = reader.readBoolOrNull(offsets[0]);
   object.gravehurstIsLock = reader.readBoolOrNull(offsets[1]);
   object.id = id;
-  object.lostLucyIsLock = reader.readBoolOrNull(offsets[2]);
-  object.luckyIsLock = reader.readBoolOrNull(offsets[3]);
-  object.murderIsLock = reader.readBoolOrNull(offsets[4]);
-  object.nightGameIsLock = reader.readBoolOrNull(offsets[5]);
-  object.runKaityIsLock = reader.readBoolOrNull(offsets[6]);
-  object.smileIsLock = reader.readBoolOrNull(offsets[7]);
-  object.tokenAmount = reader.readLongOrNull(offsets[8]);
+  object.luckyIsLock = reader.readBoolOrNull(offsets[2]);
+  object.murderIsLock = reader.readBoolOrNull(offsets[3]);
+  object.nightGameIsLock = reader.readBoolOrNull(offsets[4]);
+  object.runKaityIsLock = reader.readBoolOrNull(offsets[5]);
+  object.smileIsLock = reader.readBoolOrNull(offsets[6]);
+  object.tokenAmount = reader.readLongOrNull(offsets[7]);
+  object.webOfDeceitIsLock = reader.readBoolOrNull(offsets[8]);
   return object;
 }
 
@@ -145,9 +145,9 @@ P _boolModelDeserializeProp<P>(
     case 6:
       return (reader.readBoolOrNull(offset)) as P;
     case 7:
-      return (reader.readBoolOrNull(offset)) as P;
-    case 8:
       return (reader.readLongOrNull(offset)) as P;
+    case 8:
+      return (reader.readBoolOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -349,34 +349,6 @@ extension BoolModelQueryFilter
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
-      ));
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      lostLucyIsLockIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'lostLucyIsLock',
-      ));
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      lostLucyIsLockIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'lostLucyIsLock',
-      ));
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      lostLucyIsLockEqualTo(bool? value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'lostLucyIsLock',
-        value: value,
       ));
     });
   }
@@ -592,6 +564,34 @@ extension BoolModelQueryFilter
       ));
     });
   }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
+      webOfDeceitIsLockIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'webOfDeceitIsLock',
+      ));
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
+      webOfDeceitIsLockIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'webOfDeceitIsLock',
+      ));
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
+      webOfDeceitIsLockEqualTo(bool? value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'webOfDeceitIsLock',
+        value: value,
+      ));
+    });
+  }
 }
 
 extension BoolModelQueryObject
@@ -623,18 +623,6 @@ extension BoolModelQuerySortBy on QueryBuilder<BoolModel, BoolModel, QSortBy> {
       sortByGravehurstIsLockDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'gravehurstIsLock', Sort.desc);
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByLostLucyIsLock() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'lostLucyIsLock', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByLostLucyIsLockDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'lostLucyIsLock', Sort.desc);
     });
   }
 
@@ -709,6 +697,19 @@ extension BoolModelQuerySortBy on QueryBuilder<BoolModel, BoolModel, QSortBy> {
       return query.addSortBy(r'tokenAmount', Sort.desc);
     });
   }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByWebOfDeceitIsLock() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'webOfDeceitIsLock', Sort.asc);
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy>
+      sortByWebOfDeceitIsLockDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'webOfDeceitIsLock', Sort.desc);
+    });
+  }
 }
 
 extension BoolModelQuerySortThenBy
@@ -747,18 +748,6 @@ extension BoolModelQuerySortThenBy
   QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByLostLucyIsLock() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'lostLucyIsLock', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByLostLucyIsLockDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'lostLucyIsLock', Sort.desc);
     });
   }
 
@@ -833,6 +822,19 @@ extension BoolModelQuerySortThenBy
       return query.addSortBy(r'tokenAmount', Sort.desc);
     });
   }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByWebOfDeceitIsLock() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'webOfDeceitIsLock', Sort.asc);
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy>
+      thenByWebOfDeceitIsLockDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'webOfDeceitIsLock', Sort.desc);
+    });
+  }
 }
 
 extension BoolModelQueryWhereDistinct
@@ -846,12 +848,6 @@ extension BoolModelQueryWhereDistinct
   QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByGravehurstIsLock() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'gravehurstIsLock');
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByLostLucyIsLock() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'lostLucyIsLock');
     });
   }
 
@@ -890,6 +886,12 @@ extension BoolModelQueryWhereDistinct
       return query.addDistinctBy(r'tokenAmount');
     });
   }
+
+  QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByWebOfDeceitIsLock() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'webOfDeceitIsLock');
+    });
+  }
 }
 
 extension BoolModelQueryProperty
@@ -909,12 +911,6 @@ extension BoolModelQueryProperty
   QueryBuilder<BoolModel, bool?, QQueryOperations> gravehurstIsLockProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'gravehurstIsLock');
-    });
-  }
-
-  QueryBuilder<BoolModel, bool?, QQueryOperations> lostLucyIsLockProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'lostLucyIsLock');
     });
   }
 
@@ -951,6 +947,12 @@ extension BoolModelQueryProperty
   QueryBuilder<BoolModel, int?, QQueryOperations> tokenAmountProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'tokenAmount');
+    });
+  }
+
+  QueryBuilder<BoolModel, bool?, QQueryOperations> webOfDeceitIsLockProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'webOfDeceitIsLock');
     });
   }
 }

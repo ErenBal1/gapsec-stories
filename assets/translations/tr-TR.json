@@ -1160,11 +1160,359 @@
 
         "gravehurst_story_933_history": "(Bir anda parazitlenen şebeke önemli bir mesajı görmene engel oldu ve ekibe bir daha ulaşamadın.)\n\n(BAĞLANTI KOPTU...)",
         "gravehurst_story_933_answer_1": "Hikayeyi Yeniden Başlat.",
-        "gravehurst_story_933_answer_2": "Hikayeyi Yeniden Başlat."
+        "gravehurst_story_933_answer_2": "Hikayeyi Yeniden Başlat.",
 
 
 
 
         
 
+
+        "web_of_deceit_0_history": "Dedektif, dediğiniz gibi Elvis'in evine yerleştim.",
+        "web_of_deceit_0_answer_1": "Onu her şekilde öldürecekler.",
+        "web_of_deceit_0_answer_2": "Onu kurtaramayacaksın.",
+
+        "web_of_deceit_1_history": "Biliyorum dedektif ama daha iyi bildiğim bir şey var: O çeteyi çökerteceğiz.",
+        "web_of_deceit_1_answer_1": "Hırsına yenik düşme, Kendrick.",
+        "web_of_deceit_1_answer_2": "Her şey senin elinde, Kendrick.",
+
+        "web_of_deceit_2_history": "Afedersiniz, dedektif. Talimat almadan hareket etmeyeceğim.",
+        "web_of_deceit_2_answer_1": "Sana güveniyorum.",
+        "web_of_deceit_2_answer_2": "Şüphem yok evlat.",
+
+        "web_of_deceit_3_history": "Tüm benliğimle elimden gelenin en iyisini yapacağıma emin olabilirsiniz.",
+        "web_of_deceit_3_answer_1": "Sana güveniyorum.",
+        "web_of_deceit_3_answer_2": "Şüphem yok evlat.",
+
+        "web_of_deceit_4_history": "Dedektif alt kattan silah sesi geldi. Elvis öldürülmüş olmalı!",
+        "web_of_deceit_4_answer_1": "Görev başlangıcı ilan ediyorum!",
+        "web_of_deceit_4_answer_2": "Sana zarar gelebilir, hemen bir yere saklan!",
+
+        "web_of_deceit_5_history": "Tamam, dedektif. Kulaklığımı taktım. Ev şu an sessiz, aşağı iniyorum.",
+        "web_of_deceit_5_answer_1": "Sana söylediklerimi bir bir uygula.",
+        "web_of_deceit_5_answer_2": "Adım adım sana yapman gerekenleri söyleyeceğim.",
+
+        "web_of_deceit_7_history": "Alt kata ineceğim, dedektif.",
+        "web_of_deceit_7_answer_1": "Onu yakala Kendrick!",
+        "web_of_deceit_7_answer_2": "Kendini bilerek ele ver.",
+
+        "web_of_deceit_6_history": "Kulaklığımı taktım. Gardıroptayım, dedektif.",
+        "web_of_deceit_6_answer_1": "Silahını yanına al.",
+        "web_of_deceit_6_answer_2": "Dikkatli ol sakın bağlantıyı koparma.",
+
+        "web_of_deceit_8_history": "Kapıyı sesli bir şekilde açıp merdivenlerden inerken Elvis'e sesleneceğim.",
+        "web_of_deceit_8_answer_1": "Yapman gerekenleri söyleyeceğim.",
+        "web_of_deceit_8_answer_2": "Silahını bırak.",
+
+        "web_of_deceit_9_history": "Yakaladım, dedektif. Şimdi uslu olup konuşacak! Yoksa onu polise veririz.",
+        "web_of_deceit_9_answer_1": "Ciddi ol Kendrick.",
+        "web_of_deceit_9_answer_2": "Acele et.",
+
+        "web_of_deceit_10_history": "[SES KAYDI]\n\nKendrick: Kimsiniz siz? Elvis'i neden öldürdün?\n\nKatil: Çok mu merak ediyorsun?\n\nKendrick: Hayır. Biliyorum zaten.",
+        "web_of_deceit_10_answer_1": "Çeteyi sor.",
+        "web_of_deceit_10_answer_2": "Konuya gir.",
+
+        "web_of_deceit_11_history": "[SES KAYDI]\n\nKendrick: Şimdi bana çetenizden bahsedeceksin.\n\nKatil: Asla.\n\nKendrick: Ölmek istemezsin değil mi?",
+        "web_of_deceit_11_answer_1": "Tehdit et.",
+        "web_of_deceit_11_answer_2": "Silahını doğrult.",
+
+        "web_of_deceit_12_history": "[SES KAYDI]\n\nKendrick: Son kez söylüyorum. Ya bana iyi bir bilgi verirsin ya da seni öldürürüm!\n\nKatil: Tamam. Bu gece saat 3'te limanda iş yapılacak.",
+        "web_of_deceit_12_answer_1": "Tamam sen çık.",
+        "web_of_deceit_12_answer_2": "Polisleri bekle.",
+
+        "web_of_deceit_15_history": "[SES KAYDI]\n\nKendrick: Elvis! Elvis! O ses de neydi?\n\nKatil: Sakın sesini çıkarma.",
+        "web_of_deceit_15_answer_1": "Sakın sesini çıkarma.",
+        "web_of_deceit_15_answer_2": "Ses çıkartmayacağına inandır.",
+
+        "web_of_deceit_16_history": "[SES KAYDI]\n\nKendrick: Söz veriyorum! Sesimi çıkartmayacağım.\n\nKatil: Elvisle ne kadar yakınsın?",
+        "web_of_deceit_16_answer_1": "Yeni tanıştığını söyle.",
+        "web_of_deceit_16_answer_2": "Çok yakın olduğunu söyle.",
+
+        "web_of_deceit_17_history": "[SES KAYDI]\n\nKatil: Bu cinayeti üstleneceksin yoksa seni de öldürürüm.",
+        "web_of_deceit_17_answer_1": "Mecbursun.",
+        "web_of_deceit_17_answer_2": "İtiraz etme sakın.",
+
+        "web_of_deceit_18_history": "[SES KAYDI]\n\nKendrick: Elvis benim çok yakın arkadaşım. Bir şey mi oldu ona?\n\nKatil: Öyle mi? O zaman sana her şeyini anlatır.",
+        "web_of_deceit_18_answer_1": "Hayır.",
+        "web_of_deceit_18_answer_2": "Evet.",
+
+        "web_of_deceit_19_history": "[SES KAYDI]\n\nKendrick: Tamam! Tamam! Üstleneceğim. Yeter ki beni öldürme.\n\nKatil: Güzel aksi bir durum olursa-\n\nKendrick: Olmayacak.",
+        "web_of_deceit_19_answer_1": "Kendrick ses ver.",
+        "web_of_deceit_19_answer_2": "Son durum nedir?",
+
+        "web_of_deceit_20_history": "Dedektif! Katil kaçtı! Polisler geldi şu an.",
+        "web_of_deceit_20_answer_1": "Tamam Kendrick. Ayrılabilirsin oradan.",
+        "web_of_deceit_20_answer_2": "Bir süre hapise girmek zorundasın.",
+
+        "web_of_deceit_24_history": "[SES KAYDI]\n\nKendrick: Evet biz birbirimizden bir şey saklamayız\n\nKatil:O zaman onun yaptığı tüm şerefsizlikleri bana anlatacaksın!",
+        "web_of_deceit_24_answer_1": "Elvis'i savun.",
+        "web_of_deceit_24_answer_2": "Topluluktan mı bahsettiğini sor.",
+
+        "web_of_deceit_25_history": "[SES KAYDI]\n\nKendrick: Elvis isteyerek hiçbir şey yapmadı.\n\nKatil: Sana anlat dedim!",
+        "web_of_deceit_25_answer_1": "Anlat Kendrick.",
+        "web_of_deceit_25_answer_2": "Onunla inatlaşma. Tetiği çeker!",
+
+        "web_of_deceit_26_history": "[SES KAYDI]\n\nKendrick: Sen o topluluğun bir üyesi misin?\n\nKatil: Tam isabet! Şimdi seni gebertmeden dökül.",
+        "web_of_deceit_26_answer_1": "Onu desteklemediğini söyle.",
+        "web_of_deceit_26_answer_2": "Canının garantisini al.",
+
+        "web_of_deceit_27_history": "[SES KAYDI]\n\nKendrick: Size onun yaptıklarını savunacak değilim. O bir hata yaptı ama başkalarının etkisi altındaydı.\n\nKatil: Sorun zaten bu değil mi?",
+        "web_of_deceit_27_answer_1": "Tehdit edildiğini söyle.",
+        "web_of_deceit_27_answer_2": "Onu savunmayı bırak.",
+
+        "web_of_deceit_28_history": "[SES KAYDI]\n\nKendrick: Mecburdu. Tehdit ediliyordu.\n\nKatil:Şimdi farklı bir sonu mu oldu?",
+        "web_of_deceit_28_answer_1": "Hak ver ona.",
+        "web_of_deceit_28_answer_2": "Onların tarafında ol.",
+
+        "web_of_deceit_29_history": "[SES KAYDI]\n\nKendrick: Haklısın. Onu uyardım ama beni dinlemedi. Her ne kadar arkadaşım da olsa o bu sonu hak etti.\n\nKatil:Ne yazık ki senin de sonun benzer olacak.",
+        "web_of_deceit_29_answer_1": "Yalvar, çocukların olduğunu söyle.",
+        "web_of_deceit_29_answer_2": "Bunları unutacağını söyle.",
+
+        "web_of_deceit_30_history": "[SES KAYDI]\n\nKendrick: Yalvarırım beni bırak. 2 çocuğum var. Onları babasız bırakma. Ağzımı istesem de açamam.",
+        "web_of_deceit_30_answer_1": "Ağlamaya çalış.",
+        "web_of_deceit_30_answer_2": "Olayı unutacağını söyle.",
+
+        "web_of_deceit_32_history": "[SES KAYDI]\n\nKendrick: Hiçbir şey görmedim söz veriyorum.\n\nKatil: Çabuk buradan git ve aileni de alıp ortadan kaybol. Seni görürsem öldürürüm.",
+        "web_of_deceit_32_answer_1": "Geri çekil.",
+        "web_of_deceit_32_answer_2": "Evden çık hemen.",
+
+        "web_of_deceit_31_history": "[SES KAYDI]\n\nKendrick: Söz veriyorum bunlar yaşanmamış gibi davranacağım.\n\nKatil: Hiçbir katil arkasında delil bırakmaz. Canlı bir delil? Asla!",
+        "web_of_deceit_31_answer_1": "Tek yanlışında sonunun ölüm olduğunu bildiğini söyle.",
+        "web_of_deceit_31_answer_2": "Kendrick onu yakala!",
+
+        "web_of_deceit_35_history": "[SES KAYDI]\n\nKendrick: Aksi halde beni zaten öldüreceğinizi biliyorum. Yalvarırım beni bağışla. Ömrüm boyunca size borçlu kalırım. Katil: Tek hatanda canını ellerimle alacağım.",
+        "web_of_deceit_35_answer_1": "Gitti mi?",
+        "web_of_deceit_35_answer_2": "İyi misin?",
+
+        "web_of_deceit_38_history": "Silah yanımda sessizce beklemedeyim dedektif.",
+        "web_of_deceit_38_answer_1": "Kendrick! Kendrick! Beni duyuyor musun?",
+        "web_of_deceit_38_answer_2": "Lanet olsun! Bağlantı koptu. ",
+
+        "web_of_deceit_39_history": "Biri yukarı çıkıyor, dedektif.",
+        "web_of_deceit_39_answer_1": "Kendrick! Kendrick! Beni duyuyor musun?",
+        "web_of_deceit_39_answer_2": "Lanet olsun! Bağlantı koptu. ",
+
+        "web_of_deceit_40_history": "[SES KAYDI]\n\nKatil: Biliyordum. İndir o elindekini, çık dışarı.\n\nKendrick: İndiriyorum. Sakin ol.",
+        "web_of_deceit_40_answer_1": "Ona hemen bildiklerini söyle.",
+        "web_of_deceit_40_answer_2": "Bir şekilde aralarına girmenin yolunu bul.",
+
+        "web_of_deceit_42_history": "[SES KAYDI]\n\nKendrick: Ben sizin kim olduğunuzu biliyorum. Elvis bana daha önce bahsetmişti hatta bu olaylar yaşanmamış olsaydı sizinle tanıştıracaktı. Elvis size ihanet ettiğini anlattığında bunu size ben mektupla bildirdim. Çünkü siz bir aile gibiydiniz ve o hain bunu hak etmiyordu.",
+        "web_of_deceit_42_answer_1": "Kimse bir şey fark etmeden buradan gitmeyi teklif et.",
+        "web_of_deceit_42_answer_2": "Devam et, ikna olmak üzere.",
+
+        "web_of_deceit_43_history": "[SES KAYDI]\n\nKendrick: Birileri silah sesini duymuş olabilir. Buradan uzaklaşmalıyız.\n\nKatil: Seni öldürmemem için beni kandırmaya çalışmadığını nereden bileceğim?",
+        "web_of_deceit_43_answer_1": "İnanıp inanmamasının ona kaldığını söyle.",
+        "web_of_deceit_43_answer_2": "Mektubu nereden bilebileceğini sor.",
+
+        "web_of_deceit_45_history": "[SES KAYDI]\n\nKendrick: Amacım seni kandırmak olsaydı Elvis'in yaptıklarını size yazmazdım. Ben prensiplerim uğruna arkadaşımdan vazgeçtim. Bu uğurda her şeyden vazgeçebilirim.\n\nKatil:Seni topluluğa götüreceğim ve sana ne yapacağımıza orada karar verecekler.",
+        "web_of_deceit_45_answer_1": "Yolculuk boyunca sessiz kal.",
+        "web_of_deceit_45_answer_2": "Yolculuk boyunca sana inanması için daha samimi görün.",
+
+        "web_of_deceit_46_history": "[SES KAYDI]\n\nKendrick: ...\n\nKendrick: Burası mı sizin mekanınız?\n\nKatil: Evet. Belki artık seninde evin olacak.\n\nKendrick: Eminim öyle olacak.",
+        "web_of_deceit_46_answer_1": "Alçakgönüllü ve kendini göstermeyen bir tavırla dikkat çekme.",
+        "web_of_deceit_46_answer_2": "Güç gösterisi yaparak dikkatlerini çek.",
+
+        "web_of_deceit_47_history": "[SES KAYDI]\n\nKendrick: Adım Kendrick… Uzun zamandır bu bölgedeyim ama daha önce böyle bir grupla karşılaşmamıştım, burada olduğum için minnettarım.\n\nLider: Uzun zamandır mı dedin? Bizim buradaki işlerimize burnunu sokacak kadar değil sanırım.",
+        "web_of_deceit_47_answer_1": "Mektuptan bahset.",
+        "web_of_deceit_47_answer_2": "Burnunu sokmak değil bir parçası olmak istediğini söyle.",
+
+        "web_of_deceit_48_history": "[SES KAYDI]\n\nKendrick: Anlatırsam beni bırakacak mısın?\n\nKatil: Benimle pazarlık yapmaya kalkışma.",
+        "web_of_deceit_48_answer_1": "Anlat Kendrick.",
+        "web_of_deceit_48_answer_2": "Bilmedikleri hiçbir şey söyleme.",
+
+        "web_of_deceit_49_history": "[SES KAYDI]\n\nKendrick: Kaçakçılık yaptığınızı biliyorum. Elvis yaptıklarından yeterince para kazanamadığını söylüyordu, bu şekilde sizi ele verecekti.",
+        "web_of_deceit_49_answer_1": "Onlara bu akşamı itiraf et.",
+        "web_of_deceit_49_answer_2": "Bugün onları ele vereceğini öğrenmişler.",
+
+        "web_of_deceit_50_history": "[SES KAYDI]\n\nKendrick: Bu akşamki teslimatınızı ihbar etti. Ona defalarca yapmaması gerektiğini söyledim.\n\nKatil: Sen neden onu engellemeye çalıştın?",
+        "web_of_deceit_50_answer_1": "İhanetin affedilemez olduğunu söyle.",
+        "web_of_deceit_50_answer_2": "Yaptığının yanlış olduğunu söyle.",
+
+        "web_of_deceit_51_history": "[SES KAYDI]\n\nKendrick: Böyle bir toplulukta olmaya hak kazanmış biri böyle nankör olmamalı. Buna yemek yediğin kaba pislemek denir.\n\nKatil: Kesinlikle. O büyük bir nankör ve hain.",
+        "web_of_deceit_51_answer_1": "Polisler geldi kendini koru!",
+        "web_of_deceit_51_answer_2": "Aralarına girmeye çalış.",
+
+        "web_of_deceit_52_history": "[SES KAYDI]\n\nKendrick: Bir insanın özünü değiştiremezsin. O pislik muhakkak bir yerde iz bırakır.\n\nKatil: Tıpkı arkadaşın gibi.\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_52_answer_1": "Kendrick! İyi misin? Ses ver!",
+        "web_of_deceit_52_answer_2": "Son durum nedir?",
+
+        "web_of_deceit_55_history": "[SES KAYDI]\n\nKendrick: Ben bu işi yapabilmek için her şeyi yapardım. O bunu hak etmiyordu. Bir aileye ihanet etti.\n\nKatil: Sen bize layık birine benziyorsun. Seni liderimizle tanıştıracağım.",
+        "web_of_deceit_55_answer_1": "Teşekkür et.",
+        "web_of_deceit_55_answer_2": "Mutluluğunu belli et.",
+
+        "web_of_deceit_56_history": "[SES KAYDI]\n\nKendrick: Çok teşekkür ederim. Ailenizin bir parçası olmaktan onur duyacağım.",
+        "web_of_deceit_56_answer_1": "Sıra liderde.",
+        "web_of_deceit_56_answer_2": "Aralarına girmek için ilk adımı attın.",
+
+        "web_of_deceit_57_history": "[SES KAYDI]\n\nKendrick: Merhaba efendim. Ben Kendrick.\n\nLider: Kendrick... Demek ailemize girmek istiyorsun?\n\nKendrick: Evet. Her şeyden çok.\n\nLider : Her şey?",
+        "web_of_deceit_57_answer_1": "Elvis'i söyle.",
+        "web_of_deceit_57_answer_2": "Mektuptan bahset.",
+
+        "web_of_deceit_58_history": "[SES KAYDI]\n\nKendrick: Ben bu uğurda yakın arkadaşım Elvis'ten vazgeçtim.\n\nLider: Nasıl?\n\nKendrick: Elvis bana yaptıklarını anlattığında o mektubu ben yazdım.\n\nLider: Öyle mi? Biz mektubu yazanı asla bulamadık. Onu ödüllendirmek istedik. Şimdi buraya bir şeyler yaz. Senden emin olmamız lazım.",
+        "web_of_deceit_58_answer_1": "Bunu hiç düşünmedik.",
+        "web_of_deceit_58_answer_2": "Yazıyı görmedik bile.",
+
+        "web_of_deceit_60_history": "[SES KAYDI]\n\nKendrick: Burada bulunmak kendi menfaatini gözetmeksizin her konuda topluluğun menfaatini gözetmek ve bu menfaat üzerine çalışmaktır... Elvis bana sizden bahsettinde derhal buraya katılmam gerektiğini söyledim fakat hemen ardından Elvis size yaptığı affedilemez yanlışlardan bahsetti. O burada olmayı hak etmiyordu. Bunu size bir mektupla bildirdim ve aranızdaki haini görmeniz için fırsat yarattım. O burada olmayı hak etmedi ama ben bunu sonuna kadar hak ediyorum, bu uğurda yaşamak ve ölmek istiyorum.",
+        "web_of_deceit_60_answer_1": "Daha fazla ileri gitme.",
+        "web_of_deceit_60_answer_2": "Harika Kendrick.",
+
+        "web_of_deceit_61_history": "[SES KAYDI]\n\nLider: Demek ailemize katılmak için hazırsın?\n\nKendrick: Burada kalırsam yalnızca sizin değil, benim oyunlarımla da oynarsınız. Ben sadece bir asker değilim. Planlarım var.",
+        "web_of_deceit_61_answer_1": "Gücünü sınamak isteyecek.",
+        "web_of_deceit_61_answer_2": "Sessiz kal ve ilk hamlelerini bekle.",
+
+        "web_of_deceit_62_history": "[SES KAYDI]\n\nÜye: Bu kadar cesursa hemen kendini kanıtlasın. Aksi halde buradan sağ çıkamayacağını biliyor olmalı.\n\nLider: Haklısın. Kanıtlayalım.",
+        "web_of_deceit_62_answer_1": "Saldırganlaşma.Unutma itaatkar ama korkusuz ol.",
+        "web_of_deceit_62_answer_2": "Ne olursa olsun güvenlerini kazanmalısın.",
+
+        "web_of_deceit_63_history": "[SES KAYDI]\n\nLider: Beni takip et. Kendrick: Peki efendim.\n\nLider: Sadakat basit bir kelime değildir, Kendrick. Gerçek bağlılık kanla ispat edilir. Bu pislik bize ihanet etti, tıpkı Elvis gibi. Onu öldür yoksa topluluğun bir parçası olamazsın!",
+        "web_of_deceit_63_answer_1": "Bir plan kurarak adamı kurtar.",
+        "web_of_deceit_63_answer_2": "Adamı öldür.",
+
+        "web_of_deceit_64_history": "[SES KAYDI]\n\nKendrick: Onu öldürmek yerine daha fazla işkence edebiliriz sonuçta elimizde. O zaman bize daha fazla bilgi verir. Şu an onu öldürmek sadece bir kayıp olur.\n\nLider: Ne senden akıl alırım ne de sana kararımı sorgulatırım!",
+        "web_of_deceit_64_answer_1": "O silah sesi? Kendrick!",
+        "web_of_deceit_64_answer_2": "Ses ver Kendrick!",
+
+        "web_of_deceit_66_history": "[SES KAYDI]\n\nLider: Artık gerçekten bizdensin. Aramıza hoşgeldin evlat. Şimdi git biraz dinlen.\n\nKendrick: Teşekkür ederim efendim.",
+        "web_of_deceit_66_answer_1": "Yalnız olduğunda ses ver.",
+        "web_of_deceit_66_answer_2": "İyi misin Kendrick?",
+
+        "web_of_deceit_67_history": "Dedektif! Öldürdüm onu! Hiçbir şey düşünmeden ateşledim! Berbat hissediyordum.",
+        "web_of_deceit_67_answer_1": "Buna mecburduk.",
+        "web_of_deceit_67_answer_2": "Vicdanınla değil onlarla savaş.",
+
+        "web_of_deceit_68_history": "Dedektif artık tamamen güvenlerini kazandım. Muhakkak bu istihbaratı yönettikleri bir sistem odası vardır. Liderin kullandığı özel bir geçit öğrendim. Herkes şu an köşeye çekildi ve her taraf sakin. Harekete geçiyorum.",
+        "web_of_deceit_68_answer_1": "Anlaşıldı. Dikkatli ol.",
+        "web_of_deceit_68_answer_2": "Bu aşamada hata yapma lüksümüz yok.",
+
+        "web_of_deceit_69_history": "[SES KAYDI]\n\nKendrick: Ben işinize burnumu sokmak değil bir parçası olmak için buraya geldim. Beni kabul ederseniz her görevimi büyük bir minnetle icra edeceğim.\n\nLider: Pekâlâ Kendrick, burada olabilirsin ancak kurallarımız var ve hatalar affedilmez. Bunu çok iyi öğrenmiş olmalısın.\n\nKendrick: Biliyorum. Elimden gelenin fazlasını yapacağım.",
+        "web_of_deceit_69_answer_1": "Güzel, seni hafife alıyorlar.",
+        "web_of_deceit_69_answer_2": "Şimdi onların içine sızma vakti.",
+
+        "web_of_deceit_70_history": "[SES KAYDI]\n\nKendrick: Ben Kendrick. Bu düzensiz düzene ait olmayan bu topluluğun bir parçası olmam gerektiğine eminim.\n\nLider: Birinin buraya ait hissetmesi burada olması için yeterli değildir. Bunu göstermesi gerekir.\n\nKendrick: Her şekilde gösterebilirim.",
+        "web_of_deceit_70_answer_1": "Sana işkence edecekler.",
+        "web_of_deceit_70_answer_2": "Sert bir direniş göstermek zorundasın.",
+
+        "web_of_deceit_71_history": "[SES KAYDI]\n\nLider: Bu metal çubuklar senin için Kendrick. Şimdi bakalım ne kadar dayanıklısın.\n\nKendrick: ...\n\nLider: Daha güçlü olduğunu mu göstermek istiyorsun?",
+        "web_of_deceit_71_answer_1": "Biraz daha dayanmalısın.",
+        "web_of_deceit_71_answer_2": "Dayanamayacağını söyle.",
+
+        "web_of_deceit_72_history": "[SES KAYDI]\n\nLider: Pekala. Bu kablolar da senin için. Aramızdaki elektriği en derinden hisset. Kendrick: ...\n\nLider: Sert birisin, buna şaşırdım. Bugüne kadar kimse burada böyle bir tepki vermemişti. Direncin hoşuma gitti. Ama bana karşı çıkmaya kalkarsan seni diri diri yakarım.",
+        "web_of_deceit_72_answer_1": "İyi iş çıkardın evlat.",
+        "web_of_deceit_72_answer_2": "Bunların acısı çıkacak.",
+
+        "web_of_deceit_73_history": "[SES KAYDI]\n\nKendrick: Sağlam bir şekilde görevlerime başlamak istiyorum.\n\nLider: Asıl sağlamlık işkencede ne olursa olsun geri adım atmamaktır. Bugün bizim önümüzde geri adım atan yarın başkasının önünde bizi satarak geri adım atar.",
+        "web_of_deceit_73_answer_1": "Lanet olsun.",
+        "web_of_deceit_73_answer_2": "İşe yaramadı.",
+
+        "web_of_deceit_75_history": "Dedektif şu an liderin odasındayım. Dikkatlice lideri izlemiştim, gizli bir yer kullandığını fark ettim ve o geçidi kullandım. Şu an gönderdiğiniz kodla veritabanına eriştim. Biri geliyor dedektif!",
+        "web_of_deceit_75_answer_1": "Çok dikkatli ol.",
+        "web_of_deceit_75_answer_2": "Kahretsin!",
+
+        "web_of_deceit_76_history": "Dedektif, çetenin güvenlik başı gelmiş! Başına bir şeyle vurdum. Dosyaları indirmeye devam ediyorum.",
+        "web_of_deceit_76_answer_1": "Acele et.",
+        "web_of_deceit_76_answer_2": "Verileri ele geçirince ses ver.",
+
+        "web_of_deceit_77_history": "Dedektif, veriler elimde. Buradan çıkmam lazım.",
+        "web_of_deceit_77_answer_1": "Adamı öldür Kendrick!",
+        "web_of_deceit_77_answer_2": "Kimse bir şey fark etmeden hızla çık.",
+
+        "web_of_deceit_79_history": "Dedektif onu öldürdüm! Şimdi kimseye yakalanmadan çıkmaya çalışacağım.",
+        "web_of_deceit_79_answer_1": "Artık son plana geldik.",
+        "web_of_deceit_79_answer_2": "Sonuca çok yakınız, hazır ol.",
+
+        "web_of_deceit_80_history": "Dedektif baş güvenliği kimin öldürdüğünü hala bulamadılar. Kendilerince senaryolar yazdılar. Ben de topladığım bilgilerle ana buluşma noktasındaki güvenlik sistemlerini devre dışı bıraktım. Gizli sensörlerin yerini öğrendim ve sistemi ele geçirmek için bir virüs yükledim.",
+        "web_of_deceit_80_answer_1": "Her şey kontrol altında.",
+        "web_of_deceit_80_answer_2": "Bir sonraki adımı devreye sok.",
+
+        "web_of_deceit_81_history": "[SES KAYDI]\n\nLider: Senin son zamanlarda çok şey öğrendiğini görüyorum, Kendrick. Hızla grubumuzun vazgeçilmez bir parçası oldun.\n\nKendrick: Sağ olun efendim. Elimden geleni yapıyorum.\n\nLider: Ama soruyorum, sadakatin ne kadar sağlam?",
+        "web_of_deceit_81_answer_1": "Sadakatimi sorgulamak için bir neden göremiyorum, de.",
+        "web_of_deceit_81_answer_2": "Siz benim ailem oldunuz, de.",
+
+        "web_of_deceit_83_history": "[SES KAYDI]\n\nKendrick: Sizden öğrendiğim her şeyle size daha bağlı hissediyorum. Siz benim ailem oldunuz.\n\nLider: Senin gibi sağlam adamlara ihtiyacımız var evlat.",
+        "web_of_deceit_83_answer_1": "Polise sinyal gönder.",
+        "web_of_deceit_83_answer_2": "Telefondaki konumunu aç.",
+
+        "web_of_deceit_84_history": "[SES KAYDI]\n\nLider: Sen... Sen bir köstebeksin! Bize ihanet ettin!\n\nKendrick: Buraya kadarmış.",
+        "web_of_deceit_84_answer_1": "Seni vuracak! İlk sen vur!",
+        "web_of_deceit_84_answer_2": "O bize lazım.",
+
+        "web_of_deceit_901_history": "(Katil, adamını atlatmayı başardı.)\n\n(Dosyayı çözemedin.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_901_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_901_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_902_history": "(Polisler geldi ve katil tutuklandı. Gece limana bir operasyon düzenlendi fakat katilin yalan söylediği ortaya çıktı.)\n\n(Dosya çözülemedi.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_902_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_902_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_903_history": "(Kendrick dışarı çıktığı anda göğsüne saplanan mermiyle yere yığıldı. Çünkü katil Kendrick'in tutuklanmadığını gördü ve onun polis istihbaratından olduğunu anladı. Katil ise sırra kadem bastı.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_903_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_903_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_904_history": "(Kendrick bir süre hapse girerek onları inandırmaya çalıştı. Bu şekilde Kendrick'in can güvenliği sağlanmış oldu fakat dosya çözülemedi.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_904_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_904_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_905_history": "(Katil cevabı duyduğu anda silahını ateşledi ve Kendrick'i öldürdü. Dosya iki cinayet daha eklenerek çözülemedi.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_905_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_905_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_906_history": "(Katil Kendrick'e inanmamayı seçerek silahını ateşledi. Kendrick yere yığılarak can verdi. Katil ise ortadan kaybolarak izini kaybettirdi.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_906_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_906_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_907_history": "(Kendrick yakalandı ve öldürüldü. Dosya çözülemedi.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_907_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_907_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_908_history": "(Ardından bodrumda silah sesi yankılandı ve Kendrick yere yığıldı.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_908_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_908_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_909_history": "Dışarıdayım, dedektif. Maalesef ki kaçtı. Lanet olsun yine onlar kazandı!\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_909_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_909_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_910_history": "Çıktım, dedektif. Polisleri evi kuşattı. Dedektif polislere ateş açtı. Lanet olsun vuruldu sanırım. Evet... Vurulmuş, dedektif. Yine elimizdeki her şeyi kaybettik.\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_910_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_910_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_911_history": "Gitti, dedektif. Ben kurtuldum ama elimizdeki son şans da biraz önce kapıdan çıktı. Yine başarısız sonuç.\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_911_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_911_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_912_history": "[SES KAYDI]\n\nDedektif buraya bir ambulans gönderin! Katil beni bıçaklayarak kaçtı! Acil bir ambulans... Konuşmakta zorlanıyorum!\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_912_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_912_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_913_history": "(Polisler mutfak kapısından girdi. Arkalarından dolanarak katile silahı bırakmasını söylediler fakat katil, tuzağın etkisiyle silahı Kendrick'e doğrultarak anında tetiği çekti. Aynı anda polis de katili vurdu. Bundan dolayı dosya çözülememiş oldu.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_913_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_913_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_914_history": "Dedektif silahını elinden alarak kendimi savundum. Polisler gelerek onu götürdüler. Artık onu konuşturarak çeteyi çökertmek polisin görevi.\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_914_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_914_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_915_history": "(Kendrick çaresiz bir şekilde bir ihtimal umuduyla yazdı. Mektupla yazıyı karşılaştırdıklarında aynı olmadığını gördüler. Kendrick'e saatlerce işkence yaptıktan sonra öldürdüler.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_915_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_915_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_916_history": "(Kendrick'in planı işe yaramadı. Lider onun bir korkak olduğunu düşünerek onu öldürdü.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_916_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_916_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_917_history": "(Güvenlik uyanıp bir tuşa bastı ve alarmlar harekete geçti. Anında herkes odaya koştu. Kendrick'e baktıkları anda ihanetle göz göze geldiler. Lider silahını çekerek Kendrick'i vurdu.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_917_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_917_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_918_history": "[SES KAYDI]\n\nLider: Ben görüyorum! Seni hain!\n\n(Lider belinden silahını çıkarıp Kendrick'i kulaklığının olduğu kulağından vurdu. Dün her şeyi anlamış olan lider, Kendrick ava gittiğini zannederken onu avladı.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_918_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_918_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_919_history": "(Göz göze geldikleri anda odada ölüm sessizliği vardı. Her şey saniyeler içinde olup bitti. Lider, Kendrick'i öldürmek için tetik çektiği anda Kendrick de aynı anda hareket etti ve kurşunlar birbirine karıştı. Lider yere yığılırken, Kendrick kolundan hafif bir yara aldı. Polis baskını başarılı bir şekilde sonuçlandı. Lider ve grubun tüm üyeleri ya öldü ya da tutuklandı. Kendrick organizasyonun içindeki görevi başarıyla tamamlanmıştı, ancak yaşadığı zorlu deneyimler onu derinden etkilemişti. Senin(dedektif) talimatların sayesinde tüm operasyon kusursuz bir şekilde yürütüldü ancak Kendrick'in vicdanı, yaşadığı ihanet ve ölüm anlarıyla ağır bir yük altındaydı. Polisler binayı temizledikten sonra, Kendrick sessizce dışarı çıktı. Gözlerinde hafif bir hüzün vardı, ama aynı zamanda bir zaferin tatminini de hissediyordu.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_919_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_919_answer_2": "Hikayeyi Yeniden Başlat.",
+
+        "web_of_deceit_920_history": "(Lider bir açıklama beklemeden tetiği çektiği anda Kendrick yere yığıldı. Baskın başarılı olurken Kendrick bu uğurda kendini feda etti.)\n\n(BAĞLANTI KOPTU...)",
+        "web_of_deceit_920_answer_1": "Hikayeyi Yeniden Başlat.",
+        "web_of_deceit_920_answer_2": "Hikayeyi Yeniden Başlat."
 }

@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
+import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
@@ -89,6 +90,18 @@ class _ChatViewState extends State<ChatView> {
             await _selectedStoryUpdate(type: TextType.gravehurstType);
             vm.repo = _databaseService.gravehurstRepo;
             break;
+          case TextType.webOfDeceitType:
+            vm.selectedList = webOfDeceitDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.webOfDeceitType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.webOfDeceitType);
+            vm.repo = _databaseService.webOfDeceitRepo;
+            break;
           default:
         }
       });
@@ -111,7 +124,6 @@ class _ChatViewState extends State<ChatView> {
       vm.scrollToBottom();
     });
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
@@ -129,7 +141,6 @@ class _ChatViewState extends State<ChatView> {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 30),
               child: Container(
-
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.5),
                 ),
@@ -145,14 +156,15 @@ class _ChatViewState extends State<ChatView> {
                       case TextType.gravehurstType:
                         vm.selectedTexts = newGame.gravehurstTexts.toString();
                         break;
+                      case TextType.webOfDeceitType:
+                        vm.selectedTexts = newGame.webOfDeceitTexts.toString();
+                        break;
                       default:
                     }
                     return Padding(
                       padding: EdgeInsets.only(
-
                         left: index.isEven ? 10 : 50,
                         right: index.isEven ? 50 : 10,
-
                         bottom: 16,
                       ),
                       child: Container(
@@ -161,7 +173,6 @@ class _ChatViewState extends State<ChatView> {
                           color: index.isEven
                               ? Colors.green.withOpacity(0.2)
                               : Colors.grey.withOpacity(0.2),
-
                           borderRadius: index.isEven
                               ? const BorderRadiusDirectional.only(
                                   bottomEnd: Radius.circular(10),
@@ -171,7 +182,6 @@ class _ChatViewState extends State<ChatView> {
                                   bottomStart: Radius.circular(10),
                                   topEnd: Radius.circular(10),
                                   topStart: Radius.circular(10)),
-
                           border: Border.all(color: Colors.green, width: 1),
                         ),
                         child: index == vm.repo.length - 1 && _isTyping
@@ -220,7 +230,6 @@ class _ChatViewState extends State<ChatView> {
                     Padding(
                       padding:
                           const EdgeInsets.only(left: 8.0, right: 8, bottom: 8),
-
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
@@ -229,20 +238,17 @@ class _ChatViewState extends State<ChatView> {
                           foregroundColor: Colors.green,
                           backgroundColor: Colors.green.withOpacity(0.2),
                           side: const BorderSide(color: Colors.green),
-
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 12, bottom: 12),
                           child: Text(vm.assignToOdd(
                               vm.selectedList, vm.storyMapId)!["title"]),
                         ),
-
                         onPressed: () async {
                           await _handleChoice(vm.left);
                         },
                       ),
                     ),
-
                     Container(
                       child: Text(
                         ConstantTexts.ChooseYourAnswer.tr(),
@@ -252,7 +258,6 @@ class _ChatViewState extends State<ChatView> {
                     Padding(
                       padding:
                           const EdgeInsets.only(left: 8.0, right: 8, top: 8),
-
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
@@ -280,7 +285,6 @@ class _ChatViewState extends State<ChatView> {
           if (!vm.textCompleted || _isTyping)
             SafeArea(
               child: Container(
-
                 color: Colors.black.withOpacity(0.7),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -302,7 +306,6 @@ class _ChatViewState extends State<ChatView> {
                   ],
                 ),
               ),
-
             ),
         ],
       ),
@@ -323,9 +326,20 @@ class _ChatViewState extends State<ChatView> {
     vm.updateStoryMapId(choice["aId"]);
 
     await _selectedStoryUpdate(type: widget.selectedTextType);
-    vm.repo = widget.selectedTextType == TextType.murderType
-        ? _databaseService.murderRepo
-        : _databaseService.gravehurstRepo;
+    switch (widget.selectedTextType) {
+      case TextType.murderType:
+        vm.repo = _databaseService.murderRepo;
+        break;
+      case TextType.gravehurstType:
+        vm.repo = _databaseService.gravehurstRepo;
+        break;
+      case TextType.webOfDeceitType:
+        vm.repo = _databaseService.webOfDeceitRepo;
+        break;
+
+      default:
+    }
+
     vm.scrollToBottom();
 
     await Future.delayed(const Duration(seconds: 1));
@@ -337,9 +351,19 @@ class _ChatViewState extends State<ChatView> {
       type: widget.selectedTextType,
     );
     await _selectedStoryUpdate(type: widget.selectedTextType);
-    vm.repo = widget.selectedTextType == TextType.murderType
-        ? _databaseService.murderRepo
-        : _databaseService.gravehurstRepo;
+    switch (widget.selectedTextType) {
+      case TextType.murderType:
+        vm.repo = _databaseService.murderRepo;
+        break;
+      case TextType.gravehurstType:
+        vm.repo = _databaseService.gravehurstRepo;
+        break;
+      case TextType.webOfDeceitType:
+        vm.repo = _databaseService.webOfDeceitRepo;
+        break;
+
+      default:
+    }
 
     setState(() {
       _isTyping = true;
