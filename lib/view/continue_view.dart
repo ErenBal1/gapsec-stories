@@ -49,6 +49,7 @@ class _ContinueViewState extends State<ContinueView> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
       await _selectedStoryUpdate(type: TextType.gravehurstType);
+      await _selectedStoryUpdate(type: TextType.webOfDeceitType);
     });
     super.initState();
   }
@@ -99,6 +100,12 @@ class _ContinueViewState extends State<ContinueView> {
                     break;
                   case "Gravehurst":
                     if (_databaseService.gravehurstRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Web Of Deceit":
+                    if (_databaseService.webOfDeceitRepo.isNotEmpty) {
                       content =
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
@@ -217,6 +224,23 @@ class _ContinueViewState extends State<ContinueView> {
                           } else {
                             /* await showOkCancelAlert(
                                 context, TextType.dontLookBackType, gameName); */
+                          }
+                          break;
+                        case "Web Of Deceit":
+                          await _selectedStoryUpdate(
+                              type: TextType.webOfDeceitType);
+                          if (_databaseService.webOfDeceitRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo:
+                                      _databaseService.webOfDeceitRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.webOfDeceitType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
                           }
                           break;
                         default:

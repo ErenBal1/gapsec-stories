@@ -93,8 +93,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 120) {
             buySteps(
                 minusAmount: -120,
-                type: TextType.lostLucyType,
-                storyIsLock: lostLucy.isLock);
+                type: TextType.webOfDeceitType,
+                storyIsLock: webOfDeceit.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());
@@ -316,9 +316,16 @@ class _StoriesViewState extends State<StoriesView>
                 return VideoPlayer(vm.mp4controller);
               }),
             ), */
-            Observer(builder: (_) {
-              return Image.asset("assets/images/${vm.newBackground}");
-            }),
+            SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Observer(builder: (_) {
+                return Image.asset(
+                  "assets/images/${vm.newBackground}",
+                  fit: BoxFit.fill,
+                );
+              }),
+            ),
             // Hikaye içeriği
             Container(
               decoration: BoxDecoration(

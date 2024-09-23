@@ -22,14 +22,14 @@ StoryModel murder = StoryModel(
     whichRepo: DatabaseService().murderRepo);
 StoryModel gravehurst = StoryModel(
     name: "Gravehurst",
-    description: "Don't Look Back best tool",
+    description: "Gravehurst best tool",
     isLock: DatabaseService().gravehurstIsLockDefault ?? true,
     whichRepo: DatabaseService().gravehurstRepo);
-StoryModel lostLucy = StoryModel(
-    name: "Lost Lucy",
-    description: "Lost Lucy best tool",
-    isLock: DatabaseService().lostLucyIsLockDefault ?? true,
-    whichRepo: DatabaseService().lostLucyRepo);
+StoryModel webOfDeceit = StoryModel(
+    name: "Web Of Deceit",
+    description: "Web Of Deceit best tool",
+    isLock: DatabaseService().webOfDeceitIsLockDefault ?? true,
+    whichRepo: DatabaseService().webOfDeceitRepo);
 StoryModel nightGame = StoryModel(
     name: "Night Game",
     description: "Night Game best tool",
@@ -60,7 +60,7 @@ class Games {
   List historiesGames = [
     murder,
     gravehurst,
-    lostLucy,
+    webOfDeceit,
     nightGame,
     runKaity,
     smile,

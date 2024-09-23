@@ -8,7 +8,7 @@ class BoolModel {
   int? tokenAmount;
   bool? murderIsLock;
   bool? gravehurstIsLock;
-  bool? lostLucyIsLock;
+  bool? webOfDeceitIsLock;
   bool? nightGameIsLock;
   bool? runKaityIsLock;
   bool? smileIsLock;

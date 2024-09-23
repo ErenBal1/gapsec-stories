@@ -21,7 +21,7 @@ class DatabaseService {
   int? tokenAmountDefault = 0;
   bool? murderIsLockDefault = false;
   bool? gravehurstIsLockDefault = true;
-  bool? lostLucyIsLockDefault = true;
+  bool? webOfDeceitIsLockDefault = true;
   bool? nightGameIsLockDefault = true;
   bool? runKaityIsLockDefault = true;
   bool? smileIsLockDefault = true;
@@ -36,7 +36,7 @@ class DatabaseService {
       return;
     }
     gravehurstIsLockDefault = boolValues.gravehurstIsLock ?? true;
-    lostLucyIsLockDefault = boolValues.lostLucyIsLock ?? true;
+    webOfDeceitIsLockDefault = boolValues.webOfDeceitIsLock ?? true;
     nightGameIsLockDefault = boolValues.nightGameIsLock ?? true;
     runKaityIsLockDefault = boolValues.runKaityIsLock ?? true;
     smileIsLockDefault = boolValues.smileIsLock ?? true;
@@ -45,7 +45,7 @@ class DatabaseService {
 
     murder.isLock = murderIsLockDefault!;
     gravehurst.isLock = gravehurstIsLockDefault!;
-    lostLucy.isLock = lostLucyIsLockDefault!;
+    webOfDeceit.isLock = webOfDeceitIsLockDefault!;
     nightGame.isLock = nightGameIsLockDefault!;
     runKaity.isLock = runKaityIsLockDefault!;
     smile.isLock = smileIsLockDefault!;
@@ -95,15 +95,15 @@ class DatabaseService {
           });
         }
         break;
-      case TextType.lostLucyType:
+      case TextType.webOfDeceitType:
         if (boolValues != null) {
-          boolValues.lostLucyIsLock = newValue;
+          boolValues.webOfDeceitIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..lostLucyIsLock = newValue;
+          final newBoolModel = BoolModel()..webOfDeceitIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
@@ -189,7 +189,7 @@ class DatabaseService {
   //Her bir hikayenin depolanması için
   List<NewGame?> murderRepo = [];
   List<NewGame?> gravehurstRepo = [];
-  List<NewGame?> lostLucyRepo = [];
+  List<NewGame?> webOfDeceitRepo = [];
   List<NewGame?> nightGameRepo = [];
   List<NewGame?> runKaityRepo = [];
   List<NewGame?> smileRepo = [];
@@ -235,16 +235,18 @@ class DatabaseService {
         gravehurstRepo.clear();
         await selectedStoryUpdate(type: TextType.gravehurstType);
         break;
-      case TextType.lostLucyType:
+      case TextType.webOfDeceitType:
         await isar.writeTxn(() async {
-          final items =
-              await isar.newGames.filter().lostLucyTextsIsNotEmpty().findAll();
+          final items = await isar.newGames
+              .filter()
+              .webOfDeceitTextsIsNotEmpty()
+              .findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        lostLucyRepo.clear();
-        await selectedStoryUpdate(type: TextType.lostLucyType);
+        webOfDeceitRepo.clear();
+        await selectedStoryUpdate(type: TextType.webOfDeceitType);
         break;
       case TextType.nightGameType:
         await isar.writeTxn(() async {
@@ -326,10 +328,11 @@ class DatabaseService {
         //print("dontLookBackRepo => $dontLookBackRepo");
         //print("dontlookback story updated");
         break;
-      case TextType.lostLucyType:
-        lostLucyRepo = newGames
+      case TextType.webOfDeceitType:
+        webOfDeceitRepo = newGames
             .where((item) =>
-                item.lostLucyTexts != null && item.lostLucyTexts!.isNotEmpty)
+                item.webOfDeceitTexts != null &&
+                item.webOfDeceitTexts!.isNotEmpty)
             .toList();
         //print("lostLucyRepo => $lostLucyRepo");
         //print("lostLucy story updated");
@@ -399,13 +402,13 @@ class DatabaseService {
           selectedStoryUpdate(type: TextType.gravehurstType);
         }
         break;
-      case TextType.lostLucyType:
+      case TextType.webOfDeceitType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..lostLucyTexts = eklenicekMetin;
+          final item = NewGame()..webOfDeceitTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.lostLucyType);
+          selectedStoryUpdate(type: TextType.webOfDeceitType);
         }
         break;
       case TextType.nightGameType:
