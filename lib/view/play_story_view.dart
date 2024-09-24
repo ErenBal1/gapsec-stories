@@ -222,6 +222,7 @@ class _ChatViewState extends State<ChatView> {
                           foregroundColor: Colors.green,
                           backgroundColor: Colors.green.withOpacity(0.2),
                           side: const BorderSide(color: Colors.green),
+
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 12, bottom: 12),
@@ -233,10 +234,11 @@ class _ChatViewState extends State<ChatView> {
                         },
                       ),
                     ),
+
                     Container(
-                      child: const Text(
-                        "- Choose Your Answer -",
-                        style: TextStyle(color: Colors.grey),
+                      child: Text(
+                        ConstantTexts.ChooseYourAnswer.tr(),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     ),
                     Padding(

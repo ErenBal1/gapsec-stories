@@ -20,6 +20,7 @@ class ConstantPaths {
 }
 
 class ConstantTexts {
+  static const String ChooseYourAnswer = "choose_your_answer";
   static const String ShouldBuy = "should_buy";
   static const String UnlockThis = "unlock_this";
   static const String GetMoreMystoken = "get_more_mystoken";
