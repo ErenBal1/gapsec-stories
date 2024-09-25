@@ -105,8 +105,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 100) {
             buySteps(
                 minusAmount: -100,
-                type: TextType.nightGameType,
-                storyIsLock: nightGame.isLock);
+                type: TextType.zetaType,
+                storyIsLock: zeta.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());

@@ -9,7 +9,7 @@ class BoolModel {
   bool? murderIsLock;
   bool? gravehurstIsLock;
   bool? webOfDeceitIsLock;
-  bool? nightGameIsLock;
+  bool? zetaIsLock;
   bool? runKaityIsLock;
   bool? smileIsLock;
   bool? behindIsLock;

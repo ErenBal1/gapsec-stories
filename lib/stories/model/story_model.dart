@@ -30,11 +30,11 @@ StoryModel webOfDeceit = StoryModel(
     description: "Web Of Deceit best tool",
     isLock: DatabaseService().webOfDeceitIsLockDefault ?? true,
     whichRepo: DatabaseService().webOfDeceitRepo);
-StoryModel nightGame = StoryModel(
-    name: "Night Game",
-    description: "Night Game best tool",
-    isLock: DatabaseService().nightGameIsLockDefault ?? true,
-    whichRepo: DatabaseService().nightGameRepo);
+StoryModel zeta = StoryModel(
+    name: "Zeta",
+    description: "Zeta best tool",
+    isLock: DatabaseService().zetaIsLockDefault ?? true,
+    whichRepo: DatabaseService().zetaRepo);
 StoryModel runKaity = StoryModel(
     name: "Run Kaity",
     description: "Run Kaity best tool",
@@ -61,7 +61,7 @@ class Games {
     murder,
     gravehurst,
     webOfDeceit,
-    nightGame,
+    zeta,
     runKaity,
     smile,
     behind,

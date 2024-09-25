@@ -43,6 +43,7 @@ class FlagButton extends StatelessWidget {
           await StoriesState().deleteAllStories(type: TextType.murderType);
           await StoriesState().deleteAllStories(type: TextType.gravehurstType);
           await StoriesState().deleteAllStories(type: TextType.webOfDeceitType);
+          await StoriesState().deleteAllStories(type: TextType.zetaType);
         },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

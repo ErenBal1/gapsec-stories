@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
 import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
+import 'package:gapsec/stories/games_storage/zeta.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
@@ -102,6 +103,18 @@ class _ChatViewState extends State<ChatView> {
             await _selectedStoryUpdate(type: TextType.webOfDeceitType);
             vm.repo = _databaseService.webOfDeceitRepo;
             break;
+          case TextType.zetaType:
+            vm.selectedList = zetaDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.zetaType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.zetaType);
+            vm.repo = _databaseService.zetaRepo;
+            break;
           default:
         }
       });
@@ -158,6 +171,9 @@ class _ChatViewState extends State<ChatView> {
                         break;
                       case TextType.webOfDeceitType:
                         vm.selectedTexts = newGame.webOfDeceitTexts.toString();
+                        break;
+                      case TextType.zetaType:
+                        vm.selectedTexts = newGame.zetaTexts.toString();
                         break;
                       default:
                     }
@@ -336,6 +352,9 @@ class _ChatViewState extends State<ChatView> {
       case TextType.webOfDeceitType:
         vm.repo = _databaseService.webOfDeceitRepo;
         break;
+      case TextType.zetaType:
+        vm.repo = _databaseService.zetaRepo;
+        break;
 
       default:
     }
@@ -360,6 +379,9 @@ class _ChatViewState extends State<ChatView> {
         break;
       case TextType.webOfDeceitType:
         vm.repo = _databaseService.webOfDeceitRepo;
+        break;
+      case TextType.zetaType:
+        vm.repo = _databaseService.zetaRepo;
         break;
 
       default:

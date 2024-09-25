@@ -22,7 +22,7 @@ class DatabaseService {
   bool? murderIsLockDefault = false;
   bool? gravehurstIsLockDefault = true;
   bool? webOfDeceitIsLockDefault = true;
-  bool? nightGameIsLockDefault = true;
+  bool? zetaIsLockDefault = true;
   bool? runKaityIsLockDefault = true;
   bool? smileIsLockDefault = true;
   bool? behindIsLockDefault = true;
@@ -37,7 +37,7 @@ class DatabaseService {
     }
     gravehurstIsLockDefault = boolValues.gravehurstIsLock ?? true;
     webOfDeceitIsLockDefault = boolValues.webOfDeceitIsLock ?? true;
-    nightGameIsLockDefault = boolValues.nightGameIsLock ?? true;
+    zetaIsLockDefault = boolValues.zetaIsLock ?? true;
     runKaityIsLockDefault = boolValues.runKaityIsLock ?? true;
     smileIsLockDefault = boolValues.smileIsLock ?? true;
     behindIsLockDefault = boolValues.behindIsLock ?? true;
@@ -46,7 +46,7 @@ class DatabaseService {
     murder.isLock = murderIsLockDefault!;
     gravehurst.isLock = gravehurstIsLockDefault!;
     webOfDeceit.isLock = webOfDeceitIsLockDefault!;
-    nightGame.isLock = nightGameIsLockDefault!;
+    zeta.isLock = zetaIsLockDefault!;
     runKaity.isLock = runKaityIsLockDefault!;
     smile.isLock = smileIsLockDefault!;
     behind.isLock = behindIsLockDefault!;
@@ -109,15 +109,15 @@ class DatabaseService {
           });
         }
         break;
-      case TextType.nightGameType:
+      case TextType.zetaType:
         if (boolValues != null) {
-          boolValues.nightGameIsLock = newValue;
+          boolValues.zetaIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..nightGameIsLock = newValue;
+          final newBoolModel = BoolModel()..zetaIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
@@ -190,7 +190,7 @@ class DatabaseService {
   List<NewGame?> murderRepo = [];
   List<NewGame?> gravehurstRepo = [];
   List<NewGame?> webOfDeceitRepo = [];
-  List<NewGame?> nightGameRepo = [];
+  List<NewGame?> zetaRepo = [];
   List<NewGame?> runKaityRepo = [];
   List<NewGame?> smileRepo = [];
   List<NewGame?> behindRepo = [];
@@ -248,16 +248,16 @@ class DatabaseService {
         webOfDeceitRepo.clear();
         await selectedStoryUpdate(type: TextType.webOfDeceitType);
         break;
-      case TextType.nightGameType:
+      case TextType.zetaType:
         await isar.writeTxn(() async {
           final items =
-              await isar.newGames.filter().nightGameTextsIsNotEmpty().findAll();
+              await isar.newGames.filter().zetaTextsIsNotEmpty().findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        nightGameRepo.clear();
-        await selectedStoryUpdate(type: TextType.nightGameType);
+        zetaRepo.clear();
+        await selectedStoryUpdate(type: TextType.zetaType);
         break;
       case TextType.runKaityType:
         await isar.writeTxn(() async {
@@ -337,10 +337,10 @@ class DatabaseService {
         //print("lostLucyRepo => $lostLucyRepo");
         //print("lostLucy story updated");
         break;
-      case TextType.nightGameType:
-        nightGameRepo = newGames
-            .where((item) =>
-                item.nightGameTexts != null && item.nightGameTexts!.isNotEmpty)
+      case TextType.zetaType:
+        zetaRepo = newGames
+            .where(
+                (item) => item.zetaTexts != null && item.zetaTexts!.isNotEmpty)
             .toList();
         //print("nighGameRepo => $nightGameRepo");
         //print("nighGame story updated");
@@ -411,13 +411,13 @@ class DatabaseService {
           selectedStoryUpdate(type: TextType.webOfDeceitType);
         }
         break;
-      case TextType.nightGameType:
+      case TextType.zetaType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..nightGameTexts = eklenicekMetin;
+          final item = NewGame()..zetaTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.nightGameType);
+          selectedStoryUpdate(type: TextType.zetaType);
         }
         break;
       case TextType.runKaityType:

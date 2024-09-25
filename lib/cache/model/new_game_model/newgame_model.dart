@@ -9,7 +9,7 @@ class NewGame {
   String? murderTexts;
   String? gravehurstTexts;
   String? webOfDeceitTexts;
-  String? nightGameTexts;
+  String? zetaTexts;
   String? runKaityTexts;
   String? smileTexts;
   String? behindTexts;
@@ -20,7 +20,7 @@ enum TextType {
   murderType,
   gravehurstType,
   webOfDeceitType,
-  nightGameType,
+  zetaType,
   runKaityType,
   smileType,
   behindType,

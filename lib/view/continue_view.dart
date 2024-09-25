@@ -50,6 +50,7 @@ class _ContinueViewState extends State<ContinueView> {
       await _selectedStoryUpdate(type: TextType.murderType);
       await _selectedStoryUpdate(type: TextType.gravehurstType);
       await _selectedStoryUpdate(type: TextType.webOfDeceitType);
+      await _selectedStoryUpdate(type: TextType.zetaType);
     });
     super.initState();
   }
@@ -106,6 +107,12 @@ class _ContinueViewState extends State<ContinueView> {
                     break;
                   case "Web Of Deceit":
                     if (_databaseService.webOfDeceitRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Zeta":
+                    if (_databaseService.zetaRepo.isNotEmpty) {
                       content =
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
@@ -236,6 +243,21 @@ class _ContinueViewState extends State<ContinueView> {
                                       _databaseService.webOfDeceitRepo,
                                   story: gameName,
                                   selectedTextType: TextType.webOfDeceitType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Zeta":
+                          await _selectedStoryUpdate(type: TextType.zetaType);
+                          if (_databaseService.zetaRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.zetaRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.zetaType,
                                 ),
                                 context: context);
                           } else {

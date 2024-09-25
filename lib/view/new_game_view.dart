@@ -103,6 +103,16 @@ class _NewGameViewState extends State<NewGameView> {
               ),
               context: context);
           break;
+        case TextType.zetaType:
+          await _selectedHistoryDelete(type: TextType.zetaType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.zetaRepo,
+                story: gameName,
+                selectedTextType: TextType.zetaType,
+              ),
+              context: context);
+          break;
 
         default:
       }
@@ -297,7 +307,26 @@ class _NewGameViewState extends State<NewGameView> {
                                   context: context);
                             } else {
                               await showOkCancelAlert(
-                                  context, TextType.gravehurstType, gameName);
+                                  context, TextType.webOfDeceitType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Zeta") {
+                        switch (gameName) {
+                          case "Zeta":
+                            await _selectedStoryUpdate(type: TextType.zetaType);
+                            if (_databaseService.zetaRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo: _databaseService.zetaRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.zetaType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.zetaType, gameName);
                             }
                             break;
                           default:
