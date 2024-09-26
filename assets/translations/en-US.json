@@ -1837,5 +1837,381 @@
         "zeta_story_912_answer_2": "Restart the Story.",
         "zeta_story_913_history": "[After you shut down Zeta, your computer screen suddenly went dark and then turned on again.]\n\nThey're watching you. They've always been here. And now it's your turn.\n\n[CONNECTION LOST...]",
         "zeta_story_913_answer_1": "Restart the Story.",
-        "zeta_story_913_answer_2": "Restart the Story."
+        "zeta_story_913_answer_2": "Restart the Story.",
+
+        "unknown_number_0_history": "When you opened your eyes, the only light source in the room was your phone's vibrating screen. It was 2:14 AM. Your eyes were even heavier in the darkness, but the incoming message suddenly jolted you awake. A short message from an unknown number appeared on the screen:\n\nUnknown Number: Marie, I need your help. Before they find me...\n\n[You shuddered. A strange fear gripped you as you read the message. Who was this? How did they know me? Someone trying to reach you at this hour... It was frightening.]",
+        "unknown_number_0_answer_1": "Who are you? How do you know me?",
+        "unknown_number_0_answer_2": "Wrong number.",
+
+        "unknown_number_1_history": "Unknown Number: From our past... I can't explain more. I need to talk to you before they find me.\n\n[Past? Who was this now? What past was he talking about? Your sense of curiosity was growing stronger.]",
+        "unknown_number_1_answer_1": "Tell me who you are! I need more information. I need to be sure you really know me.",
+        "unknown_number_1_answer_2": "Who are they? What kind of danger are you in? What does all this have to do with me?",
+
+        "unknown_number_2_history": "Unknown Number: Everything I shared with you is in danger. If you don't believe me, you might be too late. Those after me are very powerful.\n\n[After this message, you realized you shouldn't hesitate for even a moment.]",
+        "unknown_number_2_answer_1": "Why are you so mysterious? Prove that we have a connection in the past.",
+        "unknown_number_2_answer_2": "In this case, we should inform the police.",
+
+        "unknown_number_3_history": "Unknown Number: You can't forget everything I shared with you, Marie. You need to remember the past before they find them. Do you remember your twin, Raphael?\n\n[Your twin? You never had a twin in your life. You were stunned by this information. What was really happening, what kind of game had you fallen into?]",
+        "unknown_number_3_answer_1": "Who is Raphael? I don't know anyone like that.",
+        "unknown_number_3_answer_2": "What twin are you talking about? I don't have a sibling.",
+
+        "unknown_number_4_history": "Unknown Number: You've forgotten what happened in the past, but you need to remember. Look through the albums in your house. You'll find the answer you're looking for.",
+        "unknown_number_4_answer_1": "Album? What should I look for? Give me a clue!",
+        "unknown_number_4_answer_2": "You're scaring me, I don't trust you.",
+
+        "unknown_number_5_history": "Unknown Number: There should be a picture of you with Raphael among your old photos. You need to find it.\n\n[Your heart was racing. You rushed to your room to get the old album. You opened a dusty box and started flipping through the albums quickly. Your hands were shaking. Even though you didn't remember Raphael, you continued to search for a trace of him. Towards the end of the album, a photograph caught your attention. You were both children, but the boy next to you was a bit older. A face you couldn't recall...]",
+        "unknown_number_5_answer_1": "I found it! This must be it, but I don't remember anything about him.",
+        "unknown_number_5_answer_2": "I found the photo. But why don't I remember anything, this is very strange.",
+
+        "unknown_number_6_history": "Unknown Number: Yes, you're connected. He's your twin. When you were children, Raphael suddenly disappeared. But this wasn't a simple kidnapping. There are much darker things behind it. If you don't act immediately, you might lose both yourself and the secrets of your past.",
+        "unknown_number_6_answer_1": "Why did he disappear? What does my family know? Why don't I know anything about this?",
+        "unknown_number_6_answer_2": "What kind of connection do you have with me? Who are you protecting me from?",
+
+        "unknown_number_7_history": "Unknown Number: Your family wanted you to forget even Raphael's existence to keep you safe. But things have changed now. Danger is at your door.\n\n[As you read the message, your heart raced with the sound of footsteps from outside. And suddenly, there was a knock on your door.]",
+        "unknown_number_7_answer_1": "[Open the door and see who it is.]",
+        "unknown_number_7_answer_2": "[Run! And inform the police.]",
+
+        "unknown_number_8_history": "[You slowly approached the door. Your heart was pounding as if it would burst out of your chest. You opened the door, but there was no one there. As you were about to close the door, you noticed an envelope on the ground. When you opened the envelope, you found a hand-drawn map with certain points marked. But nothing looked familiar. You were startled by your phone vibrating.]\n\nUnknown Number: They're close to you, Marie. If you don't read that map correctly, they'll find you. Follow this map to learn where Raphael went.",
+        "unknown_number_8_answer_1": "[Burn the map and get rid of this business.]",
+        "unknown_number_8_answer_2": "[Take the map and leave the house immediately.]",
+
+        "unknown_number_10_history": "Unknown Number: They're after me, but they'll find you too. What we experienced in the past is now threatening your life.\n\n[This sentence shook you deeply. What had you experienced in the past? What was happening?]",
+        "unknown_number_10_answer_1": "In this case, we should inform the police.",
+        "unknown_number_10_answer_2": "What past are you talking about? What do you want me to do?",
+
+        "unknown_number_11_history": "Unknown Number: If you inform the police, everything will be ruined. They'll find both of us. Listen to me, the only way to be safe is to stay in touch with me and cooperate.",
+        "unknown_number_11_answer_1": "If the situation is this dangerous, how can you protect me? What should I do?",
+        "unknown_number_11_answer_2": "I've informed the police.",
+
+        "unknown_number_12_history": "Unknown Number: You need to get away from where you are now. They must be close, hurry! Go to a secret place, wait for a while so I can reach you.",
+        "unknown_number_12_answer_1": "You're scaring me, I don't trust you.",
+        "unknown_number_12_answer_2": "I'm leaving the house right now, give me an address.",
+
+        "unknown_number_13_history": "Unknown Number: I understand you're right not to trust, but we might not have much time. As long as you don't remember your past, this danger will increase. If you don't stay in touch with me, you might get lost.\n\n[Words like \"Past\" and \"Remember\" were echoing in your mind. Were you really in danger?]",
+        "unknown_number_13_answer_1": "Can you tell me who you're afraid of now?",
+        "unknown_number_13_answer_2": "Who are they and why are you afraid of them finding me?",
+
+        "unknown_number_14_history": "Unknown Number: They might be watching you, Marie. Everything changed after Raphael disappeared. If you face your past, you have a chance to escape. If you stay in touch with me, I'll give you more information.",
+        "unknown_number_14_answer_1": "Did Raphael go missing, what do you mean? Is he connected to me?",
+        "unknown_number_14_answer_2": "Enough! Either you tell me who they are, or this game ends here.",
+
+        "unknown_number_15_history": "Unknown Number: Marie, this is not a game. They've been watching you since you were born. Raphael's disappearance was a sign for your family. I just want to protect you. But the decision is yours.",
+        "unknown_number_15_answer_1": "What kind of connection do you have with me? Who are you protecting me from?",
+        "unknown_number_15_answer_2": "Where have you been all these years? Why did you show up now?",
+
+        "unknown_number_16_history": "Unknown Number: We don't have time for this. They're approaching your house. You have very little time to escape. If I can't get the information I want, I can't save you.\n\n[You heard a creak. When you turned around, you noticed the window was slightly open. Someone must have entered.]",
+        "unknown_number_16_answer_1": "Run! And inform the police.",
+        "unknown_number_16_answer_2": "Leave the room and hide somewhere else immediately.",
+
+        "unknown_number_17_history": "[You couldn't escape from the danger by waiting for him, you decided to call the police. Just as you were about to dial the number, the signal was cut off, this couldn't be a coincidence, you were definitely being watched. You stood up in panic, as you took another step without knowing where you were going, something hit your foot. When you opened it, you saw it contained a map. What should you do now? You couldn't understand anything from the map.]",
+        "unknown_number_17_answer_1": "[Take the map and leave the house immediately.]",
+        "unknown_number_17_answer_2": "[Hide and wait until the danger passes.]",
+
+        "unknown_number_18_history": "[You started running with the map. You saw a car waiting at the beginning of the street but you didn't pay attention. Then your eye caught a glowing point on the map. Maybe it was where Raphael disappeared. Your phone vibrated.]\n\nUnknown Number: Find your twin as soon as possible! The map will lead you to the right path!\n\n[Just then, the car door opened and someone jumped out. \"Marie!\" they shouted. Who was this?]",
+        "unknown_number_18_answer_1": "[Follow the map.]",
+        "unknown_number_18_answer_2": "[Run away from the stranger and hide the map.]",
+
+        "unknown_number_19_history": "[You continue running towards the place the map shows. After a while, you reach that point. There's an abandoned house in front of you and strange sounds are coming from inside.]",
+        "unknown_number_19_answer_1": "[Enter the house and look inside.]",
+        "unknown_number_19_answer_2": "[Try to contact the unknown number.]",
+
+        "unknown_number_20_history": "[Despite your fear, you decided to go inside. The inside of the house smelled of dust and mold, you walked in slowly. There were old photographs on the walls; all their faces were blurry and all left impressions of memories you couldn't understand. Suddenly, a scream came from the corner of the room. Your hair stood on end and you carefully turned in that direction.]",
+        "unknown_number_20_answer_1": "[Enter the room.]",
+        "unknown_number_20_answer_2": "[Step back and go outside.]",
+
+        "unknown_number_21_history": "[As you advanced in the room; you saw scattered books, a broken mirror, and an old chest in a corner. You still couldn't reach the source of the sound. At that moment, a shadow appeared on the wall. You turned back in fear. Meanwhile, a notification popped up on your phone.]\n\nUnknown Number: Open the chest and check what's inside.",
+        "unknown_number_21_answer_1": "[Approach the shadow and try to understand what it is.]",
+        "unknown_number_21_answer_2": "[Check the chest.]",
+
+        "unknown_number_22_history": "[As you felt the fear in your veins, you slowly took steps towards the shadow. It was like a human silhouette but moved silently. Just as you got close to it, you saw it suddenly pass through the wall and disappear. You paused in confusion, was this some kind of hologram? At that moment, the chest behind you started to shake with a noise. The air in the room suddenly changed, the walls seemed to ripple and you heard a sound of time tearing. You felt reality bending, the space shaking. Suddenly, a metallic hand appeared behind you and grabbed you by the neck, you tried to scream but no sound came out. The shadow was a trap. You were pulled and taken away by a being from a parallel reality. The secret behind Raphael's disappearance was hidden in a place beyond this world, and now you were its prisoner.]",
+        "unknown_number_22_answer_1": "[Contact the unknown number and ask for help.]\n\nHelp me.",
+        "unknown_number_22_answer_2": "[Look for a way to escape.]",
+
+        "unknown_number_23_history": "There was no response for a while. Then your phone vibrated.\n\nUnknown Number: You're stuck in the passage. I can help you but there will be a price. Eternal loyalty. You have no chance to escape. You will take Raphael's place.",
+        "unknown_number_23_answer_1": "Accept and make a deal.",
+        "unknown_number_23_answer_2": "Refuse and try to find your own way.",
+
+        "unknown_number_24_history": "Unknown Number: Follow the map. Enter where Raphael disappeared. I'll be waiting for you there.",
+        "unknown_number_24_answer_1": "[Look for secret signs along the way.]",
+        "unknown_number_24_answer_2": "[Follow the map and continue to descend into the depths of the passage.]",
+
+        "unknown_number_25_history": "[As you examined the map, you started looking for distinct signs in the surrounding environment. Strange symbols on the wall and glowing points caught your attention. These signs seemed like a guide for you. Maybe they were giving more information about where Raphael disappeared. As you carefully followed each symbol, the fear inside you started to diminish. However suddenly, you heard a noise and felt a presence approaching behind you. As your heart was beating fast, a huge door suddenly appeared in front of you.]",
+        "unknown_number_25_answer_1": "[Try to force open the door.]",
+        "unknown_number_25_answer_2": "[Look for a mechanism around it.]",
+
+        "unknown_number_26_history": "[You started looking for a mechanism by carefully walking around the door. You noticed a thin crack on the wall next to the door, you slowly inserted your finger there and pressed the button. Sensors on the edge of the door started to glow and a clicking sound was heard. The door had slowly opened. The inside was lit as if by a magical light and images of the day Raphael disappeared were rotating in a projection in the middle of the room.]",
+        "unknown_number_26_answer_1": "[Go to the projection, examine the images.]",
+        "unknown_number_26_answer_2": "[Look for other clues in the room.]",
+
+        "unknown_number_27_history": "[You approached the projection and started watching carefully. In the images, you and Raphael as children were laughing and playing. But suddenly the images started to darken and sounds of conflict and shouting rose. As you squinted your eyes in fear, the image of the moment Raphael disappeared appeared. For a moment time stood still; the horror of that moment shook your entire soul. Just then, you heard a voice behind you.]\n\nVoice: Here you are, Marie.\n\n[Your heart leaped. When you turned around, a dark figure had appeared. The secret behind Raphael's disappearance had now become even more dangerous.]",
+        "unknown_number_27_answer_1": "[Defend yourself!]",
+        "unknown_number_27_answer_2": "[Try to escape.]",
+
+        "unknown_number_28_history": "[You turned to the figure with all your courage and gripped the knife tightly.]\n\nYou: I know who you are!\n\n[The figure smiled and took a step, you didn't step back. You swung the knife at it, the figure suddenly disappeared and blended into the darkness of the room.]",
+        "unknown_number_28_answer_1": "Go to the projection and investigate the images.",
+        "unknown_number_28_answer_2": "Try to find the figure.",
+
+        "unknown_number_29_history": "[The projection was playing images of the day Raphael disappeared. The recordings showed him being kidnapped by a group of people. Suddenly, a map image appeared on the screen; it showed the coordinates of an abandoned place. At that moment, your phone vibrated.]\n\nUnknown Number: If you want to find Raphael, follow the map.",
+        "unknown_number_29_answer_1": "[Follow the map.]",
+        "unknown_number_29_answer_2": "[Stay in the projection room and gather more information.]",
+
+        "unknown_number_30_history": "[You quickly left the room with the map. As you followed the map, you reached an abandoned structure. Metallic sounds and machine noises were coming from inside. As soon as you entered, you saw Raphael in front of you; he was chained to a metal bed. As you took a step towards him, the room started to shake, holograms were spinning around. An eerie voice said:]\n\nVoice: This is the final stage of an experiment. If you want to save Raphael, you'll have to stay bound to this reality too.",
+        "unknown_number_30_answer_1": "[Accept the commitment to save Raphael.]",
+        "unknown_number_30_answer_2": "[Reject the commitment.]",
+
+        "unknown_number_31_history": "Voice: If you dedicate yourself to this reality, you'll have a chance to save Raphael. But there's a price...\n\n[At that moment, you scanned Raphael with your eyes. You had no other choice.]\nYou: Okay, I accept.\n\n[Holograms surrounded you, as the energy inside you rose, a complex world began to open in your mind. Now you're part of the experiment, but you're ready to save Raphael.]",
+        "unknown_number_31_answer_1": "What's the purpose of this experiment?",
+        "unknown_number_31_answer_2": "[Move quickly and try to undo Raphael's chains.]",
+
+        "unknown_number_32_history": "[The voice echoed in the dark room.]\n\nOne of the Holograms: Mind control and body manipulation. Breaking your will is the most important stage. Raphael is the most valuable subject of this experiment.",
+        "unknown_number_32_answer_1": "I want to know more about this experiment.",
+        "unknown_number_32_answer_2": "[Save Raphael.]",
+
+        "unknown_number_33_history": "[There was a moment of silence among the holograms.]\n\nHologram: I'll give you information, but in return, you must be part of the experiment. This won't be an escape for you, but it might give Raphael a chance.",
+        "unknown_number_33_answer_1": "[Accept being part of the experiment.]",
+        "unknown_number_33_answer_2": "[Try to buy time.]",
+
+        "unknown_number_35_history": "[While running, you also checked behind you. They were still following you but somehow you managed to shake them off. Shortly after, you entered a park, hid somewhere and started examining the map.]",
+        "unknown_number_35_answer_1": "[Follow the map.]",
+        "unknown_number_35_answer_2": "[Hide and wait until the danger passes.]",
+
+        "unknown_number_36_history": "[Instead of waiting outside, maybe you should have contacted the unknown number to solve this situation. You quickly took out your phone. Your hair stood on end with the sound coming from inside.]",
+        "unknown_number_36_answer_1": "[Step back and go outside.]",
+        "unknown_number_36_answer_2": "They're watching me, I'm here. What should I do? Please help!",
+
+        "unknown_number_37_history": "[You were sure you didn't want to go in. You quickly went to the front of the house and started running. When you looked back, there was no one. But the fear inside you still hadn't passed.]",
+        "unknown_number_37_answer_1": "[Hide somewhere and catch your breath.]",
+        "unknown_number_37_answer_2": "[Contact the unknown number.]",
+
+        "unknown_number_38_history": "With trembling hands, you opened the chest. The technology inside was far from our time. A projection filled the room: strange symbols in the sky, unfamiliar writings, and strange beings appeared. Suddenly, light from the chest enveloped you and lifted you into the air. The new message on your phone started to echo aloud.]\n\nUnknown Number: Welcome to reality, Marie. Taking back time is in your hands. Raphael's secret is here.\n\n[The walls started to shake. As the light enveloped you, you realized you were at a junction where parallel universes intersect. If you didn't take control, you would get lost like Raphael.]",
+        "unknown_number_38_answer_1": "[Look for a way to escape.]",
+        "unknown_number_38_answer_2": "[Pass through the passage and follow the map.]",
+
+        "unknown_number_40_history": "[As you progressed through the passage, the strange images appearing around you frightened you, but also aroused a sense of curiosity. As you approached the place the map showed, you began to feel an energy in the air. With each step, as a cold wind affecting your mind blew, you felt something coming to life inside you. At that moment, a huge door appeared at the end of the passage. You tried to push the door open, but it seemed tightly locked.]",
+        "unknown_number_40_answer_1": "[Try to force open the door.]",
+        "unknown_number_40_answer_2": "[Look for a mechanism around it.]",
+
+        "unknown_number_41_history": "[You started examining the dark corners of the room. You found an old diary-like notebook on the floor. When you opened the notebook, you found notes written about the day Raphael disappeared. The drawings inside showed signs of a lost child; places he had hidden after disappearing, secret passages... Just then, you felt a strange vibration coming from the walls. A mechanism started working and the walls of the room slowly began to close. You looked around in panic; the escape routes were narrowing.]",
+        "unknown_number_41_answer_1": "[Try to escape.]",
+        "unknown_number_41_answer_2": "[Take the diary and find the nearest exit.]",
+
+        "unknown_number_42_history": "[When you saw the figure approaching, you ran behind the projection. At that moment, you saw the cables of the projection device and an idea came to your mind. You quickly pulled the cables and knocked over the device. The projection exploded and the darkness of the room intensified. Taking advantage of the chaos, you escaped from the room.]",
+        "unknown_number_42_answer_1": "[Follow the sound of the figure.]",
+        "unknown_number_42_answer_2": "[Navigate in the dark and try to reach the door.]",
+
+        "unknown_number_44_history": "You: No, I can't be part of this game! I can't pay such a price to save Raphael. I won't accept this reality for him!\n\n[As your voice echoed, the holograms started to fade. You found a strength inside you; you wouldn't give up fighting with your free will.]\n\nYou: You can't scare me!.\n\n[The holograms were collapsing around you, but you still needed to reach Raphael.]",
+        "unknown_number_44_answer_1": "What's the purpose of this experiment?",
+        "unknown_number_44_answer_2": "[Move quickly and try to undo Raphael's chains.]",
+
+        "unknown_number_45_history": "[Your heart was racing as you ran to Raphael. Those chains around that metal bed were the biggest obstacle to his freedom.]\n\nYou: Raphael, hang on!\n\n[You grabbed the chains with your hands. As you undid the chains, the determination inside you was burning like fire. In a short time, one chain loosened.]\n\nYou: Come on, a little more.",
+        "unknown_number_45_answer_1": "[Save Raphael.]",
+        "unknown_number_45_answer_2": "[Put Raphael in a wheelchair and try to escape from there.]",
+
+        "unknown_number_47_history": "[A few minutes later, a new message came from the same number.]\n\nUnknown Number: It's not a wrong number, Marie. Find me quickly or it might be too late for everything.\n\n[This message increased your fear even more. Why were they so insistent?]",
+        "unknown_number_47_answer_1": "How can I find you?",
+        "unknown_number_47_answer_2": "What do you want from me?",
+
+        "unknown_number_48_history": "Unknown Number: How could you do this!? They will find you immediately. You must be quick, someone is wandering around your house.",
+        "unknown_number_48_answer_1": "I'm leaving the house right now, give me an address.",
+        "unknown_number_48_answer_2": "Let's stay in touch, tell me where I need to come.",
+
+        "unknown_number_50_history": "[Within seconds, you rushed out of the bedroom and started running. You sped up with the sound of footsteps behind you. You managed to enter a room and close the door, but this wasn't enough, at that moment you noticed the closet across and immediately got inside. Someone was trying to break down the door.]\n\nUnknown Number: Hiding is not a solution. If you don't use that map, you'll die here.\n\n[As you put your hand in your pocket, you felt a piece of paper, it must have been the map...]",
+        "unknown_number_50_answer_1": "[Take the map and leave the house immediately.]",
+        "unknown_number_50_answer_2": "[Hide and wait until the danger passes.]",
+
+        "unknown_number_52_history": "[Your heart was pounding fast when you sent the message. A sound from inside the room caught your attention. There was someone inside. And it was only a matter of time before they found you.]\n\nUnknown Number: Hurry! You must move before they find you!",
+        "unknown_number_52_answer_1": "[Dive into the darkness and hide.]",
+        "unknown_number_52_answer_2": "[Find an object to defend yourself.]",
+
+        "unknown_number_54_history": "[You quickly looked inside the house, your eye caught a knife. You quickly grabbed the knife and turned around.]",
+        "unknown_number_54_answer_1": "[Use the knife to threaten them and try to push them back.]",
+        "unknown_number_54_answer_2": "[Throw the knife and try to escape.]",
+
+        "unknown_number_57_history": "[You're aware that you no longer have the option to turn back and you took a step into the passage. Time and space bent, with each passing second you felt more distant from reality. The map continued to guide, lights flickering to show you the way. At the end of the passage, you saw a massive structure. This was where Raphael had disappeared. When you entered, time seemed to have stopped. You saw Raphael trapped in a capsule.]",
+        "unknown_number_57_answer_1": "[Release Raphael and try to escape together.]",
+        "unknown_number_57_answer_2": "[Examine the capsule and try to find a way out.]",
+
+        "unknown_number_58_history": "[You approached the capsule. After long efforts, you managed to open the capsule. When you opened the capsule, Raphael fell to the ground unconscious, but you weren't sure if you had enough time to wait for him to wake up.]",
+        "unknown_number_58_answer_1": "[Take Raphael and run.]",
+        "unknown_number_58_answer_2": "[Try to save the other subjects.]",
+
+        "unknown_number_59_history": "[Darkness surrounded you but you couldn't stop. Your hands were shaking as you felt the walls to reach the door. In a weak light seeping in, you saw the silhouette of Raphael tied up. Suppressing the fear inside you, you immediately headed towards him. As you were undoing the ties, the door opened with a loud noise. The figure had reappeared, watching you from among the shadows. But you didn't step back. Although your heart was beating fast, you were determined. Your eyes on Raphael, your hands quickly undoing the ties, you found the courage inside you. No matter what, you had to get him out of here.]",
+        "unknown_number_59_answer_1": "[Confront the figure and save Raphael.]",
+        "unknown_number_59_answer_2": "[Try to escape with Raphael.]",
+
+        "unknown_number_60_history": "[Just saving Raphael didn't sit right with you. You quickly made a decision and headed towards the other capsules and started opening them one by one. All the subjects were unconscious, some looked physically weaker but showed signs of life.]",
+        "unknown_number_60_answer_1": "[Wait for the subjects to wake up.]",
+        "unknown_number_60_answer_2": "[Try to wake up the subjects.]",
+
+        "unknown_number_61_history": "[The subjects were about to escape from the darkest period of their lives. Each of them was still in a deep sleep. As you waited for them to wake up on their own, a fear gripped you. Just then, the alarms suddenly went off. Red lights started flashing and chaos enveloped the laboratory. The door opened with a bang. The white-coated officer entered with a frown. His eyes scanned the area and noticed your presence.]",
+        "unknown_number_61_answer_1": "[Try to escape.]",
+        "unknown_number_61_answer_2": "[Challenge the officer.]",
+
+        "unknown_number_64_history": "[As you moved quickly around the capsules, you felt a mix of fear and hope inside. You looked for signs of life on the faces of the unconscious subjects. You said to one of them, \"Hey! Wake up!\" When you opened another capsule, a young girl rubbed her eyes. \"Where are we?\" she asked, her voice trembling with fear. \"You're being held here as subjects! You must hurry!\" you answered. The alarm sound started to rise, you heard the security teams approaching. \"Wake up! We need to get out of here right now!\" you shouted, in panic. The awakening subjects asked, \"Where are the doors?\" \"I don't know but we need to move together!\" you said. You were no longer alone. The courage in your heart was growing stronger to escape from this dark place.]",
+        "unknown_number_64_answer_1": "[Try to escape.]",
+        "unknown_number_64_answer_2": "[Quickly make a plan.]",
+
+        "unknown_number_66_history": "You: We need to make a plan!\n\n[They all looked at you approvingly.]\n\nYou: We need to disable the security system. If we can't do this, it's impossible for us to get out of here.",
+        "unknown_number_66_answer_1": "[Crash the security system.]",
+        "unknown_number_66_answer_2": "[Assign one of the subjects as an officer.]",
+
+        "unknown_number_68_history": "[You took the diary and quickly looked around. As the room narrowed, your panic in search of an exit increased. Remembering the secret passages written in the diary, you ran towards the back corner of the room. At that moment, a strange sound came from the door; What was that? The figure was reappearing...]",
+        "unknown_number_68_answer_1": "[Navigate in the dark and try to reach the door.]",
+        "unknown_number_68_answer_2": "[Don't give up and get out of there.]",
+
+        "unknown_number_69_history": "[Some symbols and codes appearing in the images caught your attention. When you noticed one of those symbols in the room, you curiously touched it and a secret door opened. Although you hesitated, you had entered. The scene you encountered was horrifying... Inside, several people in white coats were busy with strange machines. The tables were full of serums, complex graphics and body diagrams were visible on computers. When you looked at the large capsule in the back corner, you noticed a motionless person tied up. Human experiments were being conducted in this laboratory.]",
+        "unknown_number_69_answer_1": "[Secretly examine the experiments.]",
+        "unknown_number_69_answer_2": "[Get out of here immediately.]",
+
+        "unknown_number_70_history": "[You quickly started scanning the documents on the tables and the computer screens. What you saw was horrifying; people were being subjected to experiments on mental control and body manipulation. The results obtained showed that the subjects had completely lost their identities and willpower. Even worse, these experiments were conducted by the government and a secret organization. When you realized that the figure in the capsule was Raphael, you understood that the only way to save him was to expose the truth behind these experiments. However, there was another file on one of the tables that caught your attention; your name was written on it.]",
+        "unknown_number_70_answer_1": "[Take a risk to save Raphael.]",
+        "unknown_number_70_answer_2": "[Escape from there immediately.]",
+
+        "unknown_number_71_history": "[The cold air of the laboratory filled you with a shudder, you quickly scanned the area looking for an exit door. But the doors were locked. Suddenly the lights went out and footsteps coming from the depths caused your heart to beat rapidly. A figure was slowly approaching you; with each step, adrenaline was mixing into your blood. Your breath quickened. You were on the brink of a life struggle.]",
+        "unknown_number_71_answer_1": "[Escape from there immediately.]",
+        "unknown_number_71_answer_2": "[Find a place to hide.]",
+
+        "unknown_number_72_history": "[You headed to the computer in the laboratory, you needed to find information about Raphael's condition. As you quickly typed on the keyboard, suddenly an alarm started ringing. Footsteps were rising from the dark corners and your heart was beating fast. Feeling that time was running out, you took one of the serum bottles. The moment you used the liquid inside, your mind cleared and you could see everything around you more clearly. However, this was a sign of what was to come. While you felt stronger, an uncertainty was growing on the other hand. You risked everything to save Raphael.]",
+        "unknown_number_72_answer_1": "[Go to Raphael, to the capsule.]",
+        "unknown_number_72_answer_2": "[Continue researching.]",
+
+        "unknown_number_73_history": "[With all your courage, you moved towards the capsule. Raphael's face was right in front of you. You examined the capsule, pressed a button on the panel and the capsule's covers slowly opened. Raphael's bonds were undone but he was still unconscious.]",
+        "unknown_number_73_answer_1": "[Try to wake Raphael up.]",
+        "unknown_number_73_answer_2": "[Put Raphael in a wheelchair and try to escape from there.]",
+
+        "unknown_number_74_history": "[With trembling hands, you touched Raphael's shoulder.]\n\nYou: Raphael, wake up! We need to get out of here.\n\n[Raphael's eyes opened slightly but he didn't respond immediately. You shook him harder in panic. At that moment, you heard footsteps coming from outside.]",
+        "unknown_number_74_answer_1": "[Hide with Raphael.]",
+        "unknown_number_74_answer_2": "[Try to escape by carrying Raphael on your shoulders.]",
+
+        "unknown_number_75_history": "[You couldn't ignore the approaching danger and quickly hid Raphael behind the closet next to you, and you hid inside the closet. Footsteps were approaching rapidly. The door opened and they started searching the room. While trying to suppress your heartbeats, your mind was on Raphael, he seemed to be coming to.]",
+        "unknown_number_75_answer_1": "[Get out of your place and attack the men.]",
+        "unknown_number_75_answer_2": "[Quietly wait for the men to leave.]",
+
+        "unknown_number_76_history": "[You leaned Raphael against the wall, looking around with a desperate but determined courage. The only weapon in your hand was a desk lamp. While your heart was beating wildly, determination settled in your eyes. The moment the men entered, you acted without thinking. You brought the lamp down on the first one with all your might, the man collapsed. At that moment, the second man pointed his gun. Time seemed to freeze, you held your breath. Your next move would determine everything.]",
+        "unknown_number_76_answer_1": "[Try to grab the gun.]",
+        "unknown_number_76_answer_2": "[Continue escaping and look for another way out.]",
+
+        "unknown_number_77_history": "[You bravely reached for the gun and started wrestling with the man. Although you felt yourself struggling against his strength, you continued your fight with the effect of adrenaline. Finally, you got hold of the gun and quickly retreated. However, at that moment, when you heard other men approaching, your heart started beating rapidly. Now you had both a gun and the danger had grown even bigger.]",
+        "unknown_number_77_answer_1": "[Engage in conflict with the men.]",
+        "unknown_number_77_answer_2": "[Continue escaping.]",
+
+        "unknown_number_80_history": "[You looked at the figure bravely.]\n\nYou: You can't stop me!\n\n[As the figure approached from the darkness, its eyes were shining threateningly. You quickly turned to Raphael; his bonds were undone but he was still unconscious.]\n\nFigure: Raphael, you need me.\n\n[And the Figure took a step, You shouted to get its attention]\n\nYou: Leave us alone, he's an innocent person!\n\n[The Figure hesitated and taking advantage of this opportunity, you supported Raphael by his shoulders and lifted him up. The Figure moved to stop you but it was too late. You started running with Raphael in the dark corridor.]",
+        "unknown_number_80_answer_1": "[Find a place to hide.]",
+        "unknown_number_80_answer_2": "[Find the exit door.]",
+
+        "unknown_number_82_history": "[While shuffling through the documents on the tables, you found a file with Raphael's name written on it. It must have contained the results of the experiments. Just then, the footsteps got even closer.]",
+        "unknown_number_82_answer_1": "Take the file and run.",
+        "unknown_number_82_answer_2": "Take the file and hide.",
+
+        "unknown_number_84_history": "[You quickly looked around and saw the wheelchair in the corner. You immediately placed Raphael in the chair and started pushing. The moment you headed for the door, you heard footsteps approaching the room.]",
+        "unknown_number_84_answer_1": "[Take refuge in a secret room.]",
+        "unknown_number_84_answer_2": "[Continue escaping.]",
+
+        "unknown_number_85_history": "[You had no choice but to escape. The corridors were narrowing, the paths intertwining, turning into a labyrinth that trapped you inside. The footsteps behind you were getting closer with each passing moment, your breaths were quickening just like your steps. However, at that moment, a hope seemed to appear in the darkness. You saw a light shining towards the exit door. That light was the last sign of the freedom waiting for you, but would the shadows chasing you allow it, you didn't know.]",
+        "unknown_number_85_answer_1": "[Wait quietly in a room for the men to leave.]",
+        "unknown_number_85_answer_2": "[Run directly towards the exit.]",
+
+        "unknown_number_87_history": "[You held your breath, listening to the footsteps outside. The men were approaching, your heart was beating fast. The sounds stopped for a moment, your breath caught, but then the steps started to move away. The tension inside you gave way to a brief relief. Just then, a strange sound echoed from inside the room. When you turned your head, you noticed your security camera footage on a screen on the wall. It was clearly exposing you.]",
+        "unknown_number_87_answer_1": "[Continue escaping and look for another way out.]",
+        "unknown_number_87_answer_2": "[Try to disable the camera system.]",
+
+        "unknown_number_88_history": "[Instead of reaching for the gun, with a quick move, you placed Raphael back in his wheelchair and headed for the corridor. The men were after you, but you saw a staircase a few doors away. When you went down, you came out to a different laboratory. You encountered locked doors inside; you had to look for other escape routes.]",
+        "unknown_number_88_answer_1": "[Continue escaping.]",
+        "unknown_number_88_answer_2": "[Try to break down the doors.]",
+
+        "unknown_number_90_history": "[Realizing there wasn't much place to escape, you turned to the security system control panel in the room. You quickly tried to disable the cameras, but the system was password protected. It seemed difficult to solve on your own; but you remembered that Raphael knew something about this.]",
+        "unknown_number_90_answer_1": "[Wake Raphael up and ask for help.]",
+        "unknown_number_90_answer_2": "[Try to solve the password on your own.]",
+
+        "unknown_number_92_history": "You: Raphael, wake up!.\n\n[He opened his eyes within a few seconds and immediately grasped the seriousness of the danger.]\n\nYou: We need to hurry! You need to disable the control panel of the security system!\n\n[Raphael, with a worried but determined expression, went to the panel. As his fingers danced on the keys, you felt the flow of time in the uncertainty of everything. After a short while, the lights of the cameras went out. At that moment, you realized that your enemies had lost your location; an opportunity to escape had arisen.]",
+        "unknown_number_92_answer_1": "[Take important files and escape.]",
+        "unknown_number_92_answer_2": "[Disable all systems and escape.]",
+
+        "unknown_number_901_history": "[You rushed out of the house without waiting for an answer. When the cold night wind hit your face, murmurs appeared in your ears. It was as if the wind was whispering something from afar. The streets were empty, but with each step you took, you felt like you were being watched. Suddenly, a sharp crackle was heard. When you turned around, a figure emerged from among the shadows. Your eyes opened with momentary horror, but before you could react, you received a hard blow. Your world darkened and as you collapsed to the ground, a final whisper echoed in your ears.]\n\n'It's too late now.'",
+        "unknown_number_901_answer_1": "[Restart the Story.]",
+        "unknown_number_901_answer_2": "[Restart the Story.]",
+
+        "unknown_number_902_history": "[When you took the map in your hand, your fear suddenly turned into anger. You thought you couldn't bear the darkness coming after this document to take over your life anymore. You set fire to one corner, as the flames spread rapidly, the emptiness inside you deepened. Just then the door slammed. A dark silhouette entered.]\n\nSilhouette: Why did you do this?\n\n[His voice was full of anger. You turned around in fear and a scream rose from the flames. The sound of the gun exploding behind you opened a deep void inside; it was like a farewell that made you feel the end of your life had come. You were in the middle of the fire...]\n\n[By destroying the map, you brought an end not only to the mystery, but also to your own life. As the fire grew, you chose to surrender instead of fighting, but this surrender didn't bring you peace.]",
+        "unknown_number_902_answer_1": "[Restart the Story.]",
+        "unknown_number_902_answer_2": "[Restart the Story.]",
+
+        "unknown_number_903_history": "[You listened to the sounds coming from behind the door, holding your breath. As time passed, the sounds cut off one after another; at that moment, you felt surrounded by a deep silence. When you opened the map and examined it, the complex marks and symbols on it confused your mind even more. The questions echoing in your head were feeding your fear. Suddenly the door opened and a man entered. His eyes were like a threat whispering from the darkness.]\n\nMan: Everything will get even worse for you.\n\n[His voice was like a cold and sharp sword.]\n\nMan: On this path you set out with the hope of finding him, you've lost yourself too.\n\n[These words caused a deep collapse inside you; it was as if the darkness was seeping into the depths of your heart and destroying every bit of hope. At that moment, you had to face the bitter truth of your lostness; perhaps this struggle was just the beginning of the end awaiting me.]",
+        "unknown_number_903_answer_1": "[Restart the Story.]",
+        "unknown_number_903_answer_2": "[Restart the Story.]",
+
+        "unknown_number_904_history": "[You realized you couldn't go on any longer. You looked around and quickly hid behind an abandoned truck. Your heart was beating as if it would burst out of your chest. You tried to regulate your breath, but a sound started coming from inside. With trembling hands, you took out your phone and quickly wrote a message to the unknown number.\n\nYou: They found me, what should I do?\n\n[You sent it, but no answer came. As you were looking at the phone screen, a shadow passed from the corner of your eye. At that moment, the door of the truck you were hiding behind opened quickly. A pair of strong hands grabbed you and before you knew what was happening, you found yourself with a cloth pressed against your throat. As you struggled to breathe, losing consciousness, the only sound you heard was:\n\n'You're with Raphael now'\n\n]",
+        "unknown_number_904_answer_1": "[Restart the Story.]",
+        "unknown_number_904_answer_2": "[Restart the Story.]",
+
+        "unknown_number_905_history": "[The man had entered. He started carefully listening to the surroundings, leaning his back against the wall; you took a deep breath to suppress the noise of your heart. Fearfully, you had no choice but to hope he wouldn't find you. At that moment, your world came crashing down with a notification on your phone. The message appearing on the screen slid the hope inside me like a handful of sand.]\n\nUnknown Number: Where are you?\n\n[This was like the sound of a death knell reminding you that he was reaching you. Every sound you heard made you feel that the escape routes were narrowing. The cold grip of fear squeezed your throat; I had no place left to run. And at that moment, I was left only as a victim in the darkest corner of your life.]",
+        "unknown_number_905_answer_1": "[Restart the Story.]",
+        "unknown_number_905_answer_2": "[Restart the Story.]",
+
+        "unknown_number_906_history": "[While you wanted to threaten the man with the knife in your hand, you suddenly noticed another person appearing in the darkness of the room. You had come to the end of everything. The man injected you with the needle in his hand. When you opened your eyes, you found yourself in a dark room. The air was stuffy and cold. You immediately looked around, but everything was uncertain. At that moment, you were filled only with the fear brought by being kidnapped. The door opened and the man entered.]\n\nMan: Welcome, Marie. We finally found you. You're on Raphael's trail.\n\nYou: Where are you keeping him?\n\nMan: An experiment. We'll make you relive your past.\n\nYou found yourself in a room that looked like a laboratory. Monitors and mysterious devices surrounded you.]\n\nYou: No! You can't do this!\n\n[Your eyes darkened and you drifted away from consciousness. While you were filled with hope for salvation, you sank into darkness. Your shameful past was lost forever with uncertainty.]",
+        "unknown_number_906_answer_1": "[Restart the Story.]",
+        "unknown_number_906_answer_2": "[Restart the Story.]",
+
+        "unknown_number_907_history": "[You squinted your eyes and looked around. The dark and cold space emitted a threatening feeling with its undulating walls. Although it seemed there was no way out, you desperately started to move forward. With each step, strange sounds echoing behind you gave the feeling that an entity was following you. You tried to escape in fear, but no matter how much you ran, you always returned to the same place. You were stuck in a labyrinth. Just when you thought you were approaching the exit, hands emerging from between the walls caught you. As reality collapsed, everything went dark. You got lost in the trap of the parallel universe, became part of the experiment like Raphael, and were trapped in an endless cycle.]",
+        "unknown_number_907_answer_1": "[Restart the Story.]",
+        "unknown_number_907_answer_2": "[Restart the Story.]",
+
+        "unknown_number_908_history": "[You started running without thinking. The pounding of your heart was echoing in your ears, your steps were feeding the hope of escape. However, the corridor in front of you was narrow and like a labyrinth; hidden dangers were waiting behind the doors. The footsteps coming from behind were coming to catch you, but you continued to move forward with courage. Suddenly, a strong arm caught you and in a mocking tone]\n\nUnknown Person: Where are you rushing to?\n\n[Your resistance was short-lived; you took a hit and fell to the ground. Your eyes darkened, your voice got stuck in your throat. The officer took you back to the laboratory. Now you had no chance of escape; you, who were once free, had become part of the experiment like the subjects. Hope was slowly disappearing between the dark walls.]",
+        "unknown_number_908_answer_1": "[Restart the Story.]",
+        "unknown_number_908_answer_2": "[Restart the Story.]",
+
+        "unknown_number_909_history": "[With anger inside you, you challenged the officer.]\n\nYou: You can't keep us here! You will never succeed in this!\n\n[The officer approached with a mocking smile.]Officer: I admire your courage, but this game ends here.\n\n[You attacked fiercely without stepping back, but the officer responded to you and neutralized you. When you collapsed to the ground, you shouted one last time in the grip of dark thoughts.]\n\nYou: YOU WON'T SUCCEED!\n\n[At that moment, the subjects coming out of the capsules slowly began to wake up. Your courage and resistance inspired them. The awakening subjects heard your words and suddenly filled with the fire of rebellion. They jumped out of the capsules and spread around.]\n\nSubjects: You can't keep us here!\n\n[The officer tried to control the situation, but was helpless against the united power of the subjects. The subjects leaving the laboratory with a warrior determination began to fight for freedom. You were no longer there, but your struggle would continue forever.]",
+        "unknown_number_909_answer_1": "[Restart the Story.]",
+        "unknown_number_909_answer_2": "[Restart the Story.]",
+
+        "unknown_number_910_history": "[Your heart was fluttering like a bird in your chest, you felt the blood draining from your veins as the figure approached with heavy steps in the darkness. As your eyes tried to make it out, your breath was cut off. The cold air in the room touched your skin like a sharp knife. Suddenly, a being emerged from the shadows, all your will was paralyzed. You wanted to escape... While silence was echoing in your ears, a whisper pierced the darkness.]\n\nWhisper: You will be like us too.\n\n[Everything started at that moment, your body was under their control like a will-less puppet. The horrifying images they opened to your eyes in dark rooms were slowly leaving traces in your mind. Electric waves were shaking your body, your reflexes were being controlled involuntarily. As ice-cold serums circulated in your veins, every cell of your body was surrendering to them. At that moment, your eyes started to darken, your breath was intermittent, just like your life being pulled out of you. Your temperature decreased, the world wrapped in a silent curtain. You neither felt nor saw anything again. Now you were like them, a silhouette lost in an endless darkness...]",
+        "unknown_number_910_answer_1": "[Restart the Story.]",
+        "unknown_number_910_answer_2": "[Restart the Story.]",
+
+        "unknown_number_911_history": "[While scanning the area quickly with the subjects, you identified the location of the security panel.]\n\nYou: We need to disable the security system to get out of here.\n\nOne of the subjects: I need to crack the password.\n\n[The others started watching the directions the security cameras were turning, carefully looking around. Hope was growing in your heart.]\n\nSubject: I did it!\n\n[A warning appeared on the screen showing that the security system was disabled. At that moment, a wave of relief spread inside everyone; the lights of the cameras had gone out, the doors of a dark corridor had opened.]\n\nYou: Come on, let's get out!\" Together, you set out for freedom. You were ready to fight to expose the terrible secret of the experiment and take a step into a safe future.]",
+        "unknown_number_911_answer_1": "[Restart the Story.]",
+        "unknown_number_911_answer_2": "[Restart the Story.]",
+
+        "unknown_number_912_history": "[You immediately put your plan into action.]\n\nYou: We need the strongest one. You! You distract them!\n\n[The person you chose courageously headed for the door, but the security team suddenly intervened.]\n\nOne of the security leaders: Who are you?\n\nSubject: I just came to look here!\n\n[But security realized he was a subject and caught him. You lost the time needed to disable the security system and were caught again with the other subjects. While your future was uncertain, your eyes filled with the anxiety of other subjects who would be doomed to the same dark end.]",
+        "unknown_number_912_answer_1": "[Restart the Story.]",
+        "unknown_number_912_answer_2": "[Restart the Story.]",
+
+        "unknown_number_913_history": "[As you and Raphael were running in the dark corridor, a faint light appeared.]\n\nYou: This way!\n\n[You sped up towards the light. The metal door was old and rusty, but the light seeping through gave hope. When you reached the door, you started to force it open. You tried to unlock it by leaning against the wall right next to it. When you managed to open the door, an escape route had appeared inside. You and Raphael stepped from darkness to light; freedom was waiting for you, but you knew there were still dangers outside. You would never give up on this, you would expose the experiments and save the other subjects too.]",
+        "unknown_number_913_answer_1": "[Restart the Story.]",
+        "unknown_number_913_answer_2": "[Restart the Story.]",
+
+        "unknown_number_914_history": "[Everything suddenly stopped; the shadow of the figure was approaching. You scanned the area in panic, but couldn't find a place to hide. At that moment, the figure reached you and caught you. The fear and adrenaline in your mind had enveloped your body. When he dragged you to the depths of the laboratory, a horrible truth emerged; there were previous subjects in capsules, their eyes empty and hopeless. You were pushed onto a table, handcuffs tightened around your wrists.]\n\nFigure: Now you're like us too.\n\n[As serums were injected into your veins, your loss of consciousness began rapidly. You tried to remember Raphael one last time but everything in your mind mixed into darkness. You were imprisoned in the cold walls of the laboratory as a memory and escape was impossible.]",
+        "unknown_number_914_answer_1": "[Restart the Story.]",
+        "unknown_number_914_answer_2": "[Restart the Story.]",
+
+        "unknown_number_915_history": "[While collecting documents in the depths of the laboratory, you searched for a way out. Just as you were approaching the door, two men in white coats suddenly appeared in front of you.]\n\nMan: Where are you going, sweetie?\n\n[You turned back to escape, but were caught and dragged to a dark corner.\n\nYou: Let me go!.\n\n[Raphael was taken out of the capsule and laid on the table. As you watched helplessly, the men inserted the needle into his arm.]\n\nYou: No, Raphael! Don't do it!\n[Raphael gave his last breath with painful screams. Your heart was broken; the death of Raphael, who was once your closest friend even though you couldn't remember it now, was horrifying.]\n\nMan: It's your turn now.\n\n[Now you had to accept being part of the experiments.]",
+        "unknown_number_915_answer_1": "[Restart the Story.]",
+        "unknown_number_915_answer_2": "[Restart the Story.]",
+
+        "unknown_number_916_history": "[You: We need to escape!\n\n[You supported Raphael by lifting him from the metal bed. You quickened your steps; the noises echoing behind you made you feel the breath of darkness. The shadows inside the abandoned structure were showing our way to freedom. As you ran, your heart was beating fast. Finally, you reached a dark exit door. You pushed the door open and stepped outside. The darkness you left behind was gone. This moment, when fear was replaced by hope, was the beginning of everything. Our future was uncertain but we were together and that was enough.]",
+        "unknown_number_916_answer_1": "[Restart the Story.]",
+        "unknown_number_916_answer_2": "[Restart the Story.]",
+
+        "unknown_number_917_history": "[When faced with the options presented by the holograms, the conflict inside you grew. You realized you couldn't escape anymore.]\n\nYou: I accept being part of this experiment.\n\n[The holograms grinned with satisfaction and metal devices suddenly surrounded your body. As the cold metal entered your body, your mind started to blur. Now, you had become a subject, a project; the hope inside you was buried in darkness. After a while, you were no longer the old you. Your mind was being controlled like a puppet. As the experiments continued, your fate remained a dark secret along with the other lost subjects.]",
+        "unknown_number_917_answer_1": "[Restart the Story.]",
+        "unknown_number_917_answer_2": "[Restart the Story.]",
+
+        "unknown_number_918_history": "[Gathering all your courage, you started pushing Raphael in his wheelchair. Your heart was beating fast as the steps behind you quickened. There was a heavy exit door at the end of the corridor, you knew it might be locked, but you had no other choice. When you reached the door, your hands were sweating, but you used all your strength to open the door. At that moment, an alarm started ringing. The men behind you had pointed their guns at you. Just when you thought everything was over, you heard the sound of a helicopter from above. Your rescuers had come. Fear gave way to relief, you turned to Raphael and smiled. We were finally free. I had almost clawed my way to the chance to meet my twin I had reunited with after years.]",
+        "unknown_number_918_answer_1": "[Restart the Story.]",
+        "unknown_number_918_answer_2": "[Restart the Story.]",
+
+        "unknown_number_919_history": "[You decisively grasped the gun and decided to confront the enemies. The fear echoing in your heart had melted away in the cold metal of the gun in your hand. When you fired first, the bullets echoed in the air, but the number of enemies was like an army; your shots disappeared before reaching their target. You tried to resist against the rapidly coming attacks. However, in a moment of carelessness, you received a hard blow to your abdomen. Your body, like a leaf, was thrown in the air as you lost control. As you collapsed to the ground and the world around you blurred, darkness slowly enveloped you. Your last thought was filled with lost hope and despair. The darkness had come to you like an embrace, but it was actually the beginning of the end.]",
+        "unknown_number_919_answer_1": "[Restart the Story.]",
+        "unknown_number_919_answer_2": "[Restart the Story.]",
+
+        "unknown_number_920_history": "[You headed towards the doors to find an escape route but they were all tightly locked. Meanwhile, the men were rapidly approaching you. As you tried to break down the door with your last remaining strength, you collapsed with the blow you received... You and Raphael failed to escape and became part of the experiment.]",
+        "unknown_number_920_answer_1": "[Restart the Story.]",
+        "unknown_number_920_answer_2": "[Restart the Story.]",
+
+        "unknown_number_921_history": "[When you and Raphael finally managed to escape safely, the night was cold and dark. With the evidence you carried with you, you made a plan to reveal the true face of the horrible experiments. You had to decipher the secrets of that dark laboratory where people suffered terrible pains and were unconsciously turned into guinea pigs. In front of everyone's eyes, you raised your voices against those white-coated monsters who subjected people to inhuman experiments. The content of the experiments had been hidden by the forces chasing you; cruel experiments aimed at changing people's genetic structure, mental control and disrupting human psychology. Now, as these truths came to light, those responsible had to account before justice.]",
+        "unknown_number_921_answer_1": "[Restart the Story.]",
+        "unknown_number_921_answer_2": "[Restart the Story.]",
+
+        "unknown_number_922_history": "[You went to the control panel, feeling time passing quickly as your heart was racing. The complex password sequence appearing on the screen made you nervous; you only had a few seconds. The footsteps coming from the wall were fueling your fear inside, but there was no turning back. You started trying complex key combinations. With each wrong attempt, the alarm sound rose. You decided to try one last time; you gathered all your attention to find the right keys. However, in your last attempt, the alarm suddenly triggered and its loud sound echoed between the four walls. Your chance to escape was lost; you were now on the verge of becoming part of the experiment. With the fear appearing on your back, the hopelessness inside you deepened and you wanted to scream, but your voice got stuck in your throat...]",
+        "unknown_number_922_answer_1": "[Restart the Story.]",
+        "unknown_number_922_answer_2": "[Restart the Story.]"
 }
