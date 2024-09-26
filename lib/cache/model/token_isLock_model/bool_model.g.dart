@@ -37,20 +37,20 @@ const BoolModelSchema = CollectionSchema(
       name: r'murderIsLock',
       type: IsarType.bool,
     ),
-    r'runKaityIsLock': PropertySchema(
-      id: 4,
-      name: r'runKaityIsLock',
-      type: IsarType.bool,
-    ),
     r'smileIsLock': PropertySchema(
-      id: 5,
+      id: 4,
       name: r'smileIsLock',
       type: IsarType.bool,
     ),
     r'tokenAmount': PropertySchema(
-      id: 6,
+      id: 5,
       name: r'tokenAmount',
       type: IsarType.long,
+    ),
+    r'unknownIsLock': PropertySchema(
+      id: 6,
+      name: r'unknownIsLock',
+      type: IsarType.bool,
     ),
     r'webOfDeceitIsLock': PropertySchema(
       id: 7,
@@ -96,9 +96,9 @@ void _boolModelSerialize(
   writer.writeBool(offsets[1], object.gravehurstIsLock);
   writer.writeBool(offsets[2], object.luckyIsLock);
   writer.writeBool(offsets[3], object.murderIsLock);
-  writer.writeBool(offsets[4], object.runKaityIsLock);
-  writer.writeBool(offsets[5], object.smileIsLock);
-  writer.writeLong(offsets[6], object.tokenAmount);
+  writer.writeBool(offsets[4], object.smileIsLock);
+  writer.writeLong(offsets[5], object.tokenAmount);
+  writer.writeBool(offsets[6], object.unknownIsLock);
   writer.writeBool(offsets[7], object.webOfDeceitIsLock);
   writer.writeBool(offsets[8], object.zetaIsLock);
 }
@@ -115,9 +115,9 @@ BoolModel _boolModelDeserialize(
   object.id = id;
   object.luckyIsLock = reader.readBoolOrNull(offsets[2]);
   object.murderIsLock = reader.readBoolOrNull(offsets[3]);
-  object.runKaityIsLock = reader.readBoolOrNull(offsets[4]);
-  object.smileIsLock = reader.readBoolOrNull(offsets[5]);
-  object.tokenAmount = reader.readLongOrNull(offsets[6]);
+  object.smileIsLock = reader.readBoolOrNull(offsets[4]);
+  object.tokenAmount = reader.readLongOrNull(offsets[5]);
+  object.unknownIsLock = reader.readBoolOrNull(offsets[6]);
   object.webOfDeceitIsLock = reader.readBoolOrNull(offsets[7]);
   object.zetaIsLock = reader.readBoolOrNull(offsets[8]);
   return object;
@@ -141,9 +141,9 @@ P _boolModelDeserializeProp<P>(
     case 4:
       return (reader.readBoolOrNull(offset)) as P;
     case 5:
-      return (reader.readBoolOrNull(offset)) as P;
-    case 6:
       return (reader.readLongOrNull(offset)) as P;
+    case 6:
+      return (reader.readBoolOrNull(offset)) as P;
     case 7:
       return (reader.readBoolOrNull(offset)) as P;
     case 8:
@@ -410,34 +410,6 @@ extension BoolModelQueryFilter
   }
 
   QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      runKaityIsLockIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'runKaityIsLock',
-      ));
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      runKaityIsLockIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'runKaityIsLock',
-      ));
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      runKaityIsLockEqualTo(bool? value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'runKaityIsLock',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
       smileIsLockIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
@@ -533,6 +505,34 @@ extension BoolModelQueryFilter
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
+      unknownIsLockIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'unknownIsLock',
+      ));
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
+      unknownIsLockIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'unknownIsLock',
+      ));
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
+      unknownIsLockEqualTo(bool? value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'unknownIsLock',
+        value: value,
       ));
     });
   }
@@ -649,18 +649,6 @@ extension BoolModelQuerySortBy on QueryBuilder<BoolModel, BoolModel, QSortBy> {
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByRunKaityIsLock() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'runKaityIsLock', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByRunKaityIsLockDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'runKaityIsLock', Sort.desc);
-    });
-  }
-
   QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortBySmileIsLock() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'smileIsLock', Sort.asc);
@@ -682,6 +670,18 @@ extension BoolModelQuerySortBy on QueryBuilder<BoolModel, BoolModel, QSortBy> {
   QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByTokenAmountDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'tokenAmount', Sort.desc);
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByUnknownIsLock() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'unknownIsLock', Sort.asc);
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByUnknownIsLockDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'unknownIsLock', Sort.desc);
     });
   }
 
@@ -774,18 +774,6 @@ extension BoolModelQuerySortThenBy
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByRunKaityIsLock() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'runKaityIsLock', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByRunKaityIsLockDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'runKaityIsLock', Sort.desc);
-    });
-  }
-
   QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenBySmileIsLock() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'smileIsLock', Sort.asc);
@@ -807,6 +795,18 @@ extension BoolModelQuerySortThenBy
   QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByTokenAmountDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'tokenAmount', Sort.desc);
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByUnknownIsLock() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'unknownIsLock', Sort.asc);
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByUnknownIsLockDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'unknownIsLock', Sort.desc);
     });
   }
 
@@ -862,12 +862,6 @@ extension BoolModelQueryWhereDistinct
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByRunKaityIsLock() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'runKaityIsLock');
-    });
-  }
-
   QueryBuilder<BoolModel, BoolModel, QDistinct> distinctBySmileIsLock() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'smileIsLock');
@@ -877,6 +871,12 @@ extension BoolModelQueryWhereDistinct
   QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByTokenAmount() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'tokenAmount');
+    });
+  }
+
+  QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByUnknownIsLock() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'unknownIsLock');
     });
   }
 
@@ -925,12 +925,6 @@ extension BoolModelQueryProperty
     });
   }
 
-  QueryBuilder<BoolModel, bool?, QQueryOperations> runKaityIsLockProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'runKaityIsLock');
-    });
-  }
-
   QueryBuilder<BoolModel, bool?, QQueryOperations> smileIsLockProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'smileIsLock');
@@ -940,6 +934,12 @@ extension BoolModelQueryProperty
   QueryBuilder<BoolModel, int?, QQueryOperations> tokenAmountProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'tokenAmount');
+    });
+  }
+
+  QueryBuilder<BoolModel, bool?, QQueryOperations> unknownIsLockProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'unknownIsLock');
     });
   }
 

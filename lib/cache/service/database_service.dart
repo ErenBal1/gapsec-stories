@@ -23,7 +23,7 @@ class DatabaseService {
   bool? gravehurstIsLockDefault = true;
   bool? webOfDeceitIsLockDefault = true;
   bool? zetaIsLockDefault = true;
-  bool? runKaityIsLockDefault = true;
+  bool? unknownIsLockDefault = true;
   bool? smileIsLockDefault = true;
   bool? behindIsLockDefault = true;
   bool? luckyIsLockDefault = true;
@@ -38,7 +38,7 @@ class DatabaseService {
     gravehurstIsLockDefault = boolValues.gravehurstIsLock ?? true;
     webOfDeceitIsLockDefault = boolValues.webOfDeceitIsLock ?? true;
     zetaIsLockDefault = boolValues.zetaIsLock ?? true;
-    runKaityIsLockDefault = boolValues.runKaityIsLock ?? true;
+    unknownIsLockDefault = boolValues.unknownIsLock ?? true;
     smileIsLockDefault = boolValues.smileIsLock ?? true;
     behindIsLockDefault = boolValues.behindIsLock ?? true;
     luckyIsLockDefault = boolValues.luckyIsLock ?? true;
@@ -47,7 +47,7 @@ class DatabaseService {
     gravehurst.isLock = gravehurstIsLockDefault!;
     webOfDeceit.isLock = webOfDeceitIsLockDefault!;
     zeta.isLock = zetaIsLockDefault!;
-    runKaity.isLock = runKaityIsLockDefault!;
+    unknown.isLock = unknownIsLockDefault!;
     smile.isLock = smileIsLockDefault!;
     behind.isLock = behindIsLockDefault!;
     lucky.isLock = luckyIsLockDefault!;
@@ -123,15 +123,15 @@ class DatabaseService {
           });
         }
         break;
-      case TextType.runKaityType:
+      case TextType.unknownType:
         if (boolValues != null) {
-          boolValues.runKaityIsLock = newValue;
+          boolValues.unknownIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..runKaityIsLock = newValue;
+          final newBoolModel = BoolModel()..unknownIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
@@ -191,7 +191,7 @@ class DatabaseService {
   List<NewGame?> gravehurstRepo = [];
   List<NewGame?> webOfDeceitRepo = [];
   List<NewGame?> zetaRepo = [];
-  List<NewGame?> runKaityRepo = [];
+  List<NewGame?> unknownRepo = [];
   List<NewGame?> smileRepo = [];
   List<NewGame?> behindRepo = [];
   List<NewGame?> luckyRepo = [];
@@ -259,16 +259,16 @@ class DatabaseService {
         zetaRepo.clear();
         await selectedStoryUpdate(type: TextType.zetaType);
         break;
-      case TextType.runKaityType:
+      case TextType.unknownType:
         await isar.writeTxn(() async {
           final items =
-              await isar.newGames.filter().runKaityTextsIsNotEmpty().findAll();
+              await isar.newGames.filter().unknownTextsIsNotEmpty().findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        runKaityRepo.clear();
-        await selectedStoryUpdate(type: TextType.runKaityType);
+        unknownRepo.clear();
+        await selectedStoryUpdate(type: TextType.unknownType);
         break;
       case TextType.smileType:
         await isar.writeTxn(() async {
@@ -345,10 +345,10 @@ class DatabaseService {
         //print("nighGameRepo => $nightGameRepo");
         //print("nighGame story updated");
         break;
-      case TextType.runKaityType:
-        runKaityRepo = newGames
+      case TextType.unknownType:
+        unknownRepo = newGames
             .where((item) =>
-                item.runKaityTexts != null && item.runKaityTexts!.isNotEmpty)
+                item.unknownTexts != null && item.unknownTexts!.isNotEmpty)
             .toList();
         //print("runKaityRepo => $runKaityRepo");
         //print("runKaity story updated");
@@ -420,13 +420,13 @@ class DatabaseService {
           selectedStoryUpdate(type: TextType.zetaType);
         }
         break;
-      case TextType.runKaityType:
+      case TextType.unknownType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..runKaityTexts = eklenicekMetin;
+          final item = NewGame()..unknownTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.runKaityType);
+          selectedStoryUpdate(type: TextType.unknownType);
         }
         break;
       case TextType.smileType:

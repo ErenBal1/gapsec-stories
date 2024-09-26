@@ -113,6 +113,16 @@ class _NewGameViewState extends State<NewGameView> {
               ),
               context: context);
           break;
+        case TextType.unknownType:
+          await _selectedHistoryDelete(type: TextType.unknownType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.unknownRepo,
+                story: gameName,
+                selectedTextType: TextType.unknownType,
+              ),
+              context: context);
+          break;
 
         default:
       }
@@ -327,6 +337,26 @@ class _NewGameViewState extends State<NewGameView> {
                             } else {
                               await showOkCancelAlert(
                                   context, TextType.zetaType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Unknown Number") {
+                        switch (gameName) {
+                          case "Unknown Number":
+                            await _selectedStoryUpdate(
+                                type: TextType.unknownType);
+                            if (_databaseService.unknownRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo: _databaseService.unknownRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.unknownType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.unknownType, gameName);
                             }
                             break;
                           default:

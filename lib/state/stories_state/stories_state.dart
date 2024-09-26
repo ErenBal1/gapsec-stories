@@ -141,8 +141,8 @@ abstract class _StoriesStateBase with Store {
         break;
       case 4:
         updatePrice(newPrice: 110);
-        updateItsFree(newItsFree: !runKaity.isLock);
-        updateBackground(newImagePath: "gravehurst.png");
+        updateItsFree(newItsFree: !unknown.isLock);
+        updateBackground(newImagePath: "unknown.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
         break;

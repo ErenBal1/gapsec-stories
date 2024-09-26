@@ -7,50 +7,60 @@ class StoryModel {
   final String name;
   final String description;
   bool isLock;
+  int finish;
   final List<NewGame?> whichRepo;
   StoryModel(
       {required this.name,
+      required this.finish,
       required this.description,
       required this.isLock,
       required this.whichRepo});
 }
 
 StoryModel murder = StoryModel(
+    finish: 5,
     name: "Murder",
     description: ConstantTexts.MurderDescription.tr(),
     isLock: false,
     whichRepo: DatabaseService().murderRepo);
 StoryModel gravehurst = StoryModel(
+    finish: 33,
     name: "Gravehurst",
-    description: "Gravehurst best tool",
+    description: ConstantTexts.GravehurstDescription.tr(),
     isLock: DatabaseService().gravehurstIsLockDefault ?? true,
     whichRepo: DatabaseService().gravehurstRepo);
 StoryModel webOfDeceit = StoryModel(
+    finish: 20,
     name: "Web Of Deceit",
-    description: "Web Of Deceit best tool",
+    description: ConstantTexts.WebOfDeceitDescription.tr(),
     isLock: DatabaseService().webOfDeceitIsLockDefault ?? true,
     whichRepo: DatabaseService().webOfDeceitRepo);
 StoryModel zeta = StoryModel(
+    finish: 13,
     name: "Zeta",
-    description: "Zeta best tool",
+    description: ConstantTexts.ZetaDescription.tr(),
     isLock: DatabaseService().zetaIsLockDefault ?? true,
     whichRepo: DatabaseService().zetaRepo);
-StoryModel runKaity = StoryModel(
-    name: "Run Kaity",
-    description: "Run Kaity best tool",
-    isLock: DatabaseService().runKaityIsLockDefault ?? true,
-    whichRepo: DatabaseService().runKaityRepo);
+StoryModel unknown = StoryModel(
+    finish: 22,
+    name: "Unknown Number",
+    description: ConstantTexts.unknownDescription.tr(),
+    isLock: DatabaseService().unknownIsLockDefault ?? true,
+    whichRepo: DatabaseService().unknownRepo);
 StoryModel smile = StoryModel(
-    name: "Smile",
-    description: "Smile best tool",
+    finish: 0,
+    name: "Survival in Space",
+    description: "Survival in Space best tool",
     isLock: DatabaseService().smileIsLockDefault ?? true,
     whichRepo: DatabaseService().smileRepo);
 StoryModel behind = StoryModel(
-    name: "Behind",
-    description: "Behind best tool",
+    finish: 0,
+    name: "Lost",
+    description: "Lost best tool",
     isLock: true,
     whichRepo: DatabaseService().behindRepo);
 StoryModel lucky = StoryModel(
+    finish: 0,
     name: "Lucky",
     description: "Lucky best tool",
     isLock: DatabaseService().luckyIsLockDefault ?? true,
@@ -62,7 +72,7 @@ class Games {
     gravehurst,
     webOfDeceit,
     zeta,
-    runKaity,
+    unknown,
     smile,
     behind,
     lucky

@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/continue_play_state/continue_play_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
+import 'package:gapsec/stories/games_storage/unknown.dart';
 import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
 import 'package:gapsec/stories/games_storage/zeta.dart';
 import 'package:gapsec/utils/app_font.dart';
@@ -75,6 +76,11 @@ class _ContinueChatViewState extends State<ContinueChatView> {
         return list.firstWhere((element) =>
             element["history"] ==
             _databaseService.zetaRepo.last!.zetaTexts.toString());
+
+      case TextType.unknownType:
+        return list.firstWhere((element) =>
+            element["history"] ==
+            _databaseService.unknownRepo.last!.zetaTexts.toString());
 
       default:
     }
@@ -207,6 +213,25 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
           cs.scrollToBottom();
           break;
+
+        case TextType.unknownType:
+          cs.selectedList = unknownDetail;
+          await _selectedStoryUpdate(type: TextType.unknownType);
+          cs.left = initToOdd(
+            cs.selectedList,
+            TextType.unknownType,
+          )!;
+          cs.right = initToEven(
+            cs.selectedList,
+            TextType.unknownType,
+          )!;
+          await _selectedStoryUpdate(type: TextType.unknownType);
+          setState(() {
+            cs.repo = _databaseService.unknownRepo;
+          });
+
+          cs.scrollToBottom();
+          break;
         default:
       }
     });
@@ -267,6 +292,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         break;
                       case TextType.zetaType:
                         cs.selectedTexts = newGame.zetaTexts.toString();
+                        break;
+                      case TextType.unknownType:
+                        cs.selectedTexts = newGame.unknownTexts.toString();
                         break;
                       default:
                     }
@@ -449,6 +477,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
         case TextType.zetaType:
           cs.repo = _databaseService.zetaRepo;
           break;
+        case TextType.unknownType:
+          cs.repo = _databaseService.unknownRepo;
+          break;
         default:
       }
     });
@@ -476,6 +507,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
           break;
         case TextType.zetaType:
           cs.repo = _databaseService.zetaRepo;
+          break;
+        case TextType.unknownType:
+          cs.repo = _databaseService.unknownRepo;
           break;
         default:
       }

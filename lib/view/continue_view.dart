@@ -51,6 +51,7 @@ class _ContinueViewState extends State<ContinueView> {
       await _selectedStoryUpdate(type: TextType.gravehurstType);
       await _selectedStoryUpdate(type: TextType.webOfDeceitType);
       await _selectedStoryUpdate(type: TextType.zetaType);
+      await _selectedStoryUpdate(type: TextType.unknownType);
     });
     super.initState();
   }
@@ -113,6 +114,12 @@ class _ContinueViewState extends State<ContinueView> {
                     break;
                   case "Zeta":
                     if (_databaseService.zetaRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Unknown Number":
+                    if (_databaseService.unknownRepo.isNotEmpty) {
                       content =
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
@@ -258,6 +265,22 @@ class _ContinueViewState extends State<ContinueView> {
                                   selectedRepo: _databaseService.zetaRepo,
                                   story: gameName,
                                   selectedTextType: TextType.zetaType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Unknown Number":
+                          await _selectedStoryUpdate(
+                              type: TextType.unknownType);
+                          if (_databaseService.unknownRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.unknownRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.unknownType,
                                 ),
                                 context: context);
                           } else {
