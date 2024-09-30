@@ -83,6 +83,11 @@ class _ContinueChatViewState extends State<ContinueChatView> {
             element["history"] ==
             _databaseService.unknownRepo.last!.unknownTexts.toString());
 
+      case TextType.mysteriousType:
+        return list.firstWhere((element) =>
+            element["history"] ==
+            _databaseService.mysteriousRepo.last!.mysteriousTexts.toString());
+
       default:
     }
     return null;
