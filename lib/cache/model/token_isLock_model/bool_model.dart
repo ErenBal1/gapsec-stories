@@ -11,7 +11,7 @@ class BoolModel {
   bool? webOfDeceitIsLock;
   bool? zetaIsLock;
   bool? unknownIsLock;
-  bool? smileIsLock;
+  bool? mysteriousIsLock;
   bool? behindIsLock;
   bool? luckyIsLock;
 

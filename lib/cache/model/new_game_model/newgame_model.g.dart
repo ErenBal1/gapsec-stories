@@ -37,9 +37,9 @@ const NewGameSchema = CollectionSchema(
       name: r'murderTexts',
       type: IsarType.string,
     ),
-    r'smileTexts': PropertySchema(
+    r'mysteriousTexts': PropertySchema(
       id: 4,
-      name: r'smileTexts',
+      name: r'mysteriousTexts',
       type: IsarType.string,
     ),
     r'unknownTexts': PropertySchema(
@@ -103,7 +103,7 @@ int _newGameEstimateSize(
     }
   }
   {
-    final value = object.smileTexts;
+    final value = object.mysteriousTexts;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
     }
@@ -139,7 +139,7 @@ void _newGameSerialize(
   writer.writeString(offsets[1], object.gravehurstTexts);
   writer.writeString(offsets[2], object.luckyTexts);
   writer.writeString(offsets[3], object.murderTexts);
-  writer.writeString(offsets[4], object.smileTexts);
+  writer.writeString(offsets[4], object.mysteriousTexts);
   writer.writeString(offsets[5], object.unknownTexts);
   writer.writeString(offsets[6], object.webOfDeceitTexts);
   writer.writeString(offsets[7], object.zetaTexts);
@@ -157,7 +157,7 @@ NewGame _newGameDeserialize(
   object.id = id;
   object.luckyTexts = reader.readStringOrNull(offsets[2]);
   object.murderTexts = reader.readStringOrNull(offsets[3]);
-  object.smileTexts = reader.readStringOrNull(offsets[4]);
+  object.mysteriousTexts = reader.readStringOrNull(offsets[4]);
   object.unknownTexts = reader.readStringOrNull(offsets[5]);
   object.webOfDeceitTexts = reader.readStringOrNull(offsets[6]);
   object.zetaTexts = reader.readStringOrNull(offsets[7]);
@@ -925,36 +925,39 @@ extension NewGameQueryFilter
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsIsNull() {
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      mysteriousTextsIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsIsNotNull() {
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      mysteriousTextsIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsEqualTo(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> mysteriousTextsEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsGreaterThan(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      mysteriousTextsGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -962,14 +965,14 @@ extension NewGameQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsLessThan(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> mysteriousTextsLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -977,14 +980,14 @@ extension NewGameQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsBetween(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> mysteriousTextsBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -993,7 +996,7 @@ extension NewGameQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -1003,69 +1006,72 @@ extension NewGameQueryFilter
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsStartsWith(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      mysteriousTextsStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsEndsWith(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> mysteriousTextsEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsContains(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> mysteriousTextsContains(
       String value,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsMatches(
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> mysteriousTextsMatches(
       String pattern,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         wildcard: pattern,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsIsEmpty() {
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      mysteriousTextsIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         value: '',
       ));
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterFilterCondition> smileTextsIsNotEmpty() {
+  QueryBuilder<NewGame, NewGame, QAfterFilterCondition>
+      mysteriousTextsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'smileTexts',
+        property: r'mysteriousTexts',
         value: '',
       ));
     });
@@ -1574,15 +1580,15 @@ extension NewGameQuerySortBy on QueryBuilder<NewGame, NewGame, QSortBy> {
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortBySmileTexts() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByMysteriousTexts() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'smileTexts', Sort.asc);
+      return query.addSortBy(r'mysteriousTexts', Sort.asc);
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortBySmileTextsDesc() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> sortByMysteriousTextsDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'smileTexts', Sort.desc);
+      return query.addSortBy(r'mysteriousTexts', Sort.desc);
     });
   }
 
@@ -1685,15 +1691,15 @@ extension NewGameQuerySortThenBy
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenBySmileTexts() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByMysteriousTexts() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'smileTexts', Sort.asc);
+      return query.addSortBy(r'mysteriousTexts', Sort.asc);
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenBySmileTextsDesc() {
+  QueryBuilder<NewGame, NewGame, QAfterSortBy> thenByMysteriousTextsDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'smileTexts', Sort.desc);
+      return query.addSortBy(r'mysteriousTexts', Sort.desc);
     });
   }
 
@@ -1765,10 +1771,11 @@ extension NewGameQueryWhereDistinct
     });
   }
 
-  QueryBuilder<NewGame, NewGame, QDistinct> distinctBySmileTexts(
+  QueryBuilder<NewGame, NewGame, QDistinct> distinctByMysteriousTexts(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'smileTexts', caseSensitive: caseSensitive);
+      return query.addDistinctBy(r'mysteriousTexts',
+          caseSensitive: caseSensitive);
     });
   }
 
@@ -1827,9 +1834,9 @@ extension NewGameQueryProperty
     });
   }
 
-  QueryBuilder<NewGame, String?, QQueryOperations> smileTextsProperty() {
+  QueryBuilder<NewGame, String?, QQueryOperations> mysteriousTextsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'smileTexts');
+      return query.addPropertyName(r'mysteriousTexts');
     });
   }
 

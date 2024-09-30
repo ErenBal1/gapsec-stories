@@ -123,6 +123,16 @@ class _NewGameViewState extends State<NewGameView> {
               ),
               context: context);
           break;
+        case TextType.mysteriousType:
+          await _selectedHistoryDelete(type: TextType.mysteriousType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.mysteriousRepo,
+                story: gameName,
+                selectedTextType: TextType.mysteriousType,
+              ),
+              context: context);
+          break;
 
         default:
       }
@@ -357,6 +367,27 @@ class _NewGameViewState extends State<NewGameView> {
                             } else {
                               await showOkCancelAlert(
                                   context, TextType.unknownType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Mysterious Loss") {
+                        switch (gameName) {
+                          case "Mysterious Loss":
+                            await _selectedStoryUpdate(
+                                type: TextType.mysteriousType);
+                            if (_databaseService.mysteriousRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo:
+                                        _databaseService.mysteriousRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.mysteriousType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.mysteriousType, gameName);
                             }
                             break;
                           default:

@@ -37,9 +37,9 @@ const BoolModelSchema = CollectionSchema(
       name: r'murderIsLock',
       type: IsarType.bool,
     ),
-    r'smileIsLock': PropertySchema(
+    r'mysteriousIsLock': PropertySchema(
       id: 4,
-      name: r'smileIsLock',
+      name: r'mysteriousIsLock',
       type: IsarType.bool,
     ),
     r'tokenAmount': PropertySchema(
@@ -96,7 +96,7 @@ void _boolModelSerialize(
   writer.writeBool(offsets[1], object.gravehurstIsLock);
   writer.writeBool(offsets[2], object.luckyIsLock);
   writer.writeBool(offsets[3], object.murderIsLock);
-  writer.writeBool(offsets[4], object.smileIsLock);
+  writer.writeBool(offsets[4], object.mysteriousIsLock);
   writer.writeLong(offsets[5], object.tokenAmount);
   writer.writeBool(offsets[6], object.unknownIsLock);
   writer.writeBool(offsets[7], object.webOfDeceitIsLock);
@@ -115,7 +115,7 @@ BoolModel _boolModelDeserialize(
   object.id = id;
   object.luckyIsLock = reader.readBoolOrNull(offsets[2]);
   object.murderIsLock = reader.readBoolOrNull(offsets[3]);
-  object.smileIsLock = reader.readBoolOrNull(offsets[4]);
+  object.mysteriousIsLock = reader.readBoolOrNull(offsets[4]);
   object.tokenAmount = reader.readLongOrNull(offsets[5]);
   object.unknownIsLock = reader.readBoolOrNull(offsets[6]);
   object.webOfDeceitIsLock = reader.readBoolOrNull(offsets[7]);
@@ -410,28 +410,28 @@ extension BoolModelQueryFilter
   }
 
   QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      smileIsLockIsNull() {
+      mysteriousIsLockIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'smileIsLock',
+        property: r'mysteriousIsLock',
       ));
     });
   }
 
   QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
-      smileIsLockIsNotNull() {
+      mysteriousIsLockIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'smileIsLock',
+        property: r'mysteriousIsLock',
       ));
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition> smileIsLockEqualTo(
-      bool? value) {
+  QueryBuilder<BoolModel, BoolModel, QAfterFilterCondition>
+      mysteriousIsLockEqualTo(bool? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'smileIsLock',
+        property: r'mysteriousIsLock',
         value: value,
       ));
     });
@@ -649,15 +649,16 @@ extension BoolModelQuerySortBy on QueryBuilder<BoolModel, BoolModel, QSortBy> {
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortBySmileIsLock() {
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortByMysteriousIsLock() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'smileIsLock', Sort.asc);
+      return query.addSortBy(r'mysteriousIsLock', Sort.asc);
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> sortBySmileIsLockDesc() {
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy>
+      sortByMysteriousIsLockDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'smileIsLock', Sort.desc);
+      return query.addSortBy(r'mysteriousIsLock', Sort.desc);
     });
   }
 
@@ -774,15 +775,16 @@ extension BoolModelQuerySortThenBy
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenBySmileIsLock() {
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenByMysteriousIsLock() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'smileIsLock', Sort.asc);
+      return query.addSortBy(r'mysteriousIsLock', Sort.asc);
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QAfterSortBy> thenBySmileIsLockDesc() {
+  QueryBuilder<BoolModel, BoolModel, QAfterSortBy>
+      thenByMysteriousIsLockDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'smileIsLock', Sort.desc);
+      return query.addSortBy(r'mysteriousIsLock', Sort.desc);
     });
   }
 
@@ -862,9 +864,9 @@ extension BoolModelQueryWhereDistinct
     });
   }
 
-  QueryBuilder<BoolModel, BoolModel, QDistinct> distinctBySmileIsLock() {
+  QueryBuilder<BoolModel, BoolModel, QDistinct> distinctByMysteriousIsLock() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'smileIsLock');
+      return query.addDistinctBy(r'mysteriousIsLock');
     });
   }
 
@@ -925,9 +927,9 @@ extension BoolModelQueryProperty
     });
   }
 
-  QueryBuilder<BoolModel, bool?, QQueryOperations> smileIsLockProperty() {
+  QueryBuilder<BoolModel, bool?, QQueryOperations> mysteriousIsLockProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'smileIsLock');
+      return query.addPropertyName(r'mysteriousIsLock');
     });
   }
 

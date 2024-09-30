@@ -128,8 +128,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 150) {
             buySteps(
                 minusAmount: -150,
-                type: TextType.smileType,
-                storyIsLock: smile.isLock);
+                type: TextType.mysteriousType,
+                storyIsLock: mysterious.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());

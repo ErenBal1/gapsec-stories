@@ -52,6 +52,7 @@ class _ContinueViewState extends State<ContinueView> {
       await _selectedStoryUpdate(type: TextType.webOfDeceitType);
       await _selectedStoryUpdate(type: TextType.zetaType);
       await _selectedStoryUpdate(type: TextType.unknownType);
+      await _selectedStoryUpdate(type: TextType.mysteriousType);
     });
     super.initState();
   }
@@ -120,6 +121,12 @@ class _ContinueViewState extends State<ContinueView> {
                     break;
                   case "Unknown Number":
                     if (_databaseService.unknownRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Mysterious Loss":
+                    if (_databaseService.mysteriousRepo.isNotEmpty) {
                       content =
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
@@ -281,6 +288,22 @@ class _ContinueViewState extends State<ContinueView> {
                                   selectedRepo: _databaseService.unknownRepo,
                                   story: gameName,
                                   selectedTextType: TextType.unknownType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Mysterious Loss":
+                          await _selectedStoryUpdate(
+                              type: TextType.mysteriousType);
+                          if (_databaseService.mysteriousRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.mysteriousRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.mysteriousType,
                                 ),
                                 context: context);
                           } else {

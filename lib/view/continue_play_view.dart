@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/continue_play_state/continue_play_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
+import 'package:gapsec/stories/games_storage/mysteriousLoss.dart';
 import 'package:gapsec/stories/games_storage/unknown.dart';
 import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
 import 'package:gapsec/stories/games_storage/zeta.dart';
@@ -80,7 +81,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
       case TextType.unknownType:
         return list.firstWhere((element) =>
             element["history"] ==
-            _databaseService.unknownRepo.last!.zetaTexts.toString());
+            _databaseService.unknownRepo.last!.unknownTexts.toString());
 
       default:
     }
@@ -232,6 +233,24 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
           cs.scrollToBottom();
           break;
+        case TextType.mysteriousType:
+          cs.selectedList = mysteriousLossDetail;
+          await _selectedStoryUpdate(type: TextType.mysteriousType);
+          cs.left = initToOdd(
+            cs.selectedList,
+            TextType.mysteriousType,
+          )!;
+          cs.right = initToEven(
+            cs.selectedList,
+            TextType.mysteriousType,
+          )!;
+          await _selectedStoryUpdate(type: TextType.mysteriousType);
+          setState(() {
+            cs.repo = _databaseService.mysteriousRepo;
+          });
+
+          cs.scrollToBottom();
+          break;
         default:
       }
     });
@@ -295,6 +314,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         break;
                       case TextType.unknownType:
                         cs.selectedTexts = newGame.unknownTexts.toString();
+                        break;
+                      case TextType.mysteriousType:
+                        cs.selectedTexts = newGame.mysteriousTexts.toString();
                         break;
                       default:
                     }
@@ -480,6 +502,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
         case TextType.unknownType:
           cs.repo = _databaseService.unknownRepo;
           break;
+        case TextType.mysteriousType:
+          cs.repo = _databaseService.mysteriousRepo;
+          break;
         default:
       }
     });
@@ -510,6 +535,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
           break;
         case TextType.unknownType:
           cs.repo = _databaseService.unknownRepo;
+          break;
+        case TextType.mysteriousType:
+          cs.repo = _databaseService.mysteriousRepo;
           break;
         default:
       }

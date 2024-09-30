@@ -11,7 +11,7 @@ class NewGame {
   String? webOfDeceitTexts;
   String? zetaTexts;
   String? unknownTexts;
-  String? smileTexts;
+  String? mysteriousTexts;
   String? behindTexts;
   String? luckyTexts;
 }
@@ -22,7 +22,7 @@ enum TextType {
   webOfDeceitType,
   zetaType,
   unknownType,
-  smileType,
+  mysteriousType,
   behindType,
   luckyType,
 }

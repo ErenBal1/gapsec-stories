@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
+import 'package:gapsec/stories/games_storage/mysteriousLoss.dart';
 import 'package:gapsec/stories/games_storage/unknown.dart';
 import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
 import 'package:gapsec/stories/games_storage/zeta.dart';
@@ -128,6 +129,19 @@ class _ChatViewState extends State<ChatView> {
             await _selectedStoryUpdate(type: TextType.unknownType);
             vm.repo = _databaseService.unknownRepo;
             break;
+
+          case TextType.mysteriousType:
+            vm.selectedList = mysteriousLossDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.mysteriousType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.mysteriousType);
+            vm.repo = _databaseService.mysteriousRepo;
+            break;
           default:
         }
       });
@@ -190,6 +204,9 @@ class _ChatViewState extends State<ChatView> {
                         break;
                       case TextType.unknownType:
                         vm.selectedTexts = newGame.unknownTexts.toString();
+                        break;
+                      case TextType.mysteriousType:
+                        vm.selectedTexts = newGame.mysteriousTexts.toString();
                         break;
                       default:
                     }
@@ -374,6 +391,9 @@ class _ChatViewState extends State<ChatView> {
       case TextType.unknownType:
         vm.repo = _databaseService.unknownRepo;
         break;
+      case TextType.mysteriousType:
+        vm.repo = _databaseService.mysteriousRepo;
+        break;
 
       default:
     }
@@ -404,6 +424,9 @@ class _ChatViewState extends State<ChatView> {
         break;
       case TextType.unknownType:
         vm.repo = _databaseService.unknownRepo;
+        break;
+      case TextType.mysteriousType:
+        vm.repo = _databaseService.mysteriousRepo;
         break;
 
       default:
