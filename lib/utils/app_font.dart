@@ -68,7 +68,7 @@ class AppFonts {
   );
 
   static const unlockMoreButtonTextStyle = TextStyle(
-      shadows: [Shadow(blurRadius: 8, color: CustomColors.yellow)],
+      shadows: [Shadow(blurRadius: 8, color: CustomColors.white)],
       fontFamily: "PixelFont",
       color: CustomColors.white);
 

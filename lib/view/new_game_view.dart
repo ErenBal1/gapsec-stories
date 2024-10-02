@@ -12,7 +12,6 @@ import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
-import 'package:video_player/video_player.dart';
 
 class NewGameView extends StatefulWidget {
   const NewGameView({super.key});
@@ -29,7 +28,7 @@ class _NewGameViewState extends State<NewGameView> {
   void initState() {
     super.initState();
     nv.updateDefaultValues();
-    nv.controller =
+    /* nv.controller =
         VideoPlayerController.asset(ConstantPaths.newGameBackgroundVideo)
           ..initialize().then((_) {
             nv.controller.setLooping(true);
@@ -38,12 +37,12 @@ class _NewGameViewState extends State<NewGameView> {
                   ? nv.controller.pause()
                   : nv.controller.play();
             });
-          });
+          }); */
   }
 
   @override
   void dispose() {
-    nv.controller.dispose();
+    /* nv.controller.dispose(); */
     super.dispose();
   }
 
@@ -165,12 +164,19 @@ class _NewGameViewState extends State<NewGameView> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          nv.controller.value.isInitialized
+          /* nv.controller.value.isInitialized
               ? AspectRatio(
                   aspectRatio: nv.controller.value.aspectRatio,
                   child: VideoPlayer(nv.controller),
                 )
-              : Container(),
+              : Container(), */
+          SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Image.asset(
+                "assets/images/newgameback.png",
+                fit: BoxFit.fill,
+              )),
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -473,7 +479,9 @@ class UnlockMoreButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll(CustomColors.storyCardColor)),
+          side: WidgetStatePropertyAll(BorderSide(color: CustomColors.white)),
+          backgroundColor:
+              WidgetStatePropertyAll(Color.fromARGB(30, 255, 255, 255))),
       onPressed: () => nv.goToPage(page: const StoriesView(), context: context),
       child: FittedBox(
         child: Text(ConstantTexts.unlockMore.tr(),

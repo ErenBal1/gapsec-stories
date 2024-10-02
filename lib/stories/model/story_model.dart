@@ -50,13 +50,13 @@ StoryModel unknown = StoryModel(
 StoryModel mysterious = StoryModel(
     finish: "11",
     name: "Mysterious Loss",
-    description: "Survival in Space best tool",
+    description: ConstantTexts.mysteriousLossDescription.tr(),
     isLock: DatabaseService().mysteriousIsLockDefault ?? true,
     whichRepo: DatabaseService().mysteriousRepo);
 StoryModel space = StoryModel(
-    finish: "0",
+    finish: "10",
     name: "Survival in Space",
-    description: "Survival in Space",
+    description: ConstantTexts.survivalinSpaceDescription.tr(),
     isLock: true,
     whichRepo: DatabaseService().spaceRepo);
 StoryModel lucky = StoryModel(

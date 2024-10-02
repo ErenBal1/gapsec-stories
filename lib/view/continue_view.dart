@@ -10,7 +10,6 @@ import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/continue_play_view.dart';
 import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/stories_view.dart';
-import 'package:video_player/video_player.dart';
 
 class ContinueView extends StatefulWidget {
   const ContinueView({super.key});
@@ -35,7 +34,7 @@ class _ContinueViewState extends State<ContinueView> {
   @override
   void initState() {
     super.initState();
-    cv.controller =
+    /* cv.controller =
         VideoPlayerController.asset(ConstantPaths.continueBackgroundVideo)
           ..initialize().then((_) {
             cv.controller.setLooping(true);
@@ -44,7 +43,7 @@ class _ContinueViewState extends State<ContinueView> {
                   ? cv.controller.pause()
                   : cv.controller.play();
             });
-          });
+          }); */
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
@@ -60,7 +59,7 @@ class _ContinueViewState extends State<ContinueView> {
 
   @override
   void dispose() {
-    cv.controller.dispose();
+    /* cv.controller.dispose(); */
     super.dispose();
   }
 
@@ -74,12 +73,19 @@ class _ContinueViewState extends State<ContinueView> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          cv.controller.value.isInitialized
+          /* cv.controller.value.isInitialized
               ? AspectRatio(
                   aspectRatio: cv.controller.value.aspectRatio,
                   child: VideoPlayer(cv.controller),
                 )
-              : Container(),
+              : Container(), */
+          SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Image.asset(
+                "assets/images/continue_back.png",
+                fit: BoxFit.fill,
+              )),
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -375,7 +381,9 @@ class UnlockMoreButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll(CustomColors.storyCardColor)),
+          side: WidgetStatePropertyAll(BorderSide(color: CustomColors.white)),
+          backgroundColor:
+              WidgetStatePropertyAll(Color.fromARGB(30, 255, 255, 255))),
       onPressed: () => cv.goToPage(page: const StoriesView(), context: context),
       child: FittedBox(
         child: Text(ConstantTexts.unlockMore.tr(),

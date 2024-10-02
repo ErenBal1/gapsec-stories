@@ -37,6 +37,9 @@ class ConstantTexts {
   static const String WebOfDeceitDescription = "webofdeceit_description";
   static const String ZetaDescription = "zeta_description";
   static const String unknownDescription = "unknown_description";
+  static const String mysteriousLossDescription = "mysteriousloss_description";
+  static const String survivalinSpaceDescription =
+      "survivalinSpace_description";
   static const String GAPSEC = "GAPSEC";
   static const String NEW_GAME = "new_game_button";
   static const String CONTINUE = "load_game_button";

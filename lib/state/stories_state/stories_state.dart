@@ -129,35 +129,35 @@ abstract class _StoriesStateBase with Store {
         updatePrice(newPrice: 120);
         updateItsFree(newItsFree: !webOfDeceit.isLock);
         updateBackground(newImagePath: "webOfDeceit.png");
-        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        updateMp4Path(newPath: "assets/sounds/smile.mp3");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 3:
         updatePrice(newPrice: 100);
         updateItsFree(newItsFree: !zeta.isLock);
         updateBackground(newImagePath: "zeta.png");
-        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        updateMp4Path(newPath: "assets/sounds/zeta.mp3");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 4:
         updatePrice(newPrice: 110);
         updateItsFree(newItsFree: !unknown.isLock);
         updateBackground(newImagePath: "unknown.png");
-        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        updateMp4Path(newPath: "assets/sounds/unknownNumber.mp3");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 5:
         updatePrice(newPrice: 150);
         updateItsFree(newItsFree: !mysterious.isLock);
         updateBackground(newImagePath: "mysterious.png");
-        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        updateMp4Path(newPath: "assets/sounds/mysteriousLoss.mp3");
         playNewTrack(mp4Path: mp4Path);
         break;
       case 6:
         updatePrice(newPrice: 180);
         updateItsFree(newItsFree: !space.isLock);
         updateBackground(newImagePath: "space.png");
-        updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
+        updateMp4Path(newPath: "assets/sounds/spaceby.mp3");
         playNewTrack(mp4Path: mp4Path);
         break;
       /* case 7:
