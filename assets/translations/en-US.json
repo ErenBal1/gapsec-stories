@@ -2485,6 +2485,296 @@
         "mysterious_loss_910_answer_2": "[Restart the Story.]",
         "mysterious_loss_911_history": "Chief, the support team arrived and arrested them. We're now coming with Lucy for her statement. She'll tell us everything in more detail. We'll discuss the details with you.\n\n[CONNECTION LOST...]",
         "mysterious_loss_911_answer_1": "[Restart the Story.]",
-        "mysterious_loss_911_answer_2": "[Restart the Story.]"
+        "mysterious_loss_911_answer_2": "[Restart the Story.]",
 
+
+
+
+        "survival_in_space_0_history": "[AUDIO RECORDING]\n\nG-11 to center! G-11 to center! Sound test. Can you hear me, center?",
+        "survival_in_space_0_answer_1": "We're listening, G-11. What's the situation?",
+        "survival_in_space_0_answer_2": "Yes. Can you see what we're writing?",
+
+        "survival_in_space_1_history": "As per the mission you assigned, we've placed the organism found in space into the capsule. Now the organism inside the capsule is being analyzed. We wanted to give you this news first.",
+        "survival_in_space_1_answer_1": "We need more details, G-11.",
+        "survival_in_space_1_answer_2": "Understood, G-11. What's the status of the analysis?",
+
+        "survival_in_space_2_history": "My expert colleagues are reading the analysis to me right now. I'll relay the information to you as best I can.\n\nHere's a summary of what they're saying: It doesn't resemble any known biological form. Its structure is constantly changing and slowly growing. They say if we can't stop this, it could lead to a much worse situation.\n\n[ERROR! STATION SYSTEMS (NO RESPONSE.)]",
+        "survival_in_space_2_answer_1": "We need to find a way to stop this organism's growth.",
+        "survival_in_space_2_answer_2": "Understood, but I'm starting to lose response from the station's systems. Where are your team members, G-11?",
+
+        "survival_in_space_3_history": "I agree with you. We need to get this situation under control. Otherwise, it's clear that it will cause us a lot of trouble in the future. We need to take some precautions for this.",
+        "survival_in_space_3_answer_1": "What kind of precautions are you talking about, G-11?",
+        "survival_in_space_3_answer_2": "G-11, does the organism contain any dangerous elements?",
+
+        "survival_in_space_4_history": "No one has returned to the ship yet. The station investigations must be ongoing, center.\n\n[ALARM! DOOR SENSOR]\n\n[IDENTITY UNDETECTED...]",
+        "survival_in_space_4_answer_1": "We just received a signal from the door, G-11. Identity couldn't be verified.",
+        "survival_in_space_4_answer_2": "G-11, check the entrances, we're getting a signal. What's the source of the signal?",
+
+        "survival_in_space_5_history": "I don't know. But we have an organism here and it's constantly growing. Worse, it has abilities we don't understand. It's literally taken over the other team members.",
+        "survival_in_space_5_answer_1": "The other team members... what happened to them?",
+        "survival_in_space_5_answer_2": "How can we take precautions against an unknown organism? We can't.",
+
+        "survival_in_space_6_history": "[AUDIO RECORDING - G-11]\n\nThe team members... They're under the control of that curse. They're not listening to me. They're very strange. Please help me!",
+        "survival_in_space_6_answer_1": "How can it do this?",
+        "survival_in_space_6_answer_2": "How were you not affected?",
+
+        "survival_in_space_7_history": "[AUDIO RECORDING - G-11]\n\nI don't know. I really don't know. All my team members are unresponsive to what I say, their eyes are open but they seem frozen. They're all like... like living dead. I think I'm starting to be affected too. How is this happening!?",
+        "survival_in_space_7_answer_1": "No, you just want to accept the situation and you can't do that!",
+        "survival_in_space_7_answer_2": "Your salvation is in your hands, G-11.",
+
+        "survival_in_space_8_history": "[AUDIO RECORDING - G-11]\n\nYou're right. But I have no idea what to do. WHERE DID THIS CURSE COME FROM!!! I... I need to get out of here. RIGHT NOW! I'M GETTING OUT OF HERE RIGHT NOW!!!",
+        "survival_in_space_8_answer_1": "NO, G-11! You must ensure security!",
+        "survival_in_space_8_answer_2": "NEGATIVE. We've locked all doors as per protocol.",
+
+        "survival_in_space_9_history": "[AUDIO RECORDING - G-11]\n\nHOW CAN YOU DO THIS!?!? WHAT DO YOU THINK YOU'RE DOING!!!! HEY!!! GET ME... GET ME OUT OF HERE RIGHT NOW!!! THIS WASN'T IN THE CONTRACT!",
+        "survival_in_space_9_answer_1": "You need to prevent the organism from spreading, G-11.",
+        "survival_in_space_9_answer_2": "Our protocol requires this.",
+
+        "survival_in_space_10_history": "[AUDIO RECORDING - G-11]\n\nDAMN YOU!!! YOU'RE LITERALLY SACRIFICING ME HERE! I... I. I DON'T WANT TO DIE! GET ME OUT OF HERE PLEASE!!",
+        "survival_in_space_10_answer_1": "All of humanity could be in danger, G-11!",
+        "survival_in_space_10_answer_2": "No, G-11. You'll be the savior of that ship.",
+
+        "survival_in_space_11_history": "[AUDIO RECORDING - G-11]\n\n[CRYING.]\nP-PLEASE GET ME OUT OF HERE PLEASEEE!!!! I'LL DIE HERE ALL ALONE! CENTER! DID YOU HEAR THAT? ARE YOU GETTING THIS SOUND TOO!?",
+        "survival_in_space_11_answer_1": "Cut your connection with the outside and focus on your job, G-11!",
+        "survival_in_space_11_answer_2": "No sound was recorded.",
+
+        "survival_in_space_12_history": "[AUDIO RECORDING - G-11]\n\nYOU'RE STILL TALKING TO ME ABOUT THAT DAMN PROTOCOL!!! GET ME OUT OF HERE!!! I DON'T WANT TO DIE. I... I... NO, I WON'T DIE!!! DISABLE THE PROTOCOLS!",
+        "survival_in_space_12_answer_1": "Disabling the protocols could put the entire station in danger.",
+        "survival_in_space_12_answer_2": "G-11, you know we can't do that.",
+
+        "survival_in_space_13_history": "Can't you hear them? They're here! I'm continuing to communicate in writing so they can't hear me.\n\n[WARNING! G-11: PULSE INCREASE]",
+        "survival_in_space_13_answer_1": "You might be experiencing hallucinations due to stress.",
+        "survival_in_space_13_answer_2": "We're detecting an abnormal increase in your brain waves. We can see your pulse is rising, G-11",
+
+        "survival_in_space_14_history": "[AUDIO RECORDING - G-11]\n\nGET ME OUT OF HERE!!! I can't- I can't stand this anymore, my brain is tingling! I'm making a distress call from the system!!!",
+        "survival_in_space_14_answer_1": "Distress calls have been blocked from being received by the outside world.",
+        "survival_in_space_14_answer_2": "Isolating the organism is our priority. We're sorry, G-11",
+
+        "survival_in_space_15_history": "[AUDIO RECORDING - G-11]\n\nDAMN YOU!!! THIS ISN'T RIGHT!! I'M NOT WORKING FOR YOU ANYMORE. I WILL FIND A WAY OUT OF HERE!",
+        "survival_in_space_15_answer_1": "G-11, give us information about your situation.",
+        "survival_in_space_15_answer_2": "G-11, you need to pull yourself together.",
+
+        "survival_in_space_16_history": "[AUDIO RECORDING - G-11]\n\nYOU DON'T UNDERSTAND! It's watching us...but we can't tell what it is.",
+        "survival_in_space_16_answer_1": "Describe it, G-11.",
+        "survival_in_space_16_answer_2": "We need your data to understand.",
+
+        "survival_in_space_17_history": "[AUDIO RECORDING - G-11]\n\nI'VE NEVER SEEN ANYTHING LIKE THIS IN MY LIFE! I think its metabolism has really sped up. GOD! THIS THING IS SO STRONG! It's trying to get out of the box. I- I'm not safe, center! Please let me out of the examination room! PLEASE! PLEASE!!!",
+        "survival_in_space_17_answer_1": "The doors will only open when the danger is over.",
+        "survival_in_space_17_answer_2": "G-11, the protocols are in effect.",
+
+        "survival_in_space_18_history": "[AUDIO RECORDING - G-11]\n\n[SOUND COMES IN WAVES.]THAT THING! THAT THING!!! Center, you won't believe this! It got out of the box and started EATING THE TEST SUBJECTS, how is it GROWING like this! Center, THIS THING is looking at m-.\n\n[SOUND CUT OFF.]",
+        "survival_in_space_18_answer_1": "G-11, what happened?",
+        "survival_in_space_18_answer_2": "The control is in your hands, G-11. Kill it!",
+
+        "survival_in_space_19_history": "[AUDIO RECORDING - G-11]\n\nThe entity didn't attack me, center, but we have a bigger problem. Because the team didn't close the ventilation holes from the outside, it managed to escape through there! OPEN THIS DOOR ALREADY!",
+        "survival_in_space_19_answer_1": "G-11, control has been left to you.",
+        "survival_in_space_19_answer_2": "Security protocols have been deactivated.",
+
+        "survival_in_space_20_history": "[AUDIO RECORDING - G-11]\n\nI'll try my best, but I don't have control, center. The entity is moving very fast. I have very bad news, it escaped from the room because the team didn't close the ventilation.",
+        "survival_in_space_20_answer_1": "G-11, we've allowed you to open the doors.",
+        "survival_in_space_20_answer_2": "Door security has been disabled. The control is yours, G-11.",
+
+        "survival_in_space_21_history": "[WARNING! SYSTEM CONNECTION LOST.]",
+        "survival_in_space_21_answer_1": "Respond, G-11! Connection lost.",
+        "survival_in_space_21_answer_2": "All screens have gone dark. Are you okay, G-11?",
+
+        "survival_in_space_22_history": "[AUDIO RECORDING - G-11]\n\nCan you hear me? Is my voice coming through? This station is in danger! Whatever that thing is, it's shut down all the systems! It's emitting some kind of energy!",
+        "survival_in_space_22_answer_1": "Gather together immediately.",
+        "survival_in_space_22_answer_2": "Gather the team immediately.",
+
+        "survival_in_space_23_history": "Emergency notification has been sent to everyone. Center! All systems are down. My vision has dropped to zero, I can't see anything. That thing... it's very close, trying to find me. Emergency intervention may be needed, the situation is getting worse!",
+        "survival_in_space_23_answer_1": "G-11, you need to get out of there right now! Come back before the risk increases further!",
+        "survival_in_space_23_answer_2": "G-11, if possible, try to distract that thing! We need to buy time!",
+
+        "survival_in_space_24_history": "[AUDIO RECORDING - G-11]\n\nCenter... I think I understand! That thing doesn't see with its eyes! It's tracking heat... It senses our body temperature! If there's no way to hide my temperature, it will find me... What should I do?!",
+        "survival_in_space_24_answer_1": "Quickly go to the team and tell them not to stay together. Everyone to the capsules!",
+        "survival_in_space_24_answer_2": "Warn the whole team, I have a plan, listen to me carefully. You'll escape from it with fire.",
+
+        "survival_in_space_25_history": "[AUDIO RECORDING - G-11]\n\nI'm trying to lead that thing around the station, it senses our body temperature! Think fast, get us out of here!",
+        "survival_in_space_25_answer_1": "Listen carefully, G-11, we need to burn it!",
+        "survival_in_space_25_answer_2": "The only way to get rid of it is fire!",
+
+        "survival_in_space_26_history": "[AUDIO RECORDING - G-11]\n\nWe're all running to the capsules but it's coming too, almost catching up!\n\n[SOUNDS OF RUNNING AND STRUGGLING]\n\nI got into the capsule, it was so close, it left me and is going towards the others!",
+        "survival_in_space_26_answer_1": "Leave the station. Everyone!",
+        "survival_in_space_26_answer_2": "All of you get out of there!",
+
+        "survival_in_space_27_history": "Fire? But how? If we start such a strong fire in the station, we could burn too! Plus, the facility would burn!",
+        "survival_in_space_27_answer_1": "Use the heating flares as bait to lure it outside.",
+        "survival_in_space_27_answer_2": "The heating flares might deceive it.",
+
+        "survival_in_space_28_history": "[AUDIO RECORDING - G-11]\n\nI managed to leave the station. I can see the other capsules departing through the window. Everyone is slowly escaping from this cursed place. Wait a second, the last capsule didn't leave! Center, can you hear me? THE LAST REMAINING CAPSULE DIDN'T LEAVE.",
+        "survival_in_space_28_answer_1": "No, it can't be! Unless...",
+        "survival_in_space_28_answer_2": "Please let it have left.",
+
+        "survival_in_space_29_history": "[AUDIO RECORDING - G-11]\n\nI'm sacrificing myself! I'm luring it to the pressure chamber, center. I've got the flares, I'll open the doors as soon as I see it...\n\nHere it comes! I've lit the flares, they're definitely emitting more heat than me.\n\n[WARNING! SYSTEM CONNECTION LOST.]",
+        "survival_in_space_29_answer_1": "G-11?",
+        "survival_in_space_29_answer_2": "What's the situation, G-11?",
+
+        "survival_in_space_30_history": "[AUDIO RECORDING - G-11]\n\nI MANAGED TO THROW THE FLARES INTO THE VOID OF SPACE! It started wrapping around the flares and absorbing their energy. I closed the doors. We need to finish this job before the flares go out... here we go.\n\n[G-11 turns the ship's engines towards the unknown entity and fires them at full power.]",
+        "survival_in_space_30_answer_1": "Did you escape, G-11?",
+        "survival_in_space_30_answer_2": "Is it alive?",
+
+        "survival_in_space_31_history": "G-12 has returned to the ship, center. You received his signal. From what I can see from the outside, his condition doesn't look good at all. I think his suit is damaged.",
+        "survival_in_space_31_answer_1": "Help him regain consciousness, G-11.",
+        "survival_in_space_31_answer_2": "G-11, take care of G-12 and keep us informed.",
+
+        "survival_in_space_32_history": "[AUDIO RECORDING]\n\nCompletely unresponsive. No reaction at all, center. He's trying to tell you something, I'll try to relay what he's saying.\n\nG-12: Cen-ter. Tell G-11. L-leave me and go. T-this place is very dange-rous.\n\n He must have seen something.\n\n\n[DANGER ALARM!]\n[DANGER ALARM!]\n\n[UNDETECTABLE OBJECT]",
+        "survival_in_space_32_answer_1": "G-11, our devices have detected an unidentifiable signal.",
+        "survival_in_space_32_answer_2": "Danger alarm G-11, our systems have detected an unidentifiable object.",
+
+        "survival_in_space_33_history": "[AUDIO RECORDING - G-11]\n\nUnderstood, center! I'm activating the protocol. I've activated all security systems. I've closed the air ducts. WAIT! THERE'S SOMETHING FORCING THE DOOR HERE! CENTER! CAN YOU HEAR ME! THE DOOR IS BEING FORCED!",
+        "survival_in_space_33_answer_1": "Are you sure? Could it be the other astronauts?",
+        "survival_in_space_33_answer_2": "Could it be your team members?",
+
+        "survival_in_space_34_history": "[AUDIO RECORDING - G-11]\n\nI don't know, it's more like something trying to break down the door. G-12 is getting worse, center! His pulse is dropping significantly, his face is starting to turn blue. HELP!",
+        "survival_in_space_34_answer_1": "Immediately attend to G-12. Don't worry about the door.",
+        "survival_in_space_34_answer_2": "G-11, open the door immediately, if it's the team, you should attend to G-12 together.",
+
+        "survival_in_space_35_history": "[AUDIO RECORDING - G-11]\n\n[CRYING.]\n\nIntervention insufficient. I... I couldn't save him. He lost consciousness. We lost G-12, center. I tried everything. We lost him...",
+        "survival_in_space_35_answer_1": "We're sorry for your loss, G-11. Please take G-12 to the quarantine room.",
+        "survival_in_space_35_answer_2": "This is very painful. Carry out the death protocols for G-12.",
+
+        "survival_in_space_36_history": "Understood. I think the device's microphone is broken. That's why I'll try to write to you. I'm taking G-12.\n\nCenter, the electricity in the other corridors has been cut off, I'm trying to turn it back on from the system but it's failing. The sound at the door has stopped but I can't take G-12.\n\n[WARNING! OXYGEN TANK GAS LEVEL]",
+        "survival_in_space_36_answer_1": "G-11, we have a very serious problem right now. The oxygen tanks are depleting very quickly, the alarm has started.",
+        "survival_in_space_36_answer_2": "G-11, we're getting a warning from the oxygen tanks. You need to go check.",
+
+        "survival_in_space_37_history": "Understood center, I'm putting on my suit. Going outside looks very dangerous right now but I have no choice. It's better than dying without breath. I'm going out, center.",
+        "survival_in_space_37_answer_1": "We want you to inform us of every moment, G-11",
+        "survival_in_space_37_answer_2": "We're listening for support G-11, be careful. The doors are opening, good luck.",
+
+        "survival_in_space_38_history": "[AUDIO RECORDING - G-11]\n\nS---sound!?. Okay, the microphone is fixed. Center, you won't believe this but whatever that thing is, it managed to get inside by bursting one of the oxygen tanks. That was the cause of the gas leak in the oxygen tubes. I'm urgently closing the doors of the section connected to the hole and going inside.",
+        "survival_in_space_38_answer_1": "How!? Cut the ship's connection to the space station immediately.",
+        "survival_in_space_38_answer_2": "How is this possible? Separate the ship from the station, G-11.",
+
+        "survival_in_space_39_history": "[AUDIO RECORDING - G-11]\n\nI've entered, center. I'm reporting instantly in case anything happens. There doesn't seem to be any problem here right now. I'm heading towards G-12- CENTER! G-12 IS NOT HERE!",
+        "survival_in_space_39_answer_1": "How is this possible?",
+        "survival_in_space_39_answer_2": "Are you sure?",
+
+        "survival_in_space_40_history": "[AUDIO RECORDING - G-11]\n\nNO! NO! HE'S NOWHERE TO BE FOUND! I THINK SOMETHING DRAGGED HIM AWAY, THERE ARE TRACKS ON THE FLOOR!\n\n[SCREAMING SOUNDS]\n\nOH MY GOD! THERE ARE SOUNDS COMING FROM INSIDE! CENTER! CAN YOU HEAR THESE!? SCREAMING SOUNDS ARE COMING!!!",
+        "survival_in_space_40_answer_1": "It could be the other team members. Stay calm.",
+        "survival_in_space_40_answer_2": "Wasn't G-12 dead? How are there screaming sounds?",
+
+        "survival_in_space_41_history": "You're right, but if I go there I might not come back. I feel like I'm all alone. Should I go check or should I cut the connection from the station?",
+        "survival_in_space_41_answer_1": "We might lose you too, G-11, disconnect and return to Earth.",
+        "survival_in_space_41_answer_2": "Go there and inform us!",
+
+        "survival_in_space_42_history": "[AUDIO RECORDING - G-11]\n\nYes, I mean... I don't know, I was sure. He. He was lying motionless. He was in front of me. I'm going there right now.",
+        "survival_in_space_42_answer_1": "Go there and inform us!",
+        "survival_in_space_42_answer_2": "Be careful G-11! We can't lose you too!",
+
+        "survival_in_space_43_history": "[AUDIO RECORDING - G-11]\n\n[CRYING.]\n\nCenter... All of my team members... unfortunately, they're no longer alive. That thing, whatever it is, somehow reached all of them. That's why we couldn't get any life signs.",
+        "survival_in_space_43_answer_1": "G-11, you need to get out of there immediately! This is enough. The danger is much bigger than we thought. The situation is getting out of control. Get ready to return immediately!",
+        "survival_in_space_43_answer_2": "G-11, don't waste time! Create a safe exit plan and leave the station as soon as possible!",
+
+        "survival_in_space_44_history": "Understood, center! I've made my plan. I'll retreat quietly. I'm activating the security protocols and disabling the critical points of the station. Air ducts are closing, all lights are at the lowest level. Everything seems fine right now, no movement.",
+        "survival_in_space_44_answer_1": "Continue to inform us, G-11.",
+        "survival_in_space_44_answer_2": "Good, be as fast as you can.",
+
+        "survival_in_space_45_history": "[G-11 tries to move silently for a while. However, suddenly an unsettling sound echoes.]\n\n[AUDIO RECORDING - G-11]\n\n[WITH AN UNEASY VOICE] Center... something's going wrong. That thing might have noticed me. I'm speeding up my steps but there's a sound coming from behind. It's getting very close...",
+        "survival_in_space_45_answer_1": "Hide and wait for it to pass, don't make a sound!",
+        "survival_in_space_45_answer_2": "Run! G-11 Run!",
+
+        "survival_in_space_46_history": "I got into the tubes in the sleeping room, that thing is searching everywhere! I can hear it, you wouldn't want to hear its sound center, it's moving exactly like a creaking door. No, NO! The sound is coming this way. Center, it's right in front of me now. I'm turning off.",
+        "survival_in_space_46_answer_1": "And? Please answer G-11 are you there, G-11 can you hear us?",
+        "survival_in_space_46_answer_2": "No! We can't lose you G-11 please say you're there!",
+
+        "survival_in_space_47_history": "I repeat. Can you hear me center?",
+        "survival_in_space_47_answer_1": "We're receiving your voice G-11. We're listening.",
+        "survival_in_space_47_answer_2": "Yes. Center is listening, what's the situation, G-11?",
+
+        "survival_in_space_48_history": "[AUDIO RECORDING - G-11]\n\nCenter, the damage to the exterior of the space station is much greater than we expected. Most of the panels are completely out of order. I'm doing my best but this is going to take some time.",
+        "survival_in_space_48_answer_1": "Is there any object detected on your radar?",
+        "survival_in_space_48_answer_2": "Is there any movement in your observation systems?",
+
+        "survival_in_space_49_history": "[AUDIO RECORDING - G-11]\n\n[WITH A MUFFLED VOICE]Y..Yes, center. A small brightness reflected on my visor. It's probably a light reflection. I'm continuing my work.",
+        "survival_in_space_49_answer_1": "G-11 please share the latest situation.",
+        "survival_in_space_49_answer_2": "How's the repair going G-11?",
+
+        "survival_in_space_50_history": "[AUDIO RECORDING - G-11]\n\nNothing's wrong at the moment.\n\nWait a second. Center, I think I see something. It's coming towards me! What is this!?\n\n[NO OBJECT WARNING.]",
+        "survival_in_space_50_answer_1": "We didn't receive any approaching object warning G-11",
+        "survival_in_space_50_answer_2": "No movement was detected in the radar systems.",
+
+        "survival_in_space_51_history": "[AUDIO RECORDING - G-11]\n\nCENTER? CENTER I DIDN'T GET A RESPONSE FROM YOU. YES I SEE SOMETHING. IT'S COMING TOWARDS ME. Center can you hear me? Answer!\n\n[WARNING! CONNECTION UNSTABLE.]",
+        "survival_in_space_51_answer_1": "Report your status G-11!",
+        "survival_in_space_51_answer_2": "[WARNING! DOOR WON'T OPEN.]Why won't the door open, G-11?",
+
+        "survival_in_space_52_history": "[AUDIO RECORDING - G-11]\n\nI managed to enter the airlock by activating the thrusters. But it didn't open. I don't know why.",
+        "survival_in_space_52_answer_1": "Restart the station systems, G-11",
+        "survival_in_space_52_answer_2": "Remote control is disabled G-11, we suggest you reset the security protocols of the computers.",
+
+        "survival_in_space_53_history": "[AUDIO RECORDING - G-11]\n\nAAAA!!!! AN OBJECT HIT THE DOOR!!! CENTER!!! THE SURFACE OF THIS THING IS CONSTANTLY CHANGING SHAPE. This can't be a meteor. I'm safe and in the pressure chamber now center but I experienced a big shake.",
+        "survival_in_space_53_answer_1": "G-11 enter by opening the main door.",
+        "survival_in_space_53_answer_2": "Balance the pressure and enter G-11.",
+
+        "survival_in_space_54_history": "[AUDIO RECORDING - G-11]\n\nWHAT DO YOU THINK I AM?! I TRIED OF COURSE! I'm trying but the system isn't allowing it, something's going wrong. Allow the security protocol, center.\n\n[WARNING! OXYGEN LEVEL]",
+        "survival_in_space_54_answer_1": "Stay calm G-11, your oxygen is about to run out. We're trying to open the door remotely.",
+        "survival_in_space_54_answer_2": "Protocol disabled, G-11",
+
+        "survival_in_space_55_history": "[AUDIO RECORDING - G-11]\n\n[SOUND COMES INTERMITTENTLY.]\n\nPRO..TOCOL DISA-BLE I SAID....",
+        "survival_in_space_55_answer_1": "Protocol has been disabled, G-11",
+        "survival_in_space_55_answer_2": "Try again, G-11",
+
+        "survival_in_space_56_history": "[AUDIO RECORDING - G-11]\n\nTHANK YOU CENTER! Center I've left the pressure chamber. I managed to transition to the main arm. I think the systems were affected by the object that hit. I'm boarding the escape capsule.\n\n[WARNING! SYSTEM MALFUNCTION.]\n\n[WARNING! ENERGY LOW.]",
+        "survival_in_space_56_answer_1": "G-11 activate the escape pod from the system before the energy cuts off.",
+        "survival_in_space_56_answer_2": "You need to be quick G-11, the systems have started to malfunction.",
+
+        "survival_in_space_57_history": "[AUDIO RECORDING - G-11]\n\nC-CENTER I'M REPORTING THE LAST SITUATION! I boarded the escape pod but I can't close the door. Whatever this thing is, it managed to infiltrate the ship and now I can see it at the end of the corridor!! Please help!\n\n[WARNING! CONNECTION SLOW.]",
+        "survival_in_space_57_answer_1": "This can't be. G-11 the connection has slowed down!",
+        "survival_in_space_57_answer_2": "Try your luck with the computers.",
+
+        "survival_in_space_58_history": "[AUDIO RECORDING - G-11]\n\nSYSTEMS ARE NOT RESPONDING!!! I REPEAT SYSTEMS ARE NOT RESPONDING!!",
+        "survival_in_space_58_answer_1": "G-11, try restarting the system.",
+        "survival_in_space_58_answer_2": "The moment you give up the fight, you lose G-11!",
+
+        "survival_in_space_59_history": "[AUDIO RECORDING - G-11]\n\nI'M TRYING! TRYING AGAIN.\n\nFinally! The computers responded again!",
+        "survival_in_space_59_answer_1": "G-11 quickly enter the security code.",
+        "survival_in_space_59_answer_2": "You need to close the door to take action G-11.",
+
+        "survival_in_space_60_history": "[AUDIO RECORDING - G-11]\n\n[DOORS CLOSING...]\n\nI DID IT CENTER!!! I closed the doors BUT THAT thing noticed me and it's coming here!",
+        "survival_in_space_60_answer_1": "G-11 activate the escape pod.",
+        "survival_in_space_60_answer_2": "Get into orbit immediately G-11!",
+
+        "survival_in_space_61_history": "[AUDIO RECORDING - G-11]\n\n[NO SOUND.]\n\n[NO SOUND.]\n\nCENTER! SOUND TEST CENTER!!! THANK GOD! Center, I managed to separate from the main base. The coordinates were successfully entered. However that thing returned to the inside of the base, I can see it.",
+                "survival_in_space_61_answer_1": "You did it G-11! We're bringing you back.",
+        "survival_in_space_61_answer_2": "We'll analyze the data. You're in a safe zone now G-11.",
+
+        "survival_in_space_901_history": "Center, this thing is very heat resistant, it's still alive despite such intense heat but it's been pushed quite far away. We're moving away from here before it approaches the ship again.\n\nWe're sorry center, we can't stay here any longer.\n\n[The ship rapidly heads towards Earth. The only thing they can see behind them is the entity entering the station. Since then, the station has been closed for service and banned.]",
+        "survival_in_space_901_answer_1": "[Restart the Story.]",
+        "survival_in_space_901_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_902_history": "I'm sorry center, we couldn't record any movement. We're returning.\n\n[One of the astronauts can't leave the station and their life signal is cut off. After this horrific event, the team quits their mission and leaves. No ship has gone to the space station since that day and the facility continues to drift in the void of space.]",
+        "survival_in_space_902_answer_1": "[Restart the Story.]",
+        "survival_in_space_902_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_903_history": "[The connection with G-11 is lost. It's assumed that the unidentifiable entity caused the problem. G-11's fate remains unsolved. The station awaits its new guests with an unknown ending. No astronaut assigned to the mission accepts this task. Developments begin to be able to conduct unmanned research.]",
+        "survival_in_space_903_answer_1": "[Restart the Story.]",
+        "survival_in_space_903_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_904_history": "[The connection with G-11 is lost and no life signal can be received. The organism experiment in the space station ends in disaster. They still don't dare to go back to the station.]",
+        "survival_in_space_904_answer_1": "[Restart the Story.]",
+        "survival_in_space_904_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_905_history": "I'm closing every door and ventilation channel. I cut the connection with the station at the last moment. Whatever that thing is, it looks terrifying! Although I can't see it clearly through the cover's glass, I can see it coming here, we're still not safe center. I'm cutting the connection, the covers are closed, I've set the coordinates to automatic and the thrusters are active! We've escaped!\n\n[G-11 reaches Earth. Plans are made to go back to the station, G-11 doesn't accept this and also warns against sending humans. Preparations continue and an unknown creature that needs to be solved awaits them.]",
+        "survival_in_space_905_answer_1": "[Restart the Story.]",
+        "survival_in_space_905_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_906_history": "I'm cutting the connection, I've made the final checks and I'm activating the engines. The coordinates have been received and successfully entered. I'm returning.\n\n[G-11 separates the spaceship from the base and returns to Earth, there's no more news from the other astronauts. A team is formed to solve the incident and preparations begin. G-11 resigns from his duty due to his deteriorating psychology.]",
+        "survival_in_space_906_answer_1": "[Restart the Story.]",
+        "survival_in_space_906_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_907_history": "[When G-11 opened the door, the life signal was cut off and no one from the team could be reached. The object at the door couldn't be identified. Precautions were taken and a team began to be prepared for the mission again.]",
+        "survival_in_space_907_answer_1": "[Restart the Story.]",
+        "survival_in_space_907_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_908_history": "[Due to the given decision, G-11 loses time and panics with his decreasing oxygen. G-11, whose oxygen depletes quickly, gives himself up to the dark arms of space with the cut connection.]",
+        "survival_in_space_908_answer_1": "[Restart the Story.]",
+        "survival_in_space_908_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_909_history": "[The object gets closer and manages to infiltrate. Communication with the center can't be established again. G-11 gets lost in the void of space.]",
+        "survival_in_space_909_answer_1": "[Restart the Story.]",
+        "survival_in_space_909_answer_2": "[Restart the Story.]",
+
+        "survival_in_space_910_history": "[G-11 manages to survive. The curiosity about what the object was is still inside him. He starts preparing himself for the mission that will be reorganized to investigate the object.]",
+        "survival_in_space_910_answer_1": "[Restart the Story.]",
+        "survival_in_space_910_answer_2": "[Restart the Story.]"
 }
