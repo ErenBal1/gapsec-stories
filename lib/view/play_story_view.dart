@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
 import 'package:gapsec/stories/games_storage/mysteriousLoss.dart';
+import 'package:gapsec/stories/games_storage/survival_in_space.dart';
 import 'package:gapsec/stories/games_storage/unknown.dart';
 import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
 import 'package:gapsec/stories/games_storage/zeta.dart';
@@ -142,6 +143,19 @@ class _ChatViewState extends State<ChatView> {
             await _selectedStoryUpdate(type: TextType.mysteriousType);
             vm.repo = _databaseService.mysteriousRepo;
             break;
+
+          case TextType.spaceType:
+            vm.selectedList = survivalInSpaceDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.spaceType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.spaceType);
+            vm.repo = _databaseService.spaceRepo;
+            break;
           default:
         }
       });
@@ -207,6 +221,9 @@ class _ChatViewState extends State<ChatView> {
                         break;
                       case TextType.mysteriousType:
                         vm.selectedTexts = newGame.mysteriousTexts.toString();
+                        break;
+                      case TextType.spaceType:
+                        vm.selectedTexts = newGame.spaceTexts.toString();
                         break;
                       default:
                     }
@@ -394,6 +411,9 @@ class _ChatViewState extends State<ChatView> {
       case TextType.mysteriousType:
         vm.repo = _databaseService.mysteriousRepo;
         break;
+      case TextType.spaceType:
+        vm.repo = _databaseService.spaceRepo;
+        break;
 
       default:
     }
@@ -427,6 +447,9 @@ class _ChatViewState extends State<ChatView> {
         break;
       case TextType.mysteriousType:
         vm.repo = _databaseService.mysteriousRepo;
+        break;
+      case TextType.spaceType:
+        vm.repo = _databaseService.spaceRepo;
         break;
 
       default:

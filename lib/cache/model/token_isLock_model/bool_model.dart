@@ -12,7 +12,7 @@ class BoolModel {
   bool? zetaIsLock;
   bool? unknownIsLock;
   bool? mysteriousIsLock;
-  bool? behindIsLock;
+  bool? spaceIsLock;
   bool? luckyIsLock;
 
   firstWhere(bool Function(dynamic item) param0) {}

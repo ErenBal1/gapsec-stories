@@ -53,6 +53,7 @@ class _ContinueViewState extends State<ContinueView> {
       await _selectedStoryUpdate(type: TextType.zetaType);
       await _selectedStoryUpdate(type: TextType.unknownType);
       await _selectedStoryUpdate(type: TextType.mysteriousType);
+      await _selectedStoryUpdate(type: TextType.spaceType);
     });
     super.initState();
   }
@@ -127,6 +128,12 @@ class _ContinueViewState extends State<ContinueView> {
                     break;
                   case "Mysterious Loss":
                     if (_databaseService.mysteriousRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Space in Survival":
+                    if (_databaseService.spaceRepo.isNotEmpty) {
                       content =
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
@@ -304,6 +311,21 @@ class _ContinueViewState extends State<ContinueView> {
                                   selectedRepo: _databaseService.mysteriousRepo,
                                   story: gameName,
                                   selectedTextType: TextType.mysteriousType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Survival in Space":
+                          await _selectedStoryUpdate(type: TextType.spaceType);
+                          if (_databaseService.spaceRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.spaceRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.spaceType,
                                 ),
                                 context: context);
                           } else {

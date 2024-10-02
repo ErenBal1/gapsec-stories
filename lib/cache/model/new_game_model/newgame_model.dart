@@ -12,7 +12,7 @@ class NewGame {
   String? zetaTexts;
   String? unknownTexts;
   String? mysteriousTexts;
-  String? behindTexts;
+  String? spaceTexts;
   String? luckyTexts;
 }
 
@@ -23,6 +23,6 @@ enum TextType {
   zetaType,
   unknownType,
   mysteriousType,
-  behindType,
+  spaceType,
   luckyType,
 }

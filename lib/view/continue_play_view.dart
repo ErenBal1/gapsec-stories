@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gapsec/state/continue_play_state/continue_play_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
 import 'package:gapsec/stories/games_storage/mysteriousLoss.dart';
+import 'package:gapsec/stories/games_storage/survival_in_space.dart';
 import 'package:gapsec/stories/games_storage/unknown.dart';
 import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
 import 'package:gapsec/stories/games_storage/zeta.dart';
@@ -87,6 +88,11 @@ class _ContinueChatViewState extends State<ContinueChatView> {
         return list.firstWhere((element) =>
             element["history"] ==
             _databaseService.mysteriousRepo.last!.mysteriousTexts.toString());
+
+      case TextType.spaceType:
+        return list.firstWhere((element) =>
+            element["history"] ==
+            _databaseService.spaceRepo.last!.spaceTexts.toString());
 
       default:
     }
@@ -256,6 +262,24 @@ class _ContinueChatViewState extends State<ContinueChatView> {
 
           cs.scrollToBottom();
           break;
+        case TextType.spaceType:
+          cs.selectedList = survivalInSpaceDetail;
+          await _selectedStoryUpdate(type: TextType.spaceType);
+          cs.left = initToOdd(
+            cs.selectedList,
+            TextType.spaceType,
+          )!;
+          cs.right = initToEven(
+            cs.selectedList,
+            TextType.spaceType,
+          )!;
+          await _selectedStoryUpdate(type: TextType.spaceType);
+          setState(() {
+            cs.repo = _databaseService.spaceRepo;
+          });
+
+          cs.scrollToBottom();
+          break;
         default:
       }
     });
@@ -322,6 +346,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         break;
                       case TextType.mysteriousType:
                         cs.selectedTexts = newGame.mysteriousTexts.toString();
+                        break;
+                      case TextType.spaceType:
+                        cs.selectedTexts = newGame.spaceTexts.toString();
                         break;
                       default:
                     }
@@ -510,6 +537,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
         case TextType.mysteriousType:
           cs.repo = _databaseService.mysteriousRepo;
           break;
+        case TextType.spaceType:
+          cs.repo = _databaseService.spaceRepo;
+          break;
         default:
       }
     });
@@ -543,6 +573,9 @@ class _ContinueChatViewState extends State<ContinueChatView> {
           break;
         case TextType.mysteriousType:
           cs.repo = _databaseService.mysteriousRepo;
+          break;
+        case TextType.spaceType:
+          cs.repo = _databaseService.spaceRepo;
           break;
         default:
       }

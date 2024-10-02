@@ -2488,5 +2488,298 @@
         "mysterious_loss_910_answer_2": "[Hikayeyi Yeniden Başlat.]",
         "mysterious_loss_911_history": "Amirim destek ekip geldi ve onları tutukladılar. Biz de şimdi ifade için Lucy ile birlikte geliyoruz. Bize her şeyi daha ayrıntılı anlatacak. Yanınızda detayları konuşuruz.\n\n[BAĞLANTI KOPTU...]",
         "mysterious_loss_911_answer_1": "[Hikayeyi Yeniden Başlat.]",
-        "mysterious_loss_911_answer_2": "[Hikayeyi Yeniden Başlat.]"
+        "mysterious_loss_911_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+
+
+
+
+
+
+        "survival_in_space_0_history": "[SES KAYDI]\n\nG-11'den merkeze! G-11'den merkeze! Ses, deneme. Beni duyabiliyor musun merkez?",
+        "survival_in_space_0_answer_1": "Dinlemedeyiz, G-11 durum nedir?",
+        "survival_in_space_0_answer_2": "Evet. Yazdıklarımızı görebiliyor musunuz?",
+
+        "survival_in_space_1_history": "Vermiş olduğunuz görev kapsamında uzayda bulunan organizmayı kapsülün içerisine koyduk. Şimdi o kapsülün içindeki organizma analiz edilmek üzere. Bunun haberini ilk olarak size vermek istedik.",
+        "survival_in_space_1_answer_1": "Daha fazla detay vermen gerekiyor, G-11.",
+        "survival_in_space_1_answer_2": "Tamamdır, G-11. Analiz sonucu ne durumda?",
+
+        "survival_in_space_2_history": "Şu an uzman arkadaşlarım analizi bana okuyorlar. Ben de elimden geldiğince size buradan bilgi vereceğim.\n\nSöylediklerinin özeti şu şekilde: Bilinen biyolojik formlardan hiçbirine benzemiyor. Yapısı sürekli değişim halinde ve yavaş yavaş büyüyor. Bunu durduramazsak çok daha kötü bir hâle doğru gidebilir, diyorlar.\n\n[HATA! İSTASYON SİSTEMLERİ(YANIT YOK.)]",
+        "survival_in_space_2_answer_1": "Bu organizmanın büyümesinin bir şekilde durdurulması gerekiyor.",
+        "survival_in_space_2_answer_2": "Tamamdır fakat istasyonun sistemlerinden yanıt alamamaya başladım. Ekip arkadaşların nerede G-11?",
+
+        "survival_in_space_3_history": "Ben de sizinle aynı fikirdeyim. Bu durumu kontrol altına almamız gerekiyor. Yoksa belli ki ileride başımıza çok iş açacak. Bunun için de birtakım önlemler almamız gerekiyor.",
+        "survival_in_space_3_answer_1": "Nasıl önlemlerden bahsediyorsun G-11?",
+        "survival_in_space_3_answer_2": "G-11 organizma tehlikeli bir unsur barındırıyor mu?",
+
+        "survival_in_space_4_history": "Henüz gemiye geri dönen kimse olmadı. İstasyon araştırmaları devam ediyor olmalı, merkez.\n\n[ALARM! KAPI SENSÖRÜ]\n\n[KİMLİK TESPİT EDİLEMEDİ...]",
+        "survival_in_space_4_answer_1": "Kapıdan bir sinyal alındı şu an G-11. Kimlik tespit edilemedi.",
+        "survival_in_space_4_answer_2": "G-11 girişleri kontrol et, bir sinyal geliyor. Sinyalin kaynağı nedir?",
+
+        "survival_in_space_5_history": "Bilmiyorum. Fakat elimizde bir organizma var ve sürekli büyüyor. Daha kötüsü bilmediğimiz yeteneklere sahip. Diğer ekip üyelerini resmen ele geçirdi.",
+        "survival_in_space_5_answer_1": "Diğer ekip üyeleri... onlara ne oldu?",
+        "survival_in_space_5_answer_2": "Bilinmeyen bir organizmaya karşı nasıl bir önlem alacağız? Alamayız.",
+
+        "survival_in_space_6_history": "[SES KAYDI -  G-11]\n\nEkip üyeleri... O lanetin kontrolü altında. Beni dinlemiyorlar. Çok garipler. Ne olur bana yardım edin!",
+        "survival_in_space_6_answer_1": "Bunu nasıl yapabilir?",
+        "survival_in_space_6_answer_2": "Sen nasıl etkilenmedin?",
+
+        "survival_in_space_7_history": "[SES KAYDI -  G-11]\n\nBilmiyorum. Ben de bilmiyorum. Ekip arkadaşlarımın hepsi söylediklerime tepki vermiyorlar sadece gözleri açık sanki donmuş gibiler. Hepsi yaşayan birer... birer ölü gibi. Sanırım ben de etkilenmeye başlıyorum. Nasıl oluyor bu!?",
+        "survival_in_space_7_answer_1": "Hayır sadece durumu kabullenmek istiyorsun ve bunu yapamazsınız!",
+        "survival_in_space_7_answer_2": "Kurtuluşunuz senin elinde G-11.",
+
+        "survival_in_space_8_history": "[SES KAYDI -  G-11]\n\nHaklısınız. Ama ne yapacağım hakkında en ufak bir fikrim yok. NEREDEN ÇIKTI BU LANET!!! Ben... benim buradan çıkmam lazım. HEM DE HEMEN! HEMEN BURADAN ÇIKACAĞIM!!!",
+        "survival_in_space_8_answer_1": "OLMAZ, G-11! Güvenliği sağlamak zorundasın!",
+        "survival_in_space_8_answer_2": "OLUMSUZ. Protokol gereği tüm kapılar kilitledik.",
+
+        "survival_in_space_9_history": "[SES KAYDI -  G-11]\n\nBUNU NASIL YAPARSINIZ!?!? NE YAPTIĞINIZI SANIYORSUNUZ!!!! HEYYY!!! BENİ... BENİ HEMEN BURADAN ÇIKARIN!!! SÖZLEŞMEDE BU YAZMIYORDU!",
+        "survival_in_space_9_answer_1": "Organizmanın yayılmasını engellemen gerekiyor, G-11.",
+        "survival_in_space_9_answer_2": "Protokolümüz bunu gerektiriyor.",
+
+        "survival_in_space_10_history": "[SES KAYDI -  G-11]\n\nLANET HERİFLER!!! BENİ RESMEN BURADA FEDA EDİYORSUNUZ! BEN... BEN. BEN ÖLMEK İSTEMİYORUM! BENİ ÇIKARIN BURADAN NOLUR!!",
+        "survival_in_space_10_answer_1": "Tüm insanlık tehlikeye girebilir G-11!",
+        "survival_in_space_10_answer_2": "Hayır, G-11. O geminin kurtarıcısı olacaksın.",
+
+        "survival_in_space_11_history": "[SES KAYDI -  G-11]\n\n[AĞLIYOR.]\nN-NOLUR BENİ BURADAN ÇIKARINNNN NOLURR!!!! BURADA TEK BAŞIMA ÖLECEĞİM! MERKEZ! DUYDUNUZ MU? BU SES SİZE DE GELİYOR MU!?",
+        "survival_in_space_11_answer_1": "Dışarı ile bağlantını kes G-11 ve işine odaklan!",
+        "survival_in_space_11_answer_2": "Hiçbir ses kaydedilemedi.",
+
+        "survival_in_space_12_history": "[SES KAYDI -  G-11]\n\nHÂLÂ O LANET PROTOKOLÜNÜZDEN BAHSEDİYORSUNUZ BANA!!! BENİ BURADAN ÇIKARIN!!! ÖLMEK İSTEMİYORUM. BEN... BEN... HAYIR BEN ÖLMEYECEĞİM!!! PROTOKOLLERİ DEVRE DIŞI BIRAKIN!",
+        "survival_in_space_12_answer_1": "Protokollerin devre dışı bırakılması, tüm istasyonun tehlikeye girmesine neden olabilir.",
+        "survival_in_space_12_answer_2": "G-11 bunu yapamayacağımızı sen de biliyorsun.",
+
+        "survival_in_space_13_history": "Onları duymuyor musunuz? Buradalar onlar! Beni duymasınlar diye yazışmaya ile devam ediyorum.\n\n[UYARI! G-11: NABIZ ARTIŞI]",
+        "survival_in_space_13_answer_1": "Stresten kaynaklanan halüsinasyonlar yaşıyor olabilirsin.",
+        "survival_in_space_13_answer_2": "Beyin dalgalarında anormal bir artış tespit ediliyor. Nabzının yükseldiğini görüyoruz, G-11",
+
+        "survival_in_space_14_history": "[SES KAYDI -  G-11]\n\nBENİ BURADAN ÇIKARIN!!! Buna- BUNA dayanamıyorum beynim karıncalanıyor! Sistemden yardım çağrısı yapıyorum!!!",
+        "survival_in_space_14_answer_1": "Yardım çağrıları dış dünya tarafından alınmayacak şekilde engellendi.",
+        "survival_in_space_14_answer_2": "Organizmayı izole etmek önceliğimizdir. Üzgünüz G-11",
+
+        "survival_in_space_15_history": "[SES KAYDI -  G-11]\n\nLANET HERİFLER!!! BU DOĞRU DEĞİL!! BUNDAN SONRA SİZİN İÇİN ÇALIŞMIYORUM. Buradan çıkmanın bir yolunu BULACAĞIM!",
+        "survival_in_space_15_answer_1": "G-11 bize durumun hakkında bilgi ver.",
+        "survival_in_space_15_answer_2": "G-11 kafanı toplaman gerekiyor.",
+
+        "survival_in_space_16_history": "[SES KAYDI -  G-11]\n\nANLAMIYORSUNUZ! Bizi izliyor...ama ne olduğu anlaşılmıyor.",
+        "survival_in_space_16_answer_1": "Onu tarif et G-11.",
+        "survival_in_space_16_answer_2": "Anlamamız için verilerine ihtiyacımız var.",
+
+        "survival_in_space_17_history": "[SES KAYDI -  G-11]\n\nBEN HAYATIMDA BÖYLE BİR ŞEY GÖRMEDİM! Sanırım metabolizması iyice hızlandı. TANRIM! BU ŞEY ÇOK GÜÇLÜ! Kutudan çıkmaya çalışıyor. BEN- BEN güvende değilim merkez! Lütfen inceleme odasından çıkmama izin verin! LÜTFEN! LÜTFEN!!!",
+        "survival_in_space_17_answer_1": "Kapılar yalnızca tehlike sona erdiğinde açılacak.",
+        "survival_in_space_17_answer_2": "G-11 protokoller devrede.",
+
+        "survival_in_space_18_history": "[SES KAYDI -  G-11]\n\n[SES DALGALI GELİYOR.]O ŞEY! O ŞEY!!! Merkez buna inanamayacaksınız! Kutudan çıktı ve DENEY CANLILARINI YEMEYE başladı, nasıl BÜYÜYOR böyle! Merkez, BU ŞEY bana doğru BAKIY-.\n\n[SES KESİLDİ.]",
+        "survival_in_space_18_answer_1": "G-11 ne oldu?",
+        "survival_in_space_18_answer_2": "Kontrol ellerinde G-11. Öldür onu!",
+
+        "survival_in_space_19_history": "[SES KAYDI -  G-11]\n\nVarlık, bana saldırmadı merkez ama daha büyük bir sorunumuz var, ekip dışardan havalandırma deliklerini kapatmadığı için ordan dışarı çıkmayı başardı! AÇIN ARTIK ŞU KAPIYI!.",
+        "survival_in_space_19_answer_1": "G-11 kontrol size bırakıldı.",
+        "survival_in_space_19_answer_2": "Güvenlik protokolleri deaktive edildi. ",
+
+        "survival_in_space_20_history": "[SES KAYDI -  G-11]\n\nElimden geleni yapmaya çalışacağım ama kontrol bende değil merkez, varlık çok hızlı hareket ediyor. Çok kötü bir haberim var, ekip havalandırmayı kapatmadığı için odadan kaçtı.",
+        "survival_in_space_20_answer_1": "G-11 kapıları açmana izin verdik.",
+        "survival_in_space_20_answer_2": "Kapı güvenliği devre dışı bırakıldı. Kontrol sende G-11.",
+
+        "survival_in_space_21_history": "[UYARI! SİSTEM BAĞLANTISI KESİLDİ.]",
+        "survival_in_space_21_answer_1": "Ses ver G-11! Bağlantı kesildi.",
+        "survival_in_space_21_answer_2": "Tüm ekranlar karardı. G-11 iyi misin?",
+
+        "survival_in_space_22_history": "[SES KAYDI -  G-11]\n\nBeni duyuyor musunuz? Sesim geliyor mu? Bu istasyon tehlikede! O şey her neyse bütün sistemleri kapattı! Bir tür enerji yayıyor!",
+        "survival_in_space_22_answer_1": "Hemen bir araya gelin.",
+        "survival_in_space_22_answer_2": "Ekibi topla hemen.",
+        "survival_in_space_23_history": "Herkese acil durum bildirimi iletildi. Merkez! Tüm sistemler devre dışı kaldı. Görüşüm sıfıra indi, hiçbir şeyi göremiyorum. O şey... çok yakın, beni bulmaya çalışıyor. Acil müdahale gerekebilir, durum gittikçe kötüleşiyor!",
+        "survival_in_space_23_answer_1": "G-11, hemen oradan çıkman gerekiyor! Risk daha fazla artmadan geri dön!",
+        "survival_in_space_23_answer_2": "G-11, mümkünse o şeyi oyalamaya çalış! Zaman kazanmamız gerek!",
+
+        "survival_in_space_24_history": "[SES KAYDI -  G-11]\n\nMerkez... Sanırım anladım! O şey, gözleriyle görmüyor! Isıyı takip ediyor... Vücut sıcaklığımızı hissediyor! Eğer sıcaklığımı gizlemenin bir yolu yoksa beni bulacak... Ne yapmalıyım?!",
+        "survival_in_space_24_answer_1": "Hızlıca ekibin yanına git ve bir arada durmamaları gerektiğini söyle. Herkes kapsüllere!",
+        "survival_in_space_24_answer_2": "Bütün ekibi uyar bir planım var beni iyi dinle. Ateşle kurtulacaksınız ondan.",
+
+        "survival_in_space_25_history": "[SES KAYDI -  G-11]\n\nO şeyi istasyonda dolaştırmayı deniyorum, vücut sıcaklığımızı hissediyor! Hızlı düşünün bizi burdan kurtarın!",
+        "survival_in_space_25_answer_1": "Beni iyi dinle G-11 onu yakmamız gerek!",
+        "survival_in_space_25_answer_2": "Ondan kurtulmanın tek yolu ateş!",
+
+        "survival_in_space_26_history": "[SES KAYDI -  G-11]\n\nHepimiz kapsüllere koşuyoruz fakat o da geliyor neredeyse yetişmek üzere!\n\n[KOŞMA VE ZORLANMA SESLERİ]\n\nKapsüle yerleştim çok yakındı, peşimi bıraktı diğerlerine doğru gidiyor!",
+        "survival_in_space_26_answer_1": "Ayrılın istasyondan. Herkes!",
+        "survival_in_space_26_answer_2": "Hepiniz kurtulun ordan!",
+
+        "survival_in_space_27_history": "Ateş mi? Peki nasıl? İstasyonda bu kadar güçlü bir ateşi yakarsak bizler de yanabiliriz! Ayrıca tesis de yanar!",
+        "survival_in_space_27_answer_1": "Isıtıcı fişekleri yem olarak kullanarak onu dışarı çıkarın.",
+        "survival_in_space_27_answer_2": "Isıtıcı fişekler onu yanıltabilir.",
+
+        "survival_in_space_28_history": "[SES KAYDI -  G-11]\n\nİstasyondan ayrılmayı başardım. Camdan diğer kapsüllerin ayrılışlarını da görebiliyorum. Herkes yavaş yavaş bu lanet yerden kurtuluyor. Bekleyin bir saniye, son kapsül ayrılmadı! Merkez duyuyor musun? SON KALAN KAPSÜL AYRILMADI.",
+        "survival_in_space_28_answer_1": "Hayır olamaz! Yoksa...",
+        "survival_in_space_28_answer_2": "Lütfen ayrılmış olsun.",
+
+        "survival_in_space_29_history": "[SES KAYDI -  G-11]\n\nKendimi feda ediyorum! Onu basınç odasına çekiyorum merkez. Fişekleri aldım onu gördüğüm an kapıları açacağım...\n\nİşte geliyor! Fişekleri yaktım benden daha fazla ısı yaydıkları kesin.\n\n[UYARI! SİSTEM BAĞLANTISI KESİLDİ.]",
+        "survival_in_space_29_answer_1": "G-11?",
+        "survival_in_space_29_answer_2": "Durum ne G-11?",
+
+        "survival_in_space_30_history": "[SES KAYDI -  G-11]\n\nFİŞEKLERİ UZAYIN BOŞLUĞUNA DOĞRU ATMAYI BAŞARDIM! O da fişekleri sarıp enerjilerini emmeye başladı. Kapıları kapattım. Fişekler sönmeden bu işi bitirmemiz gerekiyor... işte başlıyoruz.\n\n[G-11 geminin motorlarını bilinmeyen varlığa doğru çevirir ve sonuna kadar ateşler.]",
+        "survival_in_space_30_answer_1": "Kurtuldunuz mu G-11?",
+        "survival_in_space_30_answer_2": "Yaşıyor mu?",
+
+        "survival_in_space_31_history": "G-12 gemiye geri döndü merkez. Onun sinyalini aldınız. Dışarıdan gördüğüm kadarıyla durumu hiç de iyi gözükmüyor. Sanırım kıyafeti hasar almış.",
+        "survival_in_space_31_answer_1": "Kendine gelmesini sağla G-11.",
+        "survival_in_space_31_answer_2": "G-11, G-12 ile ilgilen ve bizi bilgilendir.",
+
+        "survival_in_space_32_history": "[SES KAYDI]\n\nTamamen tepkisiz. Hiç tepki vermiyor, merkez. Size bir şeyler söylemek istiyor, konuştuklarını aktarmaya çalışacağım.\n\nG-12: Mer-kez. G-11'e söyyyyl-yin. B-beni bırakıp gitsin. B-nurğsası çok tehliklei.\n\n Bir şeyler görmüş olmalı.\n\n\n[TEHLİKE ALARMI!]\n[TEHLİKE ALARMI!]\n\n[TESPİT EDİLEMEYEN NESNE]",
+        "survival_in_space_32_answer_1": "G-11 cihazlarımızda tespit edilemeyen bir sinyal alındı.",
+        "survival_in_space_32_answer_2": "Tehlike alarmı G-11, sistemlerimiz tanımlanamayan bir nesne tespit etti.",
+
+        "survival_in_space_33_history": "[SES KAYDI -  G-11]\n\nTamamdır, merkez! Protokolü devreye sokuyorum. Bütün güvenlik sistemlerini devreye soktum. Hava kanallarını kapattım. DURUN! BURADA KAPIYI ZORLAYAN BİR ŞEY VAR! MERKEZ! SESİMİ DUYUYOR MUSUNUZ! KAPI ZORLANIYOR!",
+        "survival_in_space_33_answer_1": "Emin misin? Diğer astronotlar olabilir mi?",
+        "survival_in_space_33_answer_2": "Ekip arkadaşların olabilir mi?",
+
+        "survival_in_space_34_history": "[SES KAYDI -  G-11]\n\nBilmiyorum, daha çok kapıyı kırmaya çalışan bir şey gibi bu. G-12 fenalaşıyor merkez! Nabzı oldukça düşüyor, yüzü morarmaya başladı. YARDIM EDİN!",
+        "survival_in_space_34_answer_1": "Acilen G-12 ye müdahale et. Kapıyla ilgilenme.",
+        "survival_in_space_34_answer_2": "G-11 hemen kapıyı aç, gelen ekip ise beraber G-12'ye müdahale etmelisiniz.",
+
+        "survival_in_space_35_history": "[SES KAYDI -  G-11]\n\n[AĞLIYOR.]\n\nMüdahale yetersiz. Ben... Ben kurtaramadım onu. Bilincini kaybetti. G-12 yi kaybettik, merkez. Tüm her şeyi denedim. Onu kaybettik...",
+        "survival_in_space_35_answer_1": "Kaybın için üzgünüz G-11. Lütfen G-12'yi karantina odasına götür.",
+        "survival_in_space_35_answer_2": "Bu çok acı. G-12 için ölüm protokollerini yerine getir.",
+
+        "survival_in_space_36_history": "Tamamdır. Sanırım cihazın mikrofonu bozuldu. Ondan dolayı size yazmaya çalışacağım. G-12'yi götürüyorum.\n\nMerkez, diğer koridorların elektrikleri kesildi, sistemden geri açmayı deniyorum fakat başarısız. Kapıdaki ses kesildi fakat G-12'yi götüremiyorum.\n\n[UYARI! OKSİJEN TÜPÜ GAZ SEVİYESİ]",
+        "survival_in_space_36_answer_1": "G-11, şuan çok ciddi bir sorunumuz var. Oksijen tüpleri çok hızlı tükeniyor, alarm vermeye başladı.",
+        "survival_in_space_36_answer_2": "G-11, oksijen tanklarından uyarı alıyoruz. Gidip kontrol etmelisin.",
+
+        "survival_in_space_37_history": "Anlaşıldı merkez, kıyafetlerimi giyiyorum. Dışarı çıkmak şu an çok tehlikeli görünüyor ama artık mecburum. Nefessiz kalarak ölmekten iyidir. Çıkış yapıyorum merkez.",
+        "survival_in_space_37_answer_1": "Her anı bilgilendirmeni istiyoruz G-11",
+        "survival_in_space_37_answer_2": "Destek için dinlemedeyiz G-11, dikkat et. Kapılar açılıyor, başarılar.",
+
+        "survival_in_space_38_history": "[SES KAYDI -  G-11]\n\nS---ses!?. Tamam düzelmiş mikrofon. Merkez buna inanamayacaksınız ama o şey her ne ise oksijen tanklarından bir tanesini patlatarak içeri girmeyi başarmış. Oksijen tüplerindeki gaz kaçağının sebebi buymuş. Acilen deliğin bağlı olduğu bölümün kapılarını kapatıp içeri giriyorum.",
+        "survival_in_space_38_answer_1": "Nasıl!? Geminin bağlantısını uzay istasyonuyla kes hemen.",
+        "survival_in_space_38_answer_2": "Bu nasıl olabilir? Gemiyi istasyondan ayır G-11.",
+
+        "survival_in_space_39_history": "[SES KAYDI -  G-11]\n\nİçeri girdim merkez. Şu an herhangi bir şey olur diye anlık bildiriyorum. Şu an burada bir aksilik gözükmüyor. G-12'ye doğru gid- MERKEZ! G-12 YERİNDE YOK!",
+        "survival_in_space_39_answer_1": "Bu nasıl mümkün olabilir?",
+        "survival_in_space_39_answer_2": "Emin misin?",
+
+        "survival_in_space_40_history": "[SES KAYDI -  G-11]\n\nYOK! YOK! HİÇBİR YERDE YOK! BİR ŞEY ONU SÜRÜKLEYEREK GÖTÜRMÜŞ SANIRIM, YERDE İZLER VAR!\n\n[ÇIĞLIK SESLERİ]\n\nAMAN ALLAHIM! İÇERİDEN SESLER GELİYOR! MERKEZ! BUNLARI DUYUYOR MUSUNUZ!? ÇIĞLIK SESLERİ GELİYOR!!!",
+        "survival_in_space_40_answer_1": "Diğer ekip üyeleri olabilir. Sakin ol.",
+        "survival_in_space_40_answer_2": "G-12 ölmemiş miydi? Nasıl çığlık sesleri geliyor?",
+
+        "survival_in_space_41_history": "Haklısınız fakat oraya gidersem geri dönemeyebilirim. Tek başımaymış gibi hissediyorum. Gidip kontrol etmeli miyim yoksa istasyondan bağlantıyı keseyim mi?",
+        "survival_in_space_41_answer_1": "Seni de kaybedebiliriz G-11, bağlantıyı ayır ve dünyaya geri dön.",
+        "survival_in_space_41_answer_2": "Oraya git ve bizi bilgilendir!",
+
+        "survival_in_space_42_history": "[SES KAYDI -  G-11]\n\nEvet, yani... bilmiyorum emindim. O. O hareketsiz yatıyordu. Önümdeydi. Ben hemen oraya gidiyorum.",
+        "survival_in_space_42_answer_1": "Oraya git ve bizi bilgilendir!",
+        "survival_in_space_42_answer_2": "Dikkatli ol G-11! Seni de kaybedemeyiz!",
+
+        "survival_in_space_43_history": "[SES KAYDI -  G-11]\n\n[AĞLIYOR.]\n\nMerkez... Ekip arkadaşlarımın hepsi... ne yazık ki artık hayatta değiller. O şey, her ne ise, hepsine bir şekilde ulaşmış. Yaşam belirtilerini o yüzden alamamışız.",
+        "survival_in_space_43_answer_1": "G-11, oradan hemen çıkmalısın! Bu iş bu kadar yeter. Tehlike düşündüğümüzden çok daha büyük. Durum kontrol edilemez hale geliyor. Hemen geri dönmeye hazırlan!",
+        "survival_in_space_43_answer_2": "G-11, vakit kaybetme! Güvenli bir çıkış planı oluştur ve mümkün olan en kısa sürede istasyonu terk et!",
+
+        "survival_in_space_44_history": "Anlaşıldı, merkez! Planımı oluşturdum. Sessizce geri çekileceğim. Güvenlik protokollerini devreye sokup, istasyonun kritik noktalarını devre dışı bırakıyorum. Hava kanalları kapanıyor, tüm ışıklar en düşük seviyede. Şu an her şey yolunda görünüyor, hareket yok.",
+        "survival_in_space_44_answer_1": "Bilgilendirmeye devam et G-11.",
+        "survival_in_space_44_answer_2": "Güzel, elinden geldiğince hızlı ol.",
+
+        "survival_in_space_45_history": "[G-11 bir süre boyunca sessizce ilerlemeye çalışır. Ancak, bir anda tedirgin edici bir ses yankılanır.]\n\n[SES KAYDI -  G-11]\n\n[TEDİRGİN BİR SESLE] Merkez... bir şeyler ters gidiyor. O şey beni fark etmiş olabilir. Adımlarımı hızlandırıyorum ama arkadan gelen bir ses var. Çok yaklaşıyor...",
+        "survival_in_space_45_answer_1": "Saklan ve geçmesini bekle sakın ses yapma!",
+        "survival_in_space_45_answer_2": "Koş! G-11 Koş!",
+
+        "survival_in_space_46_history": "Uyku odasındaki tüplerin içine girdim, o şey her yeri arıyor! Duyabiliyorum, onun sesini duymak bile istemezsiniz merkez, tam olarak gıcırdayan bir kapı gibi hareket ediyor. Hayır, HAYIR! Ses buraya doğru geliyor. Merkez, o şu an tam karşımda. Kapatıyorum.",
+        "survival_in_space_46_answer_1": "Ve? Lütfen cevap ver G-11 orada mısın, G-11 bizi duyuyor musun?",
+        "survival_in_space_46_answer_2": "Hayır! Seni kaybedemeyiz G-11 lütfen orada olduğunu söyle!",
+
+        "survival_in_space_47_history": "Tekrar ediyorum. Beni duyabiliyor musun merkez?",
+        "survival_in_space_47_answer_1": "Sesinizi alıyoruz G-11. Dinlemedeyiz.",
+        "survival_in_space_47_answer_2": "Evet. Merkez dinlemede durum nedir, G-11?",
+
+        "survival_in_space_48_history": "[SES KAYDI -  G-11]\n\nMerkez, uzay istasyonun dış cephesindeki hasar beklediğimizden çok daha büyük. Panellerin çoğu tamamen devre dışı kalmış. Elimden geleni yapıyorum ama bunu yapmak biraz zaman alacak.",
+        "survival_in_space_48_answer_1": "Radarınızda algıladığınız bir nesne var mı?",
+        "survival_in_space_48_answer_2": "Gözlem sistemlerinizde herhangi bir hareket var mı?",
+
+        "survival_in_space_49_history": "[SES KAYDI -  G-11]\n\n[BOĞUK SESLE]E..Evet, merkez. Vizörüme küçük bir parlaklık yansıdı. Muhtemelen bir ışık yansımasıdır. İşime devam ediyorum.",
+        "survival_in_space_49_answer_1": "G-11 lütfen son durumu paylaşın.",
+        "survival_in_space_49_answer_2": "Onarım ne durumda G-11?",
+
+        "survival_in_space_50_history": "[SES KAYDI -  G-11]\n\nŞu anlık bir terslik yok.\n\nBir saniye. Merkez, sanırım bir şey görüyorum. Üzerime doğru geliyor! Ne bu!?\n\n[CİSİM UYARISI YOK.]",
+        "survival_in_space_50_answer_1": "Yaklaşan cisim uyarısı almadık G-11",
+        "survival_in_space_50_answer_2": "Radar sistemlerinde herhangi bir hareket algılanmadı.",
+
+        "survival_in_space_51_history": "[SES KAYDI -  G-11]\n\nMERKEZ? MERKEZ SİZDEN GERİ DÖNÜŞ ALAMADIM. EVET BİR ŞEY GÖRÜYORUM. BANA DOĞRU GELİYOR. Merkez duyuyor musunuz? Cevap verin!\n\n[UYARI! BAĞLANTI STABİL DEĞİL.]",
+        "survival_in_space_51_answer_1": "Durumunu bildir G-11!",
+        "survival_in_space_51_answer_2": "[UYARI! KAPI AÇILAMIYOR.]Kapı neden açılmıyor, G-11?",
+
+        "survival_in_space_52_history": "[SES KAYDI -  G-11]\n\nİtici motorları devreye sokarak hava kilidine girmeyi başardım. Fakat açılmadı. Sebebini bilmiyorum.",
+        "survival_in_space_52_answer_1": "İstasyon sistemlerini yeniden başlatın, G-11",
+        "survival_in_space_52_answer_2": "Uzaktan kontrol devre dışı G-11, bilgisayarların güvenlik protokollerini sıfırlamanızı öneriyoruz.",
+
+        "survival_in_space_53_history": "[SES KAYDI -  G-11]\n\nAAAA!!!! BİR CİSİM KAPIYA ÇARPTI!!! MERKEZ!!! BU ŞEYİN YÜZEYİ SÜREKLİ ŞEKİL DEĞİŞTİRİYOR. Bu bir göktaşı olamaz. Şu an güvendeyim ve basınç odasındayım merkez fakat büyük bir sarsılma yaşadım.",
+        "survival_in_space_53_answer_1": "G-11 ana kapıyı açarak içeri gir.",
+        "survival_in_space_53_answer_2": "Basıncı dengele ve içeri gir G-11.",
+
+        "survival_in_space_54_history": "[SES KAYDI -  G-11]\n\nSİZ BENİ NE SANIYORSUNUZ?! DENEDİM HERHALDE! Deniyorum fakat sistem buna izin vermiyor ters giden bir şeyler var. Güvenlik protokolüne izin verin, merkez.\n\n[UYARI! OKSİJEN SEVİYESİ]",
+        "survival_in_space_54_answer_1": "Sakin ol G-11 oksijenin bitmek üzere. Uzaktan kapıyı açmayı deniyoruz.",
+        "survival_in_space_54_answer_2": "Protokol kapatıldı, G-11",
+
+        "survival_in_space_55_history": "[SES KAYDI -  G-11]\n\n[SES KESİK KESİK GELİYOR.]\n\nPRO..TOKOLÜÜ DEV-RE DIŞII BIRAKIN DEMİŞT....",
+        "survival_in_space_55_answer_1": "Protokol devre dışı bırakıldı, G-11",
+        "survival_in_space_55_answer_2": "Tekrar deneyin, G-11",
+
+        "survival_in_space_56_history": "[SES KAYDI -  G-11]\n\nTEŞEKKÜRLER MERKEZ! Merkez basınç odasından ayrıldım. Ana kola geçiş yapmayı başardım. Sanırım çarpan cisimden dolayı sistemler etkilendi. Kaçış kapsülüne biniyorum.\n\n[UYARI! SİSTEM ARIZASI.]\n\n[UYARI! ENERJİ DÜŞÜK.]",
+        "survival_in_space_56_answer_1": "G-11 enerji kesilmeden sistemden kaçış podunu etkinleştir.",
+        "survival_in_space_56_answer_2": "Hızlı olmalısın G-11 sistemler arıza vermeye başladı.",
+
+        "survival_in_space_57_history": "[SES KAYDI -  G-11]\n\nM-MERKEZ SON DURUMU BİLDİRİYORUM! Kaçış poduna bindim fakat kapıyı kapatamıyorum. Bu şey her neyse geminin içine sızmayı başardı ve şu an koridorun sonunda onu görebiliyorum!! Lütfen yardım edin!\n\n[UYARI! BAĞLANTI YAVAŞ.]",
+        "survival_in_space_57_answer_1": "Bu olamaz. G-11 bağlantı yavaşladı!",
+        "survival_in_space_57_answer_2": "Bilgisayarlardan yana şansını dene.",
+
+        "survival_in_space_58_history": "[SES KAYDI -  G-11]\n\nSİSTEMLER YANIT VERMİYOR!!! TEKRAR EDİYORUM SİSTEMLER YANIT VERMİYOR!!",
+        "survival_in_space_58_answer_1": "G-11, sistemi yeniden başlatmayı dene.",
+        "survival_in_space_58_answer_2": "Mücadeleyi bıraktığın an kaybedersin G-11!",
+
+        "survival_in_space_59_history": "[SES KAYDI -  G-11]\n\nDENİYORUM! TEKRAR DENİYORUM.\n\nSonunda! Bilgisayarlar tekrar yanıt verdi!",
+        "survival_in_space_59_answer_1": "G-11 hızlıca güvenlik kodunu gir.",
+        "survival_in_space_59_answer_2": "Harekete geçmek için kapının kapanmasını sağlamalısın G-11.",
+
+        "survival_in_space_60_history": "[SES KAYDI -  G-11]\n\n[KAPILAR KAPANIYOR...]\n\nBAŞARDIM MERKEZ!!! Kapıları kapattım FAKAT O şey beni farketti ve buraya geliyor!",
+        "survival_in_space_60_answer_1": "G-11 kaçış podunu aktive et.",
+        "survival_in_space_60_answer_2": "Hemen yörüngeye çık G-11!",
+
+        "survival_in_space_61_history": "[SES KAYDI -  G-11]\n\n[SES YOK.]\n\n[SES YOK.]\n\nMERKEZ! SES DENEME MERKEZ!!! TANRIYA ŞÜKÜR! Merkez, ana üsten ayrılmayı başardım. Koordinatlar başarılı bir şekilde girildi. Yalnız o şey üssün içine geri döndü görebiliyorum.",
+        "survival_in_space_61_answer_1": "Başardın G-11! Seni geri alıyoruz.",
+        "survival_in_space_61_answer_2": "Verileri analiz edeceğiz. Şu anda güvenli bir bölgedesin G-11.",
+
+        "survival_in_space_901_history": "Merkez, bu şey ısıya çok dayanıklı, bu kadar güçlü ısıya rağmen hala yaşıyor ama oldukça uzağa sürüklendi. Tekrar gemiye yaklaşmadan buradan uzaklaşıyoruz.\n\nÜzgünüz merkez daha fazla burada kalamayız.\n\n[Gemi hızla dünyaya doğru yol alır. Arkalarından görebildikleri tek şey varlığın istasyona girdiğidir. O zamandan beri istasyon hizmete kapanmış ve yasaklanmıştır.]",
+        "survival_in_space_901_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_901_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_902_history": "Üzgünüm merkez, hiçbir hareketlilik kaydedemedik. Dönüyoruz.\n\n[Astronotlardan birisi istasyondan ayrılamaz ve yaşam sinyali kesilir. Ekip bu dehşet verici olaydan sonra görevlerini bırakır ve ayrılır. Uzay istasyonuna o günden beri hiçbir gemi gitmez ve tesis uzayın boşluğunda sürüklenmeye devam eder.]",
+        "survival_in_space_902_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_902_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_903_history": "[G-11 ile olan bağlantı kesilir. Tanımlanamayan varlık tarafından sorun oluşturulduğu tahmin edilir. G-11'in akıbeti çözülemez. İstasyon bilinmeyen son ile yeni misafirlerini beklemektedir. Hiçbir görevlendirilecek astronot bu görevi kabul etmez. İnsansız araştırma yapabilmek için geliştirmelere başlanır.]",
+        "survival_in_space_903_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_903_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_904_history": "[G-11 ile olan bağlantı kesilir ve yaşam sinyali alınamaz. Uzay istasyonundaki organizma deneyi felaketlerle sonuçlanır. İstasyona hâlen cesaret edilip tekrar gidilemez.]",
+        "survival_in_space_904_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_904_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_905_history": "Her kapıyı ve havalandırma kanallarını kapatıyorum. İstasyonla olan bağlantıyı son anda kestim. O şey her neyse korkunç duruyor! Kapağın camından tam seçememekle beraber görebiliyorum, buraya doğru geliyor hâlâ güvende değiliz merkez. Bağlantıyı kesiyorum kapaklar kapanmış, kordinatları otomatiğe aldım ve iticiler devrede! Kurtulduk!\n\n[G-11 dünyaya ulaşır. İstasyona tekrar gitme planları yapılır, G-11 bunu kabul etmez ve insan gönderilmemesi konusunda da uyarıda bulunur. Hazırlıklar devam eder ve çözülmesi gereken bir bilinmeyen canlı onları bekler.]",
+        "survival_in_space_905_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_905_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_906_history": "Bağlantıyı kesiyorum, son kontrolleri yaptım ve motorları devreye sokuyorum. Koordinatlar alındı ve başarıyla girildi. Dönüyorum.\n\n[G-11 uzay gemisini üsten ayırarak dünyaya döner, diğer astronotlardan bir daha haber alınamaz. Olayı çözmek için ekip oluşturulup hazırlıklara başlanır. G-11 bozulan psikolojisinden dolayı görevinden istifa eder.]",
+        "survival_in_space_906_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_906_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_907_history": "[G-11 kapıyı açtığında yaşam sinyali kesildi ve ekipten kimseye ulaşılamadı. Kapıdaki nesnenin ne olduğu tespit edilemedi. Önlemler alınıp göreve yeniden ekip hazırlanmaya başlandı.]",
+        "survival_in_space_907_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_907_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_908_history": "[Verilen karardan dolayı G-11 vakit kaybeder ve azalan oksijeniyle birlikte paniğe kapılır. Oksijeni hızlı tükenen G-11 kesilen bağlantıyla birlikte uzayın karanlık kollarına kendini bırakır.]",
+        "survival_in_space_908_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_908_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_909_history": "[Cisim daha da yakınlaşır ve içeri sızmayı başarır. Merkezle bir daha iletişim kurulamaz. G-11 uzayın boşluğunda kaybolur.]",
+        "survival_in_space_909_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_909_answer_2": "[Hikayeyi Yeniden Başlat.]",
+
+        "survival_in_space_910_history": "[G-11 hayatta kalmayı başarır. Cismin ne olduğunun merakı hâla içindedir. Cismin araştırılması için yeniden düzenlenecek olan göreve kendini hazırlamaya başlar.]",
+        "survival_in_space_910_answer_1": "[Hikayeyi Yeniden Başlat.]",
+        "survival_in_space_910_answer_2": "[Hikayeyi Yeniden Başlat.]"
 }

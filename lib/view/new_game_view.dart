@@ -134,6 +134,17 @@ class _NewGameViewState extends State<NewGameView> {
               context: context);
           break;
 
+        case TextType.spaceType:
+          await _selectedHistoryDelete(type: TextType.spaceType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.spaceRepo,
+                story: gameName,
+                selectedTextType: TextType.spaceType,
+              ),
+              context: context);
+          break;
+
         default:
       }
     }
@@ -388,6 +399,26 @@ class _NewGameViewState extends State<NewGameView> {
                             } else {
                               await showOkCancelAlert(
                                   context, TextType.mysteriousType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Survival in Space") {
+                        switch (gameName) {
+                          case "Survival in Space":
+                            await _selectedStoryUpdate(
+                                type: TextType.spaceType);
+                            if (_databaseService.spaceRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo: _databaseService.spaceRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.spaceType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.spaceType, gameName);
                             }
                             break;
                           default:

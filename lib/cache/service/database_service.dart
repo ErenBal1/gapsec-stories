@@ -25,7 +25,7 @@ class DatabaseService {
   bool? zetaIsLockDefault = true;
   bool? unknownIsLockDefault = true;
   bool? mysteriousIsLockDefault = true;
-  bool? behindIsLockDefault = true;
+  bool? spaceIsLockDefault = true;
   bool? luckyIsLockDefault = true;
 
   //Uygulama açılınca kilit durumlarını update fonksiyonu yap
@@ -40,7 +40,7 @@ class DatabaseService {
     zetaIsLockDefault = boolValues.zetaIsLock ?? true;
     unknownIsLockDefault = boolValues.unknownIsLock ?? true;
     mysteriousIsLockDefault = boolValues.mysteriousIsLock ?? true;
-    behindIsLockDefault = boolValues.behindIsLock ?? true;
+    spaceIsLockDefault = boolValues.spaceIsLock ?? true;
     luckyIsLockDefault = boolValues.luckyIsLock ?? true;
 
     murder.isLock = murderIsLockDefault!;
@@ -49,7 +49,7 @@ class DatabaseService {
     zeta.isLock = zetaIsLockDefault!;
     unknown.isLock = unknownIsLockDefault!;
     mysterious.isLock = mysteriousIsLockDefault!;
-    behind.isLock = behindIsLockDefault!;
+    space.isLock = spaceIsLockDefault!;
     lucky.isLock = luckyIsLockDefault!;
   }
 
@@ -151,15 +151,15 @@ class DatabaseService {
           });
         }
         break;
-      case TextType.behindType:
+      case TextType.spaceType:
         if (boolValues != null) {
-          boolValues.behindIsLock = newValue;
+          boolValues.spaceIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..behindIsLock = newValue;
+          final newBoolModel = BoolModel()..spaceIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
@@ -193,7 +193,7 @@ class DatabaseService {
   List<NewGame?> zetaRepo = [];
   List<NewGame?> unknownRepo = [];
   List<NewGame?> mysteriousRepo = [];
-  List<NewGame?> behindRepo = [];
+  List<NewGame?> spaceRepo = [];
   List<NewGame?> luckyRepo = [];
 
   //Bütün her şeyi siler!!!
@@ -283,16 +283,16 @@ class DatabaseService {
         mysteriousRepo.clear();
         await selectedStoryUpdate(type: TextType.mysteriousType);
         break;
-      case TextType.behindType:
+      case TextType.spaceType:
         await isar.writeTxn(() async {
           final items =
-              await isar.newGames.filter().behindTextsIsNotEmpty().findAll();
+              await isar.newGames.filter().spaceTextsIsNotEmpty().findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        behindRepo.clear();
-        await selectedStoryUpdate(type: TextType.behindType);
+        spaceRepo.clear();
+        await selectedStoryUpdate(type: TextType.spaceType);
         break;
       case TextType.luckyType:
         await isar.writeTxn(() async {
@@ -364,10 +364,10 @@ class DatabaseService {
         //print("smileRepo => $smileRepo");
         //print("smile story updated");
         break;
-      case TextType.behindType:
-        behindRepo = newGames
+      case TextType.spaceType:
+        spaceRepo = newGames
             .where((item) =>
-                item.behindTexts != null && item.behindTexts!.isNotEmpty)
+                item.spaceTexts != null && item.spaceTexts!.isNotEmpty)
             .toList();
         //print("behindRepo => $behindRepo");
         //print("behind story updated");
@@ -441,13 +441,13 @@ class DatabaseService {
           selectedStoryUpdate(type: TextType.mysteriousType);
         }
         break;
-      case TextType.behindType:
+      case TextType.spaceType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..behindTexts = eklenicekMetin;
+          final item = NewGame()..spaceTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.behindType);
+          selectedStoryUpdate(type: TextType.spaceType);
         }
         break;
       case TextType.luckyType:

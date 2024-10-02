@@ -53,12 +53,12 @@ StoryModel mysterious = StoryModel(
     description: "Survival in Space best tool",
     isLock: DatabaseService().mysteriousIsLockDefault ?? true,
     whichRepo: DatabaseService().mysteriousRepo);
-StoryModel behind = StoryModel(
+StoryModel space = StoryModel(
     finish: "0",
-    name: "Lost",
-    description: "Lost best tool",
+    name: "Survival in Space",
+    description: "Survival in Space",
     isLock: true,
-    whichRepo: DatabaseService().behindRepo);
+    whichRepo: DatabaseService().spaceRepo);
 StoryModel lucky = StoryModel(
     finish: "0",
     name: "Lucky",
@@ -74,7 +74,7 @@ class Games {
     zeta,
     unknown,
     mysterious,
-    behind,
-    lucky
+    space,
+    //lucky
   ];
 }

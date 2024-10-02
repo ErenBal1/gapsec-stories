@@ -140,8 +140,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 180) {
             buySteps(
                 minusAmount: -180,
-                type: TextType.behindType,
-                storyIsLock: behind.isLock);
+                type: TextType.spaceType,
+                storyIsLock: space.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());

@@ -155,18 +155,18 @@ abstract class _StoriesStateBase with Store {
         break;
       case 6:
         updatePrice(newPrice: 180);
-        updateItsFree(newItsFree: !behind.isLock);
-        updateBackground(newImagePath: "gravehurst.png");
+        updateItsFree(newItsFree: !space.isLock);
+        updateBackground(newImagePath: "space.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
         break;
-      case 7:
+      /* case 7:
         updatePrice(newPrice: 300);
         updateItsFree(newItsFree: !lucky.isLock);
         updateBackground(newImagePath: "gravehurst.png");
         updateMp4Path(newPath: "assets/videos/continue-background-video.mp4");
         playNewTrack(mp4Path: mp4Path);
-        break;
+        break; */
       default:
     }
   }
