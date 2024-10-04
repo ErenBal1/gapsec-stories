@@ -3,7 +3,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
+import 'package:gapsec/stories/games_storage/mysteriousLoss.dart';
+import 'package:gapsec/stories/games_storage/survival_in_space.dart';
+import 'package:gapsec/stories/games_storage/unknown.dart';
 import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
+import 'package:gapsec/stories/games_storage/zeta.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
@@ -102,6 +106,56 @@ class _ChatViewState extends State<ChatView> {
             await _selectedStoryUpdate(type: TextType.webOfDeceitType);
             vm.repo = _databaseService.webOfDeceitRepo;
             break;
+          case TextType.zetaType:
+            vm.selectedList = zetaDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.zetaType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.zetaType);
+            vm.repo = _databaseService.zetaRepo;
+            break;
+          case TextType.unknownType:
+            vm.selectedList = unknownDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.unknownType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.unknownType);
+            vm.repo = _databaseService.unknownRepo;
+            break;
+
+          case TextType.mysteriousType:
+            vm.selectedList = mysteriousLossDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.mysteriousType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.mysteriousType);
+            vm.repo = _databaseService.mysteriousRepo;
+            break;
+
+          case TextType.spaceType:
+            vm.selectedList = survivalInSpaceDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.spaceType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.spaceType);
+            vm.repo = _databaseService.spaceRepo;
+            break;
           default:
         }
       });
@@ -128,22 +182,35 @@ class _ChatViewState extends State<ChatView> {
         backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.cancel_outlined, color: Colors.green),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.cyan),
         ),
         title: Text(
           widget.story,
-          style: AppFonts.storyTitleInGameTextStyle,
+          style: AppFonts.storyTitleInGameTextStyle
+              .copyWith(color: Colors.cyan, fontWeight: FontWeight.bold),
+        ),
+        elevation: 0,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1.0),
+          child: Container(
+            color: Colors.cyan.withOpacity(0.5),
+            height: 1.0,
+          ),
         ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 30),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5),
-                ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.black, Colors.blueGrey[900]!],
+          ),
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: ListView.builder(
                   controller: vm.scrollController,
                   itemCount: vm.repo.length,
@@ -159,30 +226,42 @@ class _ChatViewState extends State<ChatView> {
                       case TextType.webOfDeceitType:
                         vm.selectedTexts = newGame.webOfDeceitTexts.toString();
                         break;
+                      case TextType.zetaType:
+                        vm.selectedTexts = newGame.zetaTexts.toString();
+                        break;
+                      case TextType.unknownType:
+                        vm.selectedTexts = newGame.unknownTexts.toString();
+                        break;
+                      case TextType.mysteriousType:
+                        vm.selectedTexts = newGame.mysteriousTexts.toString();
+                        break;
+                      case TextType.spaceType:
+                        vm.selectedTexts = newGame.spaceTexts.toString();
+                        break;
                       default:
                     }
                     return Padding(
                       padding: EdgeInsets.only(
-                        left: index.isEven ? 10 : 50,
-                        right: index.isEven ? 50 : 10,
+                        left: index.isEven ? 0 : 40,
+                        right: index.isEven ? 40 : 0,
                         bottom: 16,
                       ),
                       child: Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           color: index.isEven
-                              ? Colors.green.withOpacity(0.2)
-                              : Colors.grey.withOpacity(0.2),
-                          borderRadius: index.isEven
-                              ? const BorderRadiusDirectional.only(
-                                  bottomEnd: Radius.circular(10),
-                                  topEnd: Radius.circular(10),
-                                  topStart: Radius.circular(10))
-                              : const BorderRadiusDirectional.only(
-                                  bottomStart: Radius.circular(10),
-                                  topEnd: Radius.circular(10),
-                                  topStart: Radius.circular(10)),
-                          border: Border.all(color: Colors.green, width: 1),
+                              ? Colors.cyan.withOpacity(0.1)
+                              : Colors.blueGrey.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                              color: Colors.cyan.withOpacity(0.3), width: 1),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.cyan.withOpacity(0.1),
+                              blurRadius: 5,
+                              spreadRadius: 1,
+                            ),
+                          ],
                         ),
                         child: index == vm.repo.length - 1 && _isTyping
                             ? Stack(children: [
@@ -195,7 +274,7 @@ class _ChatViewState extends State<ChatView> {
                                     TypewriterAnimatedText(
                                       vm.selectedTexts.tr(),
                                       textStyle: const TextStyle(
-                                          color: Colors.green, fontSize: 14),
+                                          color: Colors.cyan, fontSize: 14),
                                       speed: const Duration(milliseconds: 50),
                                     ),
                                   ],
@@ -211,7 +290,7 @@ class _ChatViewState extends State<ChatView> {
                             : Text(
                                 vm.selectedTexts.tr(),
                                 style: const TextStyle(
-                                    color: Colors.green, fontSize: 14),
+                                    color: Colors.cyan, fontSize: 14),
                               ),
                       ),
                     );
@@ -219,95 +298,101 @@ class _ChatViewState extends State<ChatView> {
                 ),
               ),
             ),
-          ),
-          // Choices area
-          if (vm.textCompleted && !_isTyping)
-            SafeArea(
-              child: Container(
-                color: Colors.black.withOpacity(0.7),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 8.0, right: 8, bottom: 8),
-                      child: ElevatedButton(
+            // Choices area
+            if (vm.textCompleted && !_isTyping)
+              SafeArea(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.8),
+                    border: Border(
+                      top: BorderSide(
+                          color: Colors.cyan.withOpacity(0.5), width: 1),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          foregroundColor: Colors.green,
-                          backgroundColor: Colors.green.withOpacity(0.2),
-                          side: const BorderSide(color: Colors.green),
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.cyan.withOpacity(0.7),
+                          minimumSize: const Size(double.infinity, 50),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 12, bottom: 12),
-                          child: Text(vm.assignToOdd(
-                              vm.selectedList, vm.storyMapId)!["title"]),
-                        ),
+                        child: Text(vm.assignToOdd(
+                            vm.selectedList, vm.storyMapId)!["title"]),
                         onPressed: () async {
                           await _handleChoice(vm.left);
                         },
                       ),
-                    ),
-                    Container(
-                      child: Text(
+                      const SizedBox(height: 10),
+                      Text(
                         ConstantTexts.ChooseYourAnswer.tr(),
-                        style: const TextStyle(color: Colors.grey),
+                        style: const TextStyle(
+                            color: Colors.cyan, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 8.0, right: 8, top: 8),
-                      child: ElevatedButton(
+                      const SizedBox(height: 10),
+                      ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          foregroundColor: Colors.green,
-                          backgroundColor: Colors.green.withOpacity(0.2),
-                          side: const BorderSide(color: Colors.green),
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.cyan.withOpacity(0.7),
+                          minimumSize: const Size(double.infinity, 50),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 12, bottom: 12),
-                          child: Text(vm.assignToEven(
-                              vm.selectedList, vm.storyMapId)!["title"]),
+                        child: Text(
+                          vm.assignToEven(
+                              vm.selectedList, vm.storyMapId)!["title"],
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         onPressed: () async {
                           await _handleChoice(vm.right);
                         },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
 
-          if (!vm.textCompleted || _isTyping)
-            SafeArea(
-              child: Container(
-                color: Colors.black.withOpacity(0.7),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: LoadingIndicator(
-                        indicatorType: Indicator.ballPulse,
-                        colors: [Colors.green],
-                        strokeWidth: 2,
+            if (!vm.textCompleted || _isTyping)
+              SafeArea(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.8),
+                    border: Border(
+                      top: BorderSide(
+                          color: Colors.cyan.withOpacity(0.5), width: 1),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: LoadingIndicator(
+                          indicatorType: Indicator.ballPulse,
+                          colors: [Colors.cyan],
+                          strokeWidth: 2,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      ConstantTexts.waitingForMessage.tr(),
-                      style: AppFonts.waitingForMessageTextStyle,
-                    ),
-                  ],
+                      const SizedBox(width: 10),
+                      Text(
+                        ConstantTexts.waitingForMessage.tr(),
+                        style: AppFonts.waitingForMessageTextStyle
+                            .copyWith(color: Colors.cyan),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -336,6 +421,18 @@ class _ChatViewState extends State<ChatView> {
       case TextType.webOfDeceitType:
         vm.repo = _databaseService.webOfDeceitRepo;
         break;
+      case TextType.zetaType:
+        vm.repo = _databaseService.zetaRepo;
+        break;
+      case TextType.unknownType:
+        vm.repo = _databaseService.unknownRepo;
+        break;
+      case TextType.mysteriousType:
+        vm.repo = _databaseService.mysteriousRepo;
+        break;
+      case TextType.spaceType:
+        vm.repo = _databaseService.spaceRepo;
+        break;
 
       default:
     }
@@ -360,6 +457,18 @@ class _ChatViewState extends State<ChatView> {
         break;
       case TextType.webOfDeceitType:
         vm.repo = _databaseService.webOfDeceitRepo;
+        break;
+      case TextType.zetaType:
+        vm.repo = _databaseService.zetaRepo;
+        break;
+      case TextType.unknownType:
+        vm.repo = _databaseService.unknownRepo;
+        break;
+      case TextType.mysteriousType:
+        vm.repo = _databaseService.mysteriousRepo;
+        break;
+      case TextType.spaceType:
+        vm.repo = _databaseService.spaceRepo;
         break;
 
       default:

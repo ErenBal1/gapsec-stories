@@ -9,10 +9,10 @@ class BoolModel {
   bool? murderIsLock;
   bool? gravehurstIsLock;
   bool? webOfDeceitIsLock;
-  bool? nightGameIsLock;
-  bool? runKaityIsLock;
-  bool? smileIsLock;
-  bool? behindIsLock;
+  bool? zetaIsLock;
+  bool? unknownIsLock;
+  bool? mysteriousIsLock;
+  bool? spaceIsLock;
   bool? luckyIsLock;
 
   firstWhere(bool Function(dynamic item) param0) {}

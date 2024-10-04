@@ -12,7 +12,6 @@ import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/play_story_view.dart';
 import 'package:gapsec/view/stories_view.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
-import 'package:video_player/video_player.dart';
 
 class NewGameView extends StatefulWidget {
   const NewGameView({super.key});
@@ -29,7 +28,7 @@ class _NewGameViewState extends State<NewGameView> {
   void initState() {
     super.initState();
     nv.updateDefaultValues();
-    nv.controller =
+    /* nv.controller =
         VideoPlayerController.asset(ConstantPaths.newGameBackgroundVideo)
           ..initialize().then((_) {
             nv.controller.setLooping(true);
@@ -38,12 +37,12 @@ class _NewGameViewState extends State<NewGameView> {
                   ? nv.controller.pause()
                   : nv.controller.play();
             });
-          });
+          }); */
   }
 
   @override
   void dispose() {
-    nv.controller.dispose();
+    /* nv.controller.dispose(); */
     super.dispose();
   }
 
@@ -103,6 +102,47 @@ class _NewGameViewState extends State<NewGameView> {
               ),
               context: context);
           break;
+        case TextType.zetaType:
+          await _selectedHistoryDelete(type: TextType.zetaType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.zetaRepo,
+                story: gameName,
+                selectedTextType: TextType.zetaType,
+              ),
+              context: context);
+          break;
+        case TextType.unknownType:
+          await _selectedHistoryDelete(type: TextType.unknownType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.unknownRepo,
+                story: gameName,
+                selectedTextType: TextType.unknownType,
+              ),
+              context: context);
+          break;
+        case TextType.mysteriousType:
+          await _selectedHistoryDelete(type: TextType.mysteriousType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.mysteriousRepo,
+                story: gameName,
+                selectedTextType: TextType.mysteriousType,
+              ),
+              context: context);
+          break;
+
+        case TextType.spaceType:
+          await _selectedHistoryDelete(type: TextType.spaceType);
+          nv.goToPage(
+              page: ChatView(
+                selectedRepo: _databaseService.spaceRepo,
+                story: gameName,
+                selectedTextType: TextType.spaceType,
+              ),
+              context: context);
+          break;
 
         default:
       }
@@ -124,12 +164,19 @@ class _NewGameViewState extends State<NewGameView> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          nv.controller.value.isInitialized
+          /* nv.controller.value.isInitialized
               ? AspectRatio(
                   aspectRatio: nv.controller.value.aspectRatio,
                   child: VideoPlayer(nv.controller),
                 )
-              : Container(),
+              : Container(), */
+          SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Image.asset(
+                "assets/images/newgameback.png",
+                fit: BoxFit.fill,
+              )),
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -297,7 +344,87 @@ class _NewGameViewState extends State<NewGameView> {
                                   context: context);
                             } else {
                               await showOkCancelAlert(
-                                  context, TextType.gravehurstType, gameName);
+                                  context, TextType.webOfDeceitType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Zeta") {
+                        switch (gameName) {
+                          case "Zeta":
+                            await _selectedStoryUpdate(type: TextType.zetaType);
+                            if (_databaseService.zetaRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo: _databaseService.zetaRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.zetaType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.zetaType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Unknown Number") {
+                        switch (gameName) {
+                          case "Unknown Number":
+                            await _selectedStoryUpdate(
+                                type: TextType.unknownType);
+                            if (_databaseService.unknownRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo: _databaseService.unknownRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.unknownType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.unknownType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Mysterious Loss") {
+                        switch (gameName) {
+                          case "Mysterious Loss":
+                            await _selectedStoryUpdate(
+                                type: TextType.mysteriousType);
+                            if (_databaseService.mysteriousRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo:
+                                        _databaseService.mysteriousRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.mysteriousType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.mysteriousType, gameName);
+                            }
+                            break;
+                          default:
+                        }
+                      } else if (gameName == "Survival in Space") {
+                        switch (gameName) {
+                          case "Survival in Space":
+                            await _selectedStoryUpdate(
+                                type: TextType.spaceType);
+                            if (_databaseService.spaceRepo.isEmpty) {
+                              nv.goToPage(
+                                  page: ChatView(
+                                    selectedRepo: _databaseService.spaceRepo,
+                                    story: gameName,
+                                    selectedTextType: TextType.spaceType,
+                                  ),
+                                  context: context);
+                            } else {
+                              await showOkCancelAlert(
+                                  context, TextType.spaceType, gameName);
                             }
                             break;
                           default:
@@ -352,7 +479,9 @@ class UnlockMoreButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll(CustomColors.storyCardColor)),
+          side: WidgetStatePropertyAll(BorderSide(color: CustomColors.white)),
+          backgroundColor:
+              WidgetStatePropertyAll(Color.fromARGB(30, 255, 255, 255))),
       onPressed: () => nv.goToPage(page: const StoriesView(), context: context),
       child: FittedBox(
         child: Text(ConstantTexts.unlockMore.tr(),
