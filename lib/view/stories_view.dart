@@ -77,6 +77,18 @@ class _StoriesViewState extends State<StoriesView>
 
     if (result == OkCancelResult.ok) {
       switch (storyPrice) {
+        case 0:
+          if (ShopState().amount >= 0) {
+            buySteps(
+                minusAmount: 0,
+                type: TextType.murderType,
+                storyIsLock: murder.isLock);
+          } else {
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
+          }
+
+          break;
         case 80:
           if (ShopState().amount >= 0) {
             buySteps(

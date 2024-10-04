@@ -45,9 +45,10 @@ class AppFonts {
   );
   static var marqueeStyle = const TextStyle(
     fontSize: 20,
-    fontFamily: "HorrorFont",
-    fontWeight: FontWeight.w800,
-    color: Color.fromARGB(113, 54, 244, 60),
+    //fontFamily: "HorrorFont",
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.w300,
+    color: Color.fromARGB(144, 54, 244, 60),
   );
 
   static var storyCard = const TextStyle(

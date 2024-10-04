@@ -19,7 +19,7 @@ class DatabaseService {
 
   //ilk önce default uygulama kilit durumlarını tanımla
   int? tokenAmountDefault = 0;
-  bool? murderIsLockDefault = false;
+  bool? murderIsLockDefault = true;
   bool? gravehurstIsLockDefault = true;
   bool? webOfDeceitIsLockDefault = true;
   bool? zetaIsLockDefault = true;
@@ -35,6 +35,7 @@ class DatabaseService {
       // print("BoolModel bulunamadı, varsayılan değerler kullanılacak.");
       return;
     }
+    murderIsLockDefault = boolValues.murderIsLock ?? true;
     gravehurstIsLockDefault = boolValues.gravehurstIsLock ?? true;
     webOfDeceitIsLockDefault = boolValues.webOfDeceitIsLock ?? true;
     zetaIsLockDefault = boolValues.zetaIsLock ?? true;
@@ -81,6 +82,20 @@ class DatabaseService {
       {required bool newValue, required TextType type}) async {
     final boolValues = await isar.boolModels.where().findFirst();
     switch (type) {
+      case TextType.murderType:
+        if (boolValues != null) {
+          boolValues.murderIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..murderIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+        break;
       case TextType.gravehurstType:
         if (boolValues != null) {
           boolValues.gravehurstIsLock = newValue;
