@@ -90,7 +90,7 @@ class InfoMenuView extends StatelessWidget {
           TextSpan(
             text: names,
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 13,
               fontWeight: FontWeight.w300,
             ),
           ),

@@ -16,7 +16,7 @@ class ConstantPaths {
   static const keyHoleImagePath = "assets/images/keyHole.png";
   static const lampImagePath = "assets/images/lamp.png";
   static const keyImagePath = "assets/images/key.png";
-  static const murderBackgroundMusicPath = 'assets/sounds/runKaity.mp3';
+  static const murderBackgroundMusicPath = 'assets/sounds/murder.mp3';
 }
 
 class ConstantTexts {

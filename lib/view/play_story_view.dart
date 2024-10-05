@@ -275,7 +275,7 @@ class _ChatViewState extends State<ChatView> {
                                       vm.selectedTexts.tr(),
                                       textStyle: const TextStyle(
                                           color: Colors.cyan, fontSize: 14),
-                                      speed: const Duration(milliseconds: 50),
+                                      speed: const Duration(milliseconds: 80),
                                     ),
                                   ],
                                   totalRepeatCount: 1,
