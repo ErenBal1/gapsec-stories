@@ -65,7 +65,7 @@ class _ShopViewState extends State<ShopView> {
       //print("User earned reward");
       _rewardedAd = null;
     } else {
-      // showOkAlertDialogWidget(context, "Please try  again later.");
+      showOkAlertDialogWidget(context, ConstantTexts.Advert.tr());
     }
   }
 
