@@ -91,23 +91,42 @@ class _ShopViewState extends State<ShopView> {
     iap.purchaseStream.listen((purchaseDetailsList) {
       _handlePurchaseUpdates(purchaseDetailsList);
     }, onError: (error) {
-      showOkAlertDialogWidget(
-          context, ConstantTexts.purchase_error.tr(args: [error.toString()]));
+      showOkAlertDialogWidget(context,
+          "Error" /* ConstantTexts.purchase_error.tr(args: [error.toString()]) */);
+    });
+    _verifyAndCompletePendingPurchases();
+  }
+
+  void _verifyAndCompletePendingPurchases() async {
+    // Attempt to manually restore purchases by checking current purchases
+    final Stream<List<PurchaseDetails>> purchaseStream = iap.purchaseStream;
+    purchaseStream.listen((purchaseDetailsList) {
+      for (var purchase in purchaseDetailsList) {
+        if (purchase.pendingCompletePurchase) {
+          iap.completePurchase(purchase);
+        }
+      }
     });
   }
 
-  void _handlePurchaseUpdates(List<PurchaseDetails> purchaseDetailsList) {
+  void _handlePurchaseUpdates(List<PurchaseDetails> purchaseDetailsList) async {
     for (var purchase in purchaseDetailsList) {
       if (purchase.status == PurchaseStatus.purchased) {
+        // Satın alma işlemi başarılıysa token ekleyin
+        int tokensToAdd = _tokensFromProductId(purchase.productID);
+        _addTokens(tokensToAdd);
+        // Eğer pendingCompletePurchase doğru ise, satın alma işlemini tamamlayın
         if (purchase.pendingCompletePurchase) {
-          iap.completePurchase(purchase);
-          //_updateTokenBalance(purchase.productID);
-          int tokensToAdd = _tokensFromProductId(purchase.productID);
-          _addTokens(tokensToAdd);
+          await iap.completePurchase(purchase);
+          setState(() {});
         }
       } else if (purchase.status == PurchaseStatus.error) {
-        showOkAlertDialogWidget(context,
-            ConstantTexts.purchase_error.tr(args: [purchase.error!.message]));
+        showOkAlertDialogWidget(context, "Please wait and try again later.");
+        /* showOkAlertDialogWidget(context,
+            ConstantTexts.purchase_error.tr(args: [purchase.error!.message])); */
+        if (purchase.pendingCompletePurchase) {
+          await iap.completePurchase(purchase);
+        }
       }
     }
   }
