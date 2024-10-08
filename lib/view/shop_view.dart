@@ -92,7 +92,7 @@ class _ShopViewState extends State<ShopView> {
       _handlePurchaseUpdates(purchaseDetailsList);
     }, onError: (error) {
       showOkAlertDialogWidget(context,
-          "Error" /* ConstantTexts.purchase_error.tr(args: [error.toString()]) */);
+          "Please wait and try again later." /* ConstantTexts.purchase_error.tr(args: [error.toString()]) */);
     });
     _verifyAndCompletePendingPurchases();
   }
@@ -178,8 +178,8 @@ class _ShopViewState extends State<ShopView> {
       //showOkAlertDialogWidget(context, ConstantTexts.purchase_initiated.tr());
       //
     }).catchError((error) {
-      showOkAlertDialogWidget(
-          context, ConstantTexts.purchase_error.tr(args: [error.toString()]));
+      showOkAlertDialogWidget(context,
+          "Please wait and try again later." /* ConstantTexts.purchase_error.tr(args: [error.toString()]) */);
     });
   }
 
