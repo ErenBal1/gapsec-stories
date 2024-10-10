@@ -31,7 +31,15 @@ class ConstantTexts {
   static const String Stories = "stories";
   static const String InadequateMystoken = "inadequate_mystoken";
   static const String StartStory = "start_story";
+  static const String Endings = "end";
   static const String MurderDescription = "murder_description";
+  static const String GravehurstDescription = "gravehurst_description";
+  static const String WebOfDeceitDescription = "webofdeceit_description";
+  static const String ZetaDescription = "zeta_description";
+  static const String unknownDescription = "unknown_description";
+  static const String mysteriousLossDescription = "mysteriousloss_description";
+  static const String survivalinSpaceDescription =
+      "survivalinSpace_description";
   static const String GAPSEC = "GAPSEC";
   static const String NEW_GAME = "new_game_button";
   static const String CONTINUE = "load_game_button";
@@ -43,7 +51,7 @@ class ConstantTexts {
   static const String Contributors = "contributors";
   static const String devast = "DEVAST";
   static const String developersnames = "TAHA YASIN BIKE   EREN BAL";
-  static const String contributorsnames = "-";
+  static const String contributorsnames = "SINEM KARAKURT \n SUDENAZ KARABULUT";
   static const String Version = "Version 1.0.0";
   static const String murdertitle = "murderTitle";
   static const String yourChoices = "your_choices";

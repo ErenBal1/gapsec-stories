@@ -8,21 +8,21 @@ class NewGame {
 
   String? murderTexts;
   String? gravehurstTexts;
-  String? lostLucyTexts;
-  String? nightGameTexts;
-  String? runKaityTexts;
-  String? smileTexts;
-  String? behindTexts;
+  String? webOfDeceitTexts;
+  String? zetaTexts;
+  String? unknownTexts;
+  String? mysteriousTexts;
+  String? spaceTexts;
   String? luckyTexts;
 }
 
 enum TextType {
   murderType,
   gravehurstType,
-  lostLucyType,
-  nightGameType,
-  runKaityType,
-  smileType,
-  behindType,
+  webOfDeceitType,
+  zetaType,
+  unknownType,
+  mysteriousType,
+  spaceType,
   luckyType,
 }

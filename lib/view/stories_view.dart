@@ -77,6 +77,18 @@ class _StoriesViewState extends State<StoriesView>
 
     if (result == OkCancelResult.ok) {
       switch (storyPrice) {
+        case 0:
+          if (ShopState().amount >= 0) {
+            buySteps(
+                minusAmount: 0,
+                type: TextType.murderType,
+                storyIsLock: murder.isLock);
+          } else {
+            showOkAlertDialogWidget(
+                context, ConstantTexts.GetMoreMystoken.tr());
+          }
+
+          break;
         case 80:
           if (ShopState().amount >= 0) {
             buySteps(
@@ -93,8 +105,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 120) {
             buySteps(
                 minusAmount: -120,
-                type: TextType.lostLucyType,
-                storyIsLock: lostLucy.isLock);
+                type: TextType.webOfDeceitType,
+                storyIsLock: webOfDeceit.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());
@@ -105,8 +117,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 100) {
             buySteps(
                 minusAmount: -100,
-                type: TextType.nightGameType,
-                storyIsLock: nightGame.isLock);
+                type: TextType.zetaType,
+                storyIsLock: zeta.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());
@@ -116,8 +128,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 110) {
             buySteps(
                 minusAmount: -110,
-                type: TextType.runKaityType,
-                storyIsLock: runKaity.isLock);
+                type: TextType.unknownType,
+                storyIsLock: unknown.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());
@@ -128,8 +140,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 150) {
             buySteps(
                 minusAmount: -150,
-                type: TextType.smileType,
-                storyIsLock: smile.isLock);
+                type: TextType.mysteriousType,
+                storyIsLock: mysterious.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());
@@ -140,8 +152,8 @@ class _StoriesViewState extends State<StoriesView>
           if (ShopState().amount >= 180) {
             buySteps(
                 minusAmount: -180,
-                type: TextType.behindType,
-                storyIsLock: behind.isLock);
+                type: TextType.spaceType,
+                storyIsLock: space.isLock);
           } else {
             showOkAlertDialogWidget(
                 context, ConstantTexts.GetMoreMystoken.tr());
@@ -316,9 +328,16 @@ class _StoriesViewState extends State<StoriesView>
                 return VideoPlayer(vm.mp4controller);
               }),
             ), */
-            Observer(builder: (_) {
-              return Image.asset("assets/images/${vm.newBackground}");
-            }),
+            SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Observer(builder: (_) {
+                return Image.asset(
+                  "assets/images/${vm.newBackground}",
+                  fit: BoxFit.fill,
+                );
+              }),
+            ),
             // Hikaye içeriği
             Container(
               decoration: BoxDecoration(
@@ -365,72 +384,133 @@ class _StoriesViewState extends State<StoriesView>
                       ),
                     ),
                     story.isLock
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        ? Column(
                             children: [
-                              ElevatedButton(
-                                onPressed: () =>
-                                    showOkCancelAlert(context, vm.price),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.green[700],
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 12),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                ),
-                                child: Text(ConstantTexts.BuyNow.tr(),
-                                    style: const TextStyle(fontSize: 16)),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 12, vertical: 6),
-                                decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.6),
-                                  borderRadius: BorderRadius.circular(20),
-                                  border:
-                                      Border.all(color: Colors.amber, width: 1),
-                                ),
+                              Text(
+                                  "${story.finish} ${ConstantTexts.Endings.tr()}",
+                                  style: const TextStyle(
+                                      color: CustomColors.yellow,
+                                      shadows: [
+                                        Shadow(
+                                            color: CustomColors.white,
+                                            offset: Offset(1, 2),
+                                            blurRadius: 6.0)
+                                      ],
+                                      fontWeight: FontWeight.bold)),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
                                 child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Observer(builder: (_) {
-                                      return Text(
-                                        '${vm.price}',
-                                        style: const TextStyle(
-                                          color: Colors.amber,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
+                                    ElevatedButton(
+                                      onPressed: () =>
+                                          showOkCancelAlert(context, vm.price),
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: const Color.fromARGB(
+                                            58, 244, 67, 54),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 12),
+                                        shape: RoundedRectangleBorder(
+                                          side: const BorderSide(
+                                              color: CustomColors.yellow),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                         ),
-                                      );
-                                    }),
-                                    const SizedBox(width: 5),
-                                    Image.asset(ConstantPaths.tokenImagePath,
-                                        height: 24, width: 24),
+                                      ),
+                                      child: Text(ConstantTexts.BuyNow.tr(),
+                                          style: const TextStyle(
+                                              fontSize: 16,
+                                              color: CustomColors.yellow)),
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12, vertical: 6),
+                                      decoration: BoxDecoration(
+                                        color: Colors.black.withOpacity(0.6),
+                                        borderRadius: BorderRadius.circular(20),
+                                        border: Border.all(
+                                            color: CustomColors.red, width: 1),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Observer(builder: (_) {
+                                            return Text(
+                                              '${vm.price}',
+                                              style: const TextStyle(
+                                                fontFamily: "HorrorFont",
+                                                color: CustomColors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            );
+                                          }),
+                                          const SizedBox(width: 5),
+                                          Image.asset(
+                                            ConstantPaths.tokenImagePath,
+                                            height: 25,
+                                            width: 25,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
                             ],
                           )
-                        : ElevatedButton(
-                            onPressed: () async {
-                              // Hikayeye başlama işlemi
-                              await vm.mp4controller.dispose();
+                        : Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                                child: ElevatedButton(
+                                  onPressed: () async {
+                                    // Hikayeye başlama işlemi
+                                    await vm.mp4controller.dispose();
 
-                              vm.goToPage(
-                                  context: context, page: const NewGameView());
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red[800],
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 12),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
+                                    vm.goToPage(
+                                        context: context,
+                                        page: const NewGameView());
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        const Color.fromARGB(58, 244, 67, 54),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 12),
+                                    shape: RoundedRectangleBorder(
+                                      side: const BorderSide(
+                                          color: Color.fromARGB(
+                                              182, 255, 235, 59)),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                  ),
+                                  child: Text(ConstantTexts.StartStory.tr(),
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                                color: CustomColors.white,
+                                                offset: Offset(0, 1),
+                                                blurRadius: 80.0)
+                                          ],
+                                          color: CustomColors.red)),
+                                ),
                               ),
-                            ),
-                            child: Text(ConstantTexts.StartStory.tr(),
-                                style: const TextStyle(
-                                    fontSize: 16,
-                                    color: CustomColors.cyanBlue)),
+                              const Spacer(),
+                              Text(
+                                  "${story.finish} ${ConstantTexts.Endings.tr()}",
+                                  style: const TextStyle(
+                                      shadows: [
+                                        Shadow(
+                                            color: CustomColors.yellow,
+                                            offset: Offset(1, 2),
+                                            blurRadius: 6.0)
+                                      ],
+                                      color: CustomColors.yellow,
+                                      fontWeight: FontWeight.bold)),
+                            ],
                           ),
                   ],
                 ),

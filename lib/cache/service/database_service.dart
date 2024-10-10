@@ -19,13 +19,13 @@ class DatabaseService {
 
   //ilk önce default uygulama kilit durumlarını tanımla
   int? tokenAmountDefault = 0;
-  bool? murderIsLockDefault = false;
+  bool? murderIsLockDefault = true;
   bool? gravehurstIsLockDefault = true;
-  bool? lostLucyIsLockDefault = true;
-  bool? nightGameIsLockDefault = true;
-  bool? runKaityIsLockDefault = true;
-  bool? smileIsLockDefault = true;
-  bool? behindIsLockDefault = true;
+  bool? webOfDeceitIsLockDefault = true;
+  bool? zetaIsLockDefault = true;
+  bool? unknownIsLockDefault = true;
+  bool? mysteriousIsLockDefault = true;
+  bool? spaceIsLockDefault = true;
   bool? luckyIsLockDefault = true;
 
   //Uygulama açılınca kilit durumlarını update fonksiyonu yap
@@ -35,21 +35,22 @@ class DatabaseService {
       // print("BoolModel bulunamadı, varsayılan değerler kullanılacak.");
       return;
     }
+    murderIsLockDefault = boolValues.murderIsLock ?? true;
     gravehurstIsLockDefault = boolValues.gravehurstIsLock ?? true;
-    lostLucyIsLockDefault = boolValues.lostLucyIsLock ?? true;
-    nightGameIsLockDefault = boolValues.nightGameIsLock ?? true;
-    runKaityIsLockDefault = boolValues.runKaityIsLock ?? true;
-    smileIsLockDefault = boolValues.smileIsLock ?? true;
-    behindIsLockDefault = boolValues.behindIsLock ?? true;
+    webOfDeceitIsLockDefault = boolValues.webOfDeceitIsLock ?? true;
+    zetaIsLockDefault = boolValues.zetaIsLock ?? true;
+    unknownIsLockDefault = boolValues.unknownIsLock ?? true;
+    mysteriousIsLockDefault = boolValues.mysteriousIsLock ?? true;
+    spaceIsLockDefault = boolValues.spaceIsLock ?? true;
     luckyIsLockDefault = boolValues.luckyIsLock ?? true;
 
     murder.isLock = murderIsLockDefault!;
     gravehurst.isLock = gravehurstIsLockDefault!;
-    lostLucy.isLock = lostLucyIsLockDefault!;
-    nightGame.isLock = nightGameIsLockDefault!;
-    runKaity.isLock = runKaityIsLockDefault!;
-    smile.isLock = smileIsLockDefault!;
-    behind.isLock = behindIsLockDefault!;
+    webOfDeceit.isLock = webOfDeceitIsLockDefault!;
+    zeta.isLock = zetaIsLockDefault!;
+    unknown.isLock = unknownIsLockDefault!;
+    mysterious.isLock = mysteriousIsLockDefault!;
+    space.isLock = spaceIsLockDefault!;
     lucky.isLock = luckyIsLockDefault!;
   }
 
@@ -81,6 +82,20 @@ class DatabaseService {
       {required bool newValue, required TextType type}) async {
     final boolValues = await isar.boolModels.where().findFirst();
     switch (type) {
+      case TextType.murderType:
+        if (boolValues != null) {
+          boolValues.murderIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(boolValues);
+          });
+        } else {
+          // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
+          final newBoolModel = BoolModel()..murderIsLock = newValue;
+          await isar.writeTxn(() async {
+            await isar.boolModels.put(newBoolModel);
+          });
+        }
+        break;
       case TextType.gravehurstType:
         if (boolValues != null) {
           boolValues.gravehurstIsLock = newValue;
@@ -95,71 +110,71 @@ class DatabaseService {
           });
         }
         break;
-      case TextType.lostLucyType:
+      case TextType.webOfDeceitType:
         if (boolValues != null) {
-          boolValues.lostLucyIsLock = newValue;
+          boolValues.webOfDeceitIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..lostLucyIsLock = newValue;
+          final newBoolModel = BoolModel()..webOfDeceitIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
         }
         break;
-      case TextType.nightGameType:
+      case TextType.zetaType:
         if (boolValues != null) {
-          boolValues.nightGameIsLock = newValue;
+          boolValues.zetaIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..nightGameIsLock = newValue;
+          final newBoolModel = BoolModel()..zetaIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
         }
         break;
-      case TextType.runKaityType:
+      case TextType.unknownType:
         if (boolValues != null) {
-          boolValues.runKaityIsLock = newValue;
+          boolValues.unknownIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..runKaityIsLock = newValue;
+          final newBoolModel = BoolModel()..unknownIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
         }
         break;
-      case TextType.smileType:
+      case TextType.mysteriousType:
         if (boolValues != null) {
-          boolValues.smileIsLock = newValue;
+          boolValues.mysteriousIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..smileIsLock = newValue;
+          final newBoolModel = BoolModel()..mysteriousIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
         }
         break;
-      case TextType.behindType:
+      case TextType.spaceType:
         if (boolValues != null) {
-          boolValues.behindIsLock = newValue;
+          boolValues.spaceIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(boolValues);
           });
         } else {
           // Eğer daha önce bir kayıt yoksa, yeni bir kayıt oluşturur
-          final newBoolModel = BoolModel()..behindIsLock = newValue;
+          final newBoolModel = BoolModel()..spaceIsLock = newValue;
           await isar.writeTxn(() async {
             await isar.boolModels.put(newBoolModel);
           });
@@ -189,11 +204,11 @@ class DatabaseService {
   //Her bir hikayenin depolanması için
   List<NewGame?> murderRepo = [];
   List<NewGame?> gravehurstRepo = [];
-  List<NewGame?> lostLucyRepo = [];
-  List<NewGame?> nightGameRepo = [];
-  List<NewGame?> runKaityRepo = [];
-  List<NewGame?> smileRepo = [];
-  List<NewGame?> behindRepo = [];
+  List<NewGame?> webOfDeceitRepo = [];
+  List<NewGame?> zetaRepo = [];
+  List<NewGame?> unknownRepo = [];
+  List<NewGame?> mysteriousRepo = [];
+  List<NewGame?> spaceRepo = [];
   List<NewGame?> luckyRepo = [];
 
   //Bütün her şeyi siler!!!
@@ -235,60 +250,64 @@ class DatabaseService {
         gravehurstRepo.clear();
         await selectedStoryUpdate(type: TextType.gravehurstType);
         break;
-      case TextType.lostLucyType:
+      case TextType.webOfDeceitType:
         await isar.writeTxn(() async {
-          final items =
-              await isar.newGames.filter().lostLucyTextsIsNotEmpty().findAll();
+          final items = await isar.newGames
+              .filter()
+              .webOfDeceitTextsIsNotEmpty()
+              .findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        lostLucyRepo.clear();
-        await selectedStoryUpdate(type: TextType.lostLucyType);
+        webOfDeceitRepo.clear();
+        await selectedStoryUpdate(type: TextType.webOfDeceitType);
         break;
-      case TextType.nightGameType:
+      case TextType.zetaType:
         await isar.writeTxn(() async {
           final items =
-              await isar.newGames.filter().nightGameTextsIsNotEmpty().findAll();
+              await isar.newGames.filter().zetaTextsIsNotEmpty().findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        nightGameRepo.clear();
-        await selectedStoryUpdate(type: TextType.nightGameType);
+        zetaRepo.clear();
+        await selectedStoryUpdate(type: TextType.zetaType);
         break;
-      case TextType.runKaityType:
+      case TextType.unknownType:
         await isar.writeTxn(() async {
           final items =
-              await isar.newGames.filter().runKaityTextsIsNotEmpty().findAll();
+              await isar.newGames.filter().unknownTextsIsNotEmpty().findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        runKaityRepo.clear();
-        await selectedStoryUpdate(type: TextType.runKaityType);
+        unknownRepo.clear();
+        await selectedStoryUpdate(type: TextType.unknownType);
         break;
-      case TextType.smileType:
+      case TextType.mysteriousType:
         await isar.writeTxn(() async {
-          final items =
-              await isar.newGames.filter().smileTextsIsNotEmpty().findAll();
+          final items = await isar.newGames
+              .filter()
+              .mysteriousTextsIsNotEmpty()
+              .findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        smileRepo.clear();
-        await selectedStoryUpdate(type: TextType.smileType);
+        mysteriousRepo.clear();
+        await selectedStoryUpdate(type: TextType.mysteriousType);
         break;
-      case TextType.behindType:
+      case TextType.spaceType:
         await isar.writeTxn(() async {
           final items =
-              await isar.newGames.filter().behindTextsIsNotEmpty().findAll();
+              await isar.newGames.filter().spaceTextsIsNotEmpty().findAll();
           for (var item in items) {
             await isar.newGames.delete(item.id);
           }
         });
-        behindRepo.clear();
-        await selectedStoryUpdate(type: TextType.behindType);
+        spaceRepo.clear();
+        await selectedStoryUpdate(type: TextType.spaceType);
         break;
       case TextType.luckyType:
         await isar.writeTxn(() async {
@@ -326,42 +345,44 @@ class DatabaseService {
         //print("dontLookBackRepo => $dontLookBackRepo");
         //print("dontlookback story updated");
         break;
-      case TextType.lostLucyType:
-        lostLucyRepo = newGames
+      case TextType.webOfDeceitType:
+        webOfDeceitRepo = newGames
             .where((item) =>
-                item.lostLucyTexts != null && item.lostLucyTexts!.isNotEmpty)
+                item.webOfDeceitTexts != null &&
+                item.webOfDeceitTexts!.isNotEmpty)
             .toList();
         //print("lostLucyRepo => $lostLucyRepo");
         //print("lostLucy story updated");
         break;
-      case TextType.nightGameType:
-        nightGameRepo = newGames
-            .where((item) =>
-                item.nightGameTexts != null && item.nightGameTexts!.isNotEmpty)
+      case TextType.zetaType:
+        zetaRepo = newGames
+            .where(
+                (item) => item.zetaTexts != null && item.zetaTexts!.isNotEmpty)
             .toList();
         //print("nighGameRepo => $nightGameRepo");
         //print("nighGame story updated");
         break;
-      case TextType.runKaityType:
-        runKaityRepo = newGames
+      case TextType.unknownType:
+        unknownRepo = newGames
             .where((item) =>
-                item.runKaityTexts != null && item.runKaityTexts!.isNotEmpty)
+                item.unknownTexts != null && item.unknownTexts!.isNotEmpty)
             .toList();
         //print("runKaityRepo => $runKaityRepo");
         //print("runKaity story updated");
         break;
-      case TextType.smileType:
-        smileRepo = newGames
+      case TextType.mysteriousType:
+        mysteriousRepo = newGames
             .where((item) =>
-                item.smileTexts != null && item.smileTexts!.isNotEmpty)
+                item.mysteriousTexts != null &&
+                item.mysteriousTexts!.isNotEmpty)
             .toList();
         //print("smileRepo => $smileRepo");
         //print("smile story updated");
         break;
-      case TextType.behindType:
-        behindRepo = newGames
+      case TextType.spaceType:
+        spaceRepo = newGames
             .where((item) =>
-                item.behindTexts != null && item.behindTexts!.isNotEmpty)
+                item.spaceTexts != null && item.spaceTexts!.isNotEmpty)
             .toList();
         //print("behindRepo => $behindRepo");
         //print("behind story updated");
@@ -399,49 +420,49 @@ class DatabaseService {
           selectedStoryUpdate(type: TextType.gravehurstType);
         }
         break;
-      case TextType.lostLucyType:
+      case TextType.webOfDeceitType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..lostLucyTexts = eklenicekMetin;
+          final item = NewGame()..webOfDeceitTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.lostLucyType);
+          selectedStoryUpdate(type: TextType.webOfDeceitType);
         }
         break;
-      case TextType.nightGameType:
+      case TextType.zetaType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..nightGameTexts = eklenicekMetin;
+          final item = NewGame()..zetaTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.nightGameType);
+          selectedStoryUpdate(type: TextType.zetaType);
         }
         break;
-      case TextType.runKaityType:
+      case TextType.unknownType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..runKaityTexts = eklenicekMetin;
+          final item = NewGame()..unknownTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.runKaityType);
+          selectedStoryUpdate(type: TextType.unknownType);
         }
         break;
-      case TextType.smileType:
+      case TextType.mysteriousType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..smileTexts = eklenicekMetin;
+          final item = NewGame()..mysteriousTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.smileType);
+          selectedStoryUpdate(type: TextType.mysteriousType);
         }
         break;
-      case TextType.behindType:
+      case TextType.spaceType:
         if (eklenicekMetin.isNotEmpty && eklenicekMetin != "") {
-          final item = NewGame()..behindTexts = eklenicekMetin;
+          final item = NewGame()..spaceTexts = eklenicekMetin;
           await isar.writeTxn(() async {
             await isar.newGames.put(item);
           });
-          selectedStoryUpdate(type: TextType.behindType);
+          selectedStoryUpdate(type: TextType.spaceType);
         }
         break;
       case TextType.luckyType:

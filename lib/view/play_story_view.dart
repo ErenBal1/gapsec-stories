@@ -3,6 +3,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gapsec/state/play_story_view_state/play_story_view_state.dart';
 import 'package:gapsec/stories/games_storage/gravehurst.dart';
+import 'package:gapsec/stories/games_storage/mysteriousLoss.dart';
+import 'package:gapsec/stories/games_storage/survival_in_space.dart';
+import 'package:gapsec/stories/games_storage/unknown.dart';
+import 'package:gapsec/stories/games_storage/webOfDeceit.dart';
+import 'package:gapsec/stories/games_storage/zeta.dart';
 import 'package:gapsec/utils/app_font.dart';
 import 'package:gapsec/widgets/alert_widgets/alert_widgets.dart';
 import 'package:loading_indicator/loading_indicator.dart';
@@ -89,6 +94,68 @@ class _ChatViewState extends State<ChatView> {
             await _selectedStoryUpdate(type: TextType.gravehurstType);
             vm.repo = _databaseService.gravehurstRepo;
             break;
+          case TextType.webOfDeceitType:
+            vm.selectedList = webOfDeceitDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.webOfDeceitType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.webOfDeceitType);
+            vm.repo = _databaseService.webOfDeceitRepo;
+            break;
+          case TextType.zetaType:
+            vm.selectedList = zetaDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.zetaType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.zetaType);
+            vm.repo = _databaseService.zetaRepo;
+            break;
+          case TextType.unknownType:
+            vm.selectedList = unknownDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.unknownType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.unknownType);
+            vm.repo = _databaseService.unknownRepo;
+            break;
+
+          case TextType.mysteriousType:
+            vm.selectedList = mysteriousLossDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.mysteriousType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.mysteriousType);
+            vm.repo = _databaseService.mysteriousRepo;
+            break;
+
+          case TextType.spaceType:
+            vm.selectedList = survivalInSpaceDetail;
+
+            await _selectedStoryAddItem(
+                eklencekText:
+                    vm.getMapWithId(vm.selectedList, vm.storyMapId)!["history"],
+                type: TextType.spaceType);
+            vm.left = vm.assignToOdd(vm.selectedList, vm.storyMapId)!;
+            vm.right = vm.assignToEven(vm.selectedList, vm.storyMapId)!;
+            await _selectedStoryUpdate(type: TextType.spaceType);
+            vm.repo = _databaseService.spaceRepo;
+            break;
           default:
         }
       });
@@ -156,6 +223,21 @@ class _ChatViewState extends State<ChatView> {
                         break;
                       case TextType.gravehurstType:
                         vm.selectedTexts = newGame.gravehurstTexts.toString();
+                        break;
+                      case TextType.webOfDeceitType:
+                        vm.selectedTexts = newGame.webOfDeceitTexts.toString();
+                        break;
+                      case TextType.zetaType:
+                        vm.selectedTexts = newGame.zetaTexts.toString();
+                        break;
+                      case TextType.unknownType:
+                        vm.selectedTexts = newGame.unknownTexts.toString();
+                        break;
+                      case TextType.mysteriousType:
+                        vm.selectedTexts = newGame.mysteriousTexts.toString();
+                        break;
+                      case TextType.spaceType:
+                        vm.selectedTexts = newGame.spaceTexts.toString();
                         break;
                       default:
                     }
@@ -240,12 +322,8 @@ class _ChatViewState extends State<ChatView> {
                           backgroundColor: Colors.cyan.withOpacity(0.7),
                           minimumSize: const Size(double.infinity, 50),
                         ),
-                        child: Text(
-                          vm.assignToOdd(
-                              vm.selectedList, vm.storyMapId)!["title"],
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
+                        child: Text(vm.assignToOdd(
+                            vm.selectedList, vm.storyMapId)!["title"]),
                         onPressed: () async {
                           await _handleChoice(vm.left);
                         },
@@ -334,9 +412,32 @@ class _ChatViewState extends State<ChatView> {
     vm.updateStoryMapId(choice["aId"]);
 
     await _selectedStoryUpdate(type: widget.selectedTextType);
-    vm.repo = widget.selectedTextType == TextType.murderType
-        ? _databaseService.murderRepo
-        : _databaseService.gravehurstRepo;
+    switch (widget.selectedTextType) {
+      case TextType.murderType:
+        vm.repo = _databaseService.murderRepo;
+        break;
+      case TextType.gravehurstType:
+        vm.repo = _databaseService.gravehurstRepo;
+        break;
+      case TextType.webOfDeceitType:
+        vm.repo = _databaseService.webOfDeceitRepo;
+        break;
+      case TextType.zetaType:
+        vm.repo = _databaseService.zetaRepo;
+        break;
+      case TextType.unknownType:
+        vm.repo = _databaseService.unknownRepo;
+        break;
+      case TextType.mysteriousType:
+        vm.repo = _databaseService.mysteriousRepo;
+        break;
+      case TextType.spaceType:
+        vm.repo = _databaseService.spaceRepo;
+        break;
+
+      default:
+    }
+
     vm.scrollToBottom();
 
     await Future.delayed(const Duration(seconds: 1));
@@ -348,9 +449,31 @@ class _ChatViewState extends State<ChatView> {
       type: widget.selectedTextType,
     );
     await _selectedStoryUpdate(type: widget.selectedTextType);
-    vm.repo = widget.selectedTextType == TextType.murderType
-        ? _databaseService.murderRepo
-        : _databaseService.gravehurstRepo;
+    switch (widget.selectedTextType) {
+      case TextType.murderType:
+        vm.repo = _databaseService.murderRepo;
+        break;
+      case TextType.gravehurstType:
+        vm.repo = _databaseService.gravehurstRepo;
+        break;
+      case TextType.webOfDeceitType:
+        vm.repo = _databaseService.webOfDeceitRepo;
+        break;
+      case TextType.zetaType:
+        vm.repo = _databaseService.zetaRepo;
+        break;
+      case TextType.unknownType:
+        vm.repo = _databaseService.unknownRepo;
+        break;
+      case TextType.mysteriousType:
+        vm.repo = _databaseService.mysteriousRepo;
+        break;
+      case TextType.spaceType:
+        vm.repo = _databaseService.spaceRepo;
+        break;
+
+      default:
+    }
 
     setState(() {
       _isTyping = true;

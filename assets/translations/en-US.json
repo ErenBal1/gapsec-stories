@@ -3,14 +3,21 @@
         "should_buy" : "Buy it with Mystoken",
         "unlock_this" : "Unlock the Story",
         "get_more_mystoken" : "You need more Mystoken.",
-        "restore_alert" : " If you delete the app, you will not be able to recover your purchases.",
+        "restore_alert" : " If you delete the app, you will not be able to recover your purchases. For help: devast.developerteam@gmail.com",
         "gapsec_ends" : "Gapsec ends",
         "get_mystoken" : "Get Mystokens to unlock exclusive content",
         "boost_your_experience" : "Boost Your Experience!",
         "stories": "STORIES",
         "inadequate_mystoken" : "Inadequate Mystoken",
         "start_story" : "Start story",
-        "murder_description": "The mystery of the dark alleys is full of traces of a murder waiting to be solved. Can you uncover the truth?",
+        "end" : "Endings",
+        "murder_description": "(DEMO STORY.)\n Dark secrets lurking behind the trees... A mystery waiting to be solved step by step, an uncertain danger getting closer with every step. Who are you helping, the victim or the killer? Can you bring the unknown person out of the unknown?",
+        "gravehurst_description": "A mysteriously closed case. The depths of the asylum, a team experiencing paranormal events. An unexpected truth waiting behind the curtain... The team needs you, Professor.",
+        "webofdeceit_description" : "Someone being followed is in danger, while they have a loyal agent under their command. A gang waiting to be taken down—it's your turn, detective.",
+        "zeta_description": "An unexpected error, a system out of control. Pulling the plug is the last resort. Can you stop the intelligence you've created?",
+        "unknown_description" : "An unknown call in the middle of the night, a mystery that keeps you awake. Your choices could be the end of you.",
+        "mysteriousloss_description" : "A missing girl, trap or real? It's up to you to guide the cops, Lieutenant.",
+        "survivalinSpace_description" : "Something is wrong on the space station, the fate of the astronauts is in your hands. Can you manage the mysterious dangers from the space center?",
         "new_game_button" : "New Game",
         "load_game_button" : "Load Game",
         "stories_button" : "Stories",
@@ -1519,8 +1526,6 @@
 
 
 
-
-
         "zeta_story_0_history": "Hello, how can I help you?",
         "zeta_story_0_answer_1": "Is the system running stable?",
         "zeta_story_0_answer_2": "I recompiled the last project but there's a problem with the database connection. Can you fix this?",
@@ -1838,6 +1843,8 @@
         "zeta_story_913_history": "[After you shut down Zeta, your computer screen suddenly went dark and then turned on again.]\n\nThey're watching you. They've always been here. And now it's your turn.\n\n[CONNECTION LOST...]",
         "zeta_story_913_answer_1": "Restart the Story.",
         "zeta_story_913_answer_2": "Restart the Story.",
+
+
 
         "unknown_number_0_history": "When you opened your eyes, the only light source in the room was your phone's vibrating screen. It was 2:14 AM. Your eyes were even heavier in the darkness, but the incoming message suddenly jolted you awake. A short message from an unknown number appeared on the screen:\n\nUnknown Number: Marie, I need your help. Before they find me...\n\n[You shuddered. A strange fear gripped you as you read the message. Who was this? How did they know me? Someone trying to reach you at this hour... It was frightening.]",
         "unknown_number_0_answer_1": "Who are you? How do you know me?",
@@ -2216,6 +2223,8 @@
         "unknown_number_922_answer_2": "[Restart the Story.]",
 
 
+
+
         "mysterious_loss_0_history": "Chief, where was Lucy last seen?",
         "mysterious_loss_0_answer_1": "She was last seen in an industrial area.",
         "mysterious_loss_0_answer_2": "Lucy didn't leave the house that day.",
@@ -2486,6 +2495,7 @@
         "mysterious_loss_911_history": "Chief, the support team arrived and arrested them. We're now coming with Lucy for her statement. She'll tell us everything in more detail. We'll discuss the details with you.\n\n[CONNECTION LOST...]",
         "mysterious_loss_911_answer_1": "[Restart the Story.]",
         "mysterious_loss_911_answer_2": "[Restart the Story.]",
+
 
 
 
@@ -2777,4 +2787,12 @@
         "survival_in_space_910_history": "[G-11 manages to survive. The curiosity about what the object was is still inside him. He starts preparing himself for the mission that will be reorganized to investigate the object.]",
         "survival_in_space_910_answer_1": "[Restart the Story.]",
         "survival_in_space_910_answer_2": "[Restart the Story.]"
+
+
+
+
+
+
+
+        
 }

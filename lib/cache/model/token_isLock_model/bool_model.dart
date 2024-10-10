@@ -8,11 +8,11 @@ class BoolModel {
   int? tokenAmount;
   bool? murderIsLock;
   bool? gravehurstIsLock;
-  bool? lostLucyIsLock;
-  bool? nightGameIsLock;
-  bool? runKaityIsLock;
-  bool? smileIsLock;
-  bool? behindIsLock;
+  bool? webOfDeceitIsLock;
+  bool? zetaIsLock;
+  bool? unknownIsLock;
+  bool? mysteriousIsLock;
+  bool? spaceIsLock;
   bool? luckyIsLock;
 
   firstWhere(bool Function(dynamic item) param0) {}

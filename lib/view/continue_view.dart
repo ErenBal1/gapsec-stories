@@ -10,7 +10,6 @@ import 'package:gapsec/utils/constants.dart';
 import 'package:gapsec/view/continue_play_view.dart';
 import 'package:gapsec/view/home_view.dart';
 import 'package:gapsec/view/stories_view.dart';
-import 'package:video_player/video_player.dart';
 
 class ContinueView extends StatefulWidget {
   const ContinueView({super.key});
@@ -35,7 +34,7 @@ class _ContinueViewState extends State<ContinueView> {
   @override
   void initState() {
     super.initState();
-    cv.controller =
+    /* cv.controller =
         VideoPlayerController.asset(ConstantPaths.continueBackgroundVideo)
           ..initialize().then((_) {
             cv.controller.setLooping(true);
@@ -44,18 +43,23 @@ class _ContinueViewState extends State<ContinueView> {
                   ? cv.controller.pause()
                   : cv.controller.play();
             });
-          });
+          }); */
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _selectedStoryUpdate(type: TextType.murderType);
       await _selectedStoryUpdate(type: TextType.gravehurstType);
+      await _selectedStoryUpdate(type: TextType.webOfDeceitType);
+      await _selectedStoryUpdate(type: TextType.zetaType);
+      await _selectedStoryUpdate(type: TextType.unknownType);
+      await _selectedStoryUpdate(type: TextType.mysteriousType);
+      await _selectedStoryUpdate(type: TextType.spaceType);
     });
     super.initState();
   }
 
   @override
   void dispose() {
-    cv.controller.dispose();
+    /* cv.controller.dispose(); */
     super.dispose();
   }
 
@@ -69,12 +73,19 @@ class _ContinueViewState extends State<ContinueView> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          cv.controller.value.isInitialized
+          /* cv.controller.value.isInitialized
               ? AspectRatio(
                   aspectRatio: cv.controller.value.aspectRatio,
                   child: VideoPlayer(cv.controller),
                 )
-              : Container(),
+              : Container(), */
+          SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Image.asset(
+                "assets/images/continue_back.png",
+                fit: BoxFit.fill,
+              )),
           Padding(
             padding: const EdgeInsets.only(top: 200.0),
             child: ListView.builder(
@@ -99,6 +110,36 @@ class _ContinueViewState extends State<ContinueView> {
                     break;
                   case "Gravehurst":
                     if (_databaseService.gravehurstRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Web Of Deceit":
+                    if (_databaseService.webOfDeceitRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Zeta":
+                    if (_databaseService.zetaRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Unknown Number":
+                    if (_databaseService.unknownRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Mysterious Loss":
+                    if (_databaseService.mysteriousRepo.isNotEmpty) {
+                      content =
+                          FittedBox(child: gameContainer(gameName: game.name));
+                    }
+                    break;
+                  case "Space in Survival":
+                    if (_databaseService.spaceRepo.isNotEmpty) {
                       content =
                           FittedBox(child: gameContainer(gameName: game.name));
                     }
@@ -219,6 +260,85 @@ class _ContinueViewState extends State<ContinueView> {
                                 context, TextType.dontLookBackType, gameName); */
                           }
                           break;
+                        case "Web Of Deceit":
+                          await _selectedStoryUpdate(
+                              type: TextType.webOfDeceitType);
+                          if (_databaseService.webOfDeceitRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo:
+                                      _databaseService.webOfDeceitRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.webOfDeceitType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Zeta":
+                          await _selectedStoryUpdate(type: TextType.zetaType);
+                          if (_databaseService.zetaRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.zetaRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.zetaType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Unknown Number":
+                          await _selectedStoryUpdate(
+                              type: TextType.unknownType);
+                          if (_databaseService.unknownRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.unknownRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.unknownType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Mysterious Loss":
+                          await _selectedStoryUpdate(
+                              type: TextType.mysteriousType);
+                          if (_databaseService.mysteriousRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.mysteriousRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.mysteriousType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
+                        case "Survival in Space":
+                          await _selectedStoryUpdate(type: TextType.spaceType);
+                          if (_databaseService.spaceRepo.isNotEmpty) {
+                            cv.goToPage(
+                                page: ContinueChatView(
+                                  selectedRepo: _databaseService.spaceRepo,
+                                  story: gameName,
+                                  selectedTextType: TextType.spaceType,
+                                ),
+                                context: context);
+                          } else {
+                            /* await showOkCancelAlert(
+                                context, TextType.murderType, gameName); */
+                          }
+                          break;
                         default:
                       }
                     },
@@ -261,7 +381,9 @@ class UnlockMoreButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll(CustomColors.storyCardColor)),
+          side: WidgetStatePropertyAll(BorderSide(color: CustomColors.white)),
+          backgroundColor:
+              WidgetStatePropertyAll(Color.fromARGB(30, 255, 255, 255))),
       onPressed: () => cv.goToPage(page: const StoriesView(), context: context),
       child: FittedBox(
         child: Text(ConstantTexts.unlockMore.tr(),

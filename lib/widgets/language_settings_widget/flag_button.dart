@@ -39,7 +39,14 @@ class FlagButton extends StatelessWidget {
               }
             },
           );
+          // dil değiştikten sonra hafızadaki hikayeleri temizleyerek bir hatanın önüne geçer
           await StoriesState().deleteAllStories(type: TextType.murderType);
+          await StoriesState().deleteAllStories(type: TextType.gravehurstType);
+          await StoriesState().deleteAllStories(type: TextType.webOfDeceitType);
+          await StoriesState().deleteAllStories(type: TextType.zetaType);
+          await StoriesState().deleteAllStories(type: TextType.unknownType);
+          await StoriesState().deleteAllStories(type: TextType.mysteriousType);
+          await StoriesState().deleteAllStories(type: TextType.spaceType);
         },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
