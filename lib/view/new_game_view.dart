@@ -233,7 +233,7 @@ class _NewGameViewState extends State<NewGameView> {
             ),
           ),
           //Test etmek için data base'i sıfırlama tuşu
-          /* SafeArea(
+          /*  SafeArea(
             child: Align(
                 alignment: Alignment.topRight,
                 child: IconButton(

@@ -1,9 +1,10 @@
 {
+        "advert" : "Reklamlar henüz hazır değil.",
         "choose_your_answer": "- Cevabını Seç -",
         "should_buy" : "Mystoken ile satın alınsın mı?",
         "unlock_this" : "Hikayenin kilidini aç",
         "get_more_mystoken" : "Daha fazla Mystoken'e ihtiyacın var.",
-        "restore_alert" : " Uygulamayı silerseniz yapmış olduğunuz harcamaları geri getiremezsiniz. Yardım için: devast.developerteam@gmail.com",
+        "restore_alert" : " Uygulamayı silerseniz yapmış olduğunuz harcamaları geri getiremezsiniz. Yardım için: devast.help@gmail.com",
         "gapsec_ends" : "Gapsec sonları",
         "get_mystoken" : "Özel içeriklerin kilidini açmak için Mystokens alın",
         "boost_your_experience" : "Deneyiminizi Arttırın!",

@@ -90,7 +90,7 @@ class _StoriesViewState extends State<StoriesView>
 
           break;
         case 80:
-          if (ShopState().amount >= 0) {
+          if (ShopState().amount >= 80) {
             buySteps(
                 minusAmount: -80,
                 type: TextType.gravehurstType,
