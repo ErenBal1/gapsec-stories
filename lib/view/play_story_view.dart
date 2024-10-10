@@ -276,7 +276,7 @@ class _ChatViewState extends State<ChatView> {
                                       vm.selectedTexts.tr(),
                                       textStyle: const TextStyle(
                                           color: Colors.cyan, fontSize: 14),
-                                      speed: const Duration(milliseconds: 50),
+                                      speed: const Duration(milliseconds: 80),
                                     ),
                                   ],
                                   totalRepeatCount: 1,
@@ -322,8 +322,11 @@ class _ChatViewState extends State<ChatView> {
                           backgroundColor: Colors.cyan.withOpacity(0.7),
                           minimumSize: const Size(double.infinity, 50),
                         ),
-                        child: Text(vm.assignToOdd(
-                            vm.selectedList, vm.storyMapId)!["title"]),
+                        child: Text(
+                          vm.assignToOdd(
+                              vm.selectedList, vm.storyMapId)!["title"],
+                          style: const TextStyle(fontSize: 16),
+                        ),
                         onPressed: () async {
                           await _handleChoice(vm.left);
                         },
@@ -347,8 +350,7 @@ class _ChatViewState extends State<ChatView> {
                         child: Text(
                           vm.assignToEven(
                               vm.selectedList, vm.storyMapId)!["title"],
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 16),
                         ),
                         onPressed: () async {
                           await _handleChoice(vm.right);

@@ -1,5 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+
 import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gapsec/cache/service/database_service.dart';
@@ -18,6 +20,8 @@ Future<void> main() async {
   await DatabaseService.initialize();
   await EasyLocalization.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+/* 
+  await requestIDFA(); */
 
   runApp(EasyLocalization(
     supportedLocales: const [
@@ -30,6 +34,28 @@ Future<void> main() async {
     child: const MainApp(),
   ));
 }
+
+// IDFA izni istemek için kullanılan fonksiyon
+/* Future<void> requestIDFA() async {
+  final status = await AppTrackingTransparency.trackingAuthorizationStatus;
+
+  // Eğer izni daha önce sormadıysanız, kullanıcıdan izin isteyin
+  if (status == TrackingStatus.notDetermined) {
+    final newStatus =
+        await AppTrackingTransparency.requestTrackingAuthorization();
+    print("IDFA tracking status: $newStatus");
+  }
+  /* if (kDebugMode) {
+    RequestConfiguration requestConfiguration = RequestConfiguration(
+      testDeviceIds: ['b973c9d2d665a8fcd5bbdcc18bc0dfb3'], // Test cihazı ID
+    );
+    MobileAds.instance.updateRequestConfiguration(requestConfiguration);
+    print("Test cihazı modunda reklamlar gösterilecek");
+  } */
+
+  // IDFA izni verildikten sonra reklamları başlatabilirsiniz
+  // Reklamlar için gerekli fonksiyonları buraya ekleyin.
+} */
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});

@@ -338,96 +338,90 @@ class _ContinueChatViewState extends State<ContinueChatView> {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
-                  ),
-                  child: ListView.builder(
-                    controller: cs.scrollController,
-                    itemCount: cs.repo.length,
-                    itemBuilder: (context, index) {
-                      final NewGame newGame = cs.repo[index];
-                      switch (widget.selectedTextType) {
-                        case TextType.murderType:
-                          cs.selectedTexts = newGame.murderTexts.toString();
-                          break;
-                        case TextType.gravehurstType:
-                          cs.selectedTexts = newGame.gravehurstTexts.toString();
-                          break;
-                        case TextType.webOfDeceitType:
-                          cs.selectedTexts =
-                              newGame.webOfDeceitTexts.toString();
-                          break;
-                        case TextType.zetaType:
-                          cs.selectedTexts = newGame.zetaTexts.toString();
-                          break;
-                        case TextType.unknownType:
-                          cs.selectedTexts = newGame.unknownTexts.toString();
-                          break;
-                        case TextType.mysteriousType:
-                          cs.selectedTexts = newGame.mysteriousTexts.toString();
-                          break;
-                        case TextType.spaceType:
-                          cs.selectedTexts = newGame.spaceTexts.toString();
-                          break;
-                        default:
-                      }
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          left: index.isEven ? 0 : 40,
-                          right: index.isEven ? 40 : 0,
-                          bottom: 16,
+                child: ListView.builder(
+                  controller: cs.scrollController,
+                  itemCount: cs.repo.length,
+                  itemBuilder: (context, index) {
+                    final NewGame newGame = cs.repo[index];
+                    switch (widget.selectedTextType) {
+                      case TextType.murderType:
+                        cs.selectedTexts = newGame.murderTexts.toString();
+                        break;
+                      case TextType.gravehurstType:
+                        cs.selectedTexts = newGame.gravehurstTexts.toString();
+                        break;
+                      case TextType.webOfDeceitType:
+                        cs.selectedTexts = newGame.webOfDeceitTexts.toString();
+                        break;
+                      case TextType.zetaType:
+                        cs.selectedTexts = newGame.zetaTexts.toString();
+                        break;
+                      case TextType.unknownType:
+                        cs.selectedTexts = newGame.unknownTexts.toString();
+                        break;
+                      case TextType.mysteriousType:
+                        cs.selectedTexts = newGame.mysteriousTexts.toString();
+                        break;
+                      case TextType.spaceType:
+                        cs.selectedTexts = newGame.spaceTexts.toString();
+                        break;
+                      default:
+                    }
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        left: index.isEven ? 0 : 40,
+                        right: index.isEven ? 40 : 0,
+                        bottom: 16,
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: index.isEven
+                              ? Colors.cyan.withOpacity(0.1)
+                              : Colors.blueGrey.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                              color: Colors.cyan.withOpacity(0.3), width: 1),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.cyan.withOpacity(0.1),
+                              blurRadius: 5,
+                              spreadRadius: 1,
+                            ),
+                          ],
                         ),
-                        child: Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: index.isEven
-                                ? Colors.cyan.withOpacity(0.1)
-                                : Colors.blueGrey.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(
-                                color: Colors.cyan.withOpacity(0.3), width: 1),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.cyan.withOpacity(0.1),
-                                blurRadius: 5,
-                                spreadRadius: 1,
-                              ),
-                            ],
-                          ),
-                          child: index == cs.repo.length - 1 && _isTyping
-                              ? Stack(children: [
-                                  Text(cs.selectedTexts.tr(),
-                                      style: const TextStyle(
-                                          color: Colors.transparent,
-                                          fontSize: 14)),
-                                  AnimatedTextKit(
-                                    animatedTexts: [
-                                      TypewriterAnimatedText(
-                                        cs.selectedTexts.tr(),
-                                        textStyle: const TextStyle(
-                                            color: Colors.cyan, fontSize: 14),
-                                        speed: const Duration(milliseconds: 50),
-                                      ),
-                                    ],
-                                    totalRepeatCount: 1,
-                                    onFinished: () {
-                                      setState(() {
-                                        _isTyping = false;
-                                        cs.textCompleted = true;
-                                      });
-                                    },
-                                  ),
-                                ])
-                              : Text(
-                                  cs.selectedTexts.tr(),
-                                  style: const TextStyle(
-                                      color: Colors.cyan, fontSize: 14),
+                        child: index == cs.repo.length - 1 && _isTyping
+                            ? Stack(children: [
+                                Text(cs.selectedTexts.tr(),
+                                    style: const TextStyle(
+                                        color: Colors.transparent,
+                                        fontSize: 14)),
+                                AnimatedTextKit(
+                                  animatedTexts: [
+                                    TypewriterAnimatedText(
+                                      cs.selectedTexts.tr(),
+                                      textStyle: const TextStyle(
+                                          color: Colors.cyan, fontSize: 14),
+                                      speed: const Duration(milliseconds: 80),
+                                    ),
+                                  ],
+                                  totalRepeatCount: 1,
+                                  onFinished: () {
+                                    setState(() {
+                                      _isTyping = false;
+                                      cs.textCompleted = true;
+                                    });
+                                  },
                                 ),
-                        ),
-                      );
-                    },
-                  ),
+                              ])
+                            : Text(
+                                cs.selectedTexts.tr(),
+                                style: const TextStyle(
+                                    color: Colors.cyan, fontSize: 14),
+                              ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
@@ -456,8 +450,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         ),
                         child: Text(
                           cs.left["title"],
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 16),
                         ),
                         onPressed: () async {
                           await _handleChoice(cs.left);
@@ -482,8 +475,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         ),
                         child: Text(
                           cs.right["title"],
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 16),
                         ),
                         onPressed: () async {
                           await _handleChoice(cs.right);
