@@ -80,6 +80,8 @@ class _ShopViewState extends State<ShopView> {
                 }),
             onAdFailedToLoad: (error) => setState(() {
                   _rewardedAd = null;
+                  showOkAlertDialogWidget(
+                      context, "Ads are pending application approval.");
                   //print('Failed to load ad: $error');
                 })));
   }

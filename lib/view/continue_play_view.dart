@@ -448,8 +448,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         ),
                         child: Text(
                           cs.left["title"],
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 16),
                         ),
                         onPressed: () async {
                           await _handleChoice(cs.left);
@@ -474,8 +473,7 @@ class _ContinueChatViewState extends State<ContinueChatView> {
                         ),
                         child: Text(
                           cs.right["title"],
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 16),
                         ),
                         onPressed: () async {
                           await _handleChoice(cs.right);
